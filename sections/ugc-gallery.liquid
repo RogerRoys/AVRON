@@ -4,6 +4,7 @@
     {%- for block in section.blocks -%}
       <a href="{{ block.settings.link | default: settings.social_instagram | default: '#' }}" class="ugc__i" {{ block.shopify_attributes }}>
         {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 500 | image_tag: widths: '250,500', sizes: '(min-width: 990px) 16vw, 33vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'image' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+        <span class="ugc__ov">{{ section.settings.overlay }}</span>
       </a>
     {%- endfor -%}
   </div>
@@ -23,6 +24,12 @@
       "id": "text",
       "label": "Text",
       "default": "Tag us on Instagram to be featured"
+    },
+    {
+      "type": "text",
+      "id": "overlay",
+      "label": "Hover label",
+      "default": "Shop the look"
     }
   ],
   "blocks": [

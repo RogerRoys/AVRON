@@ -17,6 +17,7 @@
         {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
       {%- endif -%}
     </a>
+    <button type="button" class="card__wish" data-wish="{{ card_product.handle }}" aria-label="Save {{ card_product.title | escape }} to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
     <div class="card__badges">
       {%- for tag in card_product.tags -%}
         {%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}
@@ -31,7 +32,7 @@
           <button type="submit" class="card__qa" data-soldout="false">+ Quick add</button>
         {%- endform -%}
       {%- else -%}
-        <button type="button" class="card__qa" data-quick-add="{{ card_product.handle }}">+ Quick add</button>
+        <button type="button" class="card__qa" data-quick-add="{{ card_product.handle }}">+ Quick buy</button>
       {%- endif -%}
     {%- endif -%}
   </div>

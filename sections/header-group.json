@@ -4,9 +4,32 @@
   "sections": {
     "announcement": {
       "type": "announcement-bar",
-      "settings": {
-        "text": "Welcome offer — 10% off your first order with code <strong>AVRON10</strong> · Free tracked shipping on every order"
-      }
+      "blocks": {
+        "m1": {
+          "type": "message",
+          "settings": {
+            "text": "Welcome offer — 10% off your first order with code <strong>AVRON10</strong>"
+          }
+        },
+        "m2": {
+          "type": "message",
+          "settings": {
+            "text": "Free tracked shipping to US · UK · AU · EU"
+          }
+        },
+        "m3": {
+          "type": "message",
+          "settings": {
+            "text": "30-day returns · 1-year warranty on every light"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "settings": {}
     },
     "header": {
       "type": "header",

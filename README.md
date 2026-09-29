@@ -1,4 +1,4 @@
-# Avron — Shopify theme (Conversion-first, option 1d)
+# Option 01 — Avron Shopify theme (Conversion-first, option 1d)
 
 Online Store 2.0 theme built from the "Avron 1d Conversion First" design.
 
@@ -27,3 +27,19 @@ Or use Shopify CLI: `shopify theme dev --store your-store` from this folder.
 - **Free shipping bar:** threshold is in your store's base currency. With multiple currencies the bar compares against the converted cart total, so it's approximate for foreign currencies.
 - **Frequently bought together:** pick up to 3 products in the product page block (per template). For per-product bundles, create alternate product templates.
 - **Fonts:** Theme settings → Typography → any Google Font family name (default Onest).
+
+## Motion & interactions (v1.1)
+Matches the "Avron 1d Live Preview" prototype.
+- Rotating announcement bar (add up to 5 Message blocks; speed setting).
+- Header shadow on scroll, animated nav underline, mega menu fade + staggered columns, promo tile zoom.
+- Predictive search dropdown (Shopify /search/suggest) with popular-search chips from the Header setting.
+- Hero: fade-in on load, text rises in line by line, slow Ken Burns zoom, prev/next arrows.
+- Scroll reveal on section headings, cards, tiles and footer (staggered).
+- Product cards: image zoom + second image, quick buy slides up, wishlist heart (saved in the visitor's browser).
+- Tabs fade/rise on switch, category ring, room pill invert, UGC "Shop the look" overlay.
+- Warmth picker: pick 2200K–4000K and the preview photo re-tints (set the image in Materials & guide).
+- Reviews carousel with arrows on desktop (shows when 4+ review blocks), swipe on mobile.
+- Smooth open/close on all accordions (FAQ, product tabs, mobile menu, filters).
+- Menu drawer items slide in one after another; cart lines animate in; cart count bumps on change.
+- Product page: "Adding…" → "✓ Added" button states, pulsing low-stock dot, image fade on variant change, sticky add-to-cart bar after scrolling past the main button.
+- Theme settings → Animations: toggle scroll reveal, hero zoom and hover zoom. Everything turns off automatically for visitors with "reduce motion" enabled.

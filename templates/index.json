@@ -330,12 +330,28 @@
             "text": "Easy install, tracked the whole way. Perfect over our island.",
             "author": "Jen, US"
           }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "text": "The porch pendant made our entrance feel brand new.",
+            "author": "Lukas, DE"
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "text": "Packaging was excellent and the brass finish is lovely.",
+            "author": "Chloe, US"
+          }
         }
       },
       "block_order": [
         "r1",
         "r2",
-        "r3"
+        "r3",
+        "r4",
+        "r5"
       ],
       "settings": {}
     },

@@ -1,17 +1,20 @@
 <section class="page-w sec" id="reviews">
+  {%- assign manual = section.blocks | where: 'type', 'review' -%}
   <div class="sec__head">
     <div><h2 class="h2">{{ section.settings.heading }}</h2>{%- if section.settings.subheading != blank -%}<p class="muted">{{ section.settings.subheading }}</p>{%- endif -%}</div>
+    {%- if manual.size > 3 -%}<div class="revs__nav"><button type="button" class="round-btn" data-rev-prev aria-label="Previous reviews">{% render 'icon', name: 'arrow-left' %}</button><button type="button" class="round-btn round-btn--solid" data-rev-next aria-label="Next reviews">{% render 'icon', name: 'arrow-right' %}</button></div>{%- endif -%}
   </div>
-  {%- assign manual = section.blocks | where: 'type', 'review' -%}
   {%- for block in section.blocks -%}{%- if block.type == '@app' -%}{% render block %}{%- endif -%}{%- endfor -%}
   {%- if manual.size > 0 -%}
-    <div class="revs">
-      {%- for block in manual -%}
-        <div class="rev" {{ block.shopify_attributes }}>
-          {%- if block.settings.image -%}<span class="rev__img">{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}</span>{%- endif -%}
-          <div class="rev__b"><span class="rev__stars">{%- for i in (1..block.settings.rating) -%}★{%- endfor -%}</span><p>{{ block.settings.text }}</p><span class="muted small">{{ block.settings.author }} · Verified buyer</span></div>
-        </div>
-      {%- endfor -%}
+    <div class="revs-wrap">
+      <div class="revs" data-revs>
+        {%- for block in manual -%}
+          <div class="rev" {{ block.shopify_attributes }}>
+            {%- if block.settings.image -%}<span class="rev__img">{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}</span>{%- endif -%}
+            <div class="rev__b"><span class="rev__stars">{%- for i in (1..block.settings.rating) -%}★{%- endfor -%}</span><p>{{ block.settings.text }}</p><span class="muted small">{{ block.settings.author }} · Verified buyer</span></div>
+          </div>
+        {%- endfor -%}
+      </div>
     </div>
   {%- endif -%}
 </section>

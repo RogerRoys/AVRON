@@ -8,12 +8,20 @@
         {%- endif -%}{%- endfor -%}
       </div>
     </div>
-    <div class="mg__card mg__card--dark">
+    <div class="mg__card mg__card--dark" data-kelvin>
       <h2 class="h2">{{ section.settings.heading_right }}</h2>
+      {%- assign kels = section.blocks | where: 'type', 'kelvin' -%}
+      {%- assign k0 = kels[1] | default: kels[0] -%}
+      <div class="mg__preview">
+        {%- if section.settings.preview_image -%}{{ section.settings.preview_image | image_url: width: 1200 | image_tag: widths: '600,900,1200', sizes: '(min-width: 990px) 45vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+        <span class="mg__tint" data-kel-tint style="background-color:{{ k0.settings.glow }}"></span>
+        <span class="mg__glowspot"></span>
+        <span class="mg__tag" data-kel-tag>{{ k0.settings.label }} · {{ k0.settings.text }}</span>
+      </div>
       <div class="mg__kel">
-        {%- for block in section.blocks -%}{%- if block.type == 'kelvin' -%}
-          <div class="mg__k" {{ block.shopify_attributes }}><span class="glow" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></div>
-        {%- endif -%}{%- endfor -%}
+        {%- for block in kels -%}
+          <button type="button" class="mg__k" data-kel data-glow="{{ block.settings.glow }}" data-label="{{ block.settings.label | escape }} · {{ block.settings.text | escape }}" aria-pressed="{% if block.id == k0.id %}true{% else %}false{% endif %}" {{ block.shopify_attributes }}><span class="glow" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></button>
+        {%- endfor -%}
       </div>
       {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link | default: '#' }}" class="btn btn--white">{{ section.settings.button_label }}</a>{%- endif -%}
     </div>
@@ -34,6 +42,12 @@
       "id": "heading_right",
       "label": "Right heading",
       "default": "Not sure which warmth?"
+    },
+    {
+      "type": "image_picker",
+      "id": "preview_image",
+      "label": "Warmth preview image",
+      "info": "A room photo — it gets tinted with the selected colour temperature."
     },
     {
       "type": "text",

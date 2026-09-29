@@ -21,11 +21,12 @@
   <div class="page-w header__row">
     <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}</button>
     <a href="{{ routes.root_url }}" class="header__logo">{% render 'logo' %}</a>
-    <form action="{{ routes.search_url }}" method="get" role="search" class="header__search">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="header__search" data-predictive data-popular="{{ section.settings.popular | escape }}">
       <label class="visually-hidden" for="HeaderSearch">Search</label>
       <input id="HeaderSearch" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.search_placeholder }}">
       <input type="hidden" name="options[prefix]" value="last">
       <button type="submit" class="btn btn--sm">Search</button>
+      <div class="ps" data-ps aria-live="polite"></div>
     </form>
     <div class="header__icons">
       {%- if shop.customer_accounts_enabled -%}

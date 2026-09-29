@@ -157,6 +157,16 @@
       {%- endfor -%}
     </div>
   </div>
+  {%- if section.settings.sticky_atc -%}
+  <div class="satc" data-satc aria-hidden="true">
+    <div class="page-w satc__in">
+      <span class="satc__img">{%- if product.featured_media -%}{{ product.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</span>
+      <div class="satc__txt"><b>{{ product.title | escape }}</b><span data-satc-variant>{%- unless product.has_only_default_variant -%}{{ current_variant.title }}{%- endunless -%}</span></div>
+      <b class="satc__price" data-price-sticky>{{ current_variant.price | money }}</b>
+      <button type="submit" form="{{ product_form_id }}" class="btn btn--lg satc__btn" data-satc-btn{% unless current_variant.available %} disabled{% endunless %}><span data-add-label data-label="Add to cart">{%- if current_variant.available -%}Add to cart{%- else -%}Sold out{%- endif -%}</span></button>
+    </div>
+  </div>
+  {%- endif -%}
 </section>
 {% schema %}
 {
@@ -184,6 +194,12 @@
       "id": "material_badge",
       "label": "Extra badge on gallery",
       "info": "Optional, e.g. Natural stone"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_atc",
+      "label": "Sticky add-to-cart bar on scroll",
+      "default": true
     }
   ],
   "blocks": [

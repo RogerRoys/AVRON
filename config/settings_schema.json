@@ -1,8 +1,8 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Avron",
-    "theme_version": "1.0.0",
+    "theme_name": "Option 01",
+    "theme_version": "1.1.0",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -95,6 +95,33 @@
         "label": "Google Font family",
         "default": "Onest",
         "info": "Any family name from fonts.google.com, e.g. Onest, DM Sans, Manrope."
+      }
+    ]
+  },
+  {
+    "name": "Animations",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "anim_reveal",
+        "label": "Reveal sections on scroll",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_hero",
+        "label": "Slow zoom on hero images",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_hover",
+        "label": "Image zoom on hover",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "All motion is switched off automatically for visitors who have \"reduce motion\" enabled on their device."
       }
     ]
   },

@@ -24,6 +24,7 @@
       </div>
     {%- endfor -%}
     {%- if section.blocks.size > 1 -%}
+      <div class="hero__arrows"><button type="button" class="hero__arrow" data-prev aria-label="Previous slide">{% render 'icon', name: 'arrow-left' %}</button><button type="button" class="hero__arrow hero__arrow--solid" data-next aria-label="Next slide">{% render 'icon', name: 'arrow-right' %}</button></div>
       <div class="hero__dots">{%- for block in section.blocks -%}<button type="button" class="hero__dot{% if forloop.first %} is-active{% endif %}" aria-label="Slide {{ forloop.index }}"></button>{%- endfor -%}</div>
     {%- endif -%}
   </div>
