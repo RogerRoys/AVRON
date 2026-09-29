@@ -1,29 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "hero-split",
       "blocks": {
-        "slide_GpaTz6": {
-          "type": "slide",
-          "settings": {
-            "badge": "NEW SEASON",
-            "heading": "The right light changes everything.",
-            "text": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>",
-            "btn1_label": "Shop best sellers",
-            "btn1_link": "",
-            "btn2_label": "New arrivals",
-            "btn2_link": ""
-          }
-        },
         "s1": {
           "type": "slide",
           "settings": {
@@ -31,26 +10,18 @@
             "heading": "The right light changes everything.",
             "text": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>",
             "btn1_label": "Shop best sellers",
-            "btn1_link": "",
-            "btn2_label": "New arrivals",
-            "btn2_link": ""
+            "btn2_label": "New arrivals"
           }
         }
       },
       "block_order": [
-        "slide_GpaTz6",
         "s1"
       ],
       "settings": {
-        "autoplay": true,
-        "speed": 4,
-        "shade": 55,
         "side1_title": "Indoor lighting",
         "side1_text": "Pendants, lamps, sconces",
-        "side1_link": "",
         "side2_title": "Outdoor lighting",
-        "side2_text": "Posts, bollards, porch",
-        "side2_link": ""
+        "side2_text": "Posts, bollards, porch"
       }
     },
     "trust": {
@@ -68,32 +39,28 @@
           "type": "item",
           "settings": {
             "title": "Free tracked shipping",
-            "text": "On every order",
-            "show_stars": false
+            "text": "On every order"
           }
         },
         "c": {
           "type": "item",
           "settings": {
             "title": "30-day returns",
-            "text": "Hassle-free",
-            "show_stars": false
+            "text": "Hassle-free"
           }
         },
         "d": {
           "type": "item",
           "settings": {
             "title": "1-year warranty",
-            "text": "LED & wiring included",
-            "show_stars": false
+            "text": "LED & wiring included"
           }
         },
         "e": {
           "type": "item",
           "settings": {
             "title": "Secure checkout",
-            "text": "Shop Pay · Apple Pay · PayPal",
-            "show_stars": false
+            "text": "Shop Pay · Apple Pay · PayPal"
           }
         }
       },
@@ -112,70 +79,60 @@
         "c1": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Pendants"
           }
         },
         "c2": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Chandeliers"
           }
         },
         "c3": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Table lamps"
           }
         },
         "c4": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Floor lamps"
           }
         },
         "c5": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Wall lights"
           }
         },
         "c6": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Ceiling fans"
           }
         },
         "c7": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Post caps"
           }
         },
         "c8": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Bollards"
           }
         },
         "c9": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Solar"
           }
         },
         "c10": {
           "type": "category",
           "settings": {
-            "collection": "",
             "label": "Décor"
           }
         }
@@ -202,29 +159,25 @@
         "t1": {
           "type": "tab",
           "settings": {
-            "label": "Best sellers",
-            "collection": "ceiling-lighting"
+            "label": "Best sellers"
           }
         },
         "t2": {
           "type": "tab",
           "settings": {
-            "label": "New in",
-            "collection": ""
+            "label": "New in"
           }
         },
         "t3": {
           "type": "tab",
           "settings": {
-            "label": "Indoor",
-            "collection": ""
+            "label": "Indoor"
           }
         },
         "t4": {
           "type": "tab",
           "settings": {
-            "label": "Outdoor",
-            "collection": ""
+            "label": "Outdoor"
           }
         }
       },
@@ -234,11 +187,7 @@
         "t3",
         "t4"
       ],
-      "settings": {
-        "limit": 5,
-        "columns": 5,
-        "view_all_label": "View all"
-      }
+      "settings": {}
     },
     "rooms": {
       "type": "room-grid",
@@ -246,29 +195,25 @@
         "r1": {
           "type": "room",
           "settings": {
-            "label": "Living room",
-            "link": ""
+            "label": "Living room"
           }
         },
         "r2": {
           "type": "room",
           "settings": {
-            "label": "Dining",
-            "link": ""
+            "label": "Dining"
           }
         },
         "r3": {
           "type": "room",
           "settings": {
-            "label": "Kitchen",
-            "link": ""
+            "label": "Kitchen"
           }
         },
         "r4": {
           "type": "room",
           "settings": {
-            "label": "Front porch",
-            "link": ""
+            "label": "Front porch"
           }
         }
       },
@@ -288,65 +233,65 @@
         "m1": {
           "type": "material",
           "settings": {
-            "swatch": "#d6c6ac",
             "name": "Travertine",
-            "text": "Natural, veined stone"
+            "text": "Natural, veined stone",
+            "swatch": "#D6C6AC"
           }
         },
         "m2": {
           "type": "material",
           "settings": {
-            "swatch": "#f6f3ec",
             "name": "Opal glass",
-            "text": "Soft, glare-free"
+            "text": "Soft, glare-free",
+            "swatch": "#F6F3EC"
           }
         },
         "m3": {
           "type": "material",
           "settings": {
-            "swatch": "#b89a6e",
             "name": "Rattan",
-            "text": "Hand-woven texture"
+            "text": "Hand-woven texture",
+            "swatch": "#B89A6E"
           }
         },
         "m4": {
           "type": "material",
           "settings": {
-            "swatch": "#2f2e2c",
             "name": "Die-cast aluminium",
-            "text": "Outdoor-grade, IP65"
+            "text": "Outdoor-grade, IP65",
+            "swatch": "#2F2E2C"
           }
         },
         "k1": {
           "type": "kelvin",
           "settings": {
-            "glow": "#ffb25c",
             "label": "2200K",
-            "text": "Bedrooms"
+            "text": "Bedrooms",
+            "glow": "#FFB25C"
           }
         },
         "k2": {
           "type": "kelvin",
           "settings": {
-            "glow": "#ffcf8a",
             "label": "2700K",
-            "text": "Living, dining"
+            "text": "Living, dining",
+            "glow": "#FFCF8A"
           }
         },
         "k3": {
           "type": "kelvin",
           "settings": {
-            "glow": "#ffe2b5",
             "label": "3000K",
-            "text": "Kitchens, porches"
+            "text": "Kitchens, porches",
+            "glow": "#FFE2B5"
           }
         },
         "k4": {
           "type": "kelvin",
           "settings": {
-            "glow": "#f4f4ee",
             "label": "4000K",
-            "text": "Bathrooms, office"
+            "text": "Bathrooms, office",
+            "glow": "#F4F4EE"
           }
         }
       },
@@ -360,12 +305,7 @@
         "k3",
         "k4"
       ],
-      "settings": {
-        "heading_left": "Made from materials that last",
-        "heading_right": "Not sure which warmth?",
-        "button_label": "Open the lighting guide",
-        "button_link": ""
-      }
+      "settings": {}
     },
     "reviews": {
       "type": "reviews",
@@ -374,24 +314,21 @@
           "type": "review",
           "settings": {
             "text": "Looks even better in person. The glow is warm without being yellow.",
-            "author": "Sarah, UK",
-            "rating": 5
+            "author": "Sarah, UK"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
             "text": "Solar post caps are bright enough for the whole driveway.",
-            "author": "Mark, AU",
-            "rating": 5
+            "author": "Mark, AU"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
             "text": "Easy install, tracked the whole way. Perfect over our island.",
-            "author": "Jen, US",
-            "rating": 5
+            "author": "Jen, US"
           }
         },
         "r4": {
@@ -416,49 +353,34 @@
         "r4",
         "r5"
       ],
-      "settings": {
-        "heading": "What customers say",
-        "subheading": ""
-      }
+      "settings": {}
     },
     "ugc": {
       "type": "ugc-gallery",
       "blocks": {
         "u1": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         },
         "u2": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         },
         "u3": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         },
         "u4": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         },
         "u5": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         },
         "u6": {
           "type": "image",
-          "settings": {
-            "link": ""
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -469,10 +391,7 @@
         "u5",
         "u6"
       ],
-      "settings": {
-        "heading": "#AvronAtHome",
-        "text": "Tag us on Instagram to be featured"
-      }
+      "settings": {}
     },
     "faq": {
       "type": "faq-support",
@@ -520,17 +439,7 @@
         "f4",
         "f5"
       ],
-      "settings": {
-        "heading": "FAQ",
-        "w_title": "1-year warranty",
-        "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
-        "w_link_label": "Warranty details",
-        "w_link": "",
-        "t_title": "Avron Trade",
-        "t_text": "Project pricing for designers, builders and stylists.",
-        "t_btn": "Apply now",
-        "t_link": ""
-      }
+      "settings": {}
     }
   },
   "order": [

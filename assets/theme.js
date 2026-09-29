@@ -21,7 +21,7 @@
   var RV='.sec__head,.trust,.cats__i,.grid>.card,.rooms__i,.mg__card,.rev,.ugc__i,.faqs>div,.scard,.feat,.kb>*,.news__in,.footer__grid>*,.coll__head,.blog__i';
   var io=null;
   function reveal(ctx){
-    if(reduce||design||!document.body.classList.contains('anim-reveal')||!('IntersectionObserver' in window))return;
+    if(reduce||!document.body.classList.contains('anim-reveal')||!('IntersectionObserver' in window))return;
     if(!io)io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var el=en.target;el.classList.add('is-in');io.unobserve(el);setTimeout(function(){el.classList.remove('rv','is-in');el.style.transitionDelay='';},1400);});},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
     $$(RV,ctx).forEach(function(el){
       if(el.__rv)return;el.__rv=1;
@@ -200,7 +200,7 @@
       if(window.cartType==='page'){location.href=R.cart_url;return;}
       return new Promise(function(r){setTimeout(r,350);}).then(function(){return renderCart(true);});
     }).catch(function(x){if(err){err.textContent=x.message;err.hidden=false;}else alert(x.message);})
-    .then(function(){if(btn){btn.classList.remove('is-loading');btn.disabled=btn.getAttribute('data-soldout')==='true';}if(f.id)$('[form="'+f.id+'"]').forEach(function(b){b.classList.remove('is-loading');});});
+    .then(function(){if(btn){btn.classList.remove('is-loading');btn.disabled=btn.getAttribute('data-soldout')==='true';}if(f.id)$$('[form="'+f.id+'"]').forEach(function(b){b.classList.remove('is-loading');});});
   });
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-line-change]');if(!b)return;e.preventDefault();
@@ -307,12 +307,12 @@
   document.addEventListener('click',function(e){
     var t=e.target.closest('[data-tab]');if(!t)return;var w=t.closest('[data-tabs]'),i=t.getAttribute('data-tab');
     $$('[data-tab]',w).forEach(function(b){b.setAttribute('aria-selected',b.getAttribute('data-tab')===i);});
-    $('[data-panel]',w).forEach(function(p){p.hidden=p.getAttribute('data-panel')!==i;});var sh=$('[data-panel="'+i+'"]',w);if(sh){sh.classList.remove('is-enter');void sh.offsetWidth;sh.classList.add('is-enter');}
+    $$('[data-panel]',w).forEach(function(p){p.hidden=p.getAttribute('data-panel')!==i;});var sh=$('[data-panel="'+i+'"]',w);if(sh){sh.classList.remove('is-enter');void sh.offsetWidth;sh.classList.add('is-enter');}
   });
   function initSlides(s){
     if(s.getAttribute('data-ready'))return;s.setAttribute('data-ready','1');
     var sl=$('.hero__slide',s),dots=$('.hero__dot',s),i=0,timer;
-    if(sl[0]&&!(window.Shopify&&Shopify.designMode)){sl[0].classList.remove('is-active');void sl[0].offsetWidth;requestAnimationFrame(function(){requestAnimationFrame(function(){sl[0].classList.add('is-active');});});}
+    if(sl[0]){sl[0].classList.remove('is-active');void sl[0].offsetWidth;requestAnimationFrame(function(){requestAnimationFrame(function(){sl[0].classList.add('is-active');});});}
     if(sl.length<2)return;
     function go(n){sl[i].classList.remove('is-active');if(dots[i])dots[i].classList.remove('is-active');i=(n+sl.length)%sl.length;sl[i].classList.add('is-active');if(dots[i])dots[i].classList.add('is-active');}
     function play(){clearInterval(timer);if(s.getAttribute('data-autoplay')==='true')timer=setInterval(function(){go(i+1);},(+s.getAttribute('data-speed')||6)*1000);}
@@ -332,7 +332,7 @@
       if(n&&n.querySelector('.card'))el.innerHTML=n.innerHTML;else{var s=el.closest('.shopify-section');if(s)s.hidden=true;}
     });
   }
-  function init(ctx){$('[data-product-section]',ctx).forEach(initProduct);$('[data-slideshow]',ctx).forEach(initSlides);$('[data-recs][data-url]',ctx).forEach(initRecs);if(window.Avron.initMotion)window.Avron.initMotion(ctx);}
+  function init(ctx){[[ '[data-product-section]',initProduct],['[data-slideshow]',initSlides],['[data-recs][data-url]',initRecs]].forEach(function(p){$$(p[0],ctx).forEach(function(el){try{p[1](el);}catch(x){console.error('Avron init',p[0],x);}});});try{if(window.Avron.initMotion)window.Avron.initMotion(ctx);}catch(x){console.error('Avron motion',x);}}
   if(document.readyState!=='loading')init(document);else document.addEventListener('DOMContentLoaded',function(){init(document);});
   document.addEventListener('shopify:section:load',function(e){init(e.target);});
   var hdr=$('[data-header]');if(hdr){var tick=function(){hdr.classList.toggle('is-scrolled',window.scrollY>10);};window.addEventListener('scroll',tick,{passive:true});tick();}

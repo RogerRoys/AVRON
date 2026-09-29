@@ -1,4 +1,4 @@
-# Option 01 — Avron Shopify theme (Conversion-first, option 1d)
+# Avron 1d Conversion First — Shopify theme
 
 Online Store 2.0 theme built from the "Avron 1d Conversion First" design.
 
