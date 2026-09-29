@@ -12,6 +12,18 @@
     "hero": {
       "type": "hero-split",
       "blocks": {
+        "slide_GpaTz6": {
+          "type": "slide",
+          "settings": {
+            "badge": "NEW SEASON",
+            "heading": "The right light changes everything.",
+            "text": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>",
+            "btn1_label": "Shop best sellers",
+            "btn1_link": "",
+            "btn2_label": "New arrivals",
+            "btn2_link": ""
+          }
+        },
         "s1": {
           "type": "slide",
           "settings": {
@@ -26,11 +38,12 @@
         }
       },
       "block_order": [
+        "slide_GpaTz6",
         "s1"
       ],
       "settings": {
         "autoplay": true,
-        "speed": 6,
+        "speed": 4,
         "shade": 55,
         "side1_title": "Indoor lighting",
         "side1_text": "Pendants, lamps, sconces",
