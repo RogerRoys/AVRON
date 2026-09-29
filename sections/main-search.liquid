@@ -1,0 +1,26 @@
+{%- paginate search.results by 24 -%}
+<section class="page-w sec">
+  <h1 class="h1">{%- if search.performed -%}Results for “{{ search.terms | escape }}”{%- else -%}Search{%- endif -%}</h1>
+  <form action="{{ routes.search_url }}" method="get" class="header__search search-page__form" role="search">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products" aria-label="Search">
+    <input type="hidden" name="options[prefix]" value="last">
+    <button type="submit" class="btn btn--sm">Search</button>
+  </form>
+  {%- if search.performed -%}
+    <p class="muted">{{ search.results_count }} results</p>
+    <div class="grid grid--p4">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}{% render 'product-card', card_product: item %}
+        {%- else -%}<a href="{{ item.url }}" class="scard scard--soft"><b>{{ item.title }}</b><span>{{ item.content | strip_html | truncate: 120 }}</span></a>{%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endif -%}
+</section>
+{%- endpaginate -%}
+{% schema %}
+{
+  "name": "Search results",
+  "settings": []
+}
+{% endschema %}

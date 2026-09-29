@@ -1,0 +1,273 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+  assign util = linklists[section.settings.utility_menu]
+  assign drawer_cart = false
+  if settings.cart_type == 'drawer'
+    assign drawer_cart = true
+  endif
+-%}
+{%- if section.settings.utility_text != blank or util.links.size > 0 -%}
+<div class="utility">
+  <div class="page-w utility__in">
+    <div class="utility__l">{{ section.settings.utility_text }}</div>
+    <div class="utility__r">
+      {%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- render 'localization', id: 'HeaderLoc' -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+<header class="header" data-header>
+  <div class="page-w header__row">
+    <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}</button>
+    <a href="{{ routes.root_url }}" class="header__logo">{% render 'logo' %}</a>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="header__search">
+      <label class="visually-hidden" for="HeaderSearch">Search</label>
+      <input id="HeaderSearch" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ section.settings.search_placeholder }}">
+      <input type="hidden" name="options[prefix]" value="last">
+      <button type="submit" class="btn btn--sm">Search</button>
+    </form>
+    <div class="header__icons">
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__icon"><span class="hide-sm">Account</span><span class="show-sm">{% render 'icon', name: 'user' %}</span></a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="header__icon header__cart"{% if drawer_cart %} data-open="CartDrawer"{% endif %}>
+        <span class="hide-sm">Cart</span><span class="show-sm">{% render 'icon', name: 'bag' %}</span>
+        <span class="count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <ul class="page-w nav__list">
+      {%- for link in menu.links -%}
+        <li class="nav__item{% if link.links != blank %} has-mega{% endif %}">
+          <a href="{{ link.url }}" class="nav__link{% if link.active or link.child_active %} is-active{% endif %}{% if link.title == section.settings.sale_title %} nav__link--sale{% endif %}"{% if link.links != blank %} aria-haspopup="true"{% endif %}>{{ link.title }}</a>
+          {%- if link.links != blank -%}
+            <div class="mega">
+              <div class="page-w">
+                <div class="mega__panel">
+                  <div class="mega__cols">
+                    {%- for child in link.links -%}
+                      <div class="mega__col">
+                        <a href="{{ child.url }}" class="mega__head">{{ child.title }}</a>
+                        {%- for g in child.links -%}<a href="{{ g.url }}" class="mega__link">{{ g.title }}</a>{%- endfor -%}
+                        {%- if child.links != blank -%}<a href="{{ child.url }}" class="mega__all">View all</a>{%- endif -%}
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                  <div class="mega__promos">
+                    {%- for block in section.blocks -%}
+                      {%- if block.type == 'promo' and block.settings.menu_item == link.title -%}
+                        <a href="{{ block.settings.link | default: link.url }}" class="mega__promo" {{ block.shopify_attributes }}>
+                          {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '300,500,700', sizes: '300px', loading: 'lazy', alt: block.settings.title }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+                          <span class="mega__tag"><b>{{ block.settings.title }}</b><span>{{ block.settings.text }} →</span></span>
+                        </a>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                  {%- if section.settings.popular != blank -%}
+                    <div class="mega__popular"><span>Popular:</span>
+                      {%- assign pops = section.settings.popular | split: ',' -%}
+                      {%- for p in pops -%}<a class="chip" href="{{ routes.search_url }}?q={{ p | strip | url_encode }}">{{ p | strip }}</a>{%- endfor -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+  <div class="mega-dim" aria-hidden="true"></div>
+</header>
+
+<div class="drawer drawer--left" id="MenuDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer__overlay" data-close></div>
+  <div class="drawer__panel md">
+    <div class="drawer__head">
+      <a href="{{ routes.root_url }}" class="header__logo md__logo">{% render 'logo' %}</a>
+      <button type="button" class="icon-btn round" data-close aria-label="Close">{% render 'icon', name: 'close' %}</button>
+    </div>
+    <div class="drawer__body">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="md__search">
+        <input type="search" name="q" placeholder="{{ section.settings.search_placeholder }}" aria-label="Search">
+      </form>
+      {%- assign tiles = section.blocks | where: 'type', 'mobile_tile' -%}
+      {%- if tiles.size > 0 -%}
+        <div class="md__tiles">
+          {%- for block in tiles -%}
+            <a href="{{ block.settings.link }}" class="md__tile" {{ block.shopify_attributes }}>
+              <span class="md__tile-img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}</span>
+              <b>{{ block.settings.title }}</b>
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      <ul class="md__list">
+        {%- for link in menu.links -%}
+          <li>
+            {%- if link.links != blank -%}
+              <details class="md__acc">
+                <summary>{{ link.title }}{% render 'icon', name: 'chevron' %}</summary>
+                <div class="md__sub">
+                  <a href="{{ link.url }}" class="md__all">Shop all {{ link.title }}</a>
+                  {%- for child in link.links -%}
+                    <a href="{{ child.url }}">{{ child.title }}</a>
+                    {%- for g in child.links -%}<a href="{{ g.url }}" class="md__g">{{ g.title }}</a>{%- endfor -%}
+                  {%- endfor -%}
+                </div>
+              </details>
+            {%- else -%}
+              <a href="{{ link.url }}" class="md__top">{{ link.title }}</a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+      {%- if section.settings.drawer_promo_title != blank -%}
+        <a href="{{ section.settings.drawer_promo_link }}" class="md__promo"><span><b>{{ section.settings.drawer_promo_title }}</b><br>{{ section.settings.drawer_promo_text }}</span><span class="md__promo-btn">Shop</span></a>
+      {%- endif -%}
+      <div class="md__links">{%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}{% render 'icon', name: 'chevron' %}</a>{%- endfor -%}</div>
+    </div>
+    <div class="drawer__foot md__foot">
+      {%- if shop.customer_accounts_enabled -%}<a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"><b>{% if customer %}My account{% else %}Log in{% endif %}</b></a>{%- endif -%}
+      {%- render 'localization', id: 'DrawerLoc' -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu",
+      "info": "3 levels: top item → column heading → links."
+    },
+    {
+      "type": "text",
+      "id": "sale_title",
+      "label": "Highlight menu item (accent colour)",
+      "default": "Sale"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search pendants, post caps, bollards…"
+    },
+    {
+      "type": "text",
+      "id": "popular",
+      "label": "Popular searches in mega menu",
+      "default": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
+      "info": "Comma separated"
+    },
+    {
+      "type": "header",
+      "content": "Utility bar"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "utility_text",
+      "label": "Left text",
+      "default": "Ships to US · UK · AU · EU   ·   1-year warranty"
+    },
+    {
+      "type": "link_list",
+      "id": "utility_menu",
+      "label": "Right links",
+      "info": "e.g. Track order, Trade program, Help"
+    },
+    {
+      "type": "header",
+      "content": "Mobile menu promo"
+    },
+    {
+      "type": "text",
+      "id": "drawer_promo_title",
+      "label": "Title",
+      "default": "10% off first order"
+    },
+    {
+      "type": "text",
+      "id": "drawer_promo_text",
+      "label": "Text",
+      "default": "Code AVRON10"
+    },
+    {
+      "type": "url",
+      "id": "drawer_promo_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "promo",
+      "name": "Mega menu promo tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Show under menu item",
+          "info": "Exact title of the top-level menu item",
+          "default": "Pendants"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The Stone Edit"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Travertine & opal glass"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "mobile_tile",
+      "name": "Mobile menu tile",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Indoor lighting"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+<div class="page-w sec sec--tight">
+  <div class="feats">
+    {%- for block in section.blocks -%}<div class="feat" {{ block.shopify_attributes }}><b>{{ block.settings.title }}</b><span>{{ block.settings.text }}</span></div>{%- endfor -%}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Product features",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dimmable"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Inline dimmer, down to 10%"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product features",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

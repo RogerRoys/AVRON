@@ -1,0 +1,196 @@
+<section class="hero page-w">
+  <div class="hero__main" data-slideshow data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign ld = 'lazy'
+        if forloop.first
+          assign ld = 'eager'
+        endif
+      -%}
+      <div class="hero__slide{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image -%}
+          {{ block.settings.image | image_url: width: 2200 | image_tag: widths: '750,1100,1500,1900,2200', sizes: '(min-width: 990px) 66vw, 100vw', class: 'hero__img', loading: ld, alt: block.settings.heading }}
+        {%- else -%}{{ 'lifestyle-2' | placeholder_svg_tag: 'hero__img placeholder' }}{%- endif -%}
+        <div class="hero__shade" style="--shade:{{ section.settings.shade | divided_by: 100.0 }}"></div>
+        <div class="hero__copy">
+          {%- if block.settings.badge != blank -%}<span class="badge badge--white">{{ block.settings.badge }}</span>{%- endif -%}
+          {%- if forloop.first -%}<h1 class="hero__h">{{ block.settings.heading }}</h1>{%- else -%}<h2 class="hero__h">{{ block.settings.heading }}</h2>{%- endif -%}
+          {%- if block.settings.text != blank -%}<div class="hero__p">{{ block.settings.text }}</div>{%- endif -%}
+          <div class="hero__btns">
+            {%- if block.settings.btn1_label != blank -%}<a href="{{ block.settings.btn1_link | default: routes.all_products_collection_url }}" class="btn btn--white btn--lg">{{ block.settings.btn1_label }}</a>{%- endif -%}
+            {%- if block.settings.btn2_label != blank -%}<a href="{{ block.settings.btn2_link | default: routes.all_products_collection_url }}" class="btn btn--ghost-white btn--lg">{{ block.settings.btn2_label }}</a>{%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+    {%- if section.blocks.size > 1 -%}
+      <div class="hero__dots">{%- for block in section.blocks -%}<button type="button" class="hero__dot{% if forloop.first %} is-active{% endif %}" aria-label="Slide {{ forloop.index }}"></button>{%- endfor -%}</div>
+    {%- endif -%}
+  </div>
+  <div class="hero__side">
+    {%- for i in (1..2) -%}
+      {%- liquid
+        assign k_img = 'side' | append: i | append: '_image'
+        assign k_t = 'side' | append: i | append: '_title'
+        assign k_x = 'side' | append: i | append: '_text'
+        assign k_l = 'side' | append: i | append: '_link'
+      -%}
+      {%- if section.settings[k_t] != blank -%}
+        <a href="{{ section.settings[k_l] | default: routes.all_products_collection_url }}" class="hero__card">
+          {%- if section.settings[k_img] -%}{{ section.settings[k_img] | image_url: width: 1000 | image_tag: widths: '500,750,1000', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-2' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+          <span class="hero__card-tag"><span><b>{{ section.settings[k_t] }}</b><em>{{ section.settings[k_x] }}</em></span>{% render 'icon', name: 'arrow-right' %}</span>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero split",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Seconds per slide",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "shade",
+      "label": "Image overlay",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Side card 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "side1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "side1_title",
+      "label": "Title",
+      "default": "Indoor lighting"
+    },
+    {
+      "type": "text",
+      "id": "side1_text",
+      "label": "Text",
+      "default": "Pendants, lamps, sconces"
+    },
+    {
+      "type": "url",
+      "id": "side1_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Side card 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "side2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "side2_title",
+      "label": "Title",
+      "default": "Outdoor lighting"
+    },
+    {
+      "type": "text",
+      "id": "side2_text",
+      "label": "Text",
+      "default": "Posts, bollards, porch"
+    },
+    {
+      "type": "url",
+      "id": "side2_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "NEW SEASON"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The right light changes everything."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn1_label",
+          "label": "Button 1 label",
+          "default": "Shop best sellers"
+        },
+        {
+          "type": "url",
+          "id": "btn1_link",
+          "label": "Button 1 link"
+        },
+        {
+          "type": "text",
+          "id": "btn2_label",
+          "label": "Button 2 label",
+          "default": "New arrivals"
+        },
+        {
+          "type": "url",
+          "id": "btn2_link",
+          "label": "Button 2 link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero split",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

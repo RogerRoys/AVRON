@@ -1,0 +1,376 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_form_id = 'product-form-' | append: section.id
+  assign on_sale = false
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+  endif
+-%}
+<section class="pp page-w" data-product-section data-low-stock="{{ settings.low_stock_threshold }}">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a><span>›</span>
+    {%- if collection -%}<a href="{{ collection.url }}">{{ collection.title }}</a><span>›</span>{%- elsif product.collections.first -%}<a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a><span>›</span>{%- endif -%}
+    <span aria-current="page">{{ product.title }}</span>
+  </nav>
+  <div class="pp__grid">
+    <div class="pp__gallery pp__gallery--{{ section.settings.media_fit }}">
+      <div class="pp__media" data-gallery>
+        {%- for media in product.media -%}
+          {%- liquid
+            assign ld = 'lazy'
+            if forloop.first
+              assign ld = 'eager'
+            endif
+            assign alt = media.alt | default: product.title | escape
+          -%}
+          <div class="pp__m{% if forloop.first %} pp__m--lead{% endif %}" data-media-id="{{ media.id }}">
+            {%- case media.media_type -%}
+              {%- when 'image' -%}
+                {{ media | image_url: width: 1800 | image_tag: widths: '500,800,1100,1400,1800', sizes: '(min-width: 990px) 58vw, 100vw', loading: ld, alt: alt }}
+              {%- when 'video', 'external_video' -%}
+                {{ media | media_tag: image_size: '1600x', controls: true }}
+              {%- else -%}
+                {{ media | media_tag }}
+            {%- endcase -%}
+          </div>
+        {%- else -%}
+          <div class="pp__m pp__m--lead">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+        {%- endfor -%}
+      </div>
+      <div class="pp__badges">
+        {%- for tag in product.tags -%}{%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}{%- endfor -%}
+        {%- if section.settings.material_badge != blank -%}<span class="badge badge--white">{{ section.settings.material_badge }}</span>{%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="pp__thumbs">
+          {%- for media in product.media -%}
+            <button type="button" data-thumb="{{ media.id }}" aria-label="Show media {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>{{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}</button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="pp__info">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}{% render block %}
+          {%- when 'rating' -%}
+            <div class="pp__rating" {{ block.shopify_attributes }}>{%- render 'stars', product: product -%}</div>
+          {%- when 'title' -%}
+            <h1 class="pp__title" {{ block.shopify_attributes }}>{{ product.title | escape }}</h1>
+            {%- if block.settings.show_vendor -%}<p class="muted small">{{ product.vendor }}</p>{%- endif -%}
+          {%- when 'price' -%}
+            <div class="pp__pricewrap" {{ block.shopify_attributes }}>
+              <div class="pp__price">
+                <span class="pp__now" data-price>{{ current_variant.price | money }}</span>
+                <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
+                <span class="badge badge--sale" data-save{% unless on_sale %} hidden{% endunless %}>Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
+              </div>
+              <p class="pp__tax">{%- if cart.taxes_included -%}Tax included.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>
+            </div>
+          {%- when 'low_stock' -%}
+            {%- liquid
+              assign q = current_variant.inventory_quantity
+              assign show_low = false
+              if current_variant.inventory_management == 'shopify' and q > 0 and q <= settings.low_stock_threshold
+                assign show_low = true
+              endif
+            -%}
+            <div class="pp__low" data-low-stock-msg{% unless show_low %} hidden{% endunless %} {{ block.shopify_attributes }}><i></i><span><b>Low stock</b> — only <span data-low-qty>{{ q }}</span> left</span></div>
+            <script type="application/json" data-inventory>{ {%- for v in product.variants -%}"{{ v.id }}":{% if v.inventory_management == 'shopify' and v.inventory_policy == 'deny' %}{{ v.inventory_quantity }}{% else %}null{% endif %}{% unless forloop.last %},{% endunless %}{%- endfor -%} }</script>
+          {%- when 'variant_picker' -%}
+            {%- unless product.has_only_default_variant -%}
+              <div class="pp__picker" data-variant-picker {{ block.shopify_attributes }}>
+                {%- for option in product.options_with_values -%}
+                  <fieldset class="opt">
+                    <legend>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></legend>
+                    <div class="opt__row">
+                      {%- for value in option.values -%}
+                        <label class="optbtn">
+                          <input type="radio" name="{{ section.id }}-{{ option.position }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                          <span>
+                            {%- if value.swatch.color -%}<i class="sw" style="background:{{ value.swatch.color }}"></i>{%- elsif value.swatch.image -%}<i class="sw" style="background-image:url({{ value.swatch.image | image_url: width: 60 }})"></i>{%- endif -%}
+                            {{ value }}
+                          </span>
+                        </label>
+                      {%- endfor -%}
+                    </div>
+                  </fieldset>
+                {%- endfor -%}
+                <script type="application/json" data-product-json>{{ product | json }}</script>
+              </div>
+            {%- endunless -%}
+          {%- when 'buy_buttons' -%}
+            <div {{ block.shopify_attributes }}>
+              {%- form 'product', product, id: product_form_id, class: 'pp__form', novalidate: 'novalidate', data-product-form: '' -%}
+                <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+                <div class="pp__buy">
+                  <div class="qty"><button type="button" data-step="-1" aria-label="Decrease">&minus;</button><input type="number" name="quantity" value="1" min="1" aria-label="Quantity"><button type="button" data-step="1" aria-label="Increase">+</button></div>
+                  <button type="submit" class="btn btn--lg" data-add data-soldout="{% if current_variant.available %}false{% else %}true{% endif %}"{% unless current_variant.available %} disabled{% endunless %}>
+                    <span data-add-label data-label="Add to cart">{%- if current_variant.available -%}Add to cart{%- else -%}Sold out{%- endif -%}</span>
+                  </button>
+                </div>
+                {%- if block.settings.show_dynamic_checkout -%}<div class="pp__dyn">{{ form | payment_button }}</div>{%- endif -%}
+                <div class="pp__terms">{{ form | payment_terms }}</div>
+                <p class="form-error" data-form-error hidden></p>
+              {%- endform -%}
+              {%- if block.settings.show_payment -%}<ul class="pay pay--center">{%- for type in shop.enabled_payment_types -%}<li>{{ type | payment_type_svg_tag }}</li>{%- endfor -%}</ul>{%- endif -%}
+            </div>
+          {%- when 'trust_grid' -%}
+            <div class="tgrid" {{ block.shopify_attributes }}>
+              {%- for i in (1..4) -%}
+                {%- liquid
+                  assign kt = 't' | append: i | append: '_title'
+                  assign kx = 't' | append: i | append: '_text'
+                -%}
+                {%- if block.settings[kt] != blank -%}<div><b>{{ block.settings[kt] }}</b><span>{{ block.settings[kx] }}</span></div>{%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- when 'complementary' -%}
+            {%- if block.settings.products != blank -%}
+              <div class="fbt" data-fbt data-main-price="{{ current_variant.price }}" {{ block.shopify_attributes }}>
+                <b class="fbt__h">{{ block.settings.heading }}</b>
+                {%- for p in block.settings.products -%}
+                  {%- assign pv = p.selected_or_first_available_variant -%}
+                  {%- if p.available and p.id != product.id -%}
+                    <label class="fbt__row">
+                      <input type="checkbox" value="{{ pv.id }}" data-price="{{ pv.price }}" checked>
+                      <span class="fbt__img">{%- if p.featured_media -%}{{ p.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</span>
+                      <span class="fbt__n">{{ p.title }}</span><b>{{ pv.price | money }}</b>
+                    </label>
+                  {%- endif -%}
+                {%- endfor -%}
+                <div class="fbt__foot"><span>Bundle total <b data-fbt-total>{{ current_variant.price | money }}</b></span><button type="button" class="btn btn--outline btn--sm" data-fbt-add>Add bundle</button></div>
+              </div>
+            {%- endif -%}
+          {%- when 'collapsible' -%}
+            <details class="acc"{% if block.settings.open %} open{% endif %} {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.heading }}<i></i></summary>
+              <div class="acc__body rte">
+                {%- if block.settings.use_description -%}{{ product.description }}{%- else -%}{{ block.settings.content }}{%- endif -%}
+                {%- if block.settings.page != blank -%}{{ block.settings.page.content }}{%- endif -%}
+              </div>
+            </details>
+          {%- when 'text' -%}
+            <div class="rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product information",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "Image fit",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit (no crop)"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "material_badge",
+      "label": "Extra badge on gallery",
+      "info": "Optional, e.g. Natural stone"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "rating",
+      "name": "Rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Reads the standard reviews.rating metafield (Judge.me, Okendo, Shopify Product Reviews, Loox…)."
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "label": "Show vendor",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "low_stock",
+      "name": "Low stock notice",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant picker",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "label": "Show dynamic checkout (Shop Pay etc.)",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payment",
+          "label": "Show payment icons",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "trust_grid",
+      "name": "Trust grid",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "t1_title",
+          "label": "Item 1 title",
+          "default": "Free tracked delivery"
+        },
+        {
+          "type": "text",
+          "id": "t1_text",
+          "label": "Item 1 text",
+          "default": "US · UK · AU · EU"
+        },
+        {
+          "type": "text",
+          "id": "t2_title",
+          "label": "Item 2 title",
+          "default": "30-day returns"
+        },
+        {
+          "type": "text",
+          "id": "t2_text",
+          "label": "Item 2 text",
+          "default": "Change of mind welcome"
+        },
+        {
+          "type": "text",
+          "id": "t3_title",
+          "label": "Item 3 title",
+          "default": "1-year warranty"
+        },
+        {
+          "type": "text",
+          "id": "t3_text",
+          "label": "Item 3 text",
+          "default": "LED & wiring covered"
+        },
+        {
+          "type": "text",
+          "id": "t4_title",
+          "label": "Item 4 title",
+          "default": "Secure checkout"
+        },
+        {
+          "type": "text",
+          "id": "t4_text",
+          "label": "Item 4 text",
+          "default": "Shop Pay · Apple Pay · PayPal"
+        }
+      ]
+    },
+    {
+      "type": "complementary",
+      "name": "Bought together",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Frequently bought together"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products",
+          "limit": 3
+        }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Collapsible tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Details"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_description",
+          "label": "Show product description",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Or content from page"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text block</p>"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

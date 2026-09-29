@@ -1,0 +1,80 @@
+<section class="page-w sec">
+  {%- if section.settings.heading != blank -%}<div class="sec__head"><h2 class="h2">{{ section.settings.heading }}</h2></div>{%- endif -%}
+  <div class="cats">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign c = block.settings.collection
+        assign img = block.settings.image
+        if img == blank and c != blank
+          assign img = c.featured_image | default: c.products.first.featured_media.preview_image
+        endif
+        assign label = block.settings.label | default: c.title
+      -%}
+      <a href="{{ c.url | default: '#' }}" class="cats__i" {{ block.shopify_attributes }}>
+        <span class="cats__img">{%- if img -%}{{ img | image_url: width: 300 | image_tag: widths: '150,300', sizes: '120px', loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-3' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}</span>
+        <span>{{ label }}</span>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Category circles",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by category"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label override"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category circles",
+      "blocks": [
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        },
+        {
+          "type": "category"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

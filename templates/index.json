@@ -1,0 +1,440 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-split",
+      "blocks": {
+        "s1": {
+          "type": "slide",
+          "settings": {
+            "badge": "NEW SEASON",
+            "heading": "The right light changes everything.",
+            "text": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>",
+            "btn1_label": "Shop best sellers",
+            "btn2_label": "New arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "s1"
+      ],
+      "settings": {
+        "side1_title": "Indoor lighting",
+        "side1_text": "Pendants, lamps, sconces",
+        "side2_title": "Outdoor lighting",
+        "side2_text": "Posts, bollards, porch"
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "a": {
+          "type": "item",
+          "settings": {
+            "title": "Excellent",
+            "text": "Verified reviews",
+            "show_stars": true
+          }
+        },
+        "b": {
+          "type": "item",
+          "settings": {
+            "title": "Free tracked shipping",
+            "text": "On every order"
+          }
+        },
+        "c": {
+          "type": "item",
+          "settings": {
+            "title": "30-day returns",
+            "text": "Hassle-free"
+          }
+        },
+        "d": {
+          "type": "item",
+          "settings": {
+            "title": "1-year warranty",
+            "text": "LED & wiring included"
+          }
+        },
+        "e": {
+          "type": "item",
+          "settings": {
+            "title": "Secure checkout",
+            "text": "Shop Pay · Apple Pay · PayPal"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "settings": {}
+    },
+    "cats": {
+      "type": "category-circles",
+      "blocks": {
+        "c1": {
+          "type": "category",
+          "settings": {
+            "label": "Pendants"
+          }
+        },
+        "c2": {
+          "type": "category",
+          "settings": {
+            "label": "Chandeliers"
+          }
+        },
+        "c3": {
+          "type": "category",
+          "settings": {
+            "label": "Table lamps"
+          }
+        },
+        "c4": {
+          "type": "category",
+          "settings": {
+            "label": "Floor lamps"
+          }
+        },
+        "c5": {
+          "type": "category",
+          "settings": {
+            "label": "Wall lights"
+          }
+        },
+        "c6": {
+          "type": "category",
+          "settings": {
+            "label": "Ceiling fans"
+          }
+        },
+        "c7": {
+          "type": "category",
+          "settings": {
+            "label": "Post caps"
+          }
+        },
+        "c8": {
+          "type": "category",
+          "settings": {
+            "label": "Bollards"
+          }
+        },
+        "c9": {
+          "type": "category",
+          "settings": {
+            "label": "Solar"
+          }
+        },
+        "c10": {
+          "type": "category",
+          "settings": {
+            "label": "Décor"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8",
+        "c9",
+        "c10"
+      ],
+      "settings": {
+        "heading": "Shop by category"
+      }
+    },
+    "tabs": {
+      "type": "product-tabs",
+      "blocks": {
+        "t1": {
+          "type": "tab",
+          "settings": {
+            "label": "Best sellers"
+          }
+        },
+        "t2": {
+          "type": "tab",
+          "settings": {
+            "label": "New in"
+          }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "label": "Indoor"
+          }
+        },
+        "t4": {
+          "type": "tab",
+          "settings": {
+            "label": "Outdoor"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
+    },
+    "rooms": {
+      "type": "room-grid",
+      "blocks": {
+        "r1": {
+          "type": "room",
+          "settings": {
+            "label": "Living room"
+          }
+        },
+        "r2": {
+          "type": "room",
+          "settings": {
+            "label": "Dining"
+          }
+        },
+        "r3": {
+          "type": "room",
+          "settings": {
+            "label": "Kitchen"
+          }
+        },
+        "r4": {
+          "type": "room",
+          "settings": {
+            "label": "Front porch"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4"
+      ],
+      "settings": {
+        "heading": "Shop by room"
+      }
+    },
+    "guide": {
+      "type": "materials-guide",
+      "blocks": {
+        "m1": {
+          "type": "material",
+          "settings": {
+            "name": "Travertine",
+            "text": "Natural, veined stone",
+            "swatch": "#D6C6AC"
+          }
+        },
+        "m2": {
+          "type": "material",
+          "settings": {
+            "name": "Opal glass",
+            "text": "Soft, glare-free",
+            "swatch": "#F6F3EC"
+          }
+        },
+        "m3": {
+          "type": "material",
+          "settings": {
+            "name": "Rattan",
+            "text": "Hand-woven texture",
+            "swatch": "#B89A6E"
+          }
+        },
+        "m4": {
+          "type": "material",
+          "settings": {
+            "name": "Die-cast aluminium",
+            "text": "Outdoor-grade, IP65",
+            "swatch": "#2F2E2C"
+          }
+        },
+        "k1": {
+          "type": "kelvin",
+          "settings": {
+            "label": "2200K",
+            "text": "Bedrooms",
+            "glow": "#FFB25C"
+          }
+        },
+        "k2": {
+          "type": "kelvin",
+          "settings": {
+            "label": "2700K",
+            "text": "Living, dining",
+            "glow": "#FFCF8A"
+          }
+        },
+        "k3": {
+          "type": "kelvin",
+          "settings": {
+            "label": "3000K",
+            "text": "Kitchens, porches",
+            "glow": "#FFE2B5"
+          }
+        },
+        "k4": {
+          "type": "kelvin",
+          "settings": {
+            "label": "4000K",
+            "text": "Bathrooms, office",
+            "glow": "#F4F4EE"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "text": "Looks even better in person. The glow is warm without being yellow.",
+            "author": "Sarah, UK"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "text": "Solar post caps are bright enough for the whole driveway.",
+            "author": "Mark, AU"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "text": "Easy install, tracked the whole way. Perfect over our island.",
+            "author": "Jen, US"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
+    },
+    "ugc": {
+      "type": "ugc-gallery",
+      "blocks": {
+        "u1": {
+          "type": "image",
+          "settings": {}
+        },
+        "u2": {
+          "type": "image",
+          "settings": {}
+        },
+        "u3": {
+          "type": "image",
+          "settings": {}
+        },
+        "u4": {
+          "type": "image",
+          "settings": {}
+        },
+        "u5": {
+          "type": "image",
+          "settings": {}
+        },
+        "u6": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4",
+        "u5",
+        "u6"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-support",
+      "blocks": {
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Free tracked shipping. USA 8–15, UK 5–10, Australia 8–15, EU 7–14 business days.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>Request a return within 30 days of delivery. Items must be unused and in original packaging.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need an electrician?",
+            "answer": "<p>Hardwired pendants, chandeliers and wall lights should be installed by a qualified electrician.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "What does IP65 mean?",
+            "answer": "<p>Dust-tight and protected against water jets — suitable for exposed walls, posts and paths.</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I pay in my currency?",
+            "answer": "<p>Yes — USD, GBP, AUD and EUR at checkout, with Shop Pay, Apple Pay, Google Pay and PayPal.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "cats",
+    "tabs",
+    "rooms",
+    "guide",
+    "reviews",
+    "ugc",
+    "faq"
+  ]
+}

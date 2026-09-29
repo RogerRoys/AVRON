@@ -1,0 +1,70 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Welcome offer — 10% off your first order with code <strong>AVRON10</strong> · Free tracked shipping on every order"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "p1": {
+          "type": "promo",
+          "settings": {
+            "menu_item": "Pendants",
+            "title": "The Stone Edit",
+            "text": "Travertine & opal glass"
+          }
+        },
+        "p2": {
+          "type": "promo",
+          "settings": {
+            "menu_item": "Pendants",
+            "title": "Over the island",
+            "text": "Pendants in threes"
+          }
+        },
+        "t1": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "Indoor lighting"
+          }
+        },
+        "t2": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "Outdoor lighting"
+          }
+        },
+        "t3": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "Ceiling fans"
+          }
+        },
+        "t4": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "Décor"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

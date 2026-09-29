@@ -1,0 +1,168 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "low": {
+          "type": "low_stock",
+          "settings": {}
+        },
+        "picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "trust": {
+          "type": "trust_grid",
+          "settings": {}
+        },
+        "fbt": {
+          "type": "complementary",
+          "settings": {}
+        },
+        "d": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Description",
+            "use_description": true,
+            "open": true
+          }
+        },
+        "s": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping",
+            "content": "<p>Free tracked shipping. US 8–15, UK 5–10, AU 8–15, EU 7–14 business days.</p>"
+          }
+        },
+        "r": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Returns",
+            "content": "<p>30-day returns on unused items in original packaging.</p>"
+          }
+        },
+        "w": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Warranty",
+            "content": "<p>1 year. Covers electrical, wiring and LED faults.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rating",
+        "title",
+        "price",
+        "low",
+        "picker",
+        "buy",
+        "trust",
+        "fbt",
+        "d",
+        "s",
+        "r",
+        "w"
+      ],
+      "settings": {}
+    },
+    "features": {
+      "type": "product-features",
+      "blocks": {
+        "a": {
+          "type": "feature",
+          "settings": {
+            "title": "1 of 1",
+            "text": "Natural stone — no two alike"
+          }
+        },
+        "b": {
+          "type": "feature",
+          "settings": {
+            "title": "Dimmable",
+            "text": "Inline dimmer, down to 10%"
+          }
+        },
+        "c": {
+          "type": "feature",
+          "settings": {
+            "title": "Bulb included",
+            "text": "E27 warm LED in the box"
+          }
+        },
+        "d": {
+          "type": "feature",
+          "settings": {
+            "title": "Plug-in",
+            "text": "No electrician needed"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "settings": {}
+    },
+    "kelvin": {
+      "type": "kelvin-banner",
+      "blocks": {
+        "a": {
+          "type": "temp",
+          "settings": {
+            "label": "Warm 2700K",
+            "text": "Cosy, candle-like. Best for living rooms and bedrooms.",
+            "glow": "#FFD9A0"
+          }
+        },
+        "b": {
+          "type": "temp",
+          "settings": {
+            "label": "Soft 3000K",
+            "text": "Crisper and cleaner. Good for reading and work desks.",
+            "glow": "#FFF0D6"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b"
+      ],
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "heading": "Customer reviews"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "features",
+    "kelvin",
+    "reviews",
+    "related"
+  ]
+}

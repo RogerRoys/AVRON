@@ -1,0 +1,13 @@
+<article class="page-w narrow sec">
+  <a href="{{ blog.url }}" class="link small">← {{ blog.title }}</a>
+  <h1 class="h1">{{ article.title }}</h1>
+  <p class="muted small">{{ article.published_at | date: '%B %d, %Y' }}</p>
+  {%- if article.image -%}<div class="art__img">{{ article.image | image_url: width: 1600 | image_tag: loading: 'eager', alt: article.title }}</div>{%- endif -%}
+  <div class="rte">{{ article.content }}</div>
+</article>
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,82 @@
+<section class="page-w sec">
+  <div class="kb">
+    <div class="kb__img">{%- if section.settings.image -%}{{ section.settings.image | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- elsif product.featured_media -%}{{ product.featured_media | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}</div>
+    <div class="kb__copy">
+      <h2 class="h2">{{ section.settings.heading }}</h2>
+      <div class="kb__temps">
+        {%- for block in section.blocks -%}<div class="kb__t" {{ block.shopify_attributes }}><span class="glow glow--wide" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></div>{%- endfor -%}
+      </div>
+      {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link | default: '#' }}" class="btn btn--white">{{ section.settings.button_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Colour temperature",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Defaults to product image on product pages"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Which light colour is right for you?"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Full lighting guide"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "temp",
+      "name": "Temperature",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "color",
+          "id": "glow",
+          "label": "Glow",
+          "default": "#FFD9A0"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Warm 2700K"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Cosy, candle-like."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colour temperature",
+      "blocks": [
+        {
+          "type": "temp"
+        },
+        {
+          "type": "temp"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

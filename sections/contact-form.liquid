@@ -1,0 +1,21 @@
+<section class="page-w narrow sec">
+  {%- form 'contact', class: 'cform' -%}
+    {%- if form.posted_successfully? -%}<p class="news__ok">{% render 'icon', name: 'check' %} Thanks — we'll reply within 1 business day.</p>{%- endif -%}
+    {%- if form.errors -%}<p class="form-error">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <div class="cform__row"><input type="text" name="contact[name]" placeholder="Name" aria-label="Name"><input type="email" name="contact[email]" placeholder="Email" required aria-label="Email"></div>
+    <input type="text" name="contact[order]" placeholder="Order number (optional)" aria-label="Order number">
+    <textarea name="contact[body]" rows="6" placeholder="How can we help?" aria-label="Message"></textarea>
+    <button type="submit" class="btn btn--lg">Send message</button>
+  {%- endform -%}
+</section>
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Contact form"
+    }
+  ]
+}
+{% endschema %}

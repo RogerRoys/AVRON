@@ -1,0 +1,121 @@
+<section class="page-w sec">
+  <div class="faqs">
+    <div>
+      <h2 class="h2">{{ section.settings.heading }}</h2>
+      {%- for block in section.blocks -%}
+        <details class="acc" {{ block.shopify_attributes }}{% if forloop.first %} open{% endif %}><summary>{{ block.settings.question }}<i></i></summary><div class="acc__body rte">{{ block.settings.answer }}</div></details>
+      {%- endfor -%}
+    </div>
+    <div class="faqs__side">
+      {%- if section.settings.w_title != blank -%}
+        <div class="scard scard--soft"><b>{{ section.settings.w_title }}</b><span>{{ section.settings.w_text }}</span>{%- if section.settings.w_link_label != blank -%}<a href="{{ section.settings.w_link | default: '#' }}" class="link">{{ section.settings.w_link_label }}</a>{%- endif -%}</div>
+      {%- endif -%}
+      {%- if section.settings.t_title != blank -%}
+        <div class="scard scard--brand"><b>{{ section.settings.t_title }}</b><span>{{ section.settings.t_text }}</span>{%- if section.settings.t_btn != blank -%}<a href="{{ section.settings.t_link | default: '#' }}" class="btn btn--white btn--sm">{{ section.settings.t_btn }}</a>{%- endif -%}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "FAQ & support",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FAQ"
+    },
+    {
+      "type": "header",
+      "content": "Warranty card"
+    },
+    {
+      "type": "text",
+      "id": "w_title",
+      "label": "Title",
+      "default": "1-year warranty"
+    },
+    {
+      "type": "textarea",
+      "id": "w_text",
+      "label": "Text",
+      "default": "Electrical, wiring and LED faults covered. Repair, replace or refund."
+    },
+    {
+      "type": "text",
+      "id": "w_link_label",
+      "label": "Link label",
+      "default": "Warranty details"
+    },
+    {
+      "type": "url",
+      "id": "w_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Trade card"
+    },
+    {
+      "type": "text",
+      "id": "t_title",
+      "label": "Title",
+      "default": "Avron Trade"
+    },
+    {
+      "type": "textarea",
+      "id": "t_text",
+      "label": "Text",
+      "default": "Project pricing for designers, builders and stylists."
+    },
+    {
+      "type": "text",
+      "id": "t_btn",
+      "label": "Button label",
+      "default": "Apply now"
+    },
+    {
+      "type": "url",
+      "id": "t_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long does shipping take?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Free tracked shipping to US, UK, AU and EU.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ & support",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

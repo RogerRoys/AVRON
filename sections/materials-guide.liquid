@@ -1,0 +1,120 @@
+<section class="page-w sec">
+  <div class="mg">
+    <div class="mg__card mg__card--soft">
+      <h2 class="h2">{{ section.settings.heading_left }}</h2>
+      <div class="mg__mats">
+        {%- for block in section.blocks -%}{%- if block.type == 'material' -%}
+          <div class="mg__mat" {{ block.shopify_attributes }}><span class="mg__sw" style="background:{{ block.settings.swatch }}"></span><span><b>{{ block.settings.name }}</b><em>{{ block.settings.text }}</em></span></div>
+        {%- endif -%}{%- endfor -%}
+      </div>
+    </div>
+    <div class="mg__card mg__card--dark">
+      <h2 class="h2">{{ section.settings.heading_right }}</h2>
+      <div class="mg__kel">
+        {%- for block in section.blocks -%}{%- if block.type == 'kelvin' -%}
+          <div class="mg__k" {{ block.shopify_attributes }}><span class="glow" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></div>
+        {%- endif -%}{%- endfor -%}
+      </div>
+      {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link | default: '#' }}" class="btn btn--white">{{ section.settings.button_label }}</a>{%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Materials & guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_left",
+      "label": "Left heading",
+      "default": "Made from materials that last"
+    },
+    {
+      "type": "text",
+      "id": "heading_right",
+      "label": "Right heading",
+      "default": "Not sure which warmth?"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Open the lighting guide"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material",
+      "name": "Material",
+      "settings": [
+        {
+          "type": "color",
+          "id": "swatch",
+          "label": "Swatch",
+          "default": "#D6C6AC"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Travertine"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Natural, veined stone"
+        }
+      ]
+    },
+    {
+      "type": "kelvin",
+      "name": "Colour temperature",
+      "settings": [
+        {
+          "type": "color",
+          "id": "glow",
+          "label": "Glow colour",
+          "default": "#FFCF8A"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "2700K"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Living, dining"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Materials & guide",
+      "blocks": [
+        {
+          "type": "material"
+        },
+        {
+          "type": "material"
+        },
+        {
+          "type": "kelvin"
+        },
+        {
+          "type": "kelvin"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

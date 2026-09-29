@@ -1,0 +1,8 @@
+{%- assign r = product.metafields.reviews.rating.value -%}
+{%- if r != blank -%}
+  {%- assign pct = r.rating | times: 100.0 | divided_by: r.scale_max -%}
+  <span class="stars{% if small %} stars--sm{% endif %}" role="img" aria-label="{{ r.rating | round: 1 }} out of {{ r.scale_max }}"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:{{ pct }}%">★★★★★</span></span>
+  {%- unless small -%}<a href="#reviews" class="stars__count">{{ r.rating | round: 1 }} ({{ product.metafields.reviews.rating_count | default: 0 }} reviews)</a>{%- endunless -%}
+{%- elsif fallback -%}
+  <span class="stars stars--sm" aria-hidden="true"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:100%">★★★★★</span></span>
+{%- endif -%}

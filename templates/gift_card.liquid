@@ -1,0 +1,9 @@
+{% layout none %}
+<!doctype html><html lang="{{ request.locale.iso_code }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gift card – {{ shop.name }}</title>{{ 'theme.css' | asset_url | stylesheet_tag }}<style>:root{--font:system-ui,sans-serif;--ink:#1B1D1A;--soft:#F5F3EF;--line:#ECE9E3;--muted:#5C615B}</style></head>
+<body><div class="page-w narrow" style="padding:64px 20px;text-align:center">
+<h1>{{ gift_card.initial_value | money }} gift card</h1>
+<p class="muted">Use this code at checkout</p>
+<p style="font-size:28px;font-weight:700;letter-spacing:.08em">{{ gift_card.code | format_code }}</p>
+{%- if gift_card.expired or gift_card.enabled == false -%}<p class="badge badge--sale">Expired or disabled</p>{%- else -%}<p>Balance: <b>{{ gift_card.balance | money }}</b></p>{%- endif -%}
+<p><a class="btn" href="{{ shop.url }}">Start shopping</a></p>
+</div></body></html>

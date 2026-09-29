@@ -1,0 +1,5 @@
+{%- if settings.logo != blank -%}
+  {{ settings.logo | image_url: width: 600 | image_tag: widths: '200,300,400,600', sizes: '200px', alt: shop.name, class: 'logo__img', loading: 'eager' }}
+{%- else -%}
+  <img src="{{ 'avron-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="750" height="225" class="logo__img">
+{%- endif -%}

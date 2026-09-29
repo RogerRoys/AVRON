@@ -1,0 +1,56 @@
+{%- liquid
+  assign v = card_product.selected_or_first_available_variant
+  assign on_sale = false
+  if card_product.compare_at_price > card_product.price
+    assign on_sale = true
+  endif
+-%}
+<div class="card">
+  <div class="card__media">
+    <a href="{{ card_product.url }}" class="card__img" tabindex="-1" aria-hidden="true">
+      {%- if card_product.featured_media -%}
+        {{ card_product.featured_media | image_url: width: 800 | image_tag: widths: '300,450,600,800', sizes: '(min-width: 990px) 20vw, 50vw', loading: 'lazy', alt: card_product.title }}
+        {%- if card_product.media[1] and card_product.media[1].media_type == 'image' -%}
+          {{ card_product.media[1] | image_url: width: 800 | image_tag: widths: '300,450,600,800', sizes: '(min-width: 990px) 20vw, 50vw', loading: 'lazy', class: 'card__img2', alt: '' }}
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+      {%- endif -%}
+    </a>
+    <div class="card__badges">
+      {%- for tag in card_product.tags -%}
+        {%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}
+      {%- endfor -%}
+      {%- if card_product.available == false -%}<span class="badge badge--ink">Sold out</span>{%- elsif on_sale -%}<span class="badge badge--sale">Sale</span>{%- endif -%}
+    </div>
+    {%- if card_product.available -%}
+      {%- if card_product.has_only_default_variant -%}
+        {%- form 'product', card_product, class: 'card__qa-form', data-product-form: '' -%}
+          <input type="hidden" name="id" value="{{ v.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="card__qa" data-soldout="false">+ Quick add</button>
+        {%- endform -%}
+      {%- else -%}
+        <button type="button" class="card__qa" data-quick-add="{{ card_product.handle }}">+ Quick add</button>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+  {%- for option in card_product.options_with_values -%}
+    {%- if option.values.first.swatch -%}
+      <div class="card__sw">
+        {%- for value in option.values limit: 5 -%}
+          <span class="sw sw--sm" title="{{ value | escape }}" style="{% if value.swatch.color %}background:{{ value.swatch.color }}{% elsif value.swatch.image %}background-image:url({{ value.swatch.image | image_url: width: 40 }}){% endif %}"></span>
+        {%- endfor -%}
+        {%- if option.values.size > 5 -%}<span class="card__more">+{{ option.values.size | minus: 5 }}</span>{%- endif -%}
+      </div>
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  <a href="{{ card_product.url }}" class="card__title">{{ card_product.title | escape }}</a>
+  {%- if card_product.type != blank -%}<span class="card__meta">{{ card_product.type }}</span>{%- endif -%}
+  <div class="card__price">
+    <b>{% if card_product.price_varies %}From {% endif %}{{ card_product.price | money }}</b>
+    {%- if on_sale -%}<s>{{ card_product.compare_at_price | money }}</s>{%- endif -%}
+    {%- render 'stars', product: card_product, small: true -%}
+  </div>
+</div>
