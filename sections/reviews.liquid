@@ -10,7 +10,7 @@
       <div class="revs" data-revs>
         {%- for block in manual -%}
           <div class="rev" {{ block.shopify_attributes }}>
-            {%- if block.settings.image -%}<span class="rev__img">{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}</span>{%- endif -%}
+            {%- if block.settings.image -%}<span class="rev__img">{{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}</span>{%- elsif section.settings.demo_images -%}{%- assign vd = 'av-08.jpg,av-09.jpg,av-05.jpg,av-10.jpg,av-11.jpg' | split: ',' -%}{%- assign vk = forloop.index0 | modulo: 5 -%}<span class="rev__img">{% render 'demo-img', src: vd[vk] %}</span>{%- endif -%}
             <div class="rev__b"><span class="rev__stars">{%- for i in (1..block.settings.rating) -%}★{%- endfor -%}</span><p>{{ block.settings.text }}</p><span class="muted small">{{ block.settings.author }} · Verified buyer</span></div>
           </div>
         {%- endfor -%}
@@ -22,6 +22,7 @@
 {
   "name": "Reviews",
   "settings": [
+    {"type":"checkbox","id":"demo_images","label":"Show demo photos on reviews","default":true},
     {
       "type": "text",
       "id": "heading",

@@ -5,6 +5,16 @@
   if settings.cart_type == 'drawer'
     assign drawer_cart = true
   endif
+  assign has_drop = false
+  for link in menu.links
+    if link.links != blank
+      assign has_drop = true
+    endif
+  endfor
+  assign demo_nav = false
+  if section.settings.demo_menu and has_drop == false
+    assign demo_nav = true
+  endif
 -%}
 {%- if section.settings.utility_text != blank or util.links.size > 0 -%}
 <div class="utility">
@@ -40,6 +50,7 @@
   </div>
   <nav class="nav" aria-label="Primary">
     <ul class="page-w nav__list">
+      {%- if demo_nav -%}{% render 'demo-nav', popular: section.settings.popular %}{%- else -%}
       {%- for link in menu.links -%}
         <li class="nav__item{% if link.links != blank %} has-mega{% endif %}">
           <a href="{{ link.url }}" class="nav__link{% if link.active or link.child_active %} is-active{% endif %}{% if link.title == section.settings.sale_title %} nav__link--sale{% endif %}"{% if link.links != blank %} aria-haspopup="true"{% endif %}>{{ link.title }}</a>
@@ -60,7 +71,7 @@
                     {%- for block in section.blocks -%}
                       {%- if block.type == 'promo' and block.settings.menu_item == link.title -%}
                         <a href="{{ block.settings.link | default: link.url }}" class="mega__promo" {{ block.shopify_attributes }}>
-                          {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '300,500,700', sizes: '300px', loading: 'lazy', alt: block.settings.title }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+                          {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '300,500,700', sizes: '300px', loading: 'lazy', alt: block.settings.title }}{%- else -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- endif -%}
                           <span class="mega__tag"><b>{{ block.settings.title }}</b><span>{{ block.settings.text }} →</span></span>
                         </a>
                       {%- endif -%}
@@ -78,6 +89,7 @@
           {%- endif -%}
         </li>
       {%- endfor -%}
+      {%- endif -%}
     </ul>
   </nav>
   <div class="mega-dim" aria-hidden="true"></div>
@@ -99,13 +111,14 @@
         <div class="md__tiles">
           {%- for block in tiles -%}
             <a href="{{ block.settings.link }}" class="md__tile" {{ block.shopify_attributes }}>
-              <span class="md__tile-img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}</span>
+              <span class="md__tile-img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- else -%}{%- assign td = 'av-01.jpg,av-02.jpg,av-13.jpg,av-14.jpg' | split: ',' -%}{%- assign tk = forloop.index0 | modulo: 4 -%}{% render 'demo-img', src: td[tk] %}{%- endif -%}</span>
               <b>{{ block.settings.title }}</b>
             </a>
           {%- endfor -%}
         </div>
       {%- endif -%}
       <ul class="md__list">
+        {%- if demo_nav -%}{% render 'demo-drawer' %}{%- else -%}
         {%- for link in menu.links -%}
           <li>
             {%- if link.links != blank -%}
@@ -124,6 +137,7 @@
             {%- endif -%}
           </li>
         {%- endfor -%}
+        {%- endif -%}
       </ul>
       {%- if section.settings.drawer_promo_title != blank -%}
         <a href="{{ section.settings.drawer_promo_link }}" class="md__promo"><span><b>{{ section.settings.drawer_promo_title }}</b><br>{{ section.settings.drawer_promo_text }}</span><span class="md__promo-btn">Shop</span></a>
@@ -152,6 +166,13 @@
       "label": "Main menu",
       "default": "main-menu",
       "info": "3 levels: top item → column heading → links."
+    },
+    {
+      "type": "checkbox",
+      "id": "demo_menu",
+      "label": "Use demo menu",
+      "default": true,
+      "info": "Shows the Avron preview menu and mega menus until your main menu has dropdown items. Turn off once your own menu is set up."
     },
     {
       "type": "text",

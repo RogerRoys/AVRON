@@ -14,7 +14,7 @@
       {%- if c != blank and c.products_count > 0 -%}
         {%- for p in c.products limit: section.settings.limit -%}{% render 'product-card', card_product: p %}{%- endfor -%}
       {%- else -%}
-        {%- for i in (1..section.settings.columns) -%}{% render 'card-placeholder', n: i %}{%- endfor -%}
+        {%- assign ti = forloop.index0 -%}{%- for i in (1..section.settings.limit) -%}{% render 'card-placeholder', n: i, tab: ti %}{%- endfor -%}
       {%- endif -%}
     </div>
   {%- endfor -%}

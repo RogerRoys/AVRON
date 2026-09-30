@@ -11,7 +11,7 @@
         assign label = block.settings.label | default: c.title
       -%}
       <a href="{{ c.url | default: '#' }}" class="cats__i" {{ block.shopify_attributes }}>
-        <span class="cats__img">{%- if img -%}{{ img | image_url: width: 300 | image_tag: widths: '150,300', sizes: '120px', loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-3' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}</span>
+        <span class="cats__img">{%- if img -%}{{ img | image_url: width: 300 | image_tag: widths: '150,300', sizes: '120px', loading: 'lazy', alt: '' }}{%- else -%}{%- assign cd = 'av-10.jpg,av-11.jpg,av-12.jpg,av-22.jpg,av-23.jpg,av-13.jpg,av-17.jpg,av-18.jpg,av-21.jpg,av-14.jpg' | split: ',' -%}{%- assign ck = forloop.index0 | modulo: 10 -%}{% render 'demo-img', src: cd[ck] %}{%- endif -%}</span>
         <span>{{ label }}</span>
       </a>
     {%- endfor -%}

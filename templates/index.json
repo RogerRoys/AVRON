@@ -12,10 +12,32 @@
             "btn1_label": "Shop best sellers",
             "btn2_label": "New arrivals"
           }
+        },
+        "s2": {
+          "type": "slide",
+          "settings": {
+            "badge": "STATEMENT LIGHTING",
+            "heading": "Pieces worth looking up for.",
+            "text": "<p>Chandeliers and pendants in smoked glass, brass and stone.</p>",
+            "btn1_label": "Shop chandeliers",
+            "btn2_label": "Indoor"
+          }
+        },
+        "s3": {
+          "type": "slide",
+          "settings": {
+            "badge": "SOLAR",
+            "heading": "Garden light that runs on sunshine.",
+            "text": "<p>No wiring, no running costs. Charges by day, glows all night.</p>",
+            "btn1_label": "Shop solar",
+            "btn2_label": "Outdoor"
+          }
         }
       },
       "block_order": [
-        "s1"
+        "s1",
+        "s2",
+        "s3"
       ],
       "settings": {
         "side1_title": "Indoor lighting",

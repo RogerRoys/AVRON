@@ -43,3 +43,10 @@ Matches the "Avron 1d Live Preview" prototype.
 - Menu drawer items slide in one after another; cart lines animate in; cart count bumps on change.
 - Product page: "Adding…" → "✓ Added" button states, pulsing low-stock dot, image fade on variant change, sticky add-to-cart bar after scrolling past the main button.
 - Theme settings → Animations: toggle scroll reveal, hero zoom and hover zoom. Everything turns off automatically for visitors with "reduce motion" enabled.
+
+## v1.2 — Live Preview content built in
+- 24 demo photos from the preview ship in assets/ (av-01.jpg … av-24.jpg). Every section shows them until you pick your own image, so a fresh install looks like "Avron 1d Live Preview".
+- Product tabs, related products and empty collections show the 11 preview products (names, prices, badges, swatches, hover image) until real collections are chosen.
+- Header → "Use demo menu" (on by default) shows the preview nav with both mega menus and the mobile drawer until your main menu has dropdown items.
+- Hero now has all 3 preview slides.
+- Reviews → "Show demo photos" adds preview photos to reviews without an image.

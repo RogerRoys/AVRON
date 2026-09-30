@@ -10,7 +10,7 @@
       <div class="hero__slide{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
         {%- if block.settings.image -%}
           {{ block.settings.image | image_url: width: 2200 | image_tag: widths: '750,1100,1500,1900,2200', sizes: '(min-width: 990px) 66vw, 100vw', class: 'hero__img', loading: ld, alt: block.settings.heading }}
-        {%- else -%}{{ 'lifestyle-2' | placeholder_svg_tag: 'hero__img placeholder' }}{%- endif -%}
+        {%- else -%}{%- assign hd = 'av-03.jpg,av-04.jpg,av-02.jpg' | split: ',' -%}{%- assign hk = forloop.index0 | modulo: 3 -%}{% render 'demo-img', src: hd[hk], class: 'hero__img', loading: ld %}{%- endif -%}
         <div class="hero__shade" style="--shade:{{ section.settings.shade | divided_by: 100.0 }}"></div>
         <div class="hero__copy">
           {%- if block.settings.badge != blank -%}<span class="badge badge--white">{{ block.settings.badge }}</span>{%- endif -%}
@@ -38,7 +38,7 @@
       -%}
       {%- if section.settings[k_t] != blank -%}
         <a href="{{ section.settings[k_l] | default: routes.all_products_collection_url }}" class="hero__card">
-          {%- if section.settings[k_img] -%}{{ section.settings[k_img] | image_url: width: 1000 | image_tag: widths: '500,750,1000', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'collection-2' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+          {%- if section.settings[k_img] -%}{{ section.settings[k_img] | image_url: width: 1000 | image_tag: widths: '500,750,1000', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy', alt: '' }}{%- else -%}{%- if i == 1 -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- else -%}{% render 'demo-img', src: 'av-02.jpg' %}{%- endif -%}{%- endif -%}
           <span class="hero__card-tag"><span><b>{{ section.settings[k_t] }}</b><em>{{ section.settings[k_x] }}</em></span>{% render 'icon', name: 'arrow-right' %}</span>
         </a>
       {%- endif -%}

@@ -1,3 +1,7 @@
 {
-  "current": {}
+  "current": {
+    "anim_reveal": true,
+    "anim_hero": true,
+    "anim_hover": true
+  }
 }

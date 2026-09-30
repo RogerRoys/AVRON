@@ -13,7 +13,7 @@
       {%- assign kels = section.blocks | where: 'type', 'kelvin' -%}
       {%- assign k0 = kels[1] | default: kels[0] -%}
       <div class="mg__preview">
-        {%- if section.settings.preview_image -%}{{ section.settings.preview_image | image_url: width: 1200 | image_tag: widths: '600,900,1200', sizes: '(min-width: 990px) 45vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}
+        {%- if section.settings.preview_image -%}{{ section.settings.preview_image | image_url: width: 1200 | image_tag: widths: '600,900,1200', sizes: '(min-width: 990px) 45vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- endif -%}
         <span class="mg__tint" data-kel-tint style="background-color:{{ k0.settings.glow }}"></span>
         <span class="mg__glowspot"></span>
         <span class="mg__tag" data-kel-tag>{{ k0.settings.label }} · {{ k0.settings.text }}</span>

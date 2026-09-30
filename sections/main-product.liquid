@@ -34,7 +34,7 @@
             {%- endcase -%}
           </div>
         {%- else -%}
-          <div class="pp__m pp__m--lead">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+          <div class="pp__m pp__m--lead">{% render 'demo-img', src: 'av-08.jpg' %}</div>
         {%- endfor -%}
       </div>
       <div class="pp__badges">

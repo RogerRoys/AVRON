@@ -1,0 +1,2 @@
+{%- comment -%}Built-in Avron demo photo, shown until you pick your own image.{%- endcomment -%}
+<img src="{{ src | asset_url }}" alt="{{ alt | default: '' | escape }}"{% if class != blank %} class="{{ class }}"{% endif %} loading="{{ loading | default: 'lazy' }}">

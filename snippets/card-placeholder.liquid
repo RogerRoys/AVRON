@@ -1,5 +1,35 @@
-<div class="card">
-  <div class="card__media"><div class="card__img">{{ 'product-' | append: n | placeholder_svg_tag: 'placeholder' }}</div></div>
-  <span class="card__title">Product name</span>
-  <div class="card__price"><b>{{ 14995 | money }}</b></div>
+{%- liquid
+  assign lists = '0,5,1,6,4|2,7,3,8,10|0,1,2,3,4|5,6,7,8,9' | split: '|'
+  assign t = tab | default: 0 | modulo: 4
+  assign row = lists[t] | split: ','
+  assign k = n | minus: 1 | modulo: 5
+  assign id = row[k] | plus: 0
+  assign names = 'Linea Linear Chandelier|Travertine Table Lamp|Glasstone Mini Pendant|Rattan Table Lamp|Cluster Pendant, 11 Lights|Marbled Post Cap|Globe Porch Pendant|Globe Bollard|Pagoda Pillar Light|Solar Globe Path Light|Cordless Touch Lamp' | split: '|'
+  assign metas = 'Dimmable · 100 / 120cm|Natural stone|Clear glass · Ø20cm|Hand-woven rattan|Milky glass|Solar or hardwired · 4 sizes|Caged glass · 3 sizes|Opal · IP65|IP65|Spike or base|Rechargeable · 3 tones' | split: '|'
+  assign prices = '17895,26995,17195,23295,50895,19995,12395,20695,14495,4895,7195' | split: ','
+  assign img1 = 'av-07.jpg,av-08.jpg,av-05.jpg,av-16.jpg,av-11.jpg,av-09.jpg,av-10.jpg,av-15.jpg,av-19.jpg,av-21.jpg,av-14.jpg' | split: ','
+  assign img2 = 'av-04.jpg,av-01.jpg,av-07.jpg,av-12.jpg,av-04.jpg,av-17.jpg,av-06.jpg,av-18.jpg,av-20.jpg,av-02.jpg,av-22.jpg' | split: ','
+  assign badges = 'Best seller|-|New|-|Statement|Best seller|-|New|-|Under $50|-' | split: '|'
+  assign bcls = 'brand|-|ink|-|sale|brand|-|ink|-|sale|-' | split: '|'
+  assign sws = '#1E1E1E|#CDB896|#C9A866,#1E1E1E|#CDB896|#C9A866,#1E1E1E|#1E1E1E|#6B4F32,#1E1E1E|#1E1E1E|#1E1E1E,#6B4F32|#F4F1EA|#F4F1EA' | split: '|'
+  assign price = prices[id] | plus: 0
+  assign cmp = price | times: 118 | divided_by: 100 | divided_by: 100 | times: 100 | minus: 5
+  assign title = names[id]
+  assign tq = title | url_encode
+  assign url = routes.search_url | append: '?q=' | append: tq
+-%}
+<div class="card card--demo">
+  <div class="card__media">
+    <a href="{{ url }}" class="card__img" tabindex="-1" aria-hidden="true">
+      {% render 'demo-img', src: img1[id], alt: title %}
+      {% render 'demo-img', src: img2[id], class: 'card__img2' %}
+    </a>
+    <button type="button" class="card__wish" data-wish="demo-{{ id }}" aria-label="Save {{ title | escape }} to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+    {%- if badges[id] != '-' -%}<div class="card__badges"><span class="badge badge--{{ bcls[id] }}">{{ badges[id] }}</span></div>{%- endif -%}
+    <a href="{{ url }}" class="card__qa">+ Quick buy</a>
+  </div>
+  <div class="card__sw">{%- assign sw = sws[id] | split: ',' -%}{%- for c in sw -%}<span class="sw sw--sm" style="background:{{ c }}"></span>{%- endfor -%}</div>
+  <a href="{{ url }}" class="card__title">{{ title }}</a>
+  <span class="card__meta">{{ metas[id] }}</span>
+  <div class="card__price"><b>{{ price | money }}</b><s>{{ cmp | money }}</s><span class="card__stars" style="color:var(--star);font-size:12px;letter-spacing:1px">★★★★★</span></div>
 </div>
