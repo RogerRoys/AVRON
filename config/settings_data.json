@@ -12,6 +12,7 @@
     "anim_reveal": true,
     "anim_hero": true,
     "anim_hover": true,
+    "cart_upsell_collection": "best-sellers",
     "social_instagram": "https://www.instagram.com/avronofficial/",
     "sections": {
       "cart-drawer": {
