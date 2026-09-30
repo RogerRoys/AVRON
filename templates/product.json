@@ -18,11 +18,19 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+            "show_vendor": false
+          }
         },
         "price": {
           "type": "price",
           "settings": {}
+        },
+        "assure": {
+          "type": "assurance",
+          "settings": {
+            "items": "In stock, ready to ship\nTracked delivery with clear updates\nClear returns information before you buy\n1-year voluntary warranty, alongside your ACL rights\nSupport before & after purchase"
+          }
         },
         "low": {
           "type": "low_stock",
@@ -34,21 +42,38 @@
         },
         "buy": {
           "type": "buy_buttons",
-          "settings": {}
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_payment": true
+          }
         },
         "trust": {
           "type": "trust_grid",
-          "settings": {}
+          "settings": {
+            "t1_title": "Free tracked delivery",
+            "t1_text": "Australia",
+            "t2_title": "Clear returns policy",
+            "t2_text": "Change of mind welcome",
+            "t3_title": "1-year voluntary warranty",
+            "t3_text": "LED & wiring covered",
+            "t4_title": "Secure checkout",
+            "t4_text": "Shop Pay · Apple Pay · PayPal"
+          }
         },
         "fbt": {
           "type": "complementary",
-          "settings": {}
+          "settings": {
+            "heading": "Frequently bought together",
+            "products": []
+          }
         },
         "d": {
           "type": "collapsible",
           "settings": {
             "heading": "Description",
             "use_description": true,
+            "content": "",
+            "page": "",
             "open": true
           }
         },
@@ -56,26 +81,31 @@
           "type": "collapsible",
           "settings": {
             "heading": "Shipping",
-            "content": "<p>Tracked delivery. US 8–15, UK 5–10, AU 8–15, EU 7–14 business days.</p>"
+            "use_description": false,
+            "content": "<p>Tracked delivery. US 8–15, UK 5–10, AU 8–15, EU 7–14 business days.</p>",
+            "page": "",
+            "open": false
           }
         },
         "r": {
           "type": "collapsible",
           "settings": {
             "heading": "Returns",
-            "content": "<p>Clear returns policy on unused items in original packaging.</p>"
+            "use_description": false,
+            "content": "<p>Clear returns policy on unused items in original packaging.</p>",
+            "page": "",
+            "open": false
           }
         },
         "w": {
           "type": "collapsible",
           "settings": {
             "heading": "Warranty",
-            "content": "<p>1 year. Covers electrical, wiring and LED faults.</p>"
+            "use_description": false,
+            "content": "<p>1 year. Covers electrical, wiring and LED faults.</p>",
+            "page": "",
+            "open": false
           }
-        },
-        "assure": {
-          "type": "assurance",
-          "settings": {}
         }
       },
       "block_order": [
@@ -93,7 +123,11 @@
         "r",
         "w"
       ],
-      "settings": {}
+      "settings": {
+        "media_fit": "cover",
+        "material_badge": "",
+        "sticky_atc": true
+      }
     },
     "features": {
       "type": "product-features",
@@ -141,17 +175,17 @@
         "a": {
           "type": "temp",
           "settings": {
+            "glow": "#ffd9a0",
             "label": "Warm 2700K",
-            "text": "Cosy, candle-like. Best for living rooms and bedrooms.",
-            "glow": "#FFD9A0"
+            "text": "Cosy, candle-like. Best for living rooms and bedrooms."
           }
         },
         "b": {
           "type": "temp",
           "settings": {
+            "glow": "#fff0d6",
             "label": "Soft 3000K",
-            "text": "Crisper and cleaner. Good for reading and work desks.",
-            "glow": "#FFF0D6"
+            "text": "Crisper and cleaner. Good for reading and work desks."
           }
         }
       },
@@ -159,17 +193,11 @@
         "a",
         "b"
       ],
-      "settings": {}
-    },
-    "reviews": {
-      "type": "reviews",
       "settings": {
-        "heading": "Customer reviews"
+        "heading": "Which light colour is right for you?",
+        "button_label": "Full lighting guide",
+        "button_link": ""
       }
-    },
-    "related": {
-      "type": "related-products",
-      "settings": {}
     },
     "best": {
       "type": "featured-collection",
@@ -177,9 +205,19 @@
         "eyebrow": "BEST SELLERS",
         "heading": "Loved by our customers",
         "subheading": "",
+        "collection": "best-sellers",
+        "limit": 8,
         "button_label": "Shop best sellers",
-        "demo": "indoor",
-        "limit": 8
+        "button_link": "",
+        "demo": "indoor"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "demo_images": true,
+        "heading": "Customer reviews",
+        "subheading": ""
       }
     },
     "pfaq": {
@@ -221,7 +259,15 @@
         "f4"
       ],
       "settings": {
-        "heading": "Product FAQ"
+        "heading": "Product FAQ",
+        "w_title": "1-year voluntary warranty",
+        "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
+        "w_link_label": "Warranty details",
+        "w_link": "",
+        "t_title": "Avron Trade",
+        "t_text": "Project pricing for designers, builders and stylists.",
+        "t_btn": "Apply now",
+        "t_link": ""
       }
     },
     "story": {
@@ -254,7 +300,22 @@
         "p2",
         "p3"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "OUR STORY",
+        "heading": "Measured light for considered homes.",
+        "text": "<p>Avron makes thoughtfully designed lighting easier to understand, choose and live with. We keep the range edited, show every fitting at believable scale, and explain dimensions, installation and suitability in plain English, with dependable support before and after delivery.</p>",
+        "btn1_label": "Read our story",
+        "btn1_link": "",
+        "btn2_label": "Visit the lighting guide",
+        "btn2_link": ""
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "limit": 5
+      }
     }
   },
   "order": [
