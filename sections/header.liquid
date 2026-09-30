@@ -29,7 +29,7 @@
 {%- endif -%}
 <header class="header" data-header>
   <div class="page-w header__row">
-    <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}</button>
+    <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}<span class="hdr-mtxt">Menu</span></button>
     <a href="{{ routes.root_url }}" class="header__logo">{% render 'logo' %}</a>
     <form action="{{ routes.search_url }}" method="get" role="search" class="header__search" data-predictive data-popular="{{ section.settings.popular | escape }}">
       <label class="visually-hidden" for="HeaderSearch">Search</label>

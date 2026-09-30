@@ -1106,3 +1106,28 @@ html,body{overflow-x:clip!important}
 @media (max-width:989px){.xst{margin-left:16px!important;margin-right:16px!important}.xft__bar{margin-left:0!important;margin-right:0!important}}
 .xfc__btn,.hero__badge,.badge{white-space:nowrap}
 .xft{margin-top:0!important}
+
+/* v1.5.2 — mobile header text links + mobile hero like the design */
+.hdr-mtxt{display:none}
+@media (max-width:989px){
+  .header__burger{width:auto!important;height:auto!important;padding:0!important;background:none!important;font-size:13px;font-weight:600;color:#1B1D1A}
+  .header__burger .icon,.header__burger svg{display:none!important}
+  .hdr-mtxt{display:inline}
+  .header__icons{gap:14px!important;font-size:13px;font-weight:600}
+  .header__icons .hide-sm{display:inline!important}
+  .header__icons .show-sm{display:none!important}
+  .header__icons a[href*="account"]{display:none!important}
+  .header__cart .count,.header__cart [data-cart-count]{font-size:10px;padding:1px 6px}
+  .hero{padding-left:12px!important;padding-right:12px!important;gap:10px}
+  .hero__main{height:460px!important;border-radius:12px}
+  .hero__shade{background:linear-gradient(180deg,rgba(20,18,14,0) 25%,rgba(20,18,14,.75))!important}
+  .hero__copy{left:18px!important;right:18px!important;top:auto!important;bottom:54px!important;transform:none!important;gap:12px!important;max-width:none}
+  .hero__h{font-size:34px!important;line-height:1.05!important}
+  .hero__p{display:none!important}
+  .hero__btns .btn{padding:13px 22px!important;font-size:14px}
+  .hero__dots{bottom:24px!important}
+  .hero__side{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .hero__card{height:170px!important}
+  .hero__card-tag{left:8px!important;right:8px!important;bottom:8px!important;padding:10px 12px!important;font-size:14px}
+  .hero__card-tag span,.hero__card-tag small{display:none}
+}
