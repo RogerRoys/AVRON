@@ -365,6 +365,19 @@
         "heading": "Shop by room"
       }
     },
+    "col_kitchen": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "KITCHEN COLLECTION",
+        "heading": "Kitchen Lighting",
+        "subheading": "Pendants and linear lights for islands, counters and dining tables.",
+        "collection": "kitchen-lighting",
+        "limit": 8,
+        "button_label": "Shop kitchen lighting",
+        "button_link": "",
+        "demo": "kitchen"
+      }
+    },
     "guide": {
       "type": "materials-guide",
       "blocks": {
@@ -617,17 +630,6 @@
         "t_text": "Project pricing for designers, builders and stylists.",
         "t_btn": "Apply now",
         "t_link": ""
-      }
-    },
-    "col_kitchen": {
-      "type": "featured-collection",
-      "settings": {
-        "eyebrow": "KITCHEN COLLECTION",
-        "heading": "Kitchen Lighting",
-        "subheading": "Pendants and linear lights for islands, counters and dining tables.",
-        "button_label": "Shop kitchen lighting",
-        "demo": "kitchen",
-        "limit": 8
       }
     }
   },
