@@ -62,6 +62,7 @@
         },
         "t3": {
           "type": "mobile_tile",
+          "disabled": true,
           "settings": {
             "title": "New in",
             "link": ""
@@ -80,6 +81,7 @@
         },
         "t1": {
           "type": "mobile_tile",
+          "disabled": true,
           "settings": {
             "title": "Indoor lighting",
             "link": ""
@@ -87,6 +89,7 @@
         },
         "t2": {
           "type": "mobile_tile",
+          "disabled": true,
           "settings": {
             "title": "Outdoor lighting",
             "link": ""
@@ -94,6 +97,7 @@
         },
         "t4": {
           "type": "mobile_tile",
+          "disabled": true,
           "settings": {
             "title": "Best sellers",
             "link": ""
