@@ -390,3 +390,25 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
   function all(){document.querySelectorAll('[data-xgal]').forEach(init);}
   if(document.readyState!=='loading')all();else document.addEventListener('DOMContentLoaded',all);document.addEventListener('shopify:section:load',all);
 })();
+
+/* v1.7.6 mega menu controller */
+(function(){
+  function init(){
+    var header=document.querySelector('.header');if(!header||header.__mm)return;header.__mm=1;
+    var items=[].slice.call(header.querySelectorAll('.nav__item')),t;
+    function closeAll(){clearTimeout(t);items.forEach(function(i){i.classList.remove('is-open');});header.classList.remove('is-mega-open');}
+    function open(it){clearTimeout(t);items.forEach(function(i){if(i!==it)i.classList.remove('is-open');});if(it&&it.classList.contains('has-mega')){it.classList.add('is-open');header.classList.add('is-mega-open');}else header.classList.remove('is-mega-open');}
+    items.forEach(function(it){
+      it.addEventListener('mouseenter',function(){open(it);});
+      it.addEventListener('mouseleave',function(e){clearTimeout(t);var to=e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest('.nav__item');if(to&&to!==it){open(to);return;}t=setTimeout(closeAll,120);});
+      it.addEventListener('focusin',function(){open(it);});
+      var m=it.querySelector('.mega');if(m)m.addEventListener('mouseenter',function(){clearTimeout(t);});
+    });
+    header.addEventListener('focusout',function(){setTimeout(function(){if(!header.contains(document.activeElement))closeAll();},0);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+    document.addEventListener('click',function(e){if(!e.target.closest('.nav__item.has-mega'))closeAll();});
+    window.addEventListener('scroll',function(){if(header.classList.contains('is-mega-open')&&!header.matches(':hover'))closeAll();},{passive:true});
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+  document.addEventListener('shopify:section:load',function(){var h=document.querySelector('.header');if(h)h.__mm=0;init();});
+})();

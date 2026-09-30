@@ -1360,3 +1360,45 @@ html,body{overflow-x:clip!important}
 .cd__up:hover,.xcd__up:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
 
 .has-satc .footer{padding-bottom:0}
+
+/* v1.7.5 mobile product page = Conversion First 2d */
+@media (max-width:989px){
+  .template-product .crumbs{display:none}
+  .pp.page-w{overflow-x:clip}
+  .pp__grid{display:flex!important;flex-direction:column;gap:0;min-width:0}
+  .pp__grid>*{min-width:0;max-width:100%}
+  .pp__gallery{margin:0 calc(-1 * var(--gutter, 16px))!important;width:auto}
+  .xpp__gwrap [data-xg-scroll],.pp__media{border-radius:0!important}
+  .xpp__gwrap .pp__m,.pp__m,.pp__m--lead{flex:0 0 100%!important;min-width:100%;aspect-ratio:4/5!important;border-radius:0!important}
+  .pp__thumbs{display:none!important}
+  .xpp__mcount{top:12px;right:12px}
+  .pp__badges{top:12px;left:12px}
+  .xpp__mbar{background:rgba(255,255,255,.45)}.xpp__mbar i{background:#fff}
+  .pp__info{padding-top:14px;min-width:0;overflow-wrap:anywhere}
+  .pp__title{font-size:24px;line-height:1.15;word-break:normal;overflow-wrap:anywhere}
+  .opt__row{display:flex;flex-wrap:wrap;gap:8px}
+  .optbtn{max-width:100%}.optbtn span{white-space:normal;text-align:left}
+  .pp__buy{display:grid!important;grid-template-columns:auto minmax(0,1fr);gap:10px}
+  .pp__buy .btn{min-width:0;white-space:nowrap}
+  .pp__dyn,.pp__dyn *{max-width:100%}
+  .pay{flex-wrap:wrap;justify-content:center}
+  .tgrid{grid-template-columns:1fr!important}
+  .tgrid>*{border-right:0!important;min-width:0}
+  .fbt,.acc{max-width:100%}
+}
+
+/* v1.7.6 mega menu: JS-controlled open state (fixes ghost panel / dim on other items) */
+.header .nav__item.has-mega .mega{visibility:hidden!important;opacity:0!important;transform:translateY(-6px)!important;pointer-events:none!important;transition:opacity .15s ease,transform .2s ease,visibility 0s linear .2s!important}
+.header .nav__item.has-mega.is-open .mega{visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;transition:opacity .22s ease,transform .35s cubic-bezier(.2,.8,.2,1),visibility 0s!important}
+.header .nav__item.has-mega .mega__col{opacity:0!important;transform:translateY(8px)!important}
+.header .nav__item.has-mega.is-open .mega__col{opacity:1!important;transform:none!important}
+.header .mega-dim{display:block!important;opacity:0!important;visibility:hidden!important;transition:opacity .2s ease,visibility 0s linear .2s!important}
+.header.is-mega-open .mega-dim{opacity:1!important;visibility:visible!important;transition:opacity .25s ease!important}
+.header .nav__item.has-mega.is-open>.nav__link{color:var(--brand)}
+.header .nav__item.has-mega.is-open>.nav__link::after{transform:scaleX(1)}
+
+/* v1.7.7 close mega + dim instantly (no ghost white panel / grey band while moving to other menu items) */
+.header .nav__item.has-mega:not(.is-open) .mega,.header .nav__item.has-mega:not(.is-open) .mega *{transition:none!important;animation:none!important}
+.header .nav__item.has-mega:not(.is-open) .mega{visibility:hidden!important;opacity:0!important}
+.header:not(.is-mega-open) .mega-dim{transition:none!important;opacity:0!important;visibility:hidden!important}
+.nav__item:not(.has-mega) .mega,.nav__item:not(.has-mega)~.mega-dim{display:none!important}
