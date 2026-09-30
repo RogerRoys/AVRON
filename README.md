@@ -105,3 +105,9 @@ Matches the "Avron 1d Live Preview" prototype.
 - Assurance list (green ticks) under the price — edit lines in the "Assurance list" block.
 - Gallery: scrolls inside its own area on desktop with a left-side ˄ / bar / ˅ control; hover shows a "+" cursor and click zooms (click again or leave to reset).
 - New sections on the product template: Best sellers (featured collection), Product FAQ, Our story. Order: Best sellers → Reviews → FAQ → Our story → You may also like.
+
+## v1.8
+- Home: Kitchen Lighting collection (8 products) after Shop by room — pick your kitchen collection in the section.
+- Product page: You may also like shows 8 products (4 × 2).
+- Desktop product gallery stays fixed while the product info scrolls.
+- Mobile product gallery is full-width (no white gap on the right).

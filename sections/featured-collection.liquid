@@ -8,21 +8,84 @@
     {%- if c != blank and c.products_count > 0 -%}
       {%- for p in c.products limit: section.settings.limit -%}{% render 'product-card', card_product: p %}{%- endfor -%}
     {%- else -%}
-      {%- assign dt = 4 -%}{%- if section.settings.demo == 'outdoor' -%}{%- assign dt = 5 -%}{%- endif -%}
+      {%- assign dt = 4 -%}{%- if section.settings.demo == 'outdoor' -%}{%- assign dt = 5 -%}{%- elsif section.settings.demo == 'kitchen' -%}{%- assign dt = 6 -%}{%- endif -%}
       {%- for i in (1..section.settings.limit) -%}{% render 'card-placeholder', n: i, tab: dt %}{%- endfor -%}
     {%- endif -%}
   </div>
   {%- if section.settings.button_label != blank -%}<a href="{% if c != blank %}{{ c.url }}{% else %}{{ section.settings.button_link | default: routes.all_products_collection_url }}{% endif %}" class="xfc__mbtn">{{ section.settings.button_label }}</a>{%- endif -%}
 </section>
 {% schema %}
-{"name":"Featured collection","settings":[
- {"type":"text","id":"eyebrow","label":"Eyebrow","default":"INDOOR COLLECTION"},
- {"type":"text","id":"heading","label":"Heading","default":"The living room edit"},
- {"type":"text","id":"subheading","label":"Subheading","default":"Pendants, lamps and chandeliers chosen to bring visual warmth to living spaces."},
- {"type":"collection","id":"collection","label":"Collection"},
- {"type":"range","id":"limit","label":"Products","min":4,"max":12,"step":4,"default":8},
- {"type":"text","id":"button_label","label":"Button label","default":"Shop all indoor"},
- {"type":"url","id":"button_link","label":"Button link (if no collection)"},
- {"type":"select","id":"demo","label":"Demo products (until a collection is picked)","options":[{"value":"indoor","label":"Indoor"},{"value":"outdoor","label":"Outdoor"}],"default":"indoor"}],
- "presets":[{"name":"Featured collection"}]}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "INDOOR COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The living room edit"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Pendants, lamps and chandeliers chosen to bring visual warmth to living spaces."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop all indoor"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link (if no collection)"
+    },
+    {
+      "type": "select",
+      "id": "demo",
+      "label": "Demo products (until a collection is picked)",
+      "options": [
+        {
+          "value": "indoor",
+          "label": "Indoor"
+        },
+        {
+          "value": "outdoor",
+          "label": "Outdoor"
+        },
+        {
+          "value": "kitchen",
+          "label": "Kitchen"
+        }
+      ],
+      "default": "indoor"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection"
+    }
+  ]
+}
 {% endschema %}

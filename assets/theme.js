@@ -412,3 +412,5 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
   if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
   document.addEventListener('shopify:section:load',function(){var h=document.querySelector('.header');if(h)h.__mm=0;init();});
 })();
+
+(function(){function s(){var h=document.querySelector('.header');if(h)document.documentElement.style.setProperty('--header-h',Math.round(h.getBoundingClientRect().height)+'px');}window.addEventListener('load',s);window.addEventListener('resize',s);if(document.readyState!=='loading')s();else document.addEventListener('DOMContentLoaded',s);})();

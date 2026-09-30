@@ -1402,3 +1402,19 @@ html,body{overflow-x:clip!important}
 .header .nav__item.has-mega:not(.is-open) .mega{visibility:hidden!important;opacity:0!important}
 .header:not(.is-mega-open) .mega-dim{transition:none!important;opacity:0!important;visibility:hidden!important}
 .nav__item:not(.has-mega) .mega,.nav__item:not(.has-mega)~.mega-dim{display:none!important}
+
+/* v1.8 related 8 (4x2), sticky gallery, kitchen collection */
+.grid--p8{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:28px 20px}
+@media (max-width:989px){.grid--p8{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px 10px}}
+@media (min-width:990px){
+  .pp__grid{align-items:start}
+  .pp__gallery{position:sticky!important;top:calc(var(--header-h,128px) + 16px);align-self:start}
+  .pp__info{position:static!important;top:auto!important}
+  .pp,.pp.page-w,.template-product main{overflow:visible!important}
+}
+@media (max-width:989px){
+  .pp__gallery{margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;width:100vw!important;max-width:100vw!important}
+  .xpp__gwrap,.xpp__gwrap [data-xg-scroll]{width:100%!important;max-width:100%!important;padding:0!important;margin:0!important}
+  .xpp__gwrap .pp__m{flex:0 0 100%!important;width:100%!important;max-width:100%!important}
+  html,body{overflow-x:hidden}
+}

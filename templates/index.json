@@ -618,6 +618,17 @@
         "t_btn": "Apply now",
         "t_link": ""
       }
+    },
+    "col_kitchen": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "KITCHEN COLLECTION",
+        "heading": "Kitchen Lighting",
+        "subheading": "Pendants and linear lights for islands, counters and dining tables.",
+        "button_label": "Shop kitchen lighting",
+        "demo": "kitchen",
+        "limit": 8
+      }
     }
   },
   "order": [
@@ -629,6 +640,7 @@
     "story",
     "col_outdoor",
     "rooms",
+    "col_kitchen",
     "guide",
     "reviews",
     "ugc",
