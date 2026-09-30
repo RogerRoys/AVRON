@@ -78,3 +78,6 @@ Matches the "Avron 1d Live Preview" prototype.
 - Hero side-card demo photos, UGC photos and mobile menu tiles (New in / Best sellers) now use the same pictures as the preview.
 - Footer shows the preview link columns (Shop / Customer care / About) until you pick footer menus.
 - FAQ electrician answer and 4000K glow colour now match the preview text/colour.
+
+## v1.3.2
+- Quick buy rebuilt to the 1d design (desktop popup + mobile bottom sheet). Badge comes from a product tag like "badge:Best seller" (or any "best seller" tag).

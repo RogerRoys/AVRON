@@ -933,3 +933,4 @@ h1,h2,h3,p{margin:0}
 .footer__col a{color:#5C615B}
 .footer__col a:hover{color:#1B1D1A}
 @media (max-width:989px){.footer__grid{grid-template-columns:1fr 1fr;padding-top:32px}.footer__brand{grid-column:1 / -1}}
+
