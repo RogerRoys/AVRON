@@ -1131,3 +1131,46 @@ html,body{overflow-x:clip!important}
   .hero__card-tag{left:8px!important;right:8px!important;bottom:8px!important;padding:10px 12px!important;font-size:14px}
   .hero__card-tag span,.hero__card-tag small{display:none}
 }
+
+/* v1.5.3 — mobile menu drawer exactly like the Live Preview */
+#MenuDrawer .drawer__head{padding:14px 16px}
+#MenuDrawer .md__logo svg,#MenuDrawer .md__logo img{height:34px!important}
+#MenuDrawer .md__chev{color:#7F847D;font-size:18px;line-height:1;display:inline-block;transition:transform .3s;font-weight:400}
+#MenuDrawer .md__acc[open] .md__chev{transform:rotate(90deg)}
+#MenuDrawer .md__acc summary .icon{display:none}
+#MenuDrawer .md__list>li{border-bottom:1px solid #ECE9E3}
+#MenuDrawer .md__acc summary,#MenuDrawer .md__top{padding:18px 0!important;font-size:17px!important;font-weight:600}
+#MenuDrawer .md__top--sale{color:#B5532E!important}
+#MenuDrawer .md__promo{margin-top:18px;border-radius:14px;padding:18px;font-size:15px;line-height:1.35}
+#MenuDrawer .md__promo b{font-size:15px}
+#MenuDrawer .md__promo-btn{padding:10px 18px;font-size:14px}
+#MenuDrawer .md__links{gap:16px;padding-top:20px;font-size:16px}
+#MenuDrawer .md__links a{align-items:center}
+#MenuDrawer .md__links .icon{display:none}
+#MenuDrawer .md__foot{padding:16px!important;font-size:15px}
+#MenuDrawer .md__foot b{font-size:15px}
+#MenuDrawer .md__cur{font-size:15px;color:#1B1D1A}
+@media (max-width:989px){.header__icons a,.header__icons span{white-space:nowrap}.header__icons{gap:10px!important;font-size:12px!important}.header__logo svg,.header__logo img{max-height:28px}}
+
+/* v1.5.4 — mobile hero exactly like 1d design */
+.hero-mchips,.hero__mtrust,.hero__card-m{display:none}
+@media (max-width:989px){
+  .hero-mchips{display:flex;gap:8px;overflow-x:auto;padding:4px 12px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .hero-mchips::-webkit-scrollbar{display:none}
+  .hero-mchip{flex:none;background:#F5F3EF;color:#1B1D1A;border-radius:40px;padding:9px 14px;font-size:13px;font-weight:600;white-space:nowrap}
+  .hero{display:flex!important;flex-direction:column;gap:10px!important;padding:0 12px!important}
+  .hero__main{height:380px!important;border-radius:12px!important}
+  .hero__shade{background:linear-gradient(180deg,rgba(20,18,14,0) 35%,rgba(20,18,14,.7))!important}
+  .hero__copy{left:18px!important;right:18px!important;bottom:18px!important;top:auto!important;transform:none!important;gap:14px!important;align-items:stretch!important;max-width:none!important}
+  .hero__copy .badge,.hero__p,.hero__btns .btn--ghost-white,.hero__dots,.hero__arrows{display:none!important}
+  .hero__h{font-size:30px!important;line-height:1.08!important;margin:0}
+  .hero__btns{display:flex!important;width:100%}
+  .hero__btns .btn--white{flex:1;justify-content:center;text-align:center;padding:14px!important;font-size:14px!important;border-radius:40px}
+  .hero__side{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .hero__card{height:auto!important;min-height:0!important;background:#F5F3EF!important;border-radius:10px!important;padding:14px!important;display:block!important}
+  .hero__card img,.hero__card .hero__card-tag{display:none!important}
+  .hero__card-m{display:block;font-size:14px;font-weight:700;color:#1B1D1A}
+  .hero__mtrust{display:flex;justify-content:space-between;gap:8px;background:#F5F3EF;border-radius:10px;padding:12px 14px;font-size:12px;color:#1B1D1A;white-space:nowrap;overflow:hidden}
+  .hero__mtrust i{font-style:normal;color:#E3A23A;letter-spacing:1px;font-size:10px}
+  .shopify-section:has(> .trust),.trust{display:none!important}
+}
