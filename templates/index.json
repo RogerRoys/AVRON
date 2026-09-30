@@ -357,7 +357,7 @@
         "k4": {
           "type": "kelvin",
           "settings": {
-            "glow": "#f4f4ee",
+            "glow": "#EEF1F4",
             "label": "4000K",
             "text": "Bathrooms, office"
           }
@@ -512,7 +512,7 @@
           "type": "faq",
           "settings": {
             "question": "Do I need an electrician?",
-            "answer": "<p>Hardwired pendants, chandeliers and wall lights should be installed by a qualified electrician.</p>"
+            "answer": "<p>Hardwired pendants, chandeliers and wall lights should be installed by a qualified electrician. Plug-in and solar lights don’t need one.</p>"
           }
         },
         "f4": {

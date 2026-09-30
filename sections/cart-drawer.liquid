@@ -9,73 +9,73 @@
   for item in cart.items
     assign in_cart = in_cart | append: item.product_id | append: ','
   endfor
+  assign up = collections[settings.cart_upsell_collection]
 -%}
-<div class="drawer drawer--right" id="CartDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Cart">
+<div class="drawer drawer--right xcd-wrap" id="CartDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Cart">
   <div class="drawer__overlay" data-close></div>
-  <div class="drawer__panel cd" data-cart-inner>
-    <div class="drawer__head"><h2 class="cd__title">Your cart ({{ cart.item_count }})</h2><button type="button" class="icon-btn round" data-close aria-label="Close">{% render 'icon', name: 'close' %}</button></div>
-    <div class="ship">
-      {%- if pct >= 100 -%}<b>{% render 'icon', name: 'check' %} {{ settings.free_ship_text }}</b>{%- else -%}<span>You're <b>{{ remaining | money }}</b> away from free tracked shipping</span>{%- endif -%}
-      <div class="ship__bar"><i style="width:{{ pct }}%"></i></div>
+  <div class="drawer__panel xcd" data-cart-inner>
+    <div class="xcd__head"><b class="xcd__title">Your cart ({{ cart.item_count }})</b><button type="button" class="xcd__x" data-close aria-label="Close">×</button></div>
+    <div class="xcd__ship">
+      <span>{%- if pct >= 100 -%}✓ {{ settings.free_ship_text | default: 'You’ve unlocked free express shipping' }}{%- else -%}You're {{ remaining | money }} away from free express shipping{%- endif -%}</span>
+      <div class="xcd__bar"><i style="width:{{ pct }}%"></i></div>
     </div>
-    {%- if cart.item_count == 0 -%}
-      <div class="cd__empty"><p>Your cart is empty.</p><a href="{{ routes.all_products_collection_url }}" class="btn">Continue shopping</a></div>
-    {%- else -%}
-      <div class="drawer__body cd__body">
-        {%- for item in cart.items -%}
-          <div class="cd__item">
-            <a href="{{ item.url }}" class="cd__img">{%- if item.image -%}{{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.title }}{%- endif -%}</a>
-            <div class="cd__info">
-              <a href="{{ item.url }}" class="cd__name">{{ item.product.title }}</a>
-              {%- unless item.product.has_only_default_variant -%}<span class="cd__var">{{ item.variant.title }}</span>{%- endunless -%}
-              {%- for d in item.line_level_discount_allocations -%}<span class="cd__disc">{{ d.discount_application.title }} (−{{ d.amount | money }})</span>{%- endfor -%}
-              <div class="qty qty--sm">
-                <button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease">&minus;</button>
-                <span>{{ item.quantity }}</span>
-                <button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase">+</button>
-              </div>
-            </div>
-            <div class="cd__right">
-              <b>{{ item.final_line_price | money }}</b>
-              {%- if item.original_line_price > item.final_line_price -%}<s>{{ item.original_line_price | money }}</s>{%- endif -%}
-              <button type="button" class="link-btn" data-line-change data-line="{{ forloop.index }}" data-qty="0">Remove</button>
+    <div class="xcd__body">
+      {%- if cart.item_count == 0 -%}
+        <div class="xcd__empty">
+          <span class="xcd__eic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5C615B" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8a3 3 0 016 0"/></svg></span>
+          <b>Your cart is empty</b><span>Start with a best seller.</span>
+          <button type="button" class="xcd__cont" data-close>Continue shopping</button>
+        </div>
+      {%- endif -%}
+      {%- for item in cart.items -%}
+        <div class="xcd__line">
+          <a href="{{ item.url }}" class="xcd__img">{%- if item.image -%}{{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.title }}{%- endif -%}</a>
+          <div class="xcd__info">
+            <a href="{{ item.url }}" class="xcd__n">{{ item.product.title }}</a>
+            {%- unless item.product.has_only_default_variant -%}<span class="xcd__v">{{ item.variant.title }}</span>{%- endunless -%}
+            <div class="xcd__qty">
+              <button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease">−</button>
+              <span>{{ item.quantity }}</span>
+              <button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase">+</button>
             </div>
           </div>
-        {%- endfor -%}
-        {%- assign up = collections[settings.cart_upsell_collection] -%}
+          <div class="xcd__r"><b>{{ item.final_line_price | money }}</b><button type="button" class="xcd__rm" data-line-change data-line="{{ forloop.index }}" data-qty="0">Remove</button></div>
+        </div>
+      {%- endfor -%}
+      <b class="xcd__uph">{{ settings.cart_upsell_heading | default: 'Customers also added' }}</b>
+      <div class="xcd__ups">
         {%- if up != blank and up.products_count > 0 -%}
-          <b class="cd__uph">{{ settings.cart_upsell_heading }}</b>
-          <div class="cd__ups">
-            {%- assign shown = 0 -%}
-            {%- for p in up.products -%}
-              {%- assign pid = p.id | append: ',' -%}
-              {%- if shown < 2 and p.available -%}{%- unless in_cart contains pid -%}
-                {%- assign shown = shown | plus: 1 -%}
-                <div class="cd__up">
-                  <a href="{{ p.url }}" class="cd__up-img">{%- if p.featured_media -%}{{ p.featured_media | image_url: width: 300 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</a>
-                  <a href="{{ p.url }}" class="cd__up-n">{{ p.title }}</a>
-                  <div class="cd__up-row"><b>{{ p.price | money }}</b>
-                    {%- if p.has_only_default_variant -%}
-                      {%- form 'product', p, data-product-form: '' -%}<input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}"><button type="submit" class="btn btn--xs" data-soldout="false">+ Add</button>{%- endform -%}
-                    {%- else -%}
-                      <button type="button" class="btn btn--xs" data-quick-add="{{ p.handle }}">+ Add</button>
-                    {%- endif -%}
-                  </div>
+          {%- assign shown = 0 -%}
+          {%- for p in up.products -%}
+            {%- assign pid = p.id | append: ',' -%}
+            {%- if shown < 2 and p.available -%}{%- unless in_cart contains pid -%}
+              {%- assign shown = shown | plus: 1 -%}
+              <div class="xcd__up">
+                <a href="{{ p.url }}" class="xcd__upimg">{%- if p.featured_media -%}{{ p.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</a>
+                <a href="{{ p.url }}" class="xcd__upn">{{ p.title }}</a>
+                <div class="xcd__uprow"><b>{{ p.price | money }}</b>
+                  {%- if p.has_only_default_variant -%}
+                    {%- form 'product', p, data-product-form: '' -%}<input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}"><button type="submit" class="xcd__add" data-soldout="false"><span data-add-label data-label="+ Add">+ Add</span></button>{%- endform -%}
+                  {%- else -%}
+                    <button type="button" class="xcd__add" data-quick-add="{{ p.handle }}">+ Add</button>
+                  {%- endif -%}
                 </div>
-              {%- endunless -%}{%- endif -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-        {%- if settings.cart_discount -%}
-          <form class="cd__code" data-discount-form><input type="text" placeholder="Discount code or gift card" aria-label="Discount code"><button type="submit">Apply</button></form>
+              </div>
+            {%- endunless -%}{%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          <div class="xcd__up"><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__upimg">{% render 'demo-img', src: 'av-14.jpg' %}</a><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__upn">Cordless Touch Lamp</a><div class="xcd__uprow"><b>{{ 7195 | money }}</b><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__add">+ Add</a></div></div>
+          <div class="xcd__up"><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__upimg">{% render 'demo-img', src: 'av-21.jpg' %}</a><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__upn">Solar Globe Path Light</a><div class="xcd__uprow"><b>{{ 4895 | money }}</b><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__add">+ Add</a></div></div>
         {%- endif -%}
       </div>
-      <div class="drawer__foot cd__foot">
-        {%- for d in cart.cart_level_discount_applications -%}<div class="cd__row"><span>{{ d.title }}</span><b>−{{ d.total_allocated_amount | money }}</b></div>{%- endfor -%}
-        <div class="cd__row cd__row--lg"><b>Subtotal</b><b>{{ cart.total_price | money }}</b></div>
-        <p class="cd__note">Taxes and duties calculated at checkout.</p>
-        <form action="{{ routes.cart_url }}" method="post"><button type="submit" name="checkout" class="btn btn--lg btn--block">Checkout securely</button></form>
-        {%- if settings.cart_dynamic and additional_checkout_buttons -%}<div class="cd__dyn">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
+    </div>
+    {%- if cart.item_count > 0 -%}
+      <div class="xcd__foot">
+        <div class="xcd__row"><span>Tracked shipping</span><b class="xcd__free">Free</b></div>
+        {%- for d in cart.cart_level_discount_applications -%}<div class="xcd__row"><span>{{ d.title }}</span><b>−{{ d.total_allocated_amount | money }}</b></div>{%- endfor -%}
+        <div class="xcd__row xcd__row--lg"><b>Subtotal</b><b>{{ cart.total_price | money }}</b></div>
+        <form action="{{ routes.cart_url }}" method="post"><button type="submit" name="checkout" class="xcd__co">Checkout securely</button></form>
+        {%- if settings.cart_dynamic and additional_checkout_buttons -%}<div class="xcd__dyn">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
       </div>
     {%- endif -%}
   </div>

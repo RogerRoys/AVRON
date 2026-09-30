@@ -21,8 +21,10 @@
 <div class="card card--demo">
   <div class="card__media">
     <a href="{{ url }}" class="card__img" tabindex="-1" aria-hidden="true">
+      {%- if plain -%}{{ 'product-' | append: n | placeholder_svg_tag: 'placeholder' }}{%- else -%}
       {% render 'demo-img', src: img1[id], alt: title %}
       {% render 'demo-img', src: img2[id], class: 'card__img2' %}
+      {%- endif -%}
     </a>
     <button type="button" class="card__wish" data-wish="demo-{{ id }}" aria-label="Save {{ title | escape }} to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
     {%- if badges[id] != '-' -%}<div class="card__badges"><span class="badge badge--{{ bcls[id] }}">{{ badges[id] }}</span></div>{%- endif -%}

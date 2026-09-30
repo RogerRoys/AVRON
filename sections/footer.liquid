@@ -18,6 +18,12 @@
       -%}
       {%- if m.links.size > 0 -%}
         <div class="footer__col"><b>{{ section.settings[kt] | default: m.title }}</b>{%- for link in m.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}</div>
+      {%- elsif section.settings.demo_links -%}
+        {%- case i -%}
+          {%- when 1 -%}<div class="footer__col"><b>{{ section.settings.title_1 }}</b><a href="{{ routes.search_url }}?q=Indoor">Indoor lighting</a><a href="{{ routes.search_url }}?q=Outdoor">Outdoor lighting</a><a href="{{ routes.search_url }}?q=Ceiling+fans">Ceiling fans</a><a href="{{ routes.search_url }}?q=Decor">Décor</a><a href="{{ routes.search_url }}?q=Sale">Sale</a></div>
+          {%- when 2 -%}<div class="footer__col"><b>{{ section.settings.title_2 }}</b><a href="/pages/track-order">Track order</a><a href="{{ routes.root_url }}policies/shipping-policy">Shipping</a><a href="{{ routes.root_url }}policies/refund-policy">Returns</a><a href="/pages/warranty">Warranty</a><a href="/pages/contact">Contact</a></div>
+          {%- when 3 -%}<div class="footer__col"><b>{{ section.settings.title_3 }}</b><a href="/pages/about">Our story</a><a href="/pages/lighting-guide">Lighting guide</a><a href="/pages/trade">Trade program</a><a href="/pages/reviews">Reviews</a></div>
+        {%- endcase -%}
       {%- endif -%}
     {%- endfor -%}
   </div>
@@ -75,6 +81,12 @@
       "type": "link_list",
       "id": "menu_3",
       "label": "Column 3 menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "demo_links",
+      "label": "Show demo links when a column has no menu",
+      "default": true
     },
     {
       "type": "checkbox",

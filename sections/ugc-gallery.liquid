@@ -3,7 +3,7 @@
   <div class="ugc">
     {%- for block in section.blocks -%}
       <a href="{{ block.settings.link | default: settings.social_instagram | default: '#' }}" class="ugc__i" {{ block.shopify_attributes }}>
-        {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 500 | image_tag: widths: '250,500', sizes: '(min-width: 990px) 16vw, 33vw', loading: 'lazy', alt: '' }}{%- else -%}{%- assign ud = 'av-22.jpg,av-05.jpg,av-09.jpg,av-11.jpg,av-06.jpg,av-16.jpg' | split: ',' -%}{%- assign uk = forloop.index0 | modulo: 6 -%}{% render 'demo-img', src: ud[uk] %}{%- endif -%}
+        {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 500 | image_tag: widths: '250,500', sizes: '(min-width: 990px) 16vw, 33vw', loading: 'lazy', alt: '' }}{%- else -%}{%- assign ud = 'av-22.jpg,av-06.jpg,av-16.jpg,av-19.jpg,av-24.jpg,av-20.jpg' | split: ',' -%}{%- assign uk = forloop.index0 | modulo: 6 -%}{% render 'demo-img', src: ud[uk] %}{%- endif -%}
         <span class="ugc__ov">{{ section.settings.overlay }}</span>
       </a>
     {%- endfor -%}

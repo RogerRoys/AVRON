@@ -1,19 +1,20 @@
-<section class="page-w sec">
-  <div class="faqs">
-    <div>
-      <h2 class="h2">{{ section.settings.heading }}</h2>
-      {%- for block in section.blocks -%}
-        <details class="acc" {{ block.shopify_attributes }}{% if forloop.first %} open{% endif %}><summary>{{ block.settings.question }}<i></i></summary><div class="acc__body rte">{{ block.settings.answer }}</div></details>
-      {%- endfor -%}
-    </div>
-    <div class="faqs__side">
-      {%- if section.settings.w_title != blank -%}
-        <div class="scard scard--soft"><b>{{ section.settings.w_title }}</b><span>{{ section.settings.w_text }}</span>{%- if section.settings.w_link_label != blank -%}<a href="{{ section.settings.w_link | default: '#' }}" class="link">{{ section.settings.w_link_label }}</a>{%- endif -%}</div>
-      {%- endif -%}
-      {%- if section.settings.t_title != blank -%}
-        <div class="scard scard--brand"><b>{{ section.settings.t_title }}</b><span>{{ section.settings.t_text }}</span>{%- if section.settings.t_btn != blank -%}<a href="{{ section.settings.t_link | default: '#' }}" class="btn btn--white btn--sm">{{ section.settings.t_btn }}</a>{%- endif -%}</div>
-      {%- endif -%}
-    </div>
+<section class="xfaq">
+  <div class="xfaq__col" data-xrv="0">
+    <h2 class="xfaq__h">{{ section.settings.heading }}</h2>
+    {%- for block in section.blocks -%}
+      <div class="xfaq__i{% if forloop.first %} is-open{% endif %}" data-xfaq {{ block.shopify_attributes }}>
+        <button type="button" class="xfaq__q" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"><span>{{ block.settings.question }}</span><span class="xfaq__ic" aria-hidden="true">+</span></button>
+        <div class="xfaq__a"><div><div class="xfaq__p">{{ block.settings.answer }}</div></div></div>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="xfaq__side">
+    {%- if section.settings.w_title != blank -%}
+      <div class="xfaq__card" data-xrv="80"><b>{{ section.settings.w_title }}</b><span>{{ section.settings.w_text }}</span>{%- if section.settings.w_link_label != blank -%}<a href="{{ section.settings.w_link | default: '#' }}" class="xfaq__lnk">{{ section.settings.w_link_label }}</a>{%- endif -%}</div>
+    {%- endif -%}
+    {%- if section.settings.t_title != blank -%}
+      <div class="xfaq__card xfaq__card--brand" data-xrv="160"><b>{{ section.settings.t_title }}</b><span>{{ section.settings.t_text }}</span>{%- if section.settings.t_btn != blank -%}<a href="{{ section.settings.t_link | default: '#' }}" class="xfaq__btn">{{ section.settings.t_btn }}</a>{%- endif -%}</div>
+    {%- endif -%}
   </div>
 </section>
 {% schema %}

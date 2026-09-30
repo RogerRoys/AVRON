@@ -21,7 +21,7 @@
   <div class="page-w utility__in">
     <div class="utility__l">{{ section.settings.utility_text }}</div>
     <div class="utility__r">
-      {%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- else -%}<a href="/pages/track-order">Track order</a><a href="/pages/trade">Trade program</a><a href="/pages/contact">Help</a>{%- endfor -%}
       {%- render 'localization', id: 'HeaderLoc' -%}
     </div>
   </div>
@@ -42,9 +42,10 @@
       {%- if shop.customer_accounts_enabled -%}
         <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="header__icon"><span class="hide-sm">Account</span><span class="show-sm">{% render 'icon', name: 'user' %}</span></a>
       {%- endif -%}
+      <a href="/pages/wishlist" class="header__icon header__wish"><span class="hide-sm">Wishlist (<span data-wish-count>0</span>)</span><span class="show-sm"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></span></a>
       <a href="{{ routes.cart_url }}" class="header__icon header__cart"{% if drawer_cart %} data-open="CartDrawer"{% endif %}>
         <span class="hide-sm">Cart</span><span class="show-sm">{% render 'icon', name: 'bag' %}</span>
-        <span class="count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+        <span class="count" data-cart-count>{{ cart.item_count }}</span>
       </a>
     </div>
   </div>
@@ -111,7 +112,7 @@
         <div class="md__tiles">
           {%- for block in tiles -%}
             <a href="{{ block.settings.link }}" class="md__tile" {{ block.shopify_attributes }}>
-              <span class="md__tile-img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- else -%}{%- assign td = 'av-01.jpg,av-02.jpg,av-13.jpg,av-14.jpg' | split: ',' -%}{%- assign tk = forloop.index0 | modulo: 4 -%}{% render 'demo-img', src: td[tk] %}{%- endif -%}</span>
+              <span class="md__tile-img">{%- if block.settings.image -%}{{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- else -%}{%- assign td = 'av-12.jpg,av-09.jpg,av-13.jpg,av-14.jpg' | split: ',' -%}{%- assign tk = forloop.index0 | modulo: 4 -%}{% render 'demo-img', src: td[tk] %}{%- endif -%}</span>
               <b>{{ block.settings.title }}</b>
             </a>
           {%- endfor -%}

@@ -85,14 +85,14 @@
         "t3": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Ceiling fans",
+            "title": "New in",
             "link": ""
           }
         },
         "t4": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Décor",
+            "title": "Best sellers",
             "link": ""
           }
         }

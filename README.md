@@ -50,3 +50,31 @@ Matches the "Avron 1d Live Preview" prototype.
 - Header → "Use demo menu" (on by default) shows the preview nav with both mega menus and the mobile drawer until your main menu has dropdown items.
 - Hero now has all 3 preview slides.
 - Reviews → "Show demo photos" adds preview photos to reviews without an image.
+
+## v1.2.1
+- Fixed: hero slider (dots, arrows, autoplay) crashed on load — now works.
+- Header now matches preview: Track order / Trade program / Help links (until you set a utility menu), Wishlist (count) link, cart count badge.
+- Hero side-card arrow and warmth tiles sized like the preview.
+- Product page and collection pages no longer use demo photos — plain placeholders until you add your own.
+
+## v1.2.2
+- Mega menu: solid white panel, grey page dim behind it, larger type and promo tiles — matches the Live Preview.
+- FAQ: large questions, round +/× buttons, warranty and trade cards styled like the preview.
+
+## v1.2.3
+- Mega menu type, spacing, promo tiles and Popular chips sized exactly like the 1d design. Lighter page dim. Added "Home office" to Shop by room.
+
+## v1.2.4
+- Mega menu: the grey dim now covers only the page below the menu. The utility bar and logo/search row stay white, like the design.
+
+## v1.3
+- FAQ rebuilt to the Live Preview: 30px heading, 16px questions, round + that turns into a black × when open, smooth open/close. The warranty and trade cards match the preview.
+- Cart drawer rebuilt to the Live Preview: floating white panel, green shipping bar, bag icon empty state, "Customers also added" shows even when the cart is empty (demo products until you pick an upsell collection), Tracked shipping Free row, Checkout securely button.
+- Menu drawer restyled to the preview: tiles, › rows, green promo, Log in / currency footer.
+- Header: Account / Wishlist (0) / Cart with the orange count badge, which now shows even at 0.
+- Drawer slide, overlay fade and reveal timings match the preview.
+
+## v1.3.1 (compared against the Live Preview data)
+- Hero side-card demo photos, UGC photos and mobile menu tiles (New in / Best sellers) now use the same pictures as the preview.
+- Footer shows the preview link columns (Shop / Customer care / About) until you pick footer menus.
+- FAQ electrician answer and 4000K glow colour now match the preview text/colour.

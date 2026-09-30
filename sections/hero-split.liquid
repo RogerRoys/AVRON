@@ -38,7 +38,7 @@
       -%}
       {%- if section.settings[k_t] != blank -%}
         <a href="{{ section.settings[k_l] | default: routes.all_products_collection_url }}" class="hero__card">
-          {%- if section.settings[k_img] -%}{{ section.settings[k_img] | image_url: width: 1000 | image_tag: widths: '500,750,1000', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy', alt: '' }}{%- else -%}{%- if i == 1 -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- else -%}{% render 'demo-img', src: 'av-02.jpg' %}{%- endif -%}{%- endif -%}
+          {%- if section.settings[k_img] -%}{{ section.settings[k_img] | image_url: width: 1000 | image_tag: widths: '500,750,1000', sizes: '(min-width: 990px) 33vw, 50vw', loading: 'lazy', alt: '' }}{%- else -%}{%- if i == 1 -%}{% render 'demo-img', src: 'av-08.jpg' %}{%- else -%}{% render 'demo-img', src: 'av-15.jpg' %}{%- endif -%}{%- endif -%}
           <span class="hero__card-tag"><span><b>{{ section.settings[k_t] }}</b><em>{{ section.settings[k_x] }}</em></span>{% render 'icon', name: 'arrow-right' %}</span>
         </a>
       {%- endif -%}
