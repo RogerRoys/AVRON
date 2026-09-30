@@ -122,7 +122,9 @@
         "utility_menu": "our-policies",
         "drawer_promo_title": "New to Avron?",
         "drawer_promo_text": "Start with the lighting guide",
-        "drawer_promo_link": ""
+        "drawer_promo_link": "",
+        "promo_size": "half",
+        "promo_ratio": "4 / 5"
       }
     }
   },
