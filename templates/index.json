@@ -329,28 +329,28 @@
           "type": "room",
           "settings": {
             "label": "Living room",
-            "link": ""
+            "link": "shopify://collections/living-room-lighting"
           }
         },
         "r2": {
           "type": "room",
           "settings": {
             "label": "Dining",
-            "link": ""
+            "link": "shopify://collections/dining-room-lighting"
           }
         },
         "r3": {
           "type": "room",
           "settings": {
             "label": "Kitchen",
-            "link": ""
+            "link": "shopify://collections/kitchen-lighting"
           }
         },
         "r4": {
           "type": "room",
           "settings": {
             "label": "Front porch",
-            "link": ""
+            "link": "shopify://collections/bathroom-lighting"
           }
         }
       },
