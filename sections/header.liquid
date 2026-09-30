@@ -68,7 +68,7 @@
                       </div>
                     {%- endfor -%}
                   </div>
-                  <div class="mega__promos mega__promos--{{ section.settings.promo_size }}" style="--promo-ratio:{{ section.settings.promo_ratio }}">
+                  <div class="mega__promos" style="--promo-w:{{ section.settings.promo_width }}%;--promo-h:{{ section.settings.promo_height }}px">
                     {%- for block in section.blocks -%}
                       {%- if block.type == 'promo' and block.settings.menu_item == link.title -%}
                         <a href="{{ block.settings.link | default: link.url }}" class="mega__promo" {{ block.shopify_attributes }}>
@@ -199,53 +199,25 @@
       "content": "Mega menu promo image"
     },
     {
-      "type": "select",
-      "id": "promo_size",
+      "type": "range",
+      "id": "promo_width",
       "label": "Promo image width",
-      "default": "half",
-      "info": "Width when a menu has only one promo image. Two images always sit side by side.",
-      "options": [
-        {
-          "value": "third",
-          "label": "Small (1/3 of column)"
-        },
-        {
-          "value": "half",
-          "label": "Medium (1/2 of column)"
-        },
-        {
-          "value": "two-thirds",
-          "label": "Large (2/3 of column)"
-        },
-        {
-          "value": "full",
-          "label": "Full column"
-        }
-      ]
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50,
+      "info": "Share of the promo column. With two images, each one uses half of this width."
     },
     {
-      "type": "select",
-      "id": "promo_ratio",
-      "label": "Promo image shape",
-      "default": "4 / 5",
-      "options": [
-        {
-          "value": "1 / 1",
-          "label": "Square"
-        },
-        {
-          "value": "4 / 5",
-          "label": "Portrait"
-        },
-        {
-          "value": "2 / 3",
-          "label": "Tall"
-        },
-        {
-          "value": "4 / 3",
-          "label": "Landscape"
-        }
-      ]
+      "type": "range",
+      "id": "promo_height",
+      "label": "Promo image height",
+      "min": 160,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 360
     },
     {
       "type": "header",

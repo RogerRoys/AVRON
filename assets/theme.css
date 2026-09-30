@@ -1480,13 +1480,8 @@ html{scroll-behavior:auto}
 .header .nav__item:not(.has-mega)::before,.header .nav__item:not(.has-mega)::after,.header .nav:hover::after,.header .nav:hover::before{display:none!important}
 .header .nav__item.has-mega:hover:not(.is-open) .mega{display:none!important}
 .header:has(.nav__item:not(.has-mega):hover) .mega-dim{display:none!important}
-/* promo image size (Header → Mega menu promo image) */
-.mega__promos .mega__promo{aspect-ratio:var(--promo-ratio,4 / 5)!important;height:auto!important;min-height:0!important}
+/* promo image size (Header → Mega menu promo image: width % + height px sliders) */
+.mega__promos{display:flex!important;flex-wrap:nowrap;gap:12px;align-self:start;height:auto!important;width:var(--promo-w,50%);max-width:100%}
+.mega__promos .mega__promo{flex:1 1 0;min-width:0;aspect-ratio:auto!important;height:var(--promo-h,360px)!important;min-height:0!important;width:auto}
 .mega__promos .mega__promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mega__promos:has(> .mega__promo:only-child){display:flex!important;height:auto!important;align-self:start}
-.mega__promos>.mega__promo:only-child{flex:none}
-.mega__promos--third>.mega__promo:only-child{width:33.333%}
-.mega__promos--half>.mega__promo:only-child{width:calc(50% - 6px)}
-.mega__promos--two-thirds>.mega__promo:only-child{width:66.666%}
-.mega__promos--full>.mega__promo:only-child{width:100%}
 .mega__promo{position:relative;overflow:hidden;border-radius:12px}
