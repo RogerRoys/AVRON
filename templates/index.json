@@ -7,8 +7,8 @@
           "type": "slide",
           "settings": {
             "badge": "NEW SEASON",
-            "heading": "The right light changes everything.",
-            "text": "<p>Indoor and outdoor lighting, curated for calm, modern homes.</p>",
+            "heading": "Light, considered for Australian homes.",
+            "text": "<p>An edited collection of lighting and ceiling fans, chosen for form, material and atmosphere.</p>",
             "btn1_label": "Shop best sellers",
             "btn2_label": "New arrivals"
           }
@@ -60,22 +60,22 @@
         "b": {
           "type": "item",
           "settings": {
-            "title": "Free tracked shipping",
-            "text": "On every order"
+            "title": "Tracked delivery",
+            "text": "Updates at every stage"
           }
         },
         "c": {
           "type": "item",
           "settings": {
-            "title": "30-day returns",
-            "text": "Hassle-free"
+            "title": "Clear returns policy",
+            "text": "Explained before you buy"
           }
         },
         "d": {
           "type": "item",
           "settings": {
-            "title": "1-year warranty",
-            "text": "LED & wiring included"
+            "title": "1-year voluntary warranty",
+            "text": "Alongside your ACL rights"
           }
         },
         "e": {
@@ -422,7 +422,7 @@
           "type": "faq",
           "settings": {
             "question": "How long does shipping take?",
-            "answer": "<p>Free tracked shipping. USA 8–15, UK 5–10, Australia 8–15, EU 7–14 business days.</p>"
+            "answer": "<p>Delivery estimates are shown at checkout, and you’ll receive tracking updates as your order moves.</p>"
           }
         },
         "f2": {
@@ -468,7 +468,7 @@
       "settings": {
         "eyebrow": "INDOOR COLLECTION",
         "heading": "The living room edit",
-        "subheading": "Warm pendants, stone lamps and statement chandeliers.",
+        "subheading": "Pendants, lamps and chandeliers chosen to bring visual warmth to living spaces.",
         "button_label": "Shop all indoor",
         "demo": "indoor",
         "limit": 8
@@ -480,22 +480,22 @@
         "p1": {
           "type": "point",
           "settings": {
-            "title": "Chosen, not stocked",
-            "text": "A tight edit of pieces we'd put in our own homes."
+            "title": "An edited selection",
+            "text": "Chosen for form, material, proportion and atmosphere."
           }
         },
         "p2": {
           "type": "point",
           "settings": {
-            "title": "Made to last",
-            "text": "Stone, glass, rattan and die-cast aluminium."
+            "title": "Clarity in choice",
+            "text": "Dimensions, installation and suitability, explained plainly."
           }
         },
         "p3": {
           "type": "point",
           "settings": {
-            "title": "Backed by us",
-            "text": "30-day returns and a 1-year warranty on every light."
+            "title": "Accountable support",
+            "text": "Honest communication before purchase, during fulfilment and after delivery."
           }
         }
       },
@@ -511,7 +511,7 @@
       "settings": {
         "eyebrow": "OUTDOOR COLLECTION",
         "heading": "Porch & garden",
-        "subheading": "Post caps, bollards and lanterns built for all weather.",
+        "subheading": "Wall, porch and garden lighting for entrances, pathways and facades.",
         "button_label": "Shop all outdoor",
         "demo": "outdoor",
         "limit": 8

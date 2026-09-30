@@ -14,7 +14,7 @@
   </nav>
   <div class="pp__grid">
     <div class="pp__gallery pp__gallery--{{ section.settings.media_fit }}">
-      <div class="pp__media" data-gallery>
+      <div class="xpp__gwrap" data-xgal><div class="xpp__ctl" aria-hidden="true"><button type="button" data-xg-up aria-label="Scroll up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button><span class="xpp__track"><i data-xg-thumb></i></span><button type="button" data-xg-down aria-label="Scroll down"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button></div><span class="xpp__mcount" data-xg-count>1 / {{ product.media.size }}</span><span class="xpp__mbar"><i data-xg-mbar style="width:{{ 100.0 | divided_by: product.media.size }}%"></i></span><div class="pp__media" data-gallery data-xg-scroll>
         {%- for media in product.media -%}
           {%- liquid
             assign ld = 'lazy'
@@ -36,7 +36,7 @@
         {%- else -%}
           <div class="pp__m pp__m--lead">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
         {%- endfor -%}
-      </div>
+      </div></div>
       <div class="pp__badges">
         {%- for tag in product.tags -%}{%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}{%- endfor -%}
         {%- if section.settings.material_badge != blank -%}<span class="badge badge--white">{{ section.settings.material_badge }}</span>{%- endif -%}
@@ -59,6 +59,8 @@
           {%- when 'title' -%}
             <h1 class="pp__title" {{ block.shopify_attributes }}>{{ product.title | escape }}</h1>
             {%- if block.settings.show_vendor -%}<p class="muted small">{{ product.vendor }}</p>{%- endif -%}
+          {%- when 'assurance' -%}
+            <ul class="xpp__as" {{ block.shopify_attributes }}>{%- assign lines = block.settings.items | newline_to_br | split: '<br />' -%}{%- for l in lines -%}{%- assign lt = l | strip -%}{%- if lt != blank -%}<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F9E5B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7.8 12.3l2.8 2.8 5.6-5.8"/></svg><span>{{ lt }}</span></li>{%- endif -%}{%- endfor -%}</ul>
           {%- when 'price' -%}
             <div class="pp__pricewrap" {{ block.shopify_attributes }}>
               <div class="pp__price">
@@ -66,7 +68,7 @@
                 <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
                 <span class="badge badge--sale" data-save{% unless on_sale %} hidden{% endunless %}>Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
               </div>
-              <p class="pp__tax">{%- if cart.taxes_included -%}Tax included.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>
+              <p class="pp__tax">{%- if cart.taxes_included -%}Prices in AUD.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>
             </div>
           {%- when 'low_stock' -%}
             {%- liquid
@@ -282,13 +284,13 @@
           "type": "text",
           "id": "t1_text",
           "label": "Item 1 text",
-          "default": "US · UK · AU · EU"
+          "default": "Australia"
         },
         {
           "type": "text",
           "id": "t2_title",
           "label": "Item 2 title",
-          "default": "30-day returns"
+          "default": "Clear returns policy"
         },
         {
           "type": "text",
@@ -300,7 +302,7 @@
           "type": "text",
           "id": "t3_title",
           "label": "Item 3 title",
-          "default": "1-year warranty"
+          "default": "1-year voluntary warranty"
         },
         {
           "type": "text",
@@ -384,6 +386,19 @@
           "id": "text",
           "label": "Text",
           "default": "<p>Text block</p>"
+        }
+      ]
+    },
+    {
+      "type": "assurance",
+      "name": "Assurance list",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items (one per line)",
+          "default": "In stock, ready to ship\nTracked delivery with clear updates\nClear returns information before you buy\n1-year voluntary warranty, alongside your ACL rights\nSupport before & after purchase"
         }
       ]
     }

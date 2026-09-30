@@ -1,0 +1,20 @@
+<section class="xpg">
+  <nav class="xpg__crumbs"><a href="{{ routes.root_url }}">Home</a>›<span>{{ page.title | default: 'Contact' }}</span></nav>
+  <div class="xpg__intro" data-xrv="0"><span class="xpg__eb">{{ section.settings.eyebrow }}</span><h1 class="xpg__h1">{{ section.settings.heading }}</h1><div class="xpg__lead">{{ section.settings.intro }}</div></div>
+  <div class="xct">
+    <div class="xct__form" data-xrv="0">{%- form 'contact', id: 'AvronContact' -%}
+      {%- if form.posted_successfully? -%}<p class="xct__ok">Thanks — your message has been sent. We’ll be in touch soon.</p>{%- endif -%}
+      {%- if form.errors -%}<p class="xct__err">{{ form.errors | default_errors }}</p>{%- endif -%}
+      <b class="xct__h">{{ section.settings.form_heading }}</b>
+      <div class="xct__row"><label>Name<input type="text" name="contact[name]" required autocomplete="name" placeholder="Your name"></label><label>Email<input type="email" name="contact[email]" required autocomplete="email" placeholder="you@example.com"></label></div>
+      <div class="xct__row"><label>Order number (optional)<input type="text" name="contact[order]" placeholder="e.g. #1024"></label><label>Topic<select name="contact[topic]"><option>Choosing a product</option><option>Installation</option><option>An existing order</option><option>Returns or warranty</option><option>Trade enquiry</option><option>Something else</option></select></label></div>
+      <label>Message<textarea name="contact[body]" rows="5" required placeholder="Tell us about your space, the product you’re considering, or your order."></textarea></label>
+      <button type="submit" class="xct__btn">Send message</button><span class="xct__note">By sending this form you agree to our privacy policy.</span>
+    {%- endform -%}</div>
+    <div class="xct__side"><div class="xct__info" data-xrv="80"><b class="xct__h">{{ section.settings.info_heading }}</b><div class="xft__ci">{%- if section.settings.c_name != blank -%}<span><b>Business Name:</b> {{ section.settings.c_name }}</span>{%- endif -%}{%- if section.settings.c_address != blank -%}<span><b>Business Address:</b> {{ section.settings.c_address }}</span>{%- endif -%}{%- if section.settings.c_email != blank -%}<span><b>Email:</b> <a href="mailto:{{ section.settings.c_email }}">{{ section.settings.c_email }}</a></span>{%- endif -%}{%- if section.settings.c_phone != blank -%}<span><b>Phone:</b> {{ section.settings.c_phone }}</span>{%- endif -%}{%- if section.settings.c_hours != blank -%}<span><b>Opening hours:</b> {{ section.settings.c_hours }}</span>{%- endif -%}</div></div>
+      <div class="xct__links" data-xrv="160"><b>Before you ask</b><a href="/pages/faq">Delivery and tracking<span>›</span></a><a href="{{ routes.root_url }}policies/refund-policy">Returns and warranty<span>›</span></a><a href="/pages/faq">Installation guidance<span>›</span></a><a href="/pages/lighting-guide">Lighting guide<span>›</span></a></div></div>
+  </div>
+</section>
+{% schema %}
+{"name":"Contact page","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"CONTACT"},{"type":"text","id":"heading","label":"Heading","default":"How can we help?"},{"type":"richtext","id":"intro","label":"Intro","default":"<p>Ask us about sizing, finishes, installation requirements or an existing order. We’ll give you a clear, honest answer — and tell you if we need to check something first.</p>"},{"type":"text","id":"form_heading","label":"Form heading","default":"Send us a message"},{"type":"text","id":"info_heading","label":"Info heading","default":"Contact information"},{"type":"text","id":"c_name","label":"Business name","default":"Avron Home Pty Ltd"},{"type":"text","id":"c_address","label":"Business address","default":"Level 2, 100 Example Street, Sydney NSW 2000, Australia"},{"type":"text","id":"c_email","label":"Email","default":"support@avron.com.au"},{"type":"text","id":"c_phone","label":"Phone","default":"+61 2 0000 0000"},{"type":"text","id":"c_hours","label":"Opening hours","default":"Monday to Friday, 9:00am–5:00pm (AEST)"}]}
+{% endschema %}

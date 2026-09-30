@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-faq-page",
+      "blocks": {
+        "q0": {
+          "type": "faq",
+          "settings": {
+            "group": "Choosing lighting",
+            "question": "How do I choose the right size?",
+            "answer": "<p>Check the dimensions on each product page against your space. Measure the room or table the fitting will sit above, and compare it with the fitting’s width and drop before you choose.</p>"
+          }
+        },
+        "q1": {
+          "type": "faq",
+          "settings": {
+            "group": "Choosing lighting",
+            "question": "What colour temperature should I choose?",
+            "answer": "<p>Warmer light (around 2700K) suits living rooms and bedrooms; slightly cooler light (around 3000K) suits kitchens and task areas. Where a product offers options, they’re listed on the product page.</p>"
+          }
+        },
+        "q2": {
+          "type": "faq",
+          "settings": {
+            "group": "Choosing lighting",
+            "question": "Can I use a light outdoors?",
+            "answer": "<p>Only where the product page states it is suitable for outdoor use. Check the stated IP rating and intended application before choosing a fitting for exposed or wet areas.</p>"
+          }
+        },
+        "q3": {
+          "type": "faq",
+          "settings": {
+            "group": "Installation",
+            "question": "Do I need an electrician?",
+            "answer": "<p>Hardwired fittings — such as pendants, ceiling lights, wall lights and ceiling fans — must be installed by a licensed electrician in Australia. Plug-in lamps do not need one.</p>"
+          }
+        },
+        "q4": {
+          "type": "faq",
+          "settings": {
+            "group": "Installation",
+            "question": "What is included in the box?",
+            "answer": "<p>Included components are listed on each product page. If a bulb or mounting part is not listed, assume it is sold separately.</p>"
+          }
+        },
+        "q5": {
+          "type": "faq",
+          "settings": {
+            "group": "Orders & delivery",
+            "question": "How will I know where my order is?",
+            "answer": "<p>You’ll receive tracking updates by email as your order moves. Delivery estimates are shown at checkout.</p>"
+          }
+        },
+        "q6": {
+          "type": "faq",
+          "settings": {
+            "group": "Orders & delivery",
+            "question": "What currency do you charge in?",
+            "answer": "<p>All prices are shown and charged in Australian dollars (AUD).</p>"
+          }
+        },
+        "q7": {
+          "type": "faq",
+          "settings": {
+            "group": "Returns & warranty",
+            "question": "Can I return a product?",
+            "answer": "<p>Please read our returns policy before you order. It explains which items can be returned and how to start a return.</p>"
+          }
+        },
+        "q8": {
+          "type": "faq",
+          "settings": {
+            "group": "Returns & warranty",
+            "question": "What does the warranty cover?",
+            "answer": "<p>Avron products include a 1-year voluntary warranty. It is in addition to, and does not limit, your rights under the Australian Consumer Law.</p>"
+          }
+        },
+        "q9": {
+          "type": "faq",
+          "settings": {
+            "group": "Returns & warranty",
+            "question": "What if my order arrives damaged?",
+            "answer": "<p>Contact us as soon as possible with your order number and photos of the damage, and we’ll work with you to resolve it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

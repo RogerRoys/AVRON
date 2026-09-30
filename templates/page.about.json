@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-about",
+      "blocks": {
+        "p0": {
+          "type": "pillar",
+          "settings": {
+            "title": "Considered design",
+            "text": "An edited collection chosen for form, material, proportion and atmosphere."
+          }
+        },
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "title": "Clarity in choice",
+            "text": "Useful specifications and guidance, without unnecessary complexity."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "title": "Made for context",
+            "text": "Lighting presented in relevant Australian living environments."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "title": "Accountable support",
+            "text": "Honest communication before and after purchase."
+          }
+        },
+        "d0": {
+          "type": "point",
+          "settings": {
+            "text": "A focused and coherent selection rather than an overwhelming catalogue."
+          }
+        },
+        "d1": {
+          "type": "point",
+          "settings": {
+            "text": "Elevated visual presentation supported by clear, practical product information."
+          }
+        },
+        "d2": {
+          "type": "point",
+          "settings": {
+            "text": "Lighting shown at believable scale in contemporary Australian interiors and exteriors."
+          }
+        },
+        "d3": {
+          "type": "point",
+          "settings": {
+            "text": "Straightforward guidance about dimensions, installation, suitability and product use."
+          }
+        },
+        "d4": {
+          "type": "point",
+          "settings": {
+            "text": "Dependable communication before purchase, during fulfilment and after delivery."
+          }
+        }
+      },
+      "block_order": [
+        "p0",
+        "p1",
+        "p2",
+        "p3",
+        "d0",
+        "d1",
+        "d2",
+        "d3",
+        "d4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -96,3 +96,12 @@ Matches the "Avron 1d Live Preview" prototype.
 - New sections: Featured collection (×2 on the homepage: Indoor "The living room edit" + Outdoor "Porch & garden", 8 products in 4×2) and Our story (image, text, 3 points, 2 buttons). Both sit after the product tabs.
 - Footer rebuilt: brand text + social icons (Theme settings → Social media, YouTube added), 2 menu columns, Contact information (Business Name / Address / Email / Phone / Opening hours — edit in the Footer section), policies + payment icons.
 - The contact details are placeholders — replace them with your real business details before launch.
+
+## v1.6 — Brand brief content + new pages
+- Copy updated to the Avron Brand & Content Brief: Australia first, AUD, calm tone, no unapproved shipping/returns claims or discount codes, 1-year voluntary warranty alongside ACL rights.
+- New page templates: page.about, page.faq, page.contact (contact form + contact information), and a redesigned password page. Create pages in Online Store → Pages and pick the matching template.
+
+## v1.7 — Product page
+- Assurance list (green ticks) under the price — edit lines in the "Assurance list" block.
+- Gallery: scrolls inside its own area on desktop with a left-side ˄ / bar / ˅ control; hover shows a "+" cursor and click zooms (click again or leave to reset).
+- New sections on the product template: Best sellers (featured collection), Product FAQ, Our story. Order: Best sellers → Reviews → FAQ → Our story → You may also like.

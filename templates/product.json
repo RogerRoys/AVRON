@@ -47,14 +47,14 @@
           "type": "collapsible",
           "settings": {
             "heading": "Shipping",
-            "content": "<p>Free tracked shipping. US 8–15, UK 5–10, AU 8–15, EU 7–14 business days.</p>"
+            "content": "<p>Tracked delivery. US 8–15, UK 5–10, AU 8–15, EU 7–14 business days.</p>"
           }
         },
         "r": {
           "type": "collapsible",
           "settings": {
             "heading": "Returns",
-            "content": "<p>30-day returns on unused items in original packaging.</p>"
+            "content": "<p>Clear returns policy on unused items in original packaging.</p>"
           }
         },
         "w": {
@@ -63,12 +63,17 @@
             "heading": "Warranty",
             "content": "<p>1 year. Covers electrical, wiring and LED faults.</p>"
           }
+        },
+        "assure": {
+          "type": "assurance",
+          "settings": {}
         }
       },
       "block_order": [
         "rating",
         "title",
         "price",
+        "assure",
         "low",
         "picker",
         "buy",
@@ -156,13 +161,101 @@
     "related": {
       "type": "related-products",
       "settings": {}
+    },
+    "best": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "BEST SELLERS",
+        "heading": "Loved by our customers",
+        "subheading": "",
+        "button_label": "Shop best sellers",
+        "demo": "indoor",
+        "limit": 8
+      }
+    },
+    "pfaq": {
+      "type": "faq-support",
+      "blocks": {
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need an electrician?",
+            "answer": "<p>Hardwired fittings must be installed by a licensed electrician in Australia. Plug-in lamps do not need one.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "question": "Which bulb does it take?",
+            "answer": "<p>The bulb type and whether it is included are listed in the specifications above.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "question": "How will I know where my order is?",
+            "answer": "<p>You’ll receive tracking updates by email as your order moves. Delivery estimates are shown at checkout.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "question": "What does the warranty cover?",
+            "answer": "<p>A 1-year voluntary warranty, in addition to your rights under the Australian Consumer Law.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "heading": "Product FAQ"
+      }
+    },
+    "story": {
+      "type": "our-story",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "title": "An edited selection",
+            "text": "Chosen for form, material, proportion and atmosphere."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "title": "Clarity in choice",
+            "text": "Dimensions, installation and suitability, explained plainly."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "title": "Accountable support",
+            "text": "Honest communication before purchase, during fulfilment and after delivery."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
     "features",
     "kelvin",
+    "best",
     "reviews",
+    "pfaq",
+    "story",
     "related"
   ]
 }

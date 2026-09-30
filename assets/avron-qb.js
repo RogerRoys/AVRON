@@ -25,7 +25,7 @@
       h+='</div></div>';});}
     h+='<div class="xqb__buy"><div class="xqb__qty"><button type="button" data-step="-1" aria-label="Decrease">&minus;</button><input type="number" name="quantity" value="1" min="1" aria-label="Quantity"><button type="button" data-step="1" aria-label="Increase">+</button></div><button type="submit" class="xqb__add" data-qb-add><span data-add-label data-label="Add to cart">Add to cart</span></button></div>';
     h+='<a href="#" class="xqb__sp" data-qb-sp>Buy with Shop Pay</a><p class="form-error" data-form-error hidden></p></form>';
-    h+='<div class="xqb__foot"><span>&#10003; Free tracked shipping</span><span>&#10003; 30-day returns</span><a href="'+esc(p.url)+'">Full details</a></div><p class="xqb__mnote">Free tracked shipping · 30-day returns</p></div></div>';
+    h+='<div class="xqb__foot"><span>&#10003; Tracked delivery</span><span>&#10003; Clear returns policy</span><a href="'+esc(p.url)+'">Full details</a></div><p class="xqb__mnote">Tracked delivery · Clear returns policy</p></div></div>';
     body.innerHTML=h;
     function qty(){var q=$('input[name=quantity]',body);return Math.max(1,parseInt(q&&q.value,10)||1);}
     function upd(){

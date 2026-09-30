@@ -282,7 +282,7 @@
       h+='</div></div>';});}
     h+='<div class="xqb__buy"><div class="xqb__qty"><button type="button" data-step="-1" aria-label="Decrease">&minus;</button><input type="number" name="quantity" value="1" min="1" aria-label="Quantity"><button type="button" data-step="1" aria-label="Increase">+</button></div><button type="submit" class="xqb__add" data-qb-add><span data-add-label data-label="Add to cart">Add to cart</span></button></div>';
     h+='<a href="#" class="xqb__sp" data-qb-sp>Buy with Shop Pay</a><p class="form-error" data-form-error hidden></p></form>';
-    h+='<div class="xqb__foot"><span>&#10003; Free tracked shipping</span><span>&#10003; 30-day returns</span><a href="'+esc(p.url)+'">Full details</a></div><p class="xqb__mnote">Free tracked shipping · 30-day returns</p></div></div>';
+    h+='<div class="xqb__foot"><span>&#10003; Tracked delivery</span><span>&#10003; Clear returns policy</span><a href="'+esc(p.url)+'">Full details</a></div><p class="xqb__mnote">Tracked delivery · Clear returns policy</p></div></div>';
     body.innerHTML=h;
     function qty(){var q=$('input[name=quantity]',body);return Math.max(1,parseInt(q&&q.value,10)||1);}
     function upd(){
@@ -372,3 +372,19 @@
 /* v1.5.5 footer accordions closed on mobile */
 (function(){function f(){var m=window.matchMedia('(max-width: 989px)').matches;Array.prototype.forEach.call(document.querySelectorAll('details[data-mclose]'),function(d){if(m){if(!d.__m){d.open=false;d.__m=1;}}else{d.open=true;d.__m=0;}});}
 if(document.readyState!=='loading')f();else document.addEventListener('DOMContentLoaded',f);window.addEventListener('resize',f);})();
+
+/* v1.7 product gallery: left scroll control + click-to-zoom */
+(function(){
+  function init(w){if(w.__x)return;w.__x=1;var sc=w.querySelector('[data-xg-scroll]'),th=w.querySelector('[data-xg-thumb]');if(!sc)return;
+    function upd(){if(!th)return;var h=sc.clientHeight/sc.scrollHeight*100,t=sc.scrollTop/sc.scrollHeight*100;th.style.height=Math.min(100,h)+'%';th.style.top=t+'%';w.classList.toggle('has-scroll',sc.scrollHeight>sc.clientHeight+4);}
+    sc.addEventListener('scroll',function(){upd();var n=sc.children.length;if(!n)return;if(sc.scrollWidth>sc.clientWidth+4){var i=Math.round(sc.scrollLeft/sc.clientWidth);var c=w.querySelector('[data-xg-count]'),b=w.querySelector('[data-xg-mbar]');if(c)c.textContent=(i+1)+' / '+n;if(b)b.style.transform='translateX('+(i*100)+'%)';}},{passive:true});window.addEventListener('resize',upd);setTimeout(upd,300);upd();
+    w.addEventListener('click',function(e){var u=e.target.closest('[data-xg-up]'),d=e.target.closest('[data-xg-down]');if(u||d){sc.scrollBy({top:(d?1:-1)*sc.clientHeight*.8,behavior:'smooth'});return;}
+      if(!window.matchMedia('(min-width: 990px)').matches)return;var m=e.target.closest('.pp__m');if(!m||!m.querySelector('img'))return;
+      var on=!m.classList.contains('is-zoom');w.querySelectorAll('.pp__m.is-zoom').forEach(function(x){x.classList.remove('is-zoom');});if(on){m.classList.add('is-zoom');pos(m,e);}});
+    w.addEventListener('mousemove',function(e){var m=e.target.closest('.pp__m.is-zoom');if(m)pos(m,e);});
+    w.addEventListener('mouseleave',function(){w.querySelectorAll('.pp__m.is-zoom').forEach(function(x){x.classList.remove('is-zoom');});});
+  }
+  function pos(m,e){var r=m.getBoundingClientRect(),img=m.querySelector('img');img.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';}
+  function all(){document.querySelectorAll('[data-xgal]').forEach(init);}
+  if(document.readyState!=='loading')all();else document.addEventListener('DOMContentLoaded',all);document.addEventListener('shopify:section:load',all);
+})();
