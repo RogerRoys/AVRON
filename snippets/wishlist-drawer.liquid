@@ -1,0 +1,13 @@
+<div class="drawer drawer--right xwl-wrap" id="WishlistDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Wishlist">
+  <div class="drawer__overlay" data-close></div>
+  <div class="drawer__panel xwl">
+    <span class="xwl__grab" aria-hidden="true"></span>
+    <div class="xwl__head"><b class="xwl__title" data-wl-title>Wishlist (0)</b><button type="button" class="xwl__x" data-close aria-label="Close">×</button></div>
+    <div class="xwl__note"><svg width="14" height="14" viewBox="0 0 24 24" fill="#B5532E" stroke="#B5532E" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>Saved on this device · we'll flag price drops</div>
+    <div class="xwl__body" data-wl-body><p class="xwl__loading">Loading…</p></div>
+    <div class="xwl__foot" data-wl-foot>
+      <div data-wl-sum hidden><div class="xwl__row"><span data-wl-count>0 saved items</span><b data-wl-total></b></div><button type="button" class="xwl__all" data-wl-all>Add all to cart</button></div>
+      <a href="{{ routes.root_url | append: 'pages/wishlist' | replace: '//', '/' }}" class="xwl__full">View full wishlist <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</div>

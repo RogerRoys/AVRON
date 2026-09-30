@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "header",
   "name": "Header group",
@@ -17,22 +8,19 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Welcome offer — 10% off your first order with code <strong>AVRON10</strong>",
-            "link": ""
+            "text": "Welcome offer — 10% off your first order with code <strong>AVRON10</strong>"
           }
         },
         "m2": {
           "type": "message",
           "settings": {
-            "text": "Free tracked shipping to US · UK · AU · EU",
-            "link": ""
+            "text": "Free tracked shipping to US · UK · AU · EU"
           }
         },
         "m3": {
           "type": "message",
           "settings": {
-            "text": "30-day returns · 1-year warranty on every light",
-            "link": ""
+            "text": "30-day returns · 1-year warranty on every light"
           }
         }
       },
@@ -41,11 +29,7 @@
         "m2",
         "m3"
       ],
-      "settings": {
-        "bg": "#2f4a3a",
-        "fg": "#ffffff",
-        "speed": 4
-      }
+      "settings": {}
     },
     "header": {
       "type": "header",
@@ -55,8 +39,7 @@
           "settings": {
             "menu_item": "Pendants",
             "title": "The Stone Edit",
-            "text": "Travertine & opal glass",
-            "link": ""
+            "text": "Travertine & opal glass"
           }
         },
         "p2": {
@@ -64,36 +47,31 @@
           "settings": {
             "menu_item": "Pendants",
             "title": "Over the island",
-            "text": "Pendants in threes",
-            "link": ""
+            "text": "Pendants in threes"
           }
         },
         "t1": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Indoor lighting",
-            "link": ""
+            "title": "Indoor lighting"
           }
         },
         "t2": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Outdoor lighting",
-            "link": ""
+            "title": "Outdoor lighting"
           }
         },
         "t3": {
           "type": "mobile_tile",
           "settings": {
-            "title": "New in",
-            "link": ""
+            "title": "New in"
           }
         },
         "t4": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Best sellers",
-            "link": ""
+            "title": "Best sellers"
           }
         }
       },
@@ -105,18 +83,7 @@
         "t3",
         "t4"
       ],
-      "settings": {
-        "menu": "main-menu",
-        "demo_menu": false,
-        "sale_title": "Sale",
-        "search_placeholder": "Search pendants, post caps, bollards…",
-        "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
-        "utility_text": "Ships to US · UK · AU · EU &nbsp; · &nbsp; 1-year warranty",
-        "utility_menu": "customer-service",
-        "drawer_promo_title": "10% off first order",
-        "drawer_promo_text": "Code AVRON10",
-        "drawer_promo_link": ""
-      }
+      "settings": {}
     }
   },
   "order": [

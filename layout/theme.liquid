@@ -25,6 +25,7 @@
   {{ 'avron-qb.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'avron-qb.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'avron-wishlist.js' | asset_url }}" defer="defer"></script>
   <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
   {{ content_for_header }}
 </head>
@@ -42,5 +43,6 @@
     window.moneyFormat={{ shop.money_format | json }};
     window.cartType={{ settings.cart_type | json }};
   </script>
+  {% render 'wishlist-drawer' %}
 </body>
 </html>

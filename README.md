@@ -81,3 +81,18 @@ Matches the "Avron 1d Live Preview" prototype.
 
 ## v1.3.2
 - Quick buy rebuilt to the 1d design (desktop popup + mobile bottom sheet). Badge comes from a product tag like "badge:Best seller" (or any "best seller" tag).
+
+## v1.3.3
+- Cart drawer, menu drawer and Quick buy now animate on open AND close (slide + fade), like the preview.
+- Sticky header: the logo/search row + menu stay at the top while scrolling, with a soft shadow once you scroll.
+
+## v1.4 — Wishlist (drawer + full page)
+- Hearts on product cards save to the visitor's browser. The header "Wishlist (n)" opens a wishlist drawer (bottom sheet on mobile) with Add to cart, remove, Add all to cart and "View full wishlist →".
+- Full page: create a page in Online Store → Pages called "Wishlist" (handle: wishlist) and pick the template "page.wishlist". It shows the grid, Share list (copies a link), Clear all, Add all to cart, low-stock note and "You might also like" (pick a collection in the section).
+- A "Saved to wishlist" toast appears when a heart is tapped.
+- Products with more than one variant open Quick buy from "Add to cart" so the customer can pick options.
+
+## v1.5
+- New sections: Featured collection (×2 on the homepage: Indoor "The living room edit" + Outdoor "Porch & garden", 8 products in 4×2) and Our story (image, text, 3 points, 2 buttons). Both sit after the product tabs.
+- Footer rebuilt: brand text + social icons (Theme settings → Social media, YouTube added), 2 menu columns, Contact information (Business Name / Address / Email / Phone / Opening hours — edit in the Footer section), policies + payment icons.
+- The contact details are placeholders — replace them with your real business details before launch.

@@ -1,8 +1,8 @@
 {%- liquid
-  assign lists = '0,5,1,6,4|2,7,3,8,10|0,1,2,3,4|5,6,7,8,9' | split: '|'
-  assign t = tab | default: 0 | modulo: 4
+  assign lists = '0,5,1,6,4|2,7,3,8,10|0,1,2,3,4|5,6,7,8,9|0,1,2,3,4,10,2,0|5,6,7,8,9,5,7,6' | split: '|'
+  assign t = tab | default: 0 | modulo: 6
   assign row = lists[t] | split: ','
-  assign k = n | minus: 1 | modulo: 5
+  assign k = n | minus: 1 | modulo: row.size
   assign id = row[k] | plus: 0
   assign names = 'Linea Linear Chandelier|Travertine Table Lamp|Glasstone Mini Pendant|Rattan Table Lamp|Cluster Pendant, 11 Lights|Marbled Post Cap|Globe Porch Pendant|Globe Bollard|Pagoda Pillar Light|Solar Globe Path Light|Cordless Touch Lamp' | split: '|'
   assign metas = 'Dimmable · 100 / 120cm|Natural stone|Clear glass · Ø20cm|Hand-woven rattan|Milky glass|Solar or hardwired · 4 sizes|Caged glass · 3 sizes|Opal · IP65|IP65|Spike or base|Rechargeable · 3 tones' | split: '|'

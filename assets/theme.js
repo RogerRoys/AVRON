@@ -161,7 +161,7 @@
   function open(id){
     var d=document.getElementById(id);if(!d)return false;
     closeAll(true);lastFocus=document.activeElement;
-    d.classList.add('is-open');d.setAttribute('aria-hidden','false');document.documentElement.classList.add('is-locked');
+    void d.offsetWidth;var pn=d.querySelector('.drawer__panel,.modal__panel');if(pn)void pn.offsetWidth;requestAnimationFrame(function(){d.classList.add('is-open');});d.setAttribute('aria-hidden','false');document.documentElement.classList.add('is-locked');
     var panel=$('.drawer__panel,.modal__panel',d)||d,f=$('[data-close]:not(.drawer__overlay),button,a,input',panel);
     if(f)try{f.focus({preventScroll:true});}catch(e){}
     return true;
@@ -365,3 +365,6 @@
   if(document.readyState!=='loading')rv();else document.addEventListener('DOMContentLoaded',function(){rv();});
   document.addEventListener('shopify:section:load',function(e){rv(e.target);});
 })();
+
+/* v1.3.3 sticky header shadow */
+(function(){var h=document.querySelector('[data-header]');if(!h)return;var w=h.closest('.shopify-section')||h;function f(){w.classList.toggle('is-stuck',window.scrollY>4);}window.addEventListener('scroll',f,{passive:true});f();})();
