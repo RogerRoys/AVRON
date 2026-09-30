@@ -61,10 +61,10 @@
         "shade": 55,
         "side1_title": "Indoor lighting",
         "side1_text": "Pendants, lamps, sconces",
-        "side1_link": "",
+        "side1_link": "shopify://collections/new-in",
         "side2_title": "Outdoor lighting",
         "side2_text": "Posts, bollards, porch",
-        "side2_link": "",
+        "side2_link": "shopify://collections/outdoor-lighting",
         "mobile_chips": "Pendants,Lamps,Outdoor,Fans,Décor,Solar",
         "side1_mlabel": "Indoor",
         "side2_mlabel": "Outdoor"
