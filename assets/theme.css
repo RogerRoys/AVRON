@@ -1480,10 +1480,8 @@ html{scroll-behavior:auto}
 .header .nav__item:not(.has-mega)::before,.header .nav__item:not(.has-mega)::after,.header .nav:hover::after,.header .nav:hover::before{display:none!important}
 .header .nav__item.has-mega:hover:not(.is-open) .mega{display:none!important}
 .header:has(.nav__item:not(.has-mega):hover) .mega-dim{display:none!important}
-/* single promo image fills the whole promo column */
-.mega__panel{align-items:stretch}
-.mega__promos{align-self:stretch}
-.mega__promos:has(> .mega__promo:only-child){display:block!important;height:100%}
-.mega__promos>.mega__promo:only-child{aspect-ratio:auto!important;height:100%!important;min-height:420px;width:100%;display:block}
+/* single promo image: same size as one tile of the 2-up layout */
+.mega__promos:has(> .mega__promo:only-child){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;height:auto!important;align-self:start}
+.mega__promos>.mega__promo:only-child{aspect-ratio:4/5!important;height:auto!important;min-height:0!important;width:100%}
 .mega__promos>.mega__promo:only-child img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .mega__promo{position:relative;overflow:hidden;border-radius:12px}
