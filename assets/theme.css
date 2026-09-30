@@ -1174,3 +1174,19 @@ html,body{overflow-x:clip!important}
   .hero__mtrust i{font-style:normal;color:#E3A23A;letter-spacing:1px;font-size:10px}
   .shopify-section:has(> .trust),.trust{display:none!important}
 }
+
+/* v1.5.5 */
+.xft__acc>summary{list-style:none;cursor:default;display:flex;justify-content:space-between;align-items:center}
+.xft__acc>summary::-webkit-details-marker{display:none}
+.xft__pm{display:none}
+@media (max-width:989px){
+  .xft__acc{gap:0!important;padding:0!important}
+  .xft__acc>summary{cursor:pointer;padding:14px 0;margin:0!important;font-size:14px}
+  .xft__pm{display:inline-block;color:#7F847D;font-size:18px;font-weight:400;transition:transform .3s}
+  .xft__acc[open] .xft__pm{transform:rotate(45deg)}
+  .xft__acc .xft__links{padding:0 0 14px}
+  .cats__row,.cats,.cats__list,[class*="cats"] .page-w{overflow-y:visible}
+  .cats__row,.cats__list{padding-top:8px!important;margin-top:-4px}
+  .hero__dots{display:flex!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important}
+}
+@media (max-width:989px){.cats{padding-top:8px!important;padding-bottom:6px!important}.cats__img{margin-top:0}}

@@ -368,3 +368,7 @@
 
 /* v1.3.3 sticky header shadow */
 (function(){var h=document.querySelector('[data-header]');if(!h)return;var w=h.closest('.shopify-section')||h;function f(){w.classList.toggle('is-stuck',window.scrollY>4);}window.addEventListener('scroll',f,{passive:true});f();})();
+
+/* v1.5.5 footer accordions closed on mobile */
+(function(){function f(){var m=window.matchMedia('(max-width: 989px)').matches;Array.prototype.forEach.call(document.querySelectorAll('details[data-mclose]'),function(d){if(m){if(!d.__m){d.open=false;d.__m=1;}}else{d.open=true;d.__m=0;}});}
+if(document.readyState!=='loading')f();else document.addEventListener('DOMContentLoaded',f);window.addEventListener('resize',f);})();
