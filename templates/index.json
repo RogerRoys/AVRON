@@ -19,7 +19,9 @@
             "heading": "Light, considered for Australian homes.",
             "text": "<p>An edited collection of lighting and ceiling fans, chosen for form, material and atmosphere.</p>",
             "btn1_label": "Shop best sellers",
-            "btn2_label": "New arrivals"
+            "btn1_link": "",
+            "btn2_label": "New arrivals",
+            "btn2_link": ""
           }
         },
         "s2": {
@@ -29,7 +31,9 @@
             "heading": "Pieces worth looking up for.",
             "text": "<p>Chandeliers and pendants in smoked glass, brass and stone.</p>",
             "btn1_label": "Shop chandeliers",
-            "btn2_label": "Indoor"
+            "btn1_link": "",
+            "btn2_label": "Indoor",
+            "btn2_link": ""
           }
         },
         "s3": {
@@ -39,7 +43,9 @@
             "heading": "Garden light that runs on sunshine.",
             "text": "<p>No wiring, no running costs. Charges by day, glows all night.</p>",
             "btn1_label": "Shop solar",
-            "btn2_label": "Outdoor"
+            "btn1_link": "",
+            "btn2_label": "Outdoor",
+            "btn2_link": ""
           }
         }
       },
@@ -49,10 +55,18 @@
         "s3"
       ],
       "settings": {
+        "autoplay": true,
+        "speed": 6,
+        "shade": 55,
         "side1_title": "Indoor lighting",
         "side1_text": "Pendants, lamps, sconces",
+        "side1_link": "",
         "side2_title": "Outdoor lighting",
-        "side2_text": "Posts, bollards, porch"
+        "side2_text": "Posts, bollards, porch",
+        "side2_link": "",
+        "mobile_chips": "Pendants,Lamps,Outdoor,Fans,Décor,Solar",
+        "side1_mlabel": "Indoor",
+        "side2_mlabel": "Outdoor"
       }
     },
     "trust": {
@@ -70,28 +84,32 @@
           "type": "item",
           "settings": {
             "title": "Tracked delivery",
-            "text": "Updates at every stage"
+            "text": "Updates at every stage",
+            "show_stars": false
           }
         },
         "c": {
           "type": "item",
           "settings": {
             "title": "Clear returns policy",
-            "text": "Explained before you buy"
+            "text": "Explained before you buy",
+            "show_stars": false
           }
         },
         "d": {
           "type": "item",
           "settings": {
             "title": "1-year voluntary warranty",
-            "text": "Alongside your ACL rights"
+            "text": "Alongside your ACL rights",
+            "show_stars": false
           }
         },
         "e": {
           "type": "item",
           "settings": {
             "title": "Secure checkout",
-            "text": "Shop Pay · Apple Pay · PayPal"
+            "text": "Shop Pay · Apple Pay · PayPal",
+            "show_stars": false
           }
         }
       },
@@ -110,60 +128,70 @@
         "c1": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Pendants"
           }
         },
         "c2": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Chandeliers"
           }
         },
         "c3": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Table lamps"
           }
         },
         "c4": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Floor lamps"
           }
         },
         "c5": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Wall lights"
           }
         },
         "c6": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Ceiling fans"
           }
         },
         "c7": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Post caps"
           }
         },
         "c8": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Bollards"
           }
         },
         "c9": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Solar"
           }
         },
         "c10": {
           "type": "category",
           "settings": {
+            "collection": "",
             "label": "Décor"
           }
         }
@@ -190,25 +218,29 @@
         "t1": {
           "type": "tab",
           "settings": {
-            "label": "Best sellers"
+            "label": "Best sellers",
+            "collection": "best-sellers"
           }
         },
         "t2": {
           "type": "tab",
           "settings": {
-            "label": "New in"
+            "label": "New in",
+            "collection": "new-in"
           }
         },
         "t3": {
           "type": "tab",
           "settings": {
-            "label": "Indoor"
+            "label": "Indoor",
+            "collection": "indoor-lighting"
           }
         },
         "t4": {
           "type": "tab",
           "settings": {
-            "label": "Outdoor"
+            "label": "Outdoor",
+            "collection": "outdoor-lighting"
           }
         }
       },
@@ -218,7 +250,77 @@
         "t3",
         "t4"
       ],
-      "settings": {}
+      "settings": {
+        "limit": 5,
+        "columns": 5,
+        "view_all_label": "View all"
+      }
+    },
+    "col_indoor": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "INDOOR COLLECTION",
+        "heading": "The living room edit",
+        "subheading": "Pendants, lamps and chandeliers chosen to bring visual warmth to living spaces.",
+        "collection": "living-room-lighting",
+        "limit": 8,
+        "button_label": "Shop all indoor",
+        "button_link": "",
+        "demo": "indoor"
+      }
+    },
+    "story": {
+      "type": "our-story",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "title": "An edited selection",
+            "text": "Chosen for form, material, proportion and atmosphere."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "title": "Clarity in choice",
+            "text": "Dimensions, installation and suitability, explained plainly."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "title": "Accountable support",
+            "text": "Honest communication before purchase, during fulfilment and after delivery."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "eyebrow": "OUR STORY",
+        "heading": "Measured light for considered homes.",
+        "text": "<p>Avron makes thoughtfully designed lighting easier to understand, choose and live with. We keep the range edited, show every fitting at believable scale, and explain dimensions, installation and suitability in plain English, with dependable support before and after delivery.</p>",
+        "btn1_label": "Read our story",
+        "btn1_link": "",
+        "btn2_label": "Visit the lighting guide",
+        "btn2_link": ""
+      }
+    },
+    "col_outdoor": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "OUTDOOR COLLECTION",
+        "heading": "Porch & garden",
+        "subheading": "Wall, porch and garden lighting for entrances, pathways and facades.",
+        "collection": "garden-path-lights",
+        "limit": 8,
+        "button_label": "Shop all outdoor",
+        "button_link": "",
+        "demo": "outdoor"
+      }
     },
     "rooms": {
       "type": "room-grid",
@@ -226,25 +328,29 @@
         "r1": {
           "type": "room",
           "settings": {
-            "label": "Living room"
+            "label": "Living room",
+            "link": ""
           }
         },
         "r2": {
           "type": "room",
           "settings": {
-            "label": "Dining"
+            "label": "Dining",
+            "link": ""
           }
         },
         "r3": {
           "type": "room",
           "settings": {
-            "label": "Kitchen"
+            "label": "Kitchen",
+            "link": ""
           }
         },
         "r4": {
           "type": "room",
           "settings": {
-            "label": "Front porch"
+            "label": "Front porch",
+            "link": ""
           }
         }
       },
@@ -264,65 +370,65 @@
         "m1": {
           "type": "material",
           "settings": {
+            "swatch": "#d6c6ac",
             "name": "Travertine",
-            "text": "Natural, veined stone",
-            "swatch": "#D6C6AC"
+            "text": "Natural, veined stone"
           }
         },
         "m2": {
           "type": "material",
           "settings": {
+            "swatch": "#f6f3ec",
             "name": "Opal glass",
-            "text": "Soft, glare-free",
-            "swatch": "#F6F3EC"
+            "text": "Soft, glare-free"
           }
         },
         "m3": {
           "type": "material",
           "settings": {
+            "swatch": "#b89a6e",
             "name": "Rattan",
-            "text": "Hand-woven texture",
-            "swatch": "#B89A6E"
+            "text": "Hand-woven texture"
           }
         },
         "m4": {
           "type": "material",
           "settings": {
+            "swatch": "#2f2e2c",
             "name": "Die-cast aluminium",
-            "text": "Outdoor-grade, IP65",
-            "swatch": "#2F2E2C"
+            "text": "Outdoor-grade, IP65"
           }
         },
         "k1": {
           "type": "kelvin",
           "settings": {
+            "glow": "#ffb25c",
             "label": "2200K",
-            "text": "Bedrooms",
-            "glow": "#FFB25C"
+            "text": "Bedrooms"
           }
         },
         "k2": {
           "type": "kelvin",
           "settings": {
+            "glow": "#ffcf8a",
             "label": "2700K",
-            "text": "Living, dining",
-            "glow": "#FFCF8A"
+            "text": "Living, dining"
           }
         },
         "k3": {
           "type": "kelvin",
           "settings": {
+            "glow": "#ffe2b5",
             "label": "3000K",
-            "text": "Kitchens, porches",
-            "glow": "#FFE2B5"
+            "text": "Kitchens, porches"
           }
         },
         "k4": {
           "type": "kelvin",
           "settings": {
+            "glow": "#eef1f4",
             "label": "4000K",
-            "text": "Bathrooms, office",
-            "glow": "#EEF1F4"
+            "text": "Bathrooms, office"
           }
         }
       },
@@ -336,7 +442,12 @@
         "k3",
         "k4"
       ],
-      "settings": {}
+      "settings": {
+        "heading_left": "Made from materials that last",
+        "heading_right": "Not sure which warmth?",
+        "button_label": "Open the lighting guide",
+        "button_link": ""
+      }
     },
     "reviews": {
       "type": "reviews",
@@ -345,35 +456,40 @@
           "type": "review",
           "settings": {
             "text": "Looks even better in person. The glow is warm without being yellow.",
-            "author": "Sarah, UK"
+            "author": "Sarah, UK",
+            "rating": 5
           }
         },
         "r2": {
           "type": "review",
           "settings": {
             "text": "Solar post caps are bright enough for the whole driveway.",
-            "author": "Mark, AU"
+            "author": "Mark, AU",
+            "rating": 5
           }
         },
         "r3": {
           "type": "review",
           "settings": {
             "text": "Easy install, tracked the whole way. Perfect over our island.",
-            "author": "Jen, US"
+            "author": "Jen, US",
+            "rating": 5
           }
         },
         "r4": {
           "type": "review",
           "settings": {
             "text": "The porch pendant made our entrance feel brand new.",
-            "author": "Lukas, DE"
+            "author": "Lukas, DE",
+            "rating": 5
           }
         },
         "r5": {
           "type": "review",
           "settings": {
             "text": "Packaging was excellent and the brass finish is lovely.",
-            "author": "Chloe, US"
+            "author": "Chloe, US",
+            "rating": 5
           }
         }
       },
@@ -384,34 +500,50 @@
         "r4",
         "r5"
       ],
-      "settings": {}
+      "settings": {
+        "demo_images": true,
+        "heading": "What customers say",
+        "subheading": ""
+      }
     },
     "ugc": {
       "type": "ugc-gallery",
       "blocks": {
         "u1": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         },
         "u2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         },
         "u3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         },
         "u4": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         },
         "u5": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         },
         "u6": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -422,7 +554,11 @@
         "u5",
         "u6"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "#AvronAtHome",
+        "text": "Tag us on Instagram to be featured",
+        "overlay": "Shop the look"
+      }
     },
     "faq": {
       "type": "faq-support",
@@ -470,60 +606,16 @@
         "f4",
         "f5"
       ],
-      "settings": {}
-    },
-    "col_indoor": {
-      "type": "featured-collection",
       "settings": {
-        "eyebrow": "INDOOR COLLECTION",
-        "heading": "The living room edit",
-        "subheading": "Pendants, lamps and chandeliers chosen to bring visual warmth to living spaces.",
-        "button_label": "Shop all indoor",
-        "demo": "indoor",
-        "limit": 8
-      }
-    },
-    "story": {
-      "type": "our-story",
-      "blocks": {
-        "p1": {
-          "type": "point",
-          "settings": {
-            "title": "An edited selection",
-            "text": "Chosen for form, material, proportion and atmosphere."
-          }
-        },
-        "p2": {
-          "type": "point",
-          "settings": {
-            "title": "Clarity in choice",
-            "text": "Dimensions, installation and suitability, explained plainly."
-          }
-        },
-        "p3": {
-          "type": "point",
-          "settings": {
-            "title": "Accountable support",
-            "text": "Honest communication before purchase, during fulfilment and after delivery."
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3"
-      ],
-      "settings": {}
-    },
-    "col_outdoor": {
-      "type": "featured-collection",
-      "settings": {
-        "eyebrow": "OUTDOOR COLLECTION",
-        "heading": "Porch & garden",
-        "subheading": "Wall, porch and garden lighting for entrances, pathways and facades.",
-        "button_label": "Shop all outdoor",
-        "demo": "outdoor",
-        "limit": 8
+        "heading": "FAQ",
+        "w_title": "1-year voluntary warranty",
+        "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
+        "w_link_label": "Warranty details",
+        "w_link": "",
+        "t_title": "Avron Trade",
+        "t_text": "Project pricing for designers, builders and stylists.",
+        "t_btn": "Apply now",
+        "t_link": ""
       }
     }
   },
