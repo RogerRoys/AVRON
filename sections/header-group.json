@@ -50,14 +50,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "t3": {
-          "type": "mobile_tile",
-          "settings": {
-            "image": "shopify://shop_images/avron-aureaglow-final-09-brick-boundary.jpg",
-            "title": "Shop Lighting",
-            "link": "shopify://collections/new-in"
-          }
-        },
         "p1": {
           "type": "promo",
           "settings": {
@@ -90,6 +82,13 @@
             "link": ""
           }
         },
+        "t3": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "New in",
+            "link": ""
+          }
+        },
         "t4": {
           "type": "mobile_tile",
           "settings": {
@@ -99,11 +98,11 @@
         }
       },
       "block_order": [
-        "t3",
         "p1",
         "p2",
         "t1",
         "t2",
+        "t3",
         "t4"
       ],
       "settings": {
@@ -112,7 +111,7 @@
         "sale_title": "Sale",
         "search_placeholder": "Search pendants, post caps, bollards…",
         "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
-        "utility_text": "Australia first · Prices in AUD   ·   1-year voluntary warranty",
+        "utility_text": "Australia first · Prices in AUD &nbsp; · &nbsp; 1-year voluntary warranty",
         "utility_menu": "",
         "drawer_promo_title": "New to Avron?",
         "drawer_promo_text": "Start with the lighting guide",
