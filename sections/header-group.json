@@ -69,6 +69,7 @@
         },
         "p2": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "menu_item": "Shop Lighting",
             "image": "shopify://shop_images/SolaraLight___Stylish_Durable_Solar_Outdoor_Pillar_Garden_Light_5.jpg",
