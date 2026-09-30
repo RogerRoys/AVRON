@@ -111,3 +111,8 @@ Matches the "Avron 1d Live Preview" prototype.
 - Product page: You may also like shows 8 products (4 × 2).
 - Desktop product gallery stays fixed while the product info scrolls.
 - Mobile product gallery is full-width (no white gap on the right).
+
+## Lighting guide page
+- Template: page.lighting-guide → create a page called "Lighting guide" and pick this template.
+- Room guide tabs (Room blocks), colour temperature preview (Colour temperature blocks + preview image), sizing calculator, IP rating table (IP blocks), and "Before you buy" cards (Check cards) — all editable in the theme editor.
+- Add /pages/lighting-guide to your header and footer menus.

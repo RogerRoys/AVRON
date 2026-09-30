@@ -1,0 +1,254 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-lighting-guide",
+      "blocks": {
+        "room0": {
+          "type": "room",
+          "settings": {
+            "name": "Living",
+            "demo_image": "https://heitz.shop/cdn/shop/files/heitz-home-our-promise-travertine-lamp.webp?width=1400",
+            "title": "A calm base, with light where you sit",
+            "text": "Living rooms work best with several softer sources rather than one bright ceiling light.",
+            "layer1_name": "Ambient",
+            "layer1_text": "A pendant or ceiling light for even background light.",
+            "layer2_name": "Task",
+            "layer2_text": "Floor or table lamps beside seating for reading.",
+            "layer3_name": "Accent",
+            "layer3_text": "Wall lights to wash texture, shelving or art.",
+            "kelvin": "2700K",
+            "kelvin_note": "Warm white, relaxed and soft",
+            "lux": 150,
+            "tip": "Put lamps on separate switches or dimmers so the room can shift from day to evening.",
+            "btn_label": "Shop living room lighting"
+          }
+        },
+        "room1": {
+          "type": "room",
+          "settings": {
+            "name": "Dining",
+            "demo_image": "https://heitz.shop/cdn/shop/files/luminara-linear-small-warm-lifestyle_42656abe-b108-4477-be8f-61a9e34c1efe.webp?width=1400",
+            "title": "Centre the light on the table",
+            "text": "The table is the focus, so the main fitting should relate to it rather than to the room.",
+            "layer1_name": "Ambient",
+            "layer1_text": "A pendant or linear chandelier centred over the table.",
+            "layer2_name": "Task",
+            "layer2_text": "Hang it 75–90 cm above the tabletop.",
+            "layer3_name": "Accent",
+            "layer3_text": "Wall lights or a lamp on the sideboard.",
+            "kelvin": "2700K",
+            "kelvin_note": "Warm white, flattering at the table",
+            "lux": 200,
+            "tip": "Choose a fitting about half to two-thirds of the table’s width, and a linear fitting for long tables.",
+            "btn_label": "Shop dining lighting"
+          }
+        },
+        "room2": {
+          "type": "room",
+          "settings": {
+            "name": "Kitchen",
+            "demo_image": "https://heitz.shop/cdn/shop/files/heitz-15979166466129-02_d63f95f5-87ed-4d13-a985-04a9a94a1d2b.webp?width=1400",
+            "title": "Bright where you work, warm where you gather",
+            "text": "Kitchens need clear task light over benches, balanced with softer light for the rest of the room.",
+            "layer1_name": "Ambient",
+            "layer1_text": "Downlights or a flush ceiling light for general light.",
+            "layer2_name": "Task",
+            "layer2_text": "Pendants over the island, 75–85 cm above the bench.",
+            "layer3_name": "Accent",
+            "layer3_text": "Under-cabinet strips to light the benchtop.",
+            "kelvin": "3000K",
+            "kelvin_note": "Soft white, clear for prep",
+            "lux": 300,
+            "tip": "Space island pendants roughly 60–75 cm apart, centre to centre, and keep them clear of eye level.",
+            "btn_label": "Shop kitchen lighting"
+          }
+        },
+        "room3": {
+          "type": "room",
+          "settings": {
+            "name": "Bedroom",
+            "demo_image": "https://heitz.shop/cdn/shop/files/heitz-15979167318097-02_9b87ecb8-83f4-4828-bf57-e78050a270ca.webp?width=1400",
+            "title": "Soft, low and easy to control",
+            "text": "Bedrooms need gentle light in the evening, with enough task light for reading and dressing.",
+            "layer1_name": "Ambient",
+            "layer1_text": "A ceiling light, or a ceiling fan with a light.",
+            "layer2_name": "Task",
+            "layer2_text": "Bedside lamps or wall lights at reading height.",
+            "layer3_name": "Accent",
+            "layer3_text": "A low lamp for evening light.",
+            "kelvin": "2700K",
+            "kelvin_note": "Warm white, helps the room wind down",
+            "lux": 100,
+            "tip": "A dimmable bedside light lets you keep the room softly lit before sleep.",
+            "btn_label": "Shop bedroom lighting"
+          }
+        },
+        "room4": {
+          "type": "room",
+          "settings": {
+            "name": "Bathroom",
+            "demo_image": "https://heitz.shop/cdn/shop/files/heitz-15979167088721-02_1d865b05-9ba1-4161-9ee1-155dcaa93bc8.webp?width=1400",
+            "title": "Even light at the mirror",
+            "text": "Bathrooms need shadow-free light at the mirror and fittings rated for moisture.",
+            "layer1_name": "Ambient",
+            "layer1_text": "An IP-rated ceiling light for general light.",
+            "layer2_name": "Task",
+            "layer2_text": "Wall lights either side of the mirror.",
+            "layer3_name": "Accent",
+            "layer3_text": "A low-glare light for night-time use.",
+            "kelvin": "3000K",
+            "kelvin_note": "Soft white, true to skin tones",
+            "lux": 300,
+            "tip": "Bathrooms have wet zones that need specific IP ratings. Check the product page and confirm with your licensed electrician.",
+            "btn_label": "Shop bathroom lighting"
+          }
+        },
+        "room5": {
+          "type": "room",
+          "settings": {
+            "name": "Outdoor",
+            "demo_image": "https://heitz.shop/cdn/shop/files/Luminara___Elegant_Waterproof_Aluminum_Outdoor_Hanging_Pendant_Light_1.jpg?width=1400",
+            "title": "Welcome, guide, then highlight",
+            "text": "Outdoor light should make entries safe and paths clear, then add atmosphere to the garden or façade.",
+            "layer1_name": "Entry",
+            "layer1_text": "A porch pendant or wall light beside the door.",
+            "layer2_name": "Paths",
+            "layer2_text": "Step and path lights for safe movement.",
+            "layer3_name": "Accent",
+            "layer3_text": "Up-lights on trees, walls or planting.",
+            "kelvin": "3000K",
+            "kelvin_note": "Soft white, welcoming at the entry",
+            "lux": 50,
+            "tip": "Choose at least IP44 for covered areas and IP65 for exposed walls. Coastal homes need corrosion-resistant finishes.",
+            "btn_label": "Shop outdoor lighting"
+          }
+        },
+        "kel0": {
+          "type": "kelvin",
+          "settings": {
+            "kelvin": "2700K",
+            "name": "Warm white",
+            "use": "Living rooms, bedrooms, dining",
+            "glow": "#FFD9A0",
+            "tint": "#FFB35C",
+            "strength": 42
+          }
+        },
+        "kel1": {
+          "type": "kelvin",
+          "settings": {
+            "kelvin": "3000K",
+            "name": "Soft white",
+            "use": "Kitchens, bathrooms, entries",
+            "glow": "#FFF0D6",
+            "tint": "#FFD9A0",
+            "strength": 28
+          }
+        },
+        "kel2": {
+          "type": "kelvin",
+          "settings": {
+            "kelvin": "4000K",
+            "name": "Cool white",
+            "use": "Laundries, garages, workspaces",
+            "glow": "#F4F8FF",
+            "tint": "#D7E3FF",
+            "strength": 22
+          }
+        },
+        "ip0": {
+          "type": "ip",
+          "settings": {
+            "rating": "IP20",
+            "meaning": "Indoor, dry areas only",
+            "use": "Living rooms, bedrooms, hallways"
+          }
+        },
+        "ip1": {
+          "type": "ip",
+          "settings": {
+            "rating": "IP44",
+            "meaning": "Protected from splashes",
+            "use": "Covered porches, some bathroom zones"
+          }
+        },
+        "ip2": {
+          "type": "ip",
+          "settings": {
+            "rating": "IP54",
+            "meaning": "Dust and splash protected",
+            "use": "Sheltered outdoor walls, eaves"
+          }
+        },
+        "ip3": {
+          "type": "ip",
+          "settings": {
+            "rating": "IP65",
+            "meaning": "Dust tight, resists water jets",
+            "use": "Exposed walls, gardens, pool surrounds"
+          }
+        },
+        "ip4": {
+          "type": "ip",
+          "settings": {
+            "rating": "IP67",
+            "meaning": "Resists temporary immersion",
+            "use": "In-ground and garden-bed lights"
+          }
+        },
+        "chk0": {
+          "type": "check",
+          "settings": {
+            "title": "Bulb type",
+            "text": "Check the fitting (E27, B22, GU10 or integrated LED) and whether a bulb is included. It’s listed on each product page."
+          }
+        },
+        "chk1": {
+          "type": "check",
+          "settings": {
+            "title": "Dimming",
+            "text": "Dimming needs a compatible dimmable bulb or driver and a suitable dimmer switch."
+          }
+        },
+        "chk2": {
+          "type": "check",
+          "settings": {
+            "title": "Installation",
+            "text": "Hardwired fittings must be installed by a licensed electrician. Plug-in lamps don’t need one."
+          }
+        },
+        "chk3": {
+          "type": "check",
+          "settings": {
+            "title": "Ceiling & mounting",
+            "text": "Check the drop, ceiling height and mounting type, especially for sloped or high ceilings."
+          }
+        }
+      },
+      "block_order": [
+        "room0",
+        "room1",
+        "room2",
+        "room3",
+        "room4",
+        "room5",
+        "kel0",
+        "kel1",
+        "kel2",
+        "ip0",
+        "ip1",
+        "ip2",
+        "ip3",
+        "ip4",
+        "chk0",
+        "chk1",
+        "chk2",
+        "chk3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
