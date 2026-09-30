@@ -1315,3 +1315,29 @@ html,body{overflow-x:clip!important}
   .xpp__mbar i{display:block;height:3px;background:#1B1D1A;border-radius:2px;transition:transform .3s ease}
 }
 @media (min-width:990px){.xpp__mcount,.xpp__mbar{display:none}}
+
+/* v1.7.2 gallery overlap fix */
+@media (min-width:990px){
+  .xpp__gwrap [data-xg-scroll]{height:auto!important;max-height:820px!important;grid-auto-rows:max-content}
+  .xpp__gwrap .pp__m{min-height:0;height:auto}
+}
+/* v1.7.2 quick buy motion */
+#QuickBuy .modal__panel{transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+#QuickBuy .modal__x{transition:transform .3s cubic-bezier(.2,.8,.2,1),background .2s}
+#QuickBuy .modal__x:hover{transform:rotate(90deg)}
+@keyframes qbIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes qbImg{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes skPulse{0%,100%{opacity:.55}50%{opacity:1}}
+[data-quick-body].is-ready .qb__lead img{animation:qbImg .6s cubic-bezier(.2,.8,.2,1) both}
+[data-quick-body].is-ready .qb__thumbs>*{animation:qbIn .45s cubic-bezier(.2,.8,.2,1) both}
+[data-quick-body].is-ready .qb__thumbs>:nth-child(2){animation-delay:.05s}[data-quick-body].is-ready .qb__thumbs>:nth-child(3){animation-delay:.1s}[data-quick-body].is-ready .qb__thumbs>:nth-child(4){animation-delay:.15s}
+[data-quick-body].is-ready .qb__info>*{animation:qbIn .5s cubic-bezier(.2,.8,.2,1) both}
+[data-quick-body].is-ready .qb__info>:nth-child(1){animation-delay:.05s}[data-quick-body].is-ready .qb__info>:nth-child(2){animation-delay:.1s}[data-quick-body].is-ready .qb__info>:nth-child(3){animation-delay:.15s}[data-quick-body].is-ready .qb__info>:nth-child(4){animation-delay:.2s}[data-quick-body].is-ready .qb__info>:nth-child(5){animation-delay:.25s}[data-quick-body].is-ready .qb__info>:nth-child(6){animation-delay:.3s}[data-quick-body].is-ready .qb__info>:nth-child(n+7){animation-delay:.35s}
+#QuickBuy .qb__lead img{transition:opacity .3s ease}
+#QuickBuy .qb__thumbs button{transition:outline-color .2s,transform .2s}#QuickBuy .qb__thumbs button:hover{transform:translateY(-2px)}
+#QuickBuy .optbtn span,#QuickBuy .pp__opt label span{transition:border-color .2s,background .2s,box-shadow .2s}
+.qb--skel .sk{display:block;background:#EFECE6;border-radius:8px;animation:skPulse 1.2s ease-in-out infinite}
+.qb--skel .qb__lead.sk{border-radius:12px}
+.sk--l{height:30px;width:80%}.sk--m{height:22px;width:40%}.sk--s{height:44px;width:100%}.sk--b{height:52px;width:100%;border-radius:40px!important;margin-top:auto}
+@media (max-width:989px){#QuickBuy .modal__panel{transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .3s ease}.qb--skel .qb__lead.sk{width:96px;height:96px}}
+@media (prefers-reduced-motion:reduce){[data-quick-body].is-ready *{animation:none!important}}

@@ -309,8 +309,8 @@
   document.addEventListener('click',function(e){
     var q=e.target.closest('[data-quick-add]');if(!q)return;e.preventDefault();
     var body=$('#QuickBuy [data-quick-body]');if(!body){location.href=root+'/products/'+q.getAttribute('data-quick-add');return;}
-    body.innerHTML='<p class="qb__loading">Loading&hellip;</p>';open('QuickBuy');
-    fetchJSON(root+'/products/'+q.getAttribute('data-quick-add')+'.js').then(function(p){renderQuick(p,body);}).catch(function(){body.innerHTML='<p class="qb__loading">Could not load this product.</p>';});
+    body.classList.remove('is-ready');body.innerHTML='<div class="qb qb--skel"><div class="qb__media"><div class="qb__lead sk"></div></div><div class="qb__info"><span class="sk sk--l"></span><span class="sk sk--m"></span><span class="sk sk--s"></span><span class="sk sk--b"></span></div></div>';open('QuickBuy');
+    fetchJSON(root+'/products/'+q.getAttribute('data-quick-add')+'.js').then(function(p){renderQuick(p,body);void body.offsetWidth;body.classList.add('is-ready');}).catch(function(){body.innerHTML='<p class="qb__loading">Could not load this product.</p>';});
   });
 
   /* Tabs, slideshow, filters, recommendations */
