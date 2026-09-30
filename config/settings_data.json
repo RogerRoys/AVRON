@@ -20,6 +20,9 @@
         "settings": {}
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "cart_show_freeship": true,
+    "cart_show_upsell": true,
+    "cart_upsell_count": 2
   }
 }

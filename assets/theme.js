@@ -181,12 +181,15 @@
   function renderCart(openIt){
     if($('[data-cart-page]')){location.reload();return Promise.resolve();}
     if(!$('#CartDrawer')){location.href=R.cart_url;return Promise.resolve();}
-    return fetch(window.location.pathname+'?sections=cart-drawer').then(function(r){return r.json();}).then(function(d){
-      var doc=new DOMParser().parseFromString(d['cart-drawer'],'text/html');
+    var ss=$('#CartDrawer').closest('.shopify-section'),sid=(ss&&ss.id||'').replace('shopify-section-','')||'cart-drawer';
+    return fetch(window.location.pathname+'?sections='+encodeURIComponent(sid)).then(function(r){return r.json();}).then(function(d){
+      var html=d[sid]||d['cart-drawer']||Object.values(d)[0]||'';
+      var doc=new DOMParser().parseFromString(html,'text/html');
       var n=doc.querySelector('[data-cart-inner]'),o=$('#CartDrawer [data-cart-inner]');
-      if(n&&o)o.replaceWith(n);
+      if(n&&o){n.classList.add('is-swap');o.replaceWith(n);requestAnimationFrame(function(){requestAnimationFrame(function(){n.classList.remove('is-swap');});});}
+      else if(o)o.classList.remove('is-busy');
       return updateCount();
-    }).then(function(){if(openIt)open('CartDrawer');});
+    }).catch(function(){var o=$('#CartDrawer [data-cart-inner]');if(o)o.classList.remove('is-busy');}).then(function(){if(openIt)open('CartDrawer');});
   }
   window.Avron.renderCart=renderCart;
   function addItems(body,isJSON){
@@ -207,6 +210,7 @@
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-line-change]');if(!b)return;e.preventDefault();
     var box=b.closest('[data-cart-inner],[data-cart-page]');if(box)box.classList.add('is-busy');
+    var line=b.closest('.xcd__item,.cd__item,[data-line-item],li');if(line&&+b.getAttribute('data-qty')===0){line.style.height=line.offsetHeight+'px';line.style.overflow='hidden';void line.offsetHeight;line.style.transition='height .35s cubic-bezier(.2,.8,.2,1),opacity .25s ease,padding .35s,margin .35s';line.style.opacity='0';line.style.height='0px';line.style.paddingTop='0';line.style.paddingBottom='0';line.style.marginTop='0';line.style.marginBottom='0';line.classList.add('is-leaving');}
     fetchJSON(R.cart_change_url+'.js',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({line:+b.getAttribute('data-line'),quantity:+b.getAttribute('data-qty')})})
     .then(function(){return renderCart(false);}).catch(function(x){alert(x.message);if(box)box.classList.remove('is-busy');});
   });

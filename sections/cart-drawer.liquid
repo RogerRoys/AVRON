@@ -5,6 +5,7 @@
     assign pct = cart.total_price | times: 100 | divided_by: threshold
   endif
   assign remaining = threshold | minus: cart.total_price
+  assign remaining_money = remaining | money
   assign in_cart = ''
   for item in cart.items
     assign in_cart = in_cart | append: item.product_id | append: ','
@@ -15,10 +16,10 @@
   <div class="drawer__overlay" data-close></div>
   <div class="drawer__panel xcd" data-cart-inner>
     <div class="xcd__head"><b class="xcd__title">Your cart ({{ cart.item_count }})</b><button type="button" class="xcd__x" data-close aria-label="Close">×</button></div>
-    <div class="xcd__ship">
-      <span>{%- if pct >= 100 -%}✓ {{ settings.free_ship_text | default: 'You’ve unlocked free express shipping' }}{%- else -%}You're {{ remaining | money }} away from free express shipping{%- endif -%}</span>
+    {%- if settings.cart_show_freeship -%}<div class="xcd__ship">
+      <span>{%- if pct >= 100 -%}✓ {{ settings.free_ship_text | default: 'You’ve unlocked free tracked shipping' }}{%- else -%}{{ settings.free_ship_away | default: 'You’re [amount] away from free tracked shipping' | replace: '[amount]', remaining_money }}{%- endif -%}</span>
       <div class="xcd__bar"><i style="width:{{ pct }}%"></i></div>
-    </div>
+    </div>{%- endif -%}
     <div class="xcd__body">
       {%- if cart.item_count == 0 -%}
         <div class="xcd__empty">
@@ -42,13 +43,13 @@
           <div class="xcd__r"><b>{{ item.final_line_price | money }}</b><button type="button" class="xcd__rm" data-line-change data-line="{{ forloop.index }}" data-qty="0">Remove</button></div>
         </div>
       {%- endfor -%}
-      <b class="xcd__uph">{{ settings.cart_upsell_heading | default: 'Customers also added' }}</b>
+      {%- if settings.cart_show_upsell -%}<b class="xcd__uph">{{ settings.cart_upsell_heading | default: 'Customers also added' }}</b>
       <div class="xcd__ups">
         {%- if up != blank and up.products_count > 0 -%}
           {%- assign shown = 0 -%}
           {%- for p in up.products -%}
             {%- assign pid = p.id | append: ',' -%}
-            {%- if shown < 2 and p.available -%}{%- unless in_cart contains pid -%}
+            {%- if shown < settings.cart_upsell_count and p.available -%}{%- unless in_cart contains pid -%}
               {%- assign shown = shown | plus: 1 -%}
               <div class="xcd__up">
                 <a href="{{ p.url }}" class="xcd__upimg">{%- if p.featured_media -%}{{ p.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</a>
@@ -67,7 +68,7 @@
           <div class="xcd__up"><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__upimg">{% render 'demo-img', src: 'av-14.jpg' %}</a><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__upn">Cordless Touch Lamp</a><div class="xcd__uprow"><b>{{ 7195 | money }}</b><a href="{{ routes.search_url }}?q=Cordless+Touch+Lamp" class="xcd__add">+ Add</a></div></div>
           <div class="xcd__up"><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__upimg">{% render 'demo-img', src: 'av-21.jpg' %}</a><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__upn">Solar Globe Path Light</a><div class="xcd__uprow"><b>{{ 4895 | money }}</b><a href="{{ routes.search_url }}?q=Solar+Globe+Path+Light" class="xcd__add">+ Add</a></div></div>
         {%- endif -%}
-      </div>
+      </div>{%- endif -%}
     </div>
     {%- if cart.item_count > 0 -%}
       <div class="xcd__foot">

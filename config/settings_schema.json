@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.8.2",
+    "theme_version": "1.8.3",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -145,6 +145,16 @@
         ]
       },
       {
+        "type": "header",
+        "content": "Free shipping bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_freeship",
+        "label": "Show free shipping bar",
+        "default": true
+      },
+      {
         "type": "range",
         "id": "free_ship_threshold",
         "label": "Free shipping threshold",
@@ -156,9 +166,26 @@
       },
       {
         "type": "text",
+        "id": "free_ship_away",
+        "label": "Progress message",
+        "default": "You’re [amount] away from free tracked shipping",
+        "info": "[amount] is replaced with the amount left."
+      },
+      {
+        "type": "text",
         "id": "free_ship_text",
         "label": "Unlocked message",
         "default": "You've unlocked free tracked shipping"
+      },
+      {
+        "type": "header",
+        "content": "Upsell"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_upsell",
+        "label": "Show upsell products",
+        "default": true
       },
       {
         "type": "collection",
@@ -170,6 +197,19 @@
         "id": "cart_upsell_heading",
         "label": "Upsell heading",
         "default": "Customers also added"
+      },
+      {
+        "type": "range",
+        "id": "cart_upsell_count",
+        "label": "Products to show",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "header",
+        "content": "Checkout"
       },
       {
         "type": "checkbox",

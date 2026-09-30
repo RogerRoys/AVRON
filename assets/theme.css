@@ -1442,3 +1442,19 @@ html{scroll-behavior:auto}
 @keyframes xfpflash{0%{background:rgba(47,74,58,.10)}100%{background:rgba(47,74,58,0)}}
 .xfp__grp.is-flash{animation:xfpflash 1.2s ease;border-radius:12px}
 .xfp__grp{scroll-margin-top:140px}
+
+/* v1.8.3 product description media never wider than the screen */
+.rte img,.rte svg,.rte video,.rte picture,.rte figure{max-width:100%!important;height:auto!important;object-fit:contain!important;display:block}
+.rte figure{margin:12px 0}
+.rte *[style*="width"]{max-width:100%!important;box-sizing:border-box}
+.rte iframe{max-width:100%!important;width:100%;aspect-ratio:16/9;height:auto!important}
+.rte table{display:block;max-width:100%;overflow-x:auto}
+.acc__body{min-width:0;overflow:visible}
+
+/* v1.8.3b smooth cart line remove — never fade the whole drawer */
+[data-cart-inner].is-busy{opacity:1!important;pointer-events:none}
+[data-cart-inner].is-busy [data-line-change]:not(.is-leaving *){opacity:.5;transition:opacity .2s}
+[data-cart-inner].is-busy .xcd__foot,[data-cart-inner].is-busy .cd__foot{opacity:.7;transition:opacity .2s}
+[data-cart-inner]{transition:opacity .25s ease}
+[data-cart-inner].is-swap{opacity:.85}
+.is-leaving{pointer-events:none}
