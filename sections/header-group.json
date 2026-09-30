@@ -118,13 +118,13 @@
         "sale_title": "Sale",
         "search_placeholder": "Search pendants, post caps, bollards…",
         "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
+        "promo_width": 50,
+        "promo_height": 360,
         "utility_text": "",
-        "utility_menu": "our-policies",
+        "utility_menu": "",
         "drawer_promo_title": "New to Avron?",
         "drawer_promo_text": "Start with the lighting guide",
-        "drawer_promo_link": "",
-        "promo_width": 50,
-        "promo_height": 360
+        "drawer_promo_link": ""
       }
     }
   },
