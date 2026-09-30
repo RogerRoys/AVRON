@@ -70,9 +70,10 @@
         "p2": {
           "type": "promo",
           "settings": {
-            "menu_item": "Pendants",
-            "title": "Over the island",
-            "text": "Pendants in threes",
+            "menu_item": "Shop Lighting",
+            "image": "shopify://shop_images/SolaraLight___Stylish_Durable_Solar_Outdoor_Pillar_Garden_Light_5.jpg",
+            "title": "Best sellers",
+            "text": "",
             "link": ""
           }
         },
