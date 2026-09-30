@@ -53,9 +53,17 @@
         "p1": {
           "type": "promo",
           "settings": {
-            "menu_item": "Pendants",
-            "title": "The Stone Edit",
-            "text": "Travertine & opal glass",
+            "menu_item": "Shop Lighting",
+            "image": "shopify://shop_images/LuminaSquare___Elegant_Modern_Stainless_Steel_Outdoor_Pillar_Light_3.jpg",
+            "title": "New in",
+            "text": "",
+            "link": ""
+          }
+        },
+        "t3": {
+          "type": "mobile_tile",
+          "settings": {
+            "title": "New in",
             "link": ""
           }
         },
@@ -82,13 +90,6 @@
             "link": ""
           }
         },
-        "t3": {
-          "type": "mobile_tile",
-          "settings": {
-            "title": "New in",
-            "link": ""
-          }
-        },
         "t4": {
           "type": "mobile_tile",
           "settings": {
@@ -99,10 +100,10 @@
       },
       "block_order": [
         "p1",
+        "t3",
         "p2",
         "t1",
         "t2",
-        "t3",
         "t4"
       ],
       "settings": {
