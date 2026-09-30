@@ -18,7 +18,7 @@
   document.addEventListener('submit',function(e){var f=e.target;if(!f.matches||!f.matches('form[data-product-form]'))return;var s=e.submitter;if(s&&!f.contains(s))s.classList.add('is-loading');},true);
 
   /* Scroll reveal */
-  var RV='.sec__head,.trust,.cats__i,.grid>.card,.rooms__i,.mg__card,.rev,.ugc__i,.faqs>div,.scard,.feat,.kb>*,.news__in,.footer__grid>*,.coll__head,.blog__i';
+  var RV='.sec__head,.trust,.grid>.card,.rooms__i,.mg__card,.rev,.ugc__i,.faqs>div,.scard,.feat,.kb>*,.news__in,.footer__grid>*,.coll__head,.blog__i';
   var io=null;
   function reveal(ctx){
     if(reduce||!document.body.classList.contains('anim-reveal')||!('IntersectionObserver' in window))return;

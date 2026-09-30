@@ -1190,3 +1190,5 @@ html,body{overflow-x:clip!important}
   .hero__dots{display:flex!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important}
 }
 @media (max-width:989px){.cats{padding-top:8px!important;padding-bottom:6px!important}.cats__img{margin-top:0}}
+@media (max-width:989px){.cats{overflow-y:hidden!important}}
+@media (max-width:989px){.header__acct{display:none!important}.hero__card{aspect-ratio:auto!important;height:auto!important}.hero__side{align-items:start}}
