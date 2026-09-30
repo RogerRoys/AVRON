@@ -408,6 +408,8 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
       it.addEventListener('focusin',function(){open(it);});
       var m=it.querySelector('.mega');if(m)m.addEventListener('mouseenter',function(){clearTimeout(t);});
     });
+    header.addEventListener('mouseleave',function(){clearTimeout(t);t=setTimeout(closeAll,120);});
+    closeAll();
     header.addEventListener('focusout',function(){setTimeout(function(){if(!header.contains(document.activeElement))closeAll();},0);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
     document.addEventListener('click',function(e){if(!e.target.closest('.nav__item.has-mega'))closeAll();});
