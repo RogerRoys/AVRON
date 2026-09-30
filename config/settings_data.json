@@ -12,7 +12,11 @@
     "anim_reveal": true,
     "anim_hero": true,
     "anim_hover": true,
+    "cart_show_freeship": true,
+    "cart_show_upsell": false,
     "cart_upsell_collection": "best-sellers",
+    "cart_upsell_count": 2,
+    "cart_discount": false,
     "social_instagram": "https://www.instagram.com/avronofficial/",
     "sections": {
       "cart-drawer": {
@@ -20,9 +24,6 @@
         "settings": {}
       }
     },
-    "content_for_index": [],
-    "cart_show_freeship": true,
-    "cart_show_upsell": true,
-    "cart_upsell_count": 2
+    "content_for_index": []
   }
 }
