@@ -128,71 +128,71 @@
         "c1": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "pendant-lights",
             "label": "Pendants"
           }
         },
         "c2": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "chandeliers",
             "label": "Chandeliers"
           }
         },
         "c3": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Table lamps"
+            "collection": "office-lighting",
+            "label": "Office Lighting"
           }
         },
         "c4": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Floor lamps"
+            "collection": "kitchen-lighting",
+            "label": "Kitchen Lighting"
           }
         },
         "c5": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "outdoor-wall-lights",
             "label": "Wall lights"
           }
         },
         "c6": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Ceiling fans"
+            "collection": "ceiling-lighting",
+            "label": "Ceiling Lighting"
           }
         },
         "c7": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Post caps"
+            "collection": "pillar-post-lights",
+            "label": "Pillar & Post Light"
           }
         },
         "c8": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Bollards"
+            "collection": "flush-mount-lights",
+            "label": "Flush Mount Lights"
           }
         },
         "c9": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Solar"
+            "collection": "solar-outdoor-lights",
+            "label": "Solar Outdoor Lights"
           }
         },
         "c10": {
           "type": "category",
           "settings": {
-            "collection": "",
-            "label": "Décor"
+            "collection": "garden-path-lights",
+            "label": "Garden & Path Lights"
           }
         }
       },
