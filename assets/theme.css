@@ -1475,3 +1475,15 @@ html{scroll-behavior:auto}
 .header .nav__item.has-mega.is-open .mega__col{animation:xmegaIn .4s cubic-bezier(.2,.8,.2,1) both}
 .header .nav__item.has-mega.is-open .mega__col:nth-child(2){animation-delay:.05s}.header .nav__item.has-mega.is-open .mega__col:nth-child(3){animation-delay:.1s}.header .nav__item.has-mega.is-open .mega__col:nth-child(4){animation-delay:.15s}
 @media (prefers-reduced-motion:reduce){.header .mega,.header .mega-dim,.header .mega__col{animation:none!important}}
+
+/* v1.8.8 hover on non-mega items never shows any panel/dim */
+.header .nav__item:not(.has-mega)::before,.header .nav__item:not(.has-mega)::after,.header .nav:hover::after,.header .nav:hover::before{display:none!important}
+.header .nav__item.has-mega:hover:not(.is-open) .mega{display:none!important}
+.header:has(.nav__item:not(.has-mega):hover) .mega-dim{display:none!important}
+/* single promo image fills the whole promo column */
+.mega__panel{align-items:stretch}
+.mega__promos{align-self:stretch}
+.mega__promos:has(> .mega__promo:only-child){display:block!important;height:100%}
+.mega__promos>.mega__promo:only-child{aspect-ratio:auto!important;height:100%!important;min-height:420px;width:100%;display:block}
+.mega__promos>.mega__promo:only-child img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mega__promo{position:relative;overflow:hidden;border-radius:12px}
