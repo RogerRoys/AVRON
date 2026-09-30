@@ -12,6 +12,19 @@
     "hero": {
       "type": "hero-split",
       "blocks": {
+        "s2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/AeroWood___Elegant_Black_Low_Profile_Ceiling_Fan_with_Reversible_DC_Motor_3.jpg",
+            "badge": "STATEMENT LIGHTING",
+            "heading": "Pieces worth looking up for.",
+            "text": "<p>Chandeliers and pendants in smoked glass, brass and stone.</p>",
+            "btn1_label": "Shop chandeliers",
+            "btn1_link": "",
+            "btn2_label": "Indoor",
+            "btn2_link": ""
+          }
+        },
         "s1": {
           "type": "slide",
           "settings": {
@@ -21,18 +34,6 @@
             "btn1_label": "Shop best sellers",
             "btn1_link": "",
             "btn2_label": "New arrivals",
-            "btn2_link": ""
-          }
-        },
-        "s2": {
-          "type": "slide",
-          "settings": {
-            "badge": "STATEMENT LIGHTING",
-            "heading": "Pieces worth looking up for.",
-            "text": "<p>Chandeliers and pendants in smoked glass, brass and stone.</p>",
-            "btn1_label": "Shop chandeliers",
-            "btn1_link": "",
-            "btn2_label": "Indoor",
             "btn2_link": ""
           }
         },
@@ -50,8 +51,8 @@
         }
       },
       "block_order": [
-        "s1",
         "s2",
+        "s1",
         "s3"
       ],
       "settings": {
