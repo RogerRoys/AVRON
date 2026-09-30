@@ -1341,3 +1341,22 @@ html,body{overflow-x:clip!important}
 .sk--l{height:30px;width:80%}.sk--m{height:22px;width:40%}.sk--s{height:44px;width:100%}.sk--b{height:52px;width:100%;border-radius:40px!important;margin-top:auto}
 @media (max-width:989px){#QuickBuy .modal__panel{transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .3s ease}.qb--skel .qb__lead.sk{width:96px;height:96px}}
 @media (prefers-reduced-motion:reduce){[data-quick-body].is-ready *{animation:none!important}}
+
+/* v1.7.3 button hovers = Live Preview */
+.btn:hover{opacity:1;transform:translateY(-2px)}
+.btn--white:hover{box-shadow:none}
+.hero .btn--white:hover{box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn--outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--ghost-white:hover{background:#fff;color:var(--ink);border-color:#fff;transform:none}
+[data-add]:hover,[data-satc-btn]:hover{transform:none}
+[data-add]:active,[data-satc-btn]:active{transform:scale(.98)}
+.xcd__co:hover,.xwl__all:hover,.xwlp__all:hover,.xct__btn:hover,.xst__b1:hover{transform:translateY(-1px)}
+.shopify-payment-button__button,.btn--shoppay,[data-shoppay]{transition:filter .2s}
+.shopify-payment-button__button:hover,.btn--shoppay:hover,[data-shoppay]:hover{filter:brightness(1.1);transform:none}
+.round-btn,.round-btn--solid{background:#fff;color:var(--ink);border:1px solid #E4E0D8;transition:background .2s,color .2s,transform .2s}
+.round-btn:hover,.round-btn--solid:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.utility a{transition:color .2s}.utility a:hover{color:var(--ink)}
+.card__title:hover{color:#2F4A3A}
+.cd__up:hover,.xcd__up:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+
+.has-satc .footer{padding-bottom:0}
