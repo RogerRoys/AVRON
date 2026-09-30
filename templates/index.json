@@ -305,9 +305,9 @@
         "heading": "Measured light for considered homes.",
         "text": "<p>Avron makes thoughtfully designed lighting easier to understand, choose and live with. We keep the range edited, show every fitting at believable scale, and explain dimensions, installation and suitability in plain English, with dependable support before and after delivery.</p>",
         "btn1_label": "Read our story",
-        "btn1_link": "",
+        "btn1_link": "shopify://pages/about-us",
         "btn2_label": "Visit the lighting guide",
-        "btn2_link": ""
+        "btn2_link": "#"
       }
     },
     "col_outdoor": {
