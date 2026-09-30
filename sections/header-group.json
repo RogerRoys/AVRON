@@ -107,6 +107,7 @@
       ],
       "settings": {
         "menu": "main-menu",
+        "demo_menu": false,
         "sale_title": "Sale",
         "search_placeholder": "Search pendants, post caps, bollards…",
         "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
