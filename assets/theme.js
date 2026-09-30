@@ -414,3 +414,29 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
 })();
 
 (function(){function s(){var h=document.querySelector('.header');if(h)document.documentElement.style.setProperty('--header-h',Math.round(h.getBoundingClientRect().height)+'px');}window.addEventListener('load',s);window.addEventListener('resize',s);if(document.readyState!=='loading')s();else document.addEventListener('DOMContentLoaded',s);})();
+
+/* v1.8.2 FAQ page smooth jump + mobile variant → gallery scroll */
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function hdr(){var h=document.querySelector('.header');var sticky=h&&getComputedStyle(h.closest('.shopify-section')||h).position!=='static';return (sticky&&h?h.getBoundingClientRect().height:0)+16;}
+  function smoothTo(y){window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'});}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('.xfp__nav a[href^="#faq-"], .xfp__chip[href^="#faq-"]');if(!a)return;
+    var id=a.getAttribute('href').slice(1),g=document.getElementById(id);if(!g)return;e.preventDefault();
+    smoothTo(g.getBoundingClientRect().top+scrollY-hdr());
+    document.querySelectorAll('.xfp__nav a,.xfp__chip').forEach(function(x){x.classList.toggle('is-on',x.getAttribute('href')==='#'+id);});
+    g.classList.remove('is-flash');void g.offsetWidth;g.classList.add('is-flash');
+    try{history.replaceState({},'','#'+id);}catch(x){}
+  });
+  if('IntersectionObserver' in window){
+    var gs=document.querySelectorAll('.xfp__grp');if(gs.length){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(!en.isIntersecting)return;var id=en.target.id;document.querySelectorAll('.xfp__nav a,.xfp__chip').forEach(function(x){x.classList.toggle('is-on',x.getAttribute('href')==='#'+id);});});},{rootMargin:'-30% 0px -60% 0px'});gs.forEach(function(g){io.observe(g);});}
+  }
+  document.addEventListener('variant:change',function(e){
+    if(!window.matchMedia('(max-width: 989px)').matches)return;
+    var v=e.detail;if(!v||!v.featured_media)return;
+    var sec=e.target.closest?e.target.closest('[data-product-section]')||e.target:e.target;
+    var g=sec.querySelector('.pp__gallery')||sec.querySelector('[data-gallery]');if(!g)return;
+    var r=g.getBoundingClientRect();if(r.top>=0&&r.top<innerHeight*.25)return;
+    setTimeout(function(){smoothTo(r.top+scrollY-hdr()+ (g.getBoundingClientRect().top-r.top));},60);
+  });
+})();

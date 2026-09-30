@@ -73,7 +73,7 @@
                       {%- if block.type == 'promo' and block.settings.menu_item == link.title -%}
                         <a href="{{ block.settings.link | default: link.url }}" class="mega__promo" {{ block.shopify_attributes }}>
                           {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 700 | image_tag: widths: '300,500,700', sizes: '300px', loading: 'lazy', alt: block.settings.title }}{%- else -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- endif -%}
-                          <span class="mega__tag"><b>{{ block.settings.title }}</b><span>{{ block.settings.text }} →</span></span>
+                          <span class="mega__tag"><b>{{ block.settings.title }} →</b></span>
                         </a>
                       {%- endif -%}
                     {%- endfor -%}
