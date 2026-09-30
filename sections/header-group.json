@@ -17,19 +17,22 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Considered lighting for Australian homes · Prices in AUD"
+            "text": "Considered lighting for Australian homes · Prices in AUD",
+            "link": ""
           }
         },
         "m2": {
           "type": "message",
           "settings": {
-            "text": "Tracked delivery updates at every stage"
+            "text": "Tracked delivery updates at every stage",
+            "link": ""
           }
         },
         "m3": {
           "type": "message",
           "settings": {
-            "text": "1-year voluntary warranty, alongside your ACL rights"
+            "text": "1-year voluntary warranty, alongside your ACL rights",
+            "link": ""
           }
         }
       },
@@ -38,7 +41,11 @@
         "m2",
         "m3"
       ],
-      "settings": {}
+      "settings": {
+        "bg": "#2f4a3a",
+        "fg": "#ffffff",
+        "speed": 4
+      }
     },
     "header": {
       "type": "header",
@@ -48,7 +55,8 @@
           "settings": {
             "menu_item": "Pendants",
             "title": "The Stone Edit",
-            "text": "Travertine & opal glass"
+            "text": "Travertine & opal glass",
+            "link": ""
           }
         },
         "p2": {
@@ -56,31 +64,37 @@
           "settings": {
             "menu_item": "Pendants",
             "title": "Over the island",
-            "text": "Pendants in threes"
+            "text": "Pendants in threes",
+            "link": ""
           }
         },
         "t1": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Indoor lighting"
+            "title": "Indoor lighting",
+            "link": ""
           }
         },
         "t2": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Outdoor lighting"
+            "title": "Outdoor lighting",
+            "link": ""
           }
         },
         "t3": {
           "type": "mobile_tile",
           "settings": {
-            "title": "New in"
+            "image": "shopify://shop_images/avron-aureaglow-final-09-brick-boundary.jpg",
+            "title": "New in",
+            "link": "shopify://collections/new-in"
           }
         },
         "t4": {
           "type": "mobile_tile",
           "settings": {
-            "title": "Best sellers"
+            "title": "Best sellers",
+            "link": ""
           }
         }
       },
@@ -92,7 +106,18 @@
         "t3",
         "t4"
       ],
-      "settings": {}
+      "settings": {
+        "menu": "main-menu",
+        "demo_menu": true,
+        "sale_title": "Sale",
+        "search_placeholder": "Search pendants, post caps, bollards…",
+        "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
+        "utility_text": "Australia first · Prices in AUD   ·   1-year voluntary warranty",
+        "utility_menu": "",
+        "drawer_promo_title": "New to Avron?",
+        "drawer_promo_text": "Start with the lighting guide",
+        "drawer_promo_link": ""
+      }
     }
   },
   "order": [
