@@ -110,6 +110,7 @@
         "faq_default": {
           "type": "collection_faq",
           "settings": {
+            "collection": "",
             "eyebrow": "Lighting",
             "heading": "Common questions",
             "q1": "How tall should a table lamp be?",
@@ -123,12 +124,17 @@
             "q5": "Is a bulb included, and which type does it use?",
             "a5": "<p>The fitting type (E27, B22, GU10 or integrated LED) and whether a bulb is included are listed under Specifications.</p>",
             "q6": "Does it need an electrician to install?",
-            "a6": "<p>Plug-in lamps don’t need one. Hardwired fittings must be installed by a licensed electrician.</p>"
+            "a6": "<p>Plug-in lamps don’t need one. Hardwired fittings must be installed by a licensed electrician.</p>",
+            "q7": "",
+            "a7": "",
+            "q8": "",
+            "a8": ""
           }
         },
         "faq_outdoor": {
           "type": "collection_faq",
           "settings": {
+            "collection": "outdoor",
             "eyebrow": "Front door & porch lights",
             "heading": "Common questions",
             "q1": "Should I choose a wall light or a hanging porch light?",
@@ -143,7 +149,10 @@
             "a5": "<p>Warm white (2700K) to soft white (3000K) feels welcoming and flatters brick, timber and render.</p>",
             "q6": "Is a motion-sensor light useful at the front door?",
             "a6": "<p>A sensor light adds convenience and security at entries and paths. Check the product page to see whether a sensor option is available.</p>",
-            "collection": "outdoor"
+            "q7": "",
+            "a7": "",
+            "q8": "",
+            "a8": ""
           }
         }
       },
@@ -255,6 +264,7 @@
     },
     "reviews": {
       "type": "reviews",
+      "disabled": true,
       "settings": {
         "demo_images": true,
         "heading": "Customer reviews",
