@@ -21,7 +21,7 @@
   <div class="page-w utility__in">
     <div class="utility__l">{{ section.settings.utility_text }}</div>
     <div class="utility__r">
-      {%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- else -%}<a href="/pages/track-order">Track order</a><a href="/pages/trade">Trade program</a><a href="/pages/contact">Help</a>{%- endfor -%}
+      {%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
       {%- render 'localization', id: 'HeaderLoc' -%}
     </div>
   </div>
@@ -143,7 +143,13 @@
       {%- if section.settings.drawer_promo_title != blank -%}
         <a href="{{ section.settings.drawer_promo_link | default: routes.all_products_collection_url }}" class="md__promo"><span><b>{{ section.settings.drawer_promo_title }}</b><br>{{ section.settings.drawer_promo_text }}</span><span class="md__promo-btn">Shop</span></a>
       {%- endif -%}
-      <div class="md__links">{%- for link in util.links -%}<a href="{{ link.url }}">{{ link.title }}<span class="md__chev">›</span></a>{%- else -%}<a href="/pages/lighting-guide">Lighting guide<span class="md__chev">›</span></a><a href="/pages/trade">Trade program<span class="md__chev">›</span></a><a href="/pages/track-order">Track your order<span class="md__chev">›</span></a><a href="/pages/faq">Help &amp; FAQ<span class="md__chev">›</span></a>{%- endfor -%}</div>
+      {%- liquid
+        assign dm = linklists[section.settings.drawer_menu]
+        if section.settings.drawer_menu == blank
+          assign dm = util
+        endif
+      -%}
+      {%- if dm.links.size > 0 -%}<div class="md__links">{%- for link in dm.links -%}<a href="{{ link.url }}">{{ link.title }}<span class="md__chev">›</span></a>{%- endfor -%}</div>{%- endif -%}
     </div>
     <div class="drawer__foot md__foot">
       <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url | default: '/account/login' }}{% endif %}"><b>{% if customer %}My account{% else %}Log in{% endif %}</b></a>
@@ -233,7 +239,17 @@
       "type": "link_list",
       "id": "utility_menu",
       "label": "Right links",
-      "info": "e.g. Track order, Trade program, Help"
+      "info": "Desktop: links on the right of the top bar. Leave empty to show none."
+    },
+    {
+      "type": "header",
+      "content": "Mobile menu links"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_menu",
+      "label": "Links under the menu",
+      "info": "Shown at the bottom of the mobile menu (e.g. Lighting guide, Track your order, Help & FAQ). Leave empty to use the utility bar \"Right links\"; if both are empty, no links show."
     },
     {
       "type": "header",
