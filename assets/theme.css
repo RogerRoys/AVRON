@@ -1644,3 +1644,44 @@ html{scroll-behavior:auto}
 .btt:focus-visible{outline:2px solid var(--brand,#2F4A3A);outline-offset:3px}
 @media (max-width:989px){.btt{right:16px;bottom:20px;width:44px;height:44px}.btt.is-up{bottom:84px}}
 @media (prefers-reduced-motion:reduce){.btt{transition:opacity .2s}}
+
+/* Variant spacing */
+.pp__picker .opt{margin-bottom:8px}
+.pp__picker .opt legend,.opt__lg{margin-bottom:12px}
+.pp__low,.pp__ship{margin-bottom:8px}
+.opt__lg{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;float:left}
+.opt__lg+.opt__row{clear:both}
+.sg__link{all:unset;cursor:pointer;display:inline-flex;gap:6px;align-items:center;font-size:14px;font-weight:500;text-decoration:underline;color:var(--ink,#1B1D1A)}
+.sg__link:hover{color:var(--brand,#2F4A3A)}
+.sg__link--solo{margin:-4px 0 8px}
+/* Size guide modal (Quick buy style) */
+#SizeGuide .sg__panel{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);padding:0;overflow:auto;transition:opacity .35s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.sg__media{padding:16px}
+.sg__img{position:relative;height:min(620px,calc(100vh - 120px));border-radius:12px;overflow:hidden;background:var(--soft,#F5F3EF);cursor:zoom-in}
+.sg__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:50% 40%;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.sg__img.is-z{cursor:zoom-out}.sg__img.is-z img{transform:scale(1.8)}
+.sg__hint{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:40px;padding:6px 12px;font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.sg__txt{padding:32px 32px 28px 16px;display:flex;flex-direction:column;gap:18px}
+.sg__head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.sg__eb{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--brand,#2F4A3A);margin-bottom:4px}
+.sg__h{font-size:26px;line-height:1.15}
+#SizeGuide .sg__x{position:static;flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .2s}
+#SizeGuide .sg__x:hover{transform:rotate(90deg)}
+.sg__note,.sg__note p{margin:0;font-size:13px;line-height:1.55;color:var(--muted,#5C615B)}
+.sg__back{margin-top:auto;width:100%}
+@media (max-width:989px){
+  #SizeGuide .sg__panel{grid-template-columns:1fr}
+  #SizeGuide .sg__panel::before{content:"";grid-column:1/-1;justify-self:center;width:40px;height:4px;border-radius:2px;background:#D6D2CA;margin-top:10px}
+  .sg__media{padding:14px 16px 0}.sg__img{height:300px}
+  .sg__txt{padding:18px 16px 20px}.sg__h{font-size:20px}
+  .sg__link{font-size:13px}
+}
+
+/* Product collapsibles = FAQ accordion */
+.pacc{border-bottom:1px solid var(--line,#ECE9E3)}
+.pacc:not(.pacc + .pacc){border-top:1px solid var(--line,#ECE9E3)}
+.pacc .xfaq__q{font-size:16px}
+.pacc .xfaq__p{font-size:15px;max-width:680px}
+.pacc .xfaq__p>:last-child{margin-bottom:0}
+.pacc .xfaq__p p,.pacc .xfaq__p ul{margin:0 0 10px}
+@media (max-width:989px){.pacc .xfaq__q{font-size:15px}.pacc .xfaq__p{font-size:14px}}

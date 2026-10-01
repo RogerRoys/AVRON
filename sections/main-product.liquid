@@ -104,10 +104,17 @@
             <script type="application/json" data-inventory>{ {%- for v in product.variants -%}"{{ v.id }}":{% if v.inventory_management == 'shopify' and v.inventory_policy == 'deny' %}{{ v.inventory_quantity }}{% else %}null{% endif %}{% unless forloop.last %},{% endunless %}{%- endfor -%} }</script>
           {%- when 'variant_picker' -%}
             {%- unless product.has_only_default_variant -%}
+              {%- liquid
+                assign sg_img = product.metafields.custom.size_guide.value
+                if sg_img == blank
+                  assign sg_img = block.settings.size_guide_image
+                endif
+                assign sg_shown = false
+              -%}
               <div class="pp__picker" data-variant-picker {{ block.shopify_attributes }}>
                 {%- for option in product.options_with_values -%}
                   <fieldset class="opt">
-                    <legend>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></legend>
+                    <legend class="opt__lg"><span>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></span>{%- assign on = option.name | downcase -%}{%- if sg_img != blank and sg_shown == false and on contains 'size' -%}{%- assign sg_shown = true -%}<button type="button" class="sg__link" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- endif -%}</legend>
                     <div class="opt__row">
                       {%- for value in option.values -%}
                         <label class="optbtn">
@@ -122,7 +129,21 @@
                   </fieldset>
                 {%- endfor -%}
                 <script type="application/json" data-product-json>{{ product | json }}</script>
+                {%- if sg_img != blank and sg_shown == false -%}<button type="button" class="sg__link sg__link--solo" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- assign sg_shown = true -%}{%- endif -%}
               </div>
+              {%- if sg_img != blank -%}
+              <div class="modal sg" id="SizeGuide" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Size guide">
+                <div class="drawer__overlay" data-close></div>
+                <div class="modal__panel sg__panel">
+                  <div class="sg__media"><div class="sg__img" data-sg-zoom>{{ sg_img | image_url: width: 1800 | image_tag: loading: 'lazy', alt: 'Size guide' }}<span class="sg__hint" data-sg-hint>Tap to zoom</span></div></div>
+                  <div class="sg__txt">
+                    <div class="sg__head"><div><span class="sg__eb">SIZE GUIDE</span><b class="sg__h">{{ product.title }}</b></div><button type="button" class="icon-btn round modal__x sg__x" data-close aria-label="Close">{% render 'icon', name: 'close' %}</button></div>
+                    {%- if block.settings.size_guide_note != blank -%}<div class="sg__note">{{ block.settings.size_guide_note }}</div>{%- endif -%}
+                    <button type="button" class="btn btn--lg sg__back" data-close>Back to product</button>
+                  </div>
+                </div>
+              </div>
+              {%- endif -%}
             {%- endunless -%}
           {%- when 'buy_buttons' -%}
             <div {{ block.shopify_attributes }}>
@@ -185,13 +206,10 @@
             </div>
             {%- endif -%}
           {%- when 'collapsible' -%}
-            <details class="acc"{% if block.settings.open %} open{% endif %} {{ block.shopify_attributes }}>
-              <summary>{{ block.settings.heading }}<i></i></summary>
-              <div class="acc__body rte">
+            <div class="xfaq__i pacc{% if block.settings.open %} is-open{% endif %}" data-xfaq {{ block.shopify_attributes }}><button type="button" class="xfaq__q" aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}"><span>{{ block.settings.heading }}</span><span class="xfaq__ic" aria-hidden="true">+</span></button><div class="xfaq__a"><div><div class="xfaq__p rte">
                 {%- if block.settings.use_description -%}{{ product.description }}{%- else -%}{{ block.settings.content }}{%- endif -%}
                 {%- if block.settings.page != blank -%}{{ block.settings.page.content }}{%- endif -%}
-              </div>
-            </details>
+              </div></div></div></div>
           {%- when 'text' -%}
             <div class="rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
         {%- endcase -%}
@@ -287,7 +305,33 @@
       "type": "variant_picker",
       "name": "Variant picker",
       "limit": 1,
-      "settings": []
+      "settings": [
+        {
+          "type": "header",
+          "content": "Size guide"
+        },
+        {
+          "type": "paragraph",
+          "content": "Each product shows its own size guide from the product metafield custom.size_guide (type: file / image). The image below is only used when a product has none."
+        },
+        {
+          "type": "image_picker",
+          "id": "size_guide_image",
+          "label": "Fallback size guide image"
+        },
+        {
+          "type": "text",
+          "id": "size_guide_label",
+          "label": "Link label",
+          "default": "Size guide"
+        },
+        {
+          "type": "richtext",
+          "id": "size_guide_note",
+          "label": "Note",
+          "default": "<p>Measurements are in centimetres. Compare against your space before you buy, and allow for the cord or chain drop on hanging fittings.</p>"
+        }
+      ]
     },
     {
       "type": "buy_buttons",

@@ -498,3 +498,7 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
     (function step(n){var p=Math.min(1,(n-t0)/d);window.scrollTo(0,Math.round(s*(1-ease(p))));if(p<1)anim=requestAnimationFrame(step);else stop();})(t0);
   });
 })();
+
+/* Size guide zoom */
+document.addEventListener('click',function(e){var z=e.target.closest('[data-sg-zoom]');if(!z)return;var on=!z.classList.contains('is-z');z.classList.toggle('is-z',on);var h=z.querySelector('[data-sg-hint]');if(h)h.textContent=on?'Tap to zoom out':'Tap to zoom';});
+document.addEventListener('click',function(e){if(e.target.closest('#SizeGuide [data-close]')){var z=document.querySelector('#SizeGuide [data-sg-zoom].is-z');if(z){z.classList.remove('is-z');var h=z.querySelector('[data-sg-hint]');if(h)h.textContent='Tap to zoom';}}});

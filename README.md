@@ -121,3 +121,8 @@ Matches the "Avron 1d Live Preview" prototype.
 - Product information section → add a "Collection FAQ" block for each collection (e.g. Table lamps, Porch lights) with up to 8 questions.
 - The product page shows the FAQ of the first matching collection; a Collection FAQ block with no collection is the fallback for everything else.
 - Two are included: a general lighting fallback, and "Front door & porch lights" linked to the collection with handle "outdoor" — re-pick the collection if yours is different.
+
+## Size guide popup
+- Create a product metafield: Settings → Custom data → Products → Add definition → Name "Size guide", namespace & key **custom.size_guide**, type **File** (images).
+- Upload each product's size guide image in that field. The "Size guide" link appears next to the Size option and opens the popup.
+- Product information → Variant picker block: fallback image, link label and note.
