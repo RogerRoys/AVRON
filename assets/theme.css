@@ -1697,3 +1697,22 @@ html{scroll-behavior:auto}
 .pp__picker{margin-bottom:24px}
 .opt__row{gap:10px}
 @media (max-width:989px){.pp__picker .opt{margin-bottom:20px!important}.pp__picker{margin-bottom:20px}.pp__picker .opt legend,.pp__picker .opt__lg{padding-bottom:10px!important}}
+
+/* tighter gap: assurance list → first variant */
+.xpp__as{margin-bottom:-6px!important}
+@media (max-width:989px){.xpp__as{margin-bottom:-4px!important}}
+
+/* Footer bottom bar centred on mobile */
+@media (max-width:989px){
+  .xft__bar{flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:14px!important}
+  .xft__legal{justify-content:center!important;flex-wrap:wrap}
+  .xft__pay{justify-content:center!important}
+}
+
+/* Size guide zoom = gallery zoom */
+.sg__img img{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sg__img.is-z img{transform:scale(2.2)}
+@media (hover:hover) and (pointer:fine){
+  .sg__img{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Crect x='1' y='1' width='42' height='42' fill='white' stroke='%23E4E0D8'/%3E%3Cpath d='M22 12v20M12 22h20' stroke='%231B1D1A' stroke-width='1.5'/%3E%3C/svg%3E") 22 22, zoom-in}
+  .sg__img.is-z{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Crect x='1' y='1' width='42' height='42' fill='white' stroke='%23E4E0D8'/%3E%3Cpath d='M12 22h20' stroke='%231B1D1A' stroke-width='1.5'/%3E%3C/svg%3E") 22 22, zoom-out}
+}

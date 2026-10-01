@@ -500,7 +500,13 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
 })();
 
 /* Size guide zoom */
-document.addEventListener('click',function(e){var z=e.target.closest('[data-sg-zoom]');if(!z)return;var on=!z.classList.contains('is-z');z.classList.toggle('is-z',on);var h=z.querySelector('[data-sg-hint]');if(h)h.textContent=on?'Tap to zoom out':'Tap to zoom';});
+(function(){var fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+function org(z,e){var img=z.querySelector('img'),r=z.getBoundingClientRect();if(img&&e&&e.clientX!=null)img.style.transformOrigin=((e.clientX-r.left)/r.width*100)+'% '+((e.clientY-r.top)/r.height*100)+'%';}
+function lbl(z,on){var h=z.querySelector('[data-sg-hint]');if(h)h.textContent=on?(fine?'Click to zoom out':'Tap to zoom out'):(fine?'Click to zoom':'Tap to zoom');}
+document.addEventListener('click',function(e){var z=e.target.closest('[data-sg-zoom]');if(!z)return;var on=!z.classList.contains('is-z');if(on)org(z,e);z.classList.toggle('is-z',on);lbl(z,on);});
+document.addEventListener('mousemove',function(e){var z=e.target.closest&&e.target.closest('[data-sg-zoom].is-z');if(z)org(z,e);});
+document.addEventListener('mouseout',function(e){var z=e.target.closest&&e.target.closest('[data-sg-zoom].is-z');if(z&&!z.contains(e.relatedTarget)){z.classList.remove('is-z');lbl(z,false);}});
+document.querySelectorAll('[data-sg-hint]').forEach(function(h){h.textContent=fine?'Click to zoom':'Tap to zoom';});})();
 document.addEventListener('click',function(e){if(e.target.closest('#SizeGuide [data-close]')){var z=document.querySelector('#SizeGuide [data-sg-zoom].is-z');if(z){z.classList.remove('is-z');var h=z.querySelector('[data-sg-hint]');if(h)h.textContent='Tap to zoom';}}});
 
 /* Size guide: mount on <body> so it sits above the sticky header */
