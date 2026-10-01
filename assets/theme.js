@@ -502,3 +502,7 @@ if(document.readyState!=='loading')f();else document.addEventListener('DOMConten
 /* Size guide zoom */
 document.addEventListener('click',function(e){var z=e.target.closest('[data-sg-zoom]');if(!z)return;var on=!z.classList.contains('is-z');z.classList.toggle('is-z',on);var h=z.querySelector('[data-sg-hint]');if(h)h.textContent=on?'Tap to zoom out':'Tap to zoom';});
 document.addEventListener('click',function(e){if(e.target.closest('#SizeGuide [data-close]')){var z=document.querySelector('#SizeGuide [data-sg-zoom].is-z');if(z){z.classList.remove('is-z');var h=z.querySelector('[data-sg-hint]');if(h)h.textContent='Tap to zoom';}}});
+
+/* Size guide: mount on <body> so it sits above the sticky header */
+(function(){function mv(){var m=document.getElementById('SizeGuide');if(m&&m.parentNode!==document.body)document.body.appendChild(m);}
+if(document.readyState!=='loading')mv();else document.addEventListener('DOMContentLoaded',mv);document.addEventListener('shopify:section:load',mv);})();

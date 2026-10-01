@@ -1685,3 +1685,15 @@ html{scroll-behavior:auto}
 .pacc .xfaq__p>:last-child{margin-bottom:0}
 .pacc .xfaq__p p,.pacc .xfaq__p ul{margin:0 0 10px}
 @media (max-width:989px){.pacc .xfaq__q{font-size:15px}.pacc .xfaq__p{font-size:14px}}
+
+#SizeGuide{z-index:1000}
+#SizeGuide .sg__panel{max-height:calc(100vh - 40px)}
+@media (max-width:989px){#SizeGuide .sg__panel{max-height:88vh}}
+
+/* v1.9.6 variant spacing (wider gaps between option groups) */
+.pp__picker .opt{margin:0 0 24px!important}
+.pp__picker .opt:last-of-type{margin-bottom:0!important}
+.pp__picker .opt legend,.pp__picker .opt__lg{margin:0!important;padding:0 0 12px!important}
+.pp__picker{margin-bottom:24px}
+.opt__row{gap:10px}
+@media (max-width:989px){.pp__picker .opt{margin-bottom:20px!important}.pp__picker{margin-bottom:20px}.pp__picker .opt legend,.pp__picker .opt__lg{padding-bottom:10px!important}}

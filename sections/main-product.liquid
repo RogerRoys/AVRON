@@ -110,11 +110,25 @@
                   assign sg_img = block.settings.size_guide_image
                 endif
                 assign sg_shown = false
+                assign sg_opt = 0
+                assign sg_found = false
+                for o in product.options_with_values
+                  assign onm = o.name | downcase
+                  if sg_found == false
+                    if onm contains 'size' or onm contains 'dimension' or onm contains 'diameter' or onm contains 'length' or onm contains 'width' or onm contains 'height' or onm contains 'drop'
+                      assign sg_opt = forloop.index
+                      assign sg_found = true
+                    endif
+                  endif
+                endfor
+                if sg_found == false
+                  assign sg_opt = product.options_with_values.size
+                endif
               -%}
               <div class="pp__picker" data-variant-picker {{ block.shopify_attributes }}>
                 {%- for option in product.options_with_values -%}
                   <fieldset class="opt">
-                    <legend class="opt__lg"><span>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></span>{%- assign on = option.name | downcase -%}{%- if sg_img != blank and sg_shown == false and on contains 'size' -%}{%- assign sg_shown = true -%}<button type="button" class="sg__link" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- endif -%}</legend>
+                    <legend class="opt__lg"><span>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></span>{%- if sg_img != blank and sg_shown == false and forloop.index == sg_opt -%}{%- assign sg_shown = true -%}<button type="button" class="sg__link" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- endif -%}</legend>
                     <div class="opt__row">
                       {%- for value in option.values -%}
                         <label class="optbtn">
