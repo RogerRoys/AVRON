@@ -2,10 +2,33 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.9.2",
+    "theme_version": "1.9.3",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page width",
+        "min": 1200,
+        "max": 2000,
+        "step": 40,
+        "unit": "px",
+        "default": 1440,
+        "info": "Maximum content width on large screens. Backgrounds stay full width; content is centred."
+      },
+      {
+        "type": "checkbox",
+        "id": "back_to_top",
+        "label": "Show back to top button",
+        "default": true,
+        "info": "Appears after the first screen and scrolls smoothly back to the top."
+      }
+    ]
   },
   {
     "name": "Logo",

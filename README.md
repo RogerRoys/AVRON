@@ -116,3 +116,8 @@ Matches the "Avron 1d Live Preview" prototype.
 - Template: page.lighting-guide → create a page called "Lighting guide" and pick this template.
 - Room guide tabs (Room blocks), colour temperature preview (Colour temperature blocks + preview image), sizing calculator, IP rating table (IP blocks), and "Before you buy" cards (Check cards) — all editable in the theme editor.
 - Add /pages/lighting-guide to your header and footer menus.
+
+## Product page — Collection FAQ
+- Product information section → add a "Collection FAQ" block for each collection (e.g. Table lamps, Porch lights) with up to 8 questions.
+- The product page shows the FAQ of the first matching collection; a Collection FAQ block with no collection is the fallback for everything else.
+- Two are included: a general lighting fallback, and "Front door & porch lights" linked to the collection with handle "outdoor" — re-pick the collection if yours is different.

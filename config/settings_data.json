@@ -24,6 +24,8 @@
         "settings": {}
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "page_width": 1440,
+    "back_to_top": true
   }
 }
