@@ -124,7 +124,8 @@
         "utility_menu": "",
         "drawer_promo_title": "New to Avron?",
         "drawer_promo_text": "Start with the lighting guide",
-        "drawer_promo_link": "shopify://pages/lighting-guide"
+        "drawer_promo_link": "shopify://pages/lighting-guide",
+        "layout": "centered"
       }
     }
   },
