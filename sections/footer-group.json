@@ -34,6 +34,7 @@
         "c_phone": "+1 (555) 012-3456",
         "c_hours": "Monday to Friday, 09:00–17:00 (EST) · Response time: 12–24 hours",
         "copyright": "Avron Home LLC",
+        "show_legal": false,
         "show_payment": true
       }
     }
