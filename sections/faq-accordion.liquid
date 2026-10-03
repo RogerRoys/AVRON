@@ -1,0 +1,132 @@
+<div class="xab-s" style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xpg">
+  {%- assign groups = '' -%}{%- for b in section.blocks -%}{%- unless groups contains b.settings.group -%}{%- assign groups = groups | append: b.settings.group | append: '|' -%}{%- endunless -%}{%- endfor -%}{%- assign gl = groups | split: '|' -%}{%- assign px = 'faq-' | append: section.id | append: '-' -%}
+  {%- if section.settings.show_nav -%}<div class="xfp__chips">{%- for g in gl -%}<a href="#{{ px }}{{ forloop.index }}" class="xfp__chip{% if forloop.first %} is-on{% endif %}">{{ g }}</a>{%- endfor -%}</div>{%- endif -%}
+  <div class="xfp{% unless section.settings.show_nav or section.settings.show_cta %} xfp--full{% endunless %}">
+    {%- if section.settings.show_nav or section.settings.show_cta -%}<aside class="xfp__side">{%- if section.settings.show_nav -%}<div class="xfp__nav">{%- for g in gl -%}<a href="#{{ px }}{{ forloop.index }}">{{ g }}<span>›</span></a>{%- endfor -%}</div>{%- endif -%}{%- if section.settings.show_cta -%}<div class="xfp__cta"><b>{{ section.settings.cta_heading }}</b><span>{{ section.settings.cta_text }}</span><a href="{{ section.settings.cta_link | default: '/pages/contact' }}">{{ section.settings.cta_btn }}</a></div>{%- endif -%}</aside>{%- endif -%}
+    <div class="xfp__main">{%- for g in gl -%}<div class="xfp__grp" id="{{ px }}{{ forloop.index }}" data-xrv="0"><h2>{{ g }}</h2>{%- assign gi = forloop.index -%}{%- for b in section.blocks -%}{%- if b.settings.group == g -%}<div class="xfaq__i{% if section.settings.first_open and gi == 1 and forloop.first %} is-open{% endif %}" data-xfaq {{ b.shopify_attributes }}><button type="button" class="xfaq__q"><span>{{ b.settings.question }}</span><span class="xfaq__ic" aria-hidden="true">+</span></button><div class="xfaq__a"><div><div class="xfaq__p">{{ b.settings.answer }}</div></div></div></div>{%- endif -%}{%- endfor -%}</div>{%- endfor -%}</div>
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "FAQ accordion",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_nav",
+      "label": "Show topic navigation",
+      "default": true,
+      "info": "Topics are created from the \"Topic\" of each question."
+    },
+    {
+      "type": "checkbox",
+      "id": "first_open",
+      "label": "Open the first question",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Help card (sidebar)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show help card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "Help card heading",
+      "default": "Still have a question?"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Help card text",
+      "default": "Ask us about sizing, finishes or installation before you choose."
+    },
+    {
+      "type": "text",
+      "id": "cta_btn",
+      "label": "Help card button",
+      "default": "Contact us"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Help card link"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group",
+          "label": "Topic",
+          "default": "General"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ accordion",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1953,3 +1953,8 @@ html{scroll-behavior:auto}
 .header__search input[type=search]::-webkit-search-cancel-button,.header__search input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
 .header__search input[type=search]::-ms-clear{display:none}
 .ps__fh{display:block;font-size:13px;font-weight:600;color:var(--muted,#5C615B);margin-top:4px}
+
+/* FAQ split into sections */
+.xab-s .xfp{padding-top:0!important}
+.xfp--full{grid-template-columns:minmax(0,1fr)!important}
+.xab-s .xfp__chips+.xfp{margin-top:0}

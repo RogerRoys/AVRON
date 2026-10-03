@@ -1,95 +1,189 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-faq-page",
+    "intro": {
+      "type": "faq-intro",
+      "blocks": {
+        "e": {
+          "type": "eyebrow",
+          "settings": {}
+        },
+        "h": {
+          "type": "heading",
+          "settings": {}
+        },
+        "t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "e",
+        "h",
+        "t"
+      ],
+      "settings": {}
+    },
+    "faqs": {
+      "type": "faq-accordion",
       "blocks": {
         "q0": {
           "type": "faq",
           "settings": {
-            "group": "Choosing lighting",
-            "question": "How do I choose the right size?",
-            "answer": "<p>Check the dimensions on each product page against your space. Measure the room or table the fitting will sit above, and compare it with the fitting’s width and drop before you choose.</p>"
+            "group": "Shipping & delivery",
+            "question": "Where do you ship to?",
+            "answer": "<p>We currently ship to customers in Australia only.</p>"
           }
         },
         "q1": {
           "type": "faq",
           "settings": {
-            "group": "Choosing lighting",
-            "question": "What colour temperature should I choose?",
-            "answer": "<p>Warmer light (around 2700K) suits living rooms and bedrooms; slightly cooler light (around 3000K) suits kitchens and task areas. Where a product offers options, they’re listed on the product page.</p>"
+            "group": "Shipping & delivery",
+            "question": "How much does shipping cost?",
+            "answer": "<p>Shipping is free and tracked on every order. Delivery costs are already included in the product price, so there are no additional shipping charges at checkout unless clearly stated otherwise.</p>"
           }
         },
         "q2": {
           "type": "faq",
           "settings": {
-            "group": "Choosing lighting",
-            "question": "Can I use a light outdoors?",
-            "answer": "<p>Only where the product page states it is suitable for outdoor use. Check the stated IP rating and intended application before choosing a fitting for exposed or wet areas.</p>"
+            "group": "Shipping & delivery",
+            "question": "How long will my order take to arrive?",
+            "answer": "<p>Orders are processed within 1–3 business days, then shipping usually takes 7–12 business days. Estimated total delivery time is 8–15 business days. Delivery times are estimates and are not guaranteed.</p>"
           }
         },
         "q3": {
           "type": "faq",
           "settings": {
-            "group": "Installation",
-            "question": "Do I need an electrician?",
-            "answer": "<p>Hardwired fittings — such as pendants, ceiling lights, wall lights and ceiling fans — must be installed by a licensed electrician in Australia. Plug-in lamps do not need one.</p>"
+            "group": "Shipping & delivery",
+            "question": "When is my order processed?",
+            "answer": "<p>Orders are processed Monday to Friday, excluding public holidays. Orders placed before 17:00 (EST) are typically processed the same day; orders placed after this time are processed on the following business day.</p>"
           }
         },
         "q4": {
           "type": "faq",
           "settings": {
-            "group": "Installation",
-            "question": "What is included in the box?",
-            "answer": "<p>Included components are listed on each product page. If a bulb or mounting part is not listed, assume it is sold separately.</p>"
+            "group": "Tracking & orders",
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order has been dispatched, you’ll receive a shipping confirmation email with your tracking number and courier details. You can track your order at any time using our <a href=\"/pages/track-order\">Track Order page</a>.</p>"
           }
         },
         "q5": {
           "type": "faq",
           "settings": {
-            "group": "Orders & delivery",
-            "question": "How will I know where my order is?",
-            "answer": "<p>You’ll receive tracking updates by email as your order moves. Delivery estimates are shown at checkout.</p>"
+            "group": "Tracking & orders",
+            "question": "Why isn’t my tracking updating yet?",
+            "answer": "<p>Please allow up to 24 hours for tracking updates to appear after dispatch.</p>"
           }
         },
         "q6": {
           "type": "faq",
           "settings": {
-            "group": "Orders & delivery",
-            "question": "What currency do you charge in?",
-            "answer": "<p>All prices are shown and charged in Australian dollars (AUD).</p>"
+            "group": "Tracking & orders",
+            "question": "Which carriers do you use?",
+            "answer": "<p>Deliveries within Australia are handled by Australia Post or equivalent trusted couriers such as Aramex or CouriersPlease. Orders may be fulfilled from our international fulfilment centres, and all shipments include full tracking from dispatch to delivery.</p>"
           }
         },
         "q7": {
           "type": "faq",
           "settings": {
-            "group": "Returns & warranty",
-            "question": "Can I return a product?",
-            "answer": "<p>Please read our returns policy before you order. It explains which items can be returned and how to start a return.</p>"
+            "group": "Tracking & orders",
+            "question": "Can I cancel my order?",
+            "answer": "<p>Orders can be cancelled before they are shipped. Contact us in time and we’ll refund you in full to your original payment method. Once your parcel is on its way, cancellation is no longer possible, so please reach out to our customer support team as soon as you can.</p>"
           }
         },
         "q8": {
           "type": "faq",
           "settings": {
-            "group": "Returns & warranty",
-            "question": "What does the warranty cover?",
-            "answer": "<p>Avron products include a 1-year voluntary warranty. It is in addition to, and does not limit, your rights under the Australian Consumer Law.</p>"
+            "group": "Returns & refunds",
+            "question": "What is your returns policy?",
+            "answer": "<p>You can request a return within 30 days of receiving your order. Items must be unused, in their original condition, and returned with original packaging, accessories and documentation.</p>"
           }
         },
         "q9": {
           "type": "faq",
           "settings": {
-            "group": "Returns & warranty",
-            "question": "What if my order arrives damaged?",
-            "answer": "<p>Contact us as soon as possible with your order number and photos of the damage, and we’ll work with you to resolve it.</p>"
+            "group": "Returns & refunds",
+            "question": "How do I request a return?",
+            "answer": "<p>Email <a href=\"mailto:support@heitz.shop\">support@heitz.shop</a> with your order number, the reason for the request, and photos or videos if applicable. Our support team will review your request, provide return instructions and the return address. All returns must be sent using a trackable shipping service.</p>"
+          }
+        },
+        "q10": {
+          "type": "faq",
+          "settings": {
+            "group": "Returns & refunds",
+            "question": "Who pays for return shipping?",
+            "answer": "<p>For change-of-mind returns, return shipping costs are your responsibility and original shipping costs are non-refundable. If you received the wrong product or a damaged or faulty item, we’ll cover return shipping or provide a prepaid return label, with no restocking fee.</p>"
+          }
+        },
+        "q11": {
+          "type": "faq",
+          "settings": {
+            "group": "Returns & refunds",
+            "question": "When will I get my refund?",
+            "answer": "<p>Refunds are processed within 14 days of receiving the returned item or proof of return, and are issued to the original payment method unless store credit is requested. Gift cards and items damaged or altered by the customer can’t be returned. We don’t offer direct exchanges — please return the original item for a refund or store credit and place a new order.</p>"
+          }
+        },
+        "q12": {
+          "type": "faq",
+          "settings": {
+            "group": "Damaged, faulty & warranty",
+            "question": "My order arrived damaged or faulty. What should I do?",
+            "answer": "<p>Please report it as soon as possible and no later than 30 days after delivery, with clear photos of the item and packaging. After review, we’ll arrange a replacement or full refund.</p>"
+          }
+        },
+        "q13": {
+          "type": "faq",
+          "settings": {
+            "group": "Damaged, faulty & warranty",
+            "question": "Is there a warranty?",
+            "answer": "<p>All products come with a 1-year warranty covering manufacturing defects from the date your order is delivered. If you believe your product has a defect, contact us at <a href=\"mailto:support@heitz.shop\">support@heitz.shop</a> with your order number and clear photos or videos showing the issue.</p>"
+          }
+        },
+        "q14": {
+          "type": "faq",
+          "settings": {
+            "group": "Damaged, faulty & warranty",
+            "question": "What does the warranty not cover?",
+            "answer": "<p>The warranty doesn’t cover damage caused by incorrect installation, misuse, accidental damage, normal wear and tear, modifications, power surges, or repairs carried out by an unauthorised third party.</p>"
+          }
+        },
+        "q15": {
+          "type": "faq",
+          "settings": {
+            "group": "Damaged, faulty & warranty",
+            "question": "I received the wrong product. What happens next?",
+            "answer": "<p>Notify us within 30 days of delivery. We’ll cover return shipping or provide a prepaid return label, there’s no restocking fee, and after inspection you can choose a replacement or a full refund.</p>"
+          }
+        },
+        "q16": {
+          "type": "faq",
+          "settings": {
+            "group": "Delays & missing parcels",
+            "question": "What can cause a delivery delay?",
+            "answer": "<p>Delays can occur due to circumstances outside our control, such as customs processing, courier delays or peak-demand periods. Please make sure your shipping address is entered correctly at checkout — we’re not responsible for delays, losses or failed deliveries caused by incorrect or incomplete addresses.</p>"
+          }
+        },
+        "q17": {
+          "type": "faq",
+          "settings": {
+            "group": "Delays & missing parcels",
+            "question": "My order hasn’t arrived. When should I contact you?",
+            "answer": "<p>If your order hasn’t arrived within 10 business days after the estimated delivery window, please contact us at <a href=\"mailto:support@heitz.shop\">support@heitz.shop</a> and we’ll investigate with the courier.</p>"
+          }
+        },
+        "q18": {
+          "type": "faq",
+          "settings": {
+            "group": "Delays & missing parcels",
+            "question": "What if my parcel is lost?",
+            "answer": "<p>Once the courier confirms a package as lost, you can choose between a replacement or a full refund to your original payment method.</p>"
+          }
+        },
+        "q19": {
+          "type": "faq",
+          "settings": {
+            "group": "Delays & missing parcels",
+            "question": "How can I contact customer support?",
+            "answer": "<p>Email <a href=\"mailto:support@heitz.shop\">support@heitz.shop</a> or call +1 (917) 261-2026, Monday to Friday, 09:00–17:00 (EST). We aim to respond within 12–24 hours.</p>"
           }
         }
       },
@@ -103,20 +197,25 @@
         "q6",
         "q7",
         "q8",
-        "q9"
+        "q9",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19"
       ],
       "settings": {
-        "eyebrow": "HELP & FAQ",
-        "heading": "Questions, answered clearly.",
-        "intro": "<p>Guidance on choosing, installing and receiving your lighting. If something isn’t covered here, we’re happy to help.</p>",
-        "cta_heading": "Still have a question?",
-        "cta_text": "Ask us about sizing, finishes or installation before you choose.",
-        "cta_btn": "Contact us",
         "cta_link": "shopify://pages/contact"
       }
     }
   },
   "order": [
-    "main"
+    "intro",
+    "faqs"
   ]
 }

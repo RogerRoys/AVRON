@@ -26,6 +26,7 @@
     },
     "content_for_index": [],
     "page_width": 1440,
-    "back_to_top": true
+    "back_to_top": true,
+    "cart_freeship_empty": false
   }
 }

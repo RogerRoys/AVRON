@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.10.3",
+    "theme_version": "1.10.4",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -174,8 +174,14 @@
       {
         "type": "checkbox",
         "id": "cart_show_freeship",
-        "label": "Show free shipping bar",
+        "label": "Show free shipping bar when the cart has products",
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_freeship_empty",
+        "label": "Show free shipping bar when the cart is empty",
+        "default": false
       },
       {
         "type": "range",

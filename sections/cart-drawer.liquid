@@ -16,7 +16,17 @@
   <div class="drawer__overlay" data-close></div>
   <div class="drawer__panel xcd" data-cart-inner>
     <div class="xcd__head"><b class="xcd__title">Your cart ({{ cart.item_count }})</b><button type="button" class="xcd__x" data-close aria-label="Close">×</button></div>
-    {%- if settings.cart_show_freeship -%}<div class="xcd__ship">
+    {%- liquid
+      assign fs_show = false
+      if cart.item_count == 0
+        if settings.cart_freeship_empty
+          assign fs_show = true
+        endif
+      elsif settings.cart_show_freeship
+        assign fs_show = true
+      endif
+    -%}
+    {%- if fs_show -%}<div class="xcd__ship">
       <span>{%- if pct >= 100 -%}✓ {{ settings.free_ship_text | default: 'You’ve unlocked free tracked shipping' }}{%- else -%}{{ settings.free_ship_away | default: 'You’re [amount] away from free tracked shipping' | replace: '[amount]', remaining_money }}{%- endif -%}</span>
       <div class="xcd__bar"><i style="width:{{ pct }}%"></i></div>
     </div>{%- endif -%}

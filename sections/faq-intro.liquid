@@ -1,0 +1,105 @@
+<div class="xab-s" style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xpg">
+  {%- if section.settings.crumbs -%}<nav class="xpg__crumbs"><a href="{{ routes.root_url }}">Home</a>›<span>{{ page.title | default: 'FAQ' }}</span></nav>{%- endif -%}
+  <div class="xpg__intro" data-xrv="0">{%- for b in section.blocks -%}{%- case b.type -%}{%- when 'eyebrow' -%}<span class="xpg__eb" {{ b.shopify_attributes }}>{{ b.settings.text }}</span>{%- when 'heading' -%}<h1 class="xpg__h1" {{ b.shopify_attributes }}>{{ b.settings.text }}</h1>{%- when 'text' -%}<div class="xpg__lead" {{ b.shopify_attributes }}>{{ b.settings.text }}</div>{%- endcase -%}{%- endfor -%}</div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Page intro",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "crumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "HELP & FAQ"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Questions, answered clearly."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Guidance on choosing, installing and receiving your lighting. If something isn’t covered here, we’re happy to help.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page intro",
+      "blocks": [
+        {
+          "type": "eyebrow"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
