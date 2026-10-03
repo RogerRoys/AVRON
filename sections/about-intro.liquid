@@ -1,0 +1,78 @@
+<div class="xab-s" style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xpg">
+  <div class="xab__two" data-xrv="0"><div><span class="xpg__eb">{{ section.settings.eyebrow }}</span><h2 class="xpg__h2">{{ section.settings.heading }}</h2></div><div class="xpg__body">{%- for b in section.blocks -%}<div {{ b.shopify_attributes }}>{{ b.settings.text }}</div>{%- endfor -%}</div></div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Text columns",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "OUR PURPOSE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lighting that adds architectural character, warmth and atmosphere."
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Paragraph text.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text columns",
+      "blocks": [
+        {
+          "type": "paragraph"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

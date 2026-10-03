@@ -1,0 +1,93 @@
+<div class="xab-s" style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xpg">
+  <div class="xab__pl">{%- if section.settings.heading != blank -%}<h2 class="xpg__h2" data-xrv="0">{{ section.settings.heading }}</h2>{%- endif -%}<div class="xab__cards">{%- for b in section.blocks -%}<div class="xab__card" data-xrv="{{ forloop.index0 | times: 80 }}" {{ b.shopify_attributes }}>{%- if section.settings.numbers -%}<span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>{%- endif -%}<b>{{ b.settings.title }}</b><p>{{ b.settings.text }}</p></div>{%- endfor -%}</div></div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Values grid",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What guides us"
+    },
+    {
+      "type": "checkbox",
+      "id": "numbers",
+      "label": "Show numbers",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Considered design"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "An edited collection chosen for form, material, proportion and atmosphere."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values grid",
+      "blocks": [
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

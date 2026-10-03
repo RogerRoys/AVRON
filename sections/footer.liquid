@@ -35,7 +35,7 @@
   </div>
   <div class="xft__bar">
     <span>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright | default: shop.name }}</span>
-    <div class="xft__legal">{%- for p in shop.policies -%}{%- if p.title contains 'Privacy' or p.title contains 'Terms' or p.title contains 'Refund' -%}<a href="{{ p.url }}">{{ p.title }}</a>{%- endif -%}{%- else -%}<a href="{{ routes.root_url }}policies/privacy-policy">Privacy policy</a><a href="{{ routes.root_url }}policies/terms-of-service">Terms of service</a><a href="{{ routes.root_url }}policies/refund-policy">Refund policy</a>{%- endfor -%}</div>
+    {%- if section.settings.show_legal -%}<div class="xft__legal">{%- for p in shop.policies -%}{%- if p.title contains 'Privacy' or p.title contains 'Terms' or p.title contains 'Refund' -%}<a href="{{ p.url }}">{{ p.title }}</a>{%- endif -%}{%- else -%}<a href="{{ routes.root_url }}policies/privacy-policy">Privacy policy</a><a href="{{ routes.root_url }}policies/terms-of-service">Terms of service</a><a href="{{ routes.root_url }}policies/refund-policy">Refund policy</a>{%- endfor -%}</div>{%- endif -%}
     {%- if section.settings.show_payment -%}<ul class="xft__pay">{%- for type in shop.enabled_payment_types -%}<li>{{ type | payment_type_svg_tag }}</li>{%- endfor -%}</ul>{%- endif -%}
   </div>
 </footer>
@@ -132,6 +132,12 @@
       "id": "copyright",
       "label": "Copyright name",
       "default": "Avron Home LLC"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_legal",
+      "label": "Show policy links (Privacy, Refund, Terms)",
+      "default": true
     },
     {
       "type": "checkbox",

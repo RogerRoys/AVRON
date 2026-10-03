@@ -1,0 +1,116 @@
+<div class="xab-s" style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xpg">
+  {%- if section.settings.crumbs -%}<nav class="xpg__crumbs"><a href="{{ routes.root_url }}">Home</a>›<span>{{ page.title | default: 'About' }}</span></nav>{%- endif -%}
+  <div class="xab__hero" data-xrv="0"><div class="xab__ht">
+    {%- for b in section.blocks -%}{%- case b.type -%}
+      {%- when 'eyebrow' -%}<span class="xpg__eb" {{ b.shopify_attributes }}>{{ b.settings.text }}</span>
+      {%- when 'heading' -%}<h1 class="xpg__h1" {{ b.shopify_attributes }}>{{ b.settings.text }}</h1>
+      {%- when 'text' -%}<div class="xpg__lead" {{ b.shopify_attributes }}>{{ b.settings.text }}</div>
+    {%- endcase -%}{%- endfor -%}
+  </div><div class="xab__img">{%- if section.settings.image -%}{{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', alt: '' }}{%- else -%}{% render 'demo-img', src: 'av-04.jpg' %}{%- endif -%}</div></div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "About hero",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "crumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "ABOUT AVRON"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Considered lighting, made clear."
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Avron is a curated online destination for lighting and ceiling fans. We exist to make thoughtfully designed lighting easier to understand, choose and live with in Australian homes.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About hero",
+      "blocks": [
+        {
+          "type": "eyebrow"
+        },
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

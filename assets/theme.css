@@ -1930,3 +1930,11 @@ html{scroll-behavior:auto}
   .header.header--micons.is-search-open .header__search,.header.header--centered.is-search-open .header__search,.header.header--stext.is-search-open .header__search > *{opacity:1;transform:none;transition:opacity .3s ease .12s,transform .45s cubic-bezier(.2,.8,.2,1) .12s}
 }
 @media (prefers-reduced-motion:reduce){.header.header--micons .header__search,.header.header--centered .header__search,.header.header--stext .header__search,.header.header--micons .header__search,.header.header--centered .header__search,.header.header--stext .header__search > *{transition:none!important}}
+
+/* About sections (each part is its own section) */
+.xab-s{background:var(--s-bg,transparent)}
+.xab-s>.xpg{padding-top:var(--s-pt,0px)!important;padding-bottom:var(--s-pb,0px)!important}
+.xab-s .xab__two,.xab-s .xab__pl,.xab-s .xab__diff{padding-top:0!important}
+.xab-s .xab__cta{margin-top:0!important}
+.xab__diff--flip>.xab__dimg{order:2}
+@media (max-width:989px){.xab-s>.xpg{padding-top:calc(var(--s-pt,0px) * .4)!important;padding-bottom:calc(var(--s-pb,0px) * .4)!important}.xab__diff--flip>.xab__dimg{order:0}}

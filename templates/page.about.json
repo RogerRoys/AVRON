@@ -1,45 +1,93 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-about",
+    "hero": {
+      "type": "about-hero",
+      "blocks": {
+        "e": {
+          "type": "eyebrow",
+          "settings": {}
+        },
+        "h": {
+          "type": "heading",
+          "settings": {}
+        },
+        "t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "e",
+        "h",
+        "t"
+      ],
+      "settings": {}
+    },
+    "intro": {
+      "type": "about-intro",
       "blocks": {
         "p0": {
-          "type": "pillar",
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Good lighting shapes how a home feels, yet choosing it can feel technical and overwhelming. We keep our range edited, present every fitting at believable scale, and explain dimensions, installation and suitability in plain English.</p>"
+          }
+        },
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Our aim is to become a trusted Australian online destination for lighting — one that makes the buying process feel calm and clear, and stands behind every order with dependable support.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "p0",
+        "p1"
+      ],
+      "settings": {}
+    },
+    "values": {
+      "type": "about-pillars",
+      "blocks": {
+        "p0": {
+          "type": "value",
           "settings": {
             "title": "Considered design",
             "text": "An edited collection chosen for form, material, proportion and atmosphere."
           }
         },
         "p1": {
-          "type": "pillar",
+          "type": "value",
           "settings": {
             "title": "Clarity in choice",
             "text": "Useful specifications and guidance, without unnecessary complexity."
           }
         },
         "p2": {
-          "type": "pillar",
+          "type": "value",
           "settings": {
             "title": "Made for context",
             "text": "Lighting presented in relevant Australian living environments."
           }
         },
         "p3": {
-          "type": "pillar",
+          "type": "value",
           "settings": {
             "title": "Accountable support",
             "text": "Honest communication before and after purchase."
           }
-        },
+        }
+      },
+      "block_order": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {}
+    },
+    "points": {
+      "type": "about-points",
+      "blocks": {
         "d0": {
           "type": "point",
           "settings": {
@@ -72,10 +120,6 @@
         }
       },
       "block_order": [
-        "p0",
-        "p1",
-        "p2",
-        "p3",
         "d0",
         "d1",
         "d2",
@@ -83,9 +127,38 @@
         "d4"
       ],
       "settings": {}
+    },
+    "cta": {
+      "type": "about-cta",
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Explore lighting",
+            "style": "solid"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Contact us",
+            "link": "/pages/contact",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero",
+    "intro",
+    "values",
+    "points",
+    "cta"
   ]
 }
