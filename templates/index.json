@@ -20,9 +20,9 @@
             "heading": "Pieces worth looking up for.",
             "text": "<p>Chandeliers and pendants in smoked glass, brass and stone.</p>",
             "btn1_label": "Shop chandeliers",
-            "btn1_link": "",
+            "btn1_link": "shopify://collections/chandeliers",
             "btn2_label": "Indoor",
-            "btn2_link": ""
+            "btn2_link": "shopify://collections/indoor-lighting"
           }
         },
         "s1": {
@@ -32,9 +32,9 @@
             "heading": "Light, considered for Australian homes.",
             "text": "<p>An edited collection of lighting and ceiling fans, chosen for form, material and atmosphere.</p>",
             "btn1_label": "Shop best sellers",
-            "btn1_link": "",
+            "btn1_link": "shopify://collections/best-sellers",
             "btn2_label": "New arrivals",
-            "btn2_link": ""
+            "btn2_link": "shopify://collections/new-in"
           }
         },
         "s3": {
@@ -44,9 +44,9 @@
             "heading": "Garden light that runs on sunshine.",
             "text": "<p>No wiring, no running costs. Charges by day, glows all night.</p>",
             "btn1_label": "Shop solar",
-            "btn1_link": "",
+            "btn1_link": "shopify://collections/solar-outdoor-lights",
             "btn2_label": "Outdoor",
-            "btn2_link": ""
+            "btn2_link": "shopify://collections/outdoor-lighting"
           }
         }
       },
@@ -68,7 +68,11 @@
         "show_mobile_chips": false,
         "mobile_chips": "Pendants,Lamps,Outdoor,Fans,Décor,Solar",
         "side1_mlabel": "Indoor",
-        "side2_mlabel": "Outdoor"
+        "side2_mlabel": "Outdoor",
+        "mtrust_show": true,
+        "mtrust_stars": true,
+        "mtrust_1": "Verified reviews",
+        "mtrust_2": "Free shipping · Clear returns policy"
       }
     },
     "trust": {
