@@ -1958,3 +1958,13 @@ html{scroll-behavior:auto}
 .xab-s .xfp{padding-top:0!important}
 .xfp--full{grid-template-columns:minmax(0,1fr)!important}
 .xab-s .xfp__chips+.xfp{margin-top:0}
+
+/* Standard pages + policy pages share one text width */
+.page-w.narrow>*{max-width:var(--text-w,880px);margin-left:auto;margin-right:auto}
+.page-w.narrow>.h1{margin-bottom:24px}
+.shopify-policy__container{max-width:var(--text-w,880px)!important;margin:0 auto!important;padding:48px 40px 80px!important;box-sizing:content-box}
+.shopify-policy__title{text-align:left!important;margin-bottom:24px}
+.shopify-policy__title h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;font-weight:700;margin:0}
+.shopify-policy__body{font-size:15px;line-height:1.7;color:var(--ink)}
+.shopify-policy__body h2,.shopify-policy__body h3{margin:1.6em 0 .5em}
+@media (max-width:989px){.shopify-policy__container{padding:28px 16px 56px!important}.shopify-policy__title h1{font-size:30px}}

@@ -28,7 +28,7 @@
   <script src="{{ 'avron-wishlist.js' | asset_url }}" defer="defer"></script>
   <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
   {{ content_for_header }}
-<style>:root{--page-w:{{ settings.page_width | default: 1440 }}px}</style>
+<style>:root{--page-w:{{ settings.page_width | default: 1440 }}px;--text-w:{{ settings.text_page_width | default: 880 }}px}</style>
 </head>
 <body class="template-{{ template.name | handle }}{% if settings.anim_reveal %} anim-reveal{% endif %}{% if settings.anim_hero %} anim-hero{% endif %}{% if settings.anim_hover %} anim-hover{% endif %}">
   <a class="skip-link" href="#MainContent">Skip to content</a>

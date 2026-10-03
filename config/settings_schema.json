@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.10.5",
+    "theme_version": "1.10.6",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -27,6 +27,17 @@
         "label": "Show back to top button",
         "default": true,
         "info": "Appears after the first screen and scrolls smoothly back to the top."
+      },
+      {
+        "type": "range",
+        "id": "text_page_width",
+        "label": "Text page width",
+        "min": 600,
+        "max": 1400,
+        "step": 20,
+        "unit": "px",
+        "default": 880,
+        "info": "Width of the text on standard pages (Warranty, Shipping, etc.) and policy pages (Privacy, Refund, Terms). Both use the same width."
       }
     ]
   },

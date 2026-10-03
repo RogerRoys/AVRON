@@ -45,7 +45,7 @@
       {%- endif -%}
     {%- endfor -%}
   </div>
-  <div class="hero__mtrust"><span><i>★★★★★</i> Verified reviews</span><span>Free shipping · Clear returns policy</span></div>
+  {%- if section.settings.mtrust_show -%}<div class="hero__mtrust">{%- if section.settings.mtrust_1 != blank -%}<span>{%- if section.settings.mtrust_stars -%}<i>★★★★★</i> {% endif -%}{{ section.settings.mtrust_1 }}</span>{%- endif -%}{%- if section.settings.mtrust_2 != blank -%}<span>{{ section.settings.mtrust_2 }}</span>{%- endif -%}</div>{%- endif -%}
 </section>
 {% schema %}
 {
@@ -153,6 +153,34 @@
       "id": "side2_mlabel",
       "label": "Mobile label – card 2",
       "default": "Outdoor"
+    },
+    {
+      "type": "header",
+      "content": "Mobile trust bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "mtrust_show",
+      "label": "Show trust bar under hero (mobile)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mtrust_stars",
+      "label": "Show stars",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "mtrust_1",
+      "label": "Text 1",
+      "default": "Verified reviews"
+    },
+    {
+      "type": "text",
+      "id": "mtrust_2",
+      "label": "Text 2",
+      "default": "Free shipping · Clear returns policy"
     }
   ],
   "blocks": [
