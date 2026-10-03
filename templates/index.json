@@ -61,7 +61,7 @@
         "shade": 55,
         "side1_title": "Indoor lighting",
         "side1_text": "Pendants, lamps, sconces",
-        "side1_link": "shopify://collections/new-in",
+        "side1_link": "shopify://collections/indoor-lighting",
         "side2_title": "Outdoor lighting",
         "side2_text": "Posts, bollards, porch",
         "side2_link": "shopify://collections/outdoor-lighting",
@@ -272,7 +272,7 @@
         "collection": "living-room-lighting",
         "limit": 8,
         "button_label": "Shop all indoor",
-        "button_link": "",
+        "button_link": "shopify://collections/indoor-lighting",
         "demo": "indoor"
       }
     },
@@ -325,7 +325,7 @@
         "collection": "garden-path-lights",
         "limit": 8,
         "button_label": "Shop all outdoor",
-        "button_link": "",
+        "button_link": "shopify://collections/outdoor-lighting",
         "demo": "outdoor"
       }
     },
@@ -380,7 +380,7 @@
         "collection": "kitchen-lighting",
         "limit": 8,
         "button_label": "Shop kitchen lighting",
-        "button_link": "",
+        "button_link": "shopify://collections/kitchen-lighting",
         "demo": "kitchen"
       }
     },
@@ -640,7 +640,7 @@
         "w_title": "1-year voluntary warranty",
         "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
         "w_link_label": "Warranty details",
-        "w_link": "",
+        "w_link": "shopify://pages/1-year-warranty",
         "t_title": "",
         "t_text": "",
         "t_btn": "",

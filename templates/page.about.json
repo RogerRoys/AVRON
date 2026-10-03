@@ -14,15 +14,21 @@
       "blocks": {
         "e": {
           "type": "eyebrow",
-          "settings": {}
+          "settings": {
+            "text": "ABOUT AVRON"
+          }
         },
         "h": {
           "type": "heading",
-          "settings": {}
+          "settings": {
+            "text": "Considered lighting, made clear."
+          }
         },
         "t": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Avron is a curated online destination for lighting and ceiling fans. We exist to make thoughtfully designed lighting easier to understand, choose and live with in Australian homes.</p>"
+          }
         }
       },
       "block_order": [
@@ -30,7 +36,12 @@
         "h",
         "t"
       ],
-      "settings": {}
+      "settings": {
+        "crumbs": true,
+        "bg": "",
+        "pt": 24,
+        "pb": 0
+      }
     },
     "intro": {
       "type": "about-intro",
@@ -52,7 +63,13 @@
         "p0",
         "p1"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "OUR PURPOSE",
+        "heading": "Lighting that adds architectural character, warmth and atmosphere.",
+        "bg": "",
+        "pt": 80,
+        "pb": 0
+      }
     },
     "values": {
       "type": "about-pillars",
@@ -92,7 +109,13 @@
         "p2",
         "p3"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "What guides us",
+        "numbers": true,
+        "bg": "",
+        "pt": 80,
+        "pb": 0
+      }
     },
     "points": {
       "type": "about-points",
@@ -135,7 +158,14 @@
         "d3",
         "d4"
       ],
-      "settings": {}
+      "settings": {
+        "flip": false,
+        "eyebrow": "WHAT MAKES AVRON DIFFERENT",
+        "heading": "An edited range, with confidence at every stage.",
+        "bg": "",
+        "pt": 80,
+        "pb": 0
+      }
     },
     "cta": {
       "type": "about-cta",
@@ -144,6 +174,7 @@
           "type": "button",
           "settings": {
             "label": "Explore lighting",
+            "link": "shopify://collections/all",
             "style": "solid"
           }
         },
@@ -151,7 +182,7 @@
           "type": "button",
           "settings": {
             "label": "Contact us",
-            "link": "/pages/contact",
+            "link": "shopify://pages/contact",
             "style": "outline"
           }
         }
@@ -160,7 +191,13 @@
         "b1",
         "b2"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Find the right fitting for your space.",
+        "text": "Explore the collection, or ask us before you choose.",
+        "bg": "",
+        "pt": 80,
+        "pb": 80
+      }
     }
   },
   "order": [

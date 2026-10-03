@@ -14,15 +14,21 @@
       "blocks": {
         "e": {
           "type": "eyebrow",
-          "settings": {}
+          "settings": {
+            "text": "HELP & FAQ"
+          }
         },
         "h": {
           "type": "heading",
-          "settings": {}
+          "settings": {
+            "text": "Questions, answered clearly."
+          }
         },
         "t": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Guidance on choosing, installing and receiving your lighting. If something isn’t covered here, we’re happy to help.</p>"
+          }
         }
       },
       "block_order": [
@@ -30,7 +36,12 @@
         "h",
         "t"
       ],
-      "settings": {}
+      "settings": {
+        "crumbs": true,
+        "bg": "",
+        "pt": 24,
+        "pb": 24
+      }
     },
     "faqs": {
       "type": "faq-accordion",
@@ -219,7 +230,16 @@
         "q19"
       ],
       "settings": {
-        "cta_link": "shopify://pages/contact"
+        "show_nav": true,
+        "first_open": true,
+        "show_cta": true,
+        "cta_heading": "Still have a question?",
+        "cta_text": "Ask us about sizing, finishes or installation before you choose.",
+        "cta_btn": "Contact us",
+        "cta_link": "shopify://pages/contact",
+        "bg": "",
+        "pt": 40,
+        "pb": 72
       }
     }
   },

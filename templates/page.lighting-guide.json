@@ -55,7 +55,15 @@
         "j3",
         "j4"
       ],
-      "settings": {}
+      "settings": {
+        "crumbs": true,
+        "eyebrow": "LIGHTING GUIDE",
+        "heading": "Choosing light, made clear.",
+        "intro": "<p>A practical guide to planning light room by room: which warmth to choose, what size suits your space, and what to check before you buy.</p>",
+        "bg": "",
+        "pt": 24,
+        "pb": 24
+      }
     },
     "rooms": {
       "type": "lg-rooms",
@@ -77,7 +85,8 @@
             "kelvin_note": "Warm white, relaxed and soft",
             "lux": 150,
             "tip": "Put lamps on separate switches or dimmers so the room can shift from day to evening.",
-            "btn_label": "Shop living room lighting"
+            "btn_label": "Shop living room lighting",
+            "btn_link": ""
           }
         },
         "room1": {
@@ -97,7 +106,8 @@
             "kelvin_note": "Warm white, flattering at the table",
             "lux": 200,
             "tip": "Choose a fitting about half to two-thirds of the table’s width, and a linear fitting for long tables.",
-            "btn_label": "Shop dining lighting"
+            "btn_label": "Shop dining lighting",
+            "btn_link": ""
           }
         },
         "room2": {
@@ -117,7 +127,8 @@
             "kelvin_note": "Soft white, clear for prep",
             "lux": 300,
             "tip": "Space island pendants roughly 60–75 cm apart, centre to centre, and keep them clear of eye level.",
-            "btn_label": "Shop kitchen lighting"
+            "btn_label": "Shop kitchen lighting",
+            "btn_link": ""
           }
         },
         "room3": {
@@ -137,7 +148,8 @@
             "kelvin_note": "Warm white, helps the room wind down",
             "lux": 100,
             "tip": "A dimmable bedside light lets you keep the room softly lit before sleep.",
-            "btn_label": "Shop bedroom lighting"
+            "btn_label": "Shop bedroom lighting",
+            "btn_link": ""
           }
         },
         "room4": {
@@ -157,7 +169,8 @@
             "kelvin_note": "Soft white, true to skin tones",
             "lux": 300,
             "tip": "Bathrooms have wet zones that need specific IP ratings. Check the product page and confirm with your licensed electrician.",
-            "btn_label": "Shop bathroom lighting"
+            "btn_label": "Shop bathroom lighting",
+            "btn_link": ""
           }
         },
         "room5": {
@@ -177,7 +190,8 @@
             "kelvin_note": "Soft white, welcoming at the entry",
             "lux": 50,
             "tip": "Choose at least IP44 for covered areas and IP65 for exposed walls. Coastal homes need corrosion-resistant finishes.",
-            "btn_label": "Shop outdoor lighting"
+            "btn_label": "Shop outdoor lighting",
+            "btn_link": ""
           }
         }
       },
@@ -189,7 +203,14 @@
         "room4",
         "room5"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "lg-room-guide",
+        "eyebrow": "01 · ROOM GUIDE",
+        "room_heading": "Plan each room in layers",
+        "bg": "",
+        "pt": 48,
+        "pb": 0
+      }
     },
     "warmth": {
       "type": "lg-warmth",
@@ -200,8 +221,8 @@
             "kelvin": "2700K",
             "name": "Warm white",
             "use": "Living rooms, bedrooms, dining",
-            "glow": "#FFD9A0",
-            "tint": "#FFB35C",
+            "glow": "#ffd9a0",
+            "tint": "#ffb35c",
             "strength": 42
           }
         },
@@ -211,8 +232,8 @@
             "kelvin": "3000K",
             "name": "Soft white",
             "use": "Kitchens, bathrooms, entries",
-            "glow": "#FFF0D6",
-            "tint": "#FFD9A0",
+            "glow": "#fff0d6",
+            "tint": "#ffd9a0",
             "strength": 28
           }
         },
@@ -222,8 +243,8 @@
             "kelvin": "4000K",
             "name": "Cool white",
             "use": "Laundries, garages, workspaces",
-            "glow": "#F4F8FF",
-            "tint": "#D7E3FF",
+            "glow": "#f4f8ff",
+            "tint": "#d7e3ff",
             "strength": 22
           }
         }
@@ -233,20 +254,41 @@
         "kel1",
         "kel2"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "lg-warmth",
+        "eyebrow": "02 · COLOUR TEMPERATURE",
+        "warm_heading": "Warmth sets the mood",
+        "warm_text": "<p>Colour temperature is measured in Kelvin (K). Lower numbers look warmer and softer; higher numbers look crisper and whiter. Where a fitting offers options, they’re listed on the product page.</p>",
+        "bg": "",
+        "pt": 48,
+        "pb": 0
+      }
     },
     "sizing": {
       "type": "lg-sizing",
       "blocks": {
         "c0": {
           "type": "card",
-          "settings": {}
+          "settings": {
+            "label": "OVER A TABLE OR BENCH",
+            "value": "75–90 cm",
+            "text": "Hang height above the surface. Choose a fitting about half to two-thirds of the table’s width."
+          }
         }
       },
       "block_order": [
         "c0"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "lg-size",
+        "eyebrow": "03 · SIZING",
+        "size_heading": "Find a size that suits the room",
+        "size_text": "<p>Enter your room size for a starting point. Always compare against the width and drop listed on each product page.</p>",
+        "rule": "Rule of thumb: add the room’s length and width in metres, then multiply by 8 for a suggested fitting diameter in centimetres.",
+        "bg": "",
+        "pt": 48,
+        "pb": 0
+      }
     },
     "ip": {
       "type": "lg-ip",
@@ -299,7 +341,15 @@
         "ip3",
         "ip4"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "lg-outdoor",
+        "eyebrow": "04 · OUTDOOR & IP RATINGS",
+        "ip_heading": "Match the rating to the location",
+        "ip_text": "<p>The IP rating shows how well a fitting resists dust and water. Check the rating on each product page, and choose corrosion-resistant finishes for coastal homes.</p>",
+        "bg": "",
+        "pt": 48,
+        "pb": 0
+      }
     },
     "checks": {
       "type": "lg-checks",
@@ -339,7 +389,14 @@
         "chk2",
         "chk3"
       ],
-      "settings": {}
+      "settings": {
+        "anchor": "lg-bulbs",
+        "eyebrow": "05 · BULBS, DIMMING & INSTALLATION",
+        "check_heading": "Check these before you buy",
+        "bg": "",
+        "pt": 48,
+        "pb": 0
+      }
     },
     "cta": {
       "type": "lg-cta",
@@ -365,7 +422,13 @@
         "b1",
         "b2"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Still unsure what suits your space?",
+        "text": "Send us your room size, ceiling height and a photo. We’ll help with sizing, finishes and suitability before you choose.",
+        "bg": "",
+        "pt": 48,
+        "pb": 72
+      }
     }
   },
   "order": [
