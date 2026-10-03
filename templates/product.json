@@ -133,30 +133,6 @@
             "q8": "",
             "a8": ""
           }
-        },
-        "faq_outdoor": {
-          "type": "collection_faq",
-          "settings": {
-            "collection": "outdoor",
-            "eyebrow": "Front door & porch lights",
-            "heading": "Common questions",
-            "q1": "Should I choose a wall light or a hanging porch light?",
-            "a1": "<p>Wall lights suit most entries and sit either side of, or above, the door. A hanging porch light works well under a covered porch with enough ceiling height.</p>",
-            "q2": "How large should a front door light be?",
-            "a2": "<p>As a guide, a wall light roughly a quarter to a third of the door’s height looks balanced. Check the height and width on the product page.</p>",
-            "q3": "What height should porch wall lights be installed?",
-            "a3": "<p>Mount wall lights at or slightly above eye level, usually around 1.7–1.8 m from the ground, so the light isn’t glaring.</p>",
-            "q4": "What IP rating is suitable for a front door or porch light?",
-            "a4": "<p>Choose at least IP44 for covered porches and IP65 for exposed walls. The rating is listed on each product page.</p>",
-            "q5": "What light colour creates a welcoming entrance?",
-            "a5": "<p>Warm white (2700K) to soft white (3000K) feels welcoming and flatters brick, timber and render.</p>",
-            "q6": "Is a motion-sensor light useful at the front door?",
-            "a6": "<p>A sensor light adds convenience and security at entries and paths. Check the product page to see whether a sensor option is available.</p>",
-            "q7": "",
-            "a7": "",
-            "q8": "",
-            "a8": ""
-          }
         }
       },
       "block_order": [
@@ -173,8 +149,7 @@
         "s",
         "r",
         "w",
-        "faq_default",
-        "faq_outdoor"
+        "faq_default"
       ],
       "settings": {
         "media_fit": "cover",
