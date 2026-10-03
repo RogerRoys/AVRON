@@ -1,4 +1,4 @@
-<div class="hero-mchips">{%- assign chips = section.settings.mobile_chips | split: ',' -%}{%- for c in chips -%}{%- assign ct = c | strip -%}<a href="{{ routes.search_url }}?q={{ ct | url_encode }}" class="hero-mchip">{{ ct }}</a>{%- endfor -%}</div>
+{%- if section.settings.show_mobile_chips -%}<div class="hero-mchips">{%- assign chips = section.settings.mobile_chips | split: ',' -%}{%- for c in chips -%}{%- assign ct = c | strip -%}<a href="{{ routes.search_url }}?q={{ ct | url_encode }}" class="hero-mchip">{{ ct }}</a>{%- endfor -%}</div>{%- endif -%}
 <section class="hero page-w">
   <div class="hero__main" data-slideshow data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}">
     {%- for block in section.blocks -%}
@@ -129,6 +129,12 @@
       "type": "url",
       "id": "side2_link",
       "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_chips",
+      "label": "Show mobile category chips",
+      "default": false
     },
     {
       "type": "text",
