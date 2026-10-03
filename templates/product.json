@@ -249,7 +249,7 @@
       "settings": {
         "heading": "Which light colour is right for you?",
         "button_label": "Full lighting guide",
-        "button_link": ""
+        "button_link": "shopify://pages/lighting-guide"
       }
     },
     "best": {
@@ -318,9 +318,9 @@
         "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
         "w_link_label": "Warranty details",
         "w_link": "",
-        "t_title": "Avron Trade",
-        "t_text": "Project pricing for designers, builders and stylists.",
-        "t_btn": "Apply now",
+        "t_title": "",
+        "t_text": "",
+        "t_btn": "",
         "t_link": ""
       }
     },
