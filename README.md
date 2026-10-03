@@ -126,3 +126,10 @@ Matches the "Avron 1d Live Preview" prototype.
 - Create a product metafield: Settings → Custom data → Products → Add definition → Name "Size guide", namespace & key **custom.size_guide**, type **File** (images).
 - Upload each product's size guide image in that field. The "Size guide" link appears next to the Size option and opens the popup.
 - Product information → Variant picker block: fallback image, link label and note.
+
+## Collection FAQ via metaobjects (recommended)
+1. Settings → Custom data → Metaobject definitions → Add definition: name "FAQ", type handle `faq`. Fields: "Question" (key `question`, Single line text) and "Answer" (key `answer`, Rich text). Turn on Storefront access.
+2. Settings → Custom data → Collections → Add definition: name "FAQs", namespace and key `custom.faqs`, type Metaobject → FAQ, "List of entries". Turn on Storefront access.
+3. Content → Metaobjects → FAQ → add your questions (any number; reuse across collections).
+4. Open a collection → Metafields → FAQs → pick the 5 entries for it, in order.
+The product page shows the FAQs of the first collection (of that product) that has entries. Collections without entries fall back to the Collection FAQ blocks.

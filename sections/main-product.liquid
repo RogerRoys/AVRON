@@ -72,6 +72,20 @@
   if faq_pick == ''
     assign faq_pick = faq_default
   endif
+  assign mo_col = nil
+  for c in product.collections
+    if mo_col == nil and c.metafields.custom.faqs != blank
+      assign mo_col = c
+    endif
+  endfor
+  if mo_col != nil
+    for b in section.blocks
+      if b.type == 'collection_faq'
+        assign faq_pick = b.id
+        break
+      endif
+    endfor
+  endif
 -%}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -206,16 +220,25 @@
             {%- if block.id == faq_pick -%}
             <div class="pfaq" {{ block.shopify_attributes }}>
               {%- assign fc = block.settings.collection -%}
-              <span class="pfaq__eb">{%- if block.settings.eyebrow != blank -%}{{ block.settings.eyebrow }}{%- elsif fc != blank -%}{{ fc.title }}{%- endif -%}</span>
+              <span class="pfaq__eb">{%- if mo_col != nil -%}{{ mo_col.title }}{%- elsif block.settings.eyebrow != blank -%}{{ block.settings.eyebrow }}{%- elsif fc != blank -%}{{ fc.title }}{%- endif -%}</span>
               <h2 class="pfaq__h">{{ block.settings.heading }}</h2>
               <div class="pfaq__list">
                 {%- assign fq_first = true -%}
+                {%- if mo_col != nil -%}
+                  {%- for e in mo_col.metafields.custom.faqs.value -%}
+                    {%- if e.question != blank -%}
+                    <div class="xfaq__i{% if fq_first %} is-open{% endif %}" data-xfaq><button type="button" class="xfaq__q" aria-expanded="{% if fq_first %}true{% else %}false{% endif %}"><span>{{ e.question.value }}</span><span class="xfaq__ic" aria-hidden="true">+</span></button><div class="xfaq__a"><div><div class="xfaq__p">{{ e.answer | metafield_tag }}</div></div></div></div>
+                    {%- assign fq_first = false -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- else -%}
                 {%- for n in (1..8) -%}{%- assign qk = 'q' | append: n -%}{%- assign ak = 'a' | append: n -%}
                   {%- if block.settings[qk] != blank -%}
                   <div class="xfaq__i{% if fq_first %} is-open{% endif %}" data-xfaq><button type="button" class="xfaq__q" aria-expanded="{% if fq_first %}true{% else %}false{% endif %}"><span>{{ block.settings[qk] }}</span><span class="xfaq__ic" aria-hidden="true">+</span></button><div class="xfaq__a"><div><div class="xfaq__p">{{ block.settings[ak] }}</div></div></div></div>
                   {%- assign fq_first = false -%}
                   {%- endif -%}
                 {%- endfor -%}
+                {%- endif -%}
               </div>
             </div>
             {%- endif -%}
@@ -505,7 +528,7 @@
       "settings": [
         {
           "type": "paragraph",
-          "content": "Add one Collection FAQ block per collection. The product page shows the block whose collection the product belongs to. A block with no collection is the fallback."
+          "content": "FAQs come first from the collection metafield \"custom.faqs\" (a list of FAQ entries). If a product’s collections have none, the block whose collection matches is used. A block with no collection is the fallback."
         },
         {
           "type": "collection",
