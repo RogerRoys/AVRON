@@ -1944,3 +1944,12 @@ html{scroll-behavior:auto}
 .xlg-s>.xlg--part{padding-top:var(--s-pt,0px)!important;padding-bottom:var(--s-pb,0px)!important}
 .xlg--part>.xlg__sec,.xlg--part>.xlg__cta{margin-top:0!important}
 @media (max-width:989px){.xlg-s>.xlg--part{padding-top:calc(var(--s-pt,0px) * .6)!important;padding-bottom:calc(var(--s-pb,0px) * .6)!important}}
+
+/* Search panel: chips scroll on their own, panel never scrolls sideways; hide native clear (×) */
+.header__search{overflow-x:hidden!important}
+.header__search .ps{min-width:0;max-width:100%}
+.header--micons .ps__chips,.header.is-search-open .ps__chips{flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x;scrollbar-width:none;max-width:calc(100% + 32px);min-width:0}
+.ps__chips::-webkit-scrollbar{display:none}
+.header__search input[type=search]::-webkit-search-cancel-button,.header__search input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+.header__search input[type=search]::-ms-clear{display:none}
+.ps__fh{display:block;font-size:13px;font-weight:600;color:var(--muted,#5C615B);margin-top:4px}

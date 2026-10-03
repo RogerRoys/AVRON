@@ -39,6 +39,7 @@
       <button type="submit" class="btn btn--sm">Search</button>
       <button type="button" class="header__sclose" data-search-toggle aria-label="Close search">Close ×</button>
       <div class="ps" data-ps aria-live="polite"></div>
+      {%- if section.settings.search_collection != blank -%}<template data-ps-featured><b class="ps__fh">{{ section.settings.search_products_heading }}</b><div class="ps__grid">{%- for p in section.settings.search_collection.products limit: section.settings.search_products_count -%}<a class="ps__item" href="{{ p.url }}"><span class="ps__img">{%- if p.featured_image -%}{{ p.featured_image | image_url: width: 300 | image_tag: loading: 'lazy', alt: p.title }}{%- endif -%}</span><b>{{ p.title }}</b><span class="muted">{{ p.price | money }}</span></a>{%- endfor -%}</div></template>{%- endif -%}
     </form>
     <div class="header__icons">
       <button type="button" class="header__icon header__stxt" data-search-toggle>Search</button>
@@ -227,9 +228,34 @@
     {
       "type": "text",
       "id": "popular",
-      "label": "Popular searches in mega menu",
+      "label": "Popular searches (search panel + mega menu)",
       "default": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
-      "info": "Comma separated"
+      "info": "Comma separated, e.g. Dimmable, Under $150, Brass finish"
+    },
+    {
+      "type": "header",
+      "content": "Search panel products"
+    },
+    {
+      "type": "collection",
+      "id": "search_collection",
+      "label": "Products shown when search opens",
+      "info": "Shown under the popular searches before the visitor types. Leave blank to hide."
+    },
+    {
+      "type": "text",
+      "id": "search_products_heading",
+      "label": "Heading",
+      "default": "Popular right now"
+    },
+    {
+      "type": "range",
+      "id": "search_products_count",
+      "label": "Number of products",
+      "min": 2,
+      "max": 8,
+      "step": 2,
+      "default": 4
     },
     {
       "type": "header",

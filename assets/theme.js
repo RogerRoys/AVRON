@@ -47,7 +47,7 @@
     function show(html){box.innerHTML=html;form.classList.toggle('is-ps-open',!!html);}
     function run(){
       var q=input.value.trim();
-      if(!q){show(chips());return;}
+      if(!q){var ft=form.querySelector('template[data-ps-featured]');show(chips()+(ft?ft.innerHTML:''));return;}
       if(ctl&&ctl.abort)ctl.abort();ctl=window.AbortController?new AbortController():null;
       fetch(root+'/search/suggest.json?q='+encodeURIComponent(q)+'&resources[type]=product&resources[limit]=4&resources[options][unavailable_products]=last',ctl?{signal:ctl.signal}:{})
       .then(function(r){return r.json();}).then(function(d){
