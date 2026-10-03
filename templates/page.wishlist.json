@@ -11,7 +11,16 @@
   "sections": {
     "main": {
       "type": "main-wishlist",
-      "settings": {}
+      "settings": {
+        "heading": "Your wishlist",
+        "subheading": "Saved on this device. Log in to keep it across phones and laptops.",
+        "summary_text": "Tracked delivery with updates at every stage",
+        "summary_note": "Prices update automatically if they drop.",
+        "recs_heading": "You might also like",
+        "recs": "",
+        "padding_top": 24,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
