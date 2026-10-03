@@ -1970,3 +1970,11 @@ html{scroll-behavior:auto}
 @media (max-width:989px){.shopify-policy__container{padding:28px 16px 56px!important}.shopify-policy__title h1{font-size:30px}}
 
 a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#fff}
+
+/* stop browser scroll-anchoring from fighting the accordion */
+.xfaq__i,.xfaq__a,.pp__info,.xpp__acc,.pfaq{overflow-anchor:none}
+.xfaq__q{scroll-margin:0}
+
+/* space between assurance list and first variant */
+.xpp__as{margin-bottom:22px!important}
+@media (max-width:989px){.xpp__as{margin-bottom:18px!important}}

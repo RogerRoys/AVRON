@@ -524,3 +524,9 @@ if(document.readyState!=='loading')mv();else document.addEventListener('DOMConte
 })();
 
 (function(){function m(){var h=document.querySelector('.header');if(h)document.documentElement.style.setProperty('--hdr-h',Math.round(h.getBoundingClientRect().bottom)+'px');}window.addEventListener('resize',m);window.addEventListener('scroll',m,{passive:true});document.addEventListener('click',function(){setTimeout(m,0);});if(document.readyState!=='loading')m();else document.addEventListener('DOMContentLoaded',m);})();
+
+/* Keep the tapped accordion row still while others collapse above it (no page jump) */
+(function(){document.addEventListener('click',function(e){var q=e.target.closest('.xfaq__q');if(!q)return;
+  var y0=q.getBoundingClientRect().top,t0=performance.now();
+  (function step(){var d=q.getBoundingClientRect().top-y0;if(Math.abs(d)>0.5)window.scrollBy(0,d);if(performance.now()-t0<600)requestAnimationFrame(step);})();
+},true);})();
