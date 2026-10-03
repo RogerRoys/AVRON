@@ -65,6 +65,7 @@
         "side2_title": "Outdoor lighting",
         "side2_text": "Posts, bollards, porch",
         "side2_link": "shopify://collections/outdoor-lighting",
+        "show_mobile_chips": false,
         "mobile_chips": "Pendants,Lamps,Outdoor,Fans,Décor,Solar",
         "side1_mlabel": "Indoor",
         "side2_mlabel": "Outdoor"
@@ -75,6 +76,7 @@
       "blocks": {
         "a": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "title": "Excellent",
             "text": "Verified reviews",
@@ -307,7 +309,7 @@
         "btn1_label": "Read our story",
         "btn1_link": "shopify://pages/about-us",
         "btn2_label": "Visit the lighting guide",
-        "btn2_link": "#"
+        "btn2_link": "shopify://pages/lighting-guide"
       }
     },
     "col_outdoor": {
@@ -460,7 +462,7 @@
         "heading_left": "Made from materials that last",
         "heading_right": "Not sure which warmth?",
         "button_label": "Open the lighting guide",
-        "button_link": ""
+        "button_link": "shopify://pages/lighting-guide"
       }
     },
     "reviews": {
@@ -514,6 +516,7 @@
         "r4",
         "r5"
       ],
+      "disabled": true,
       "settings": {
         "demo_images": true,
         "heading": "What customers say",
@@ -626,9 +629,9 @@
         "w_text": "Electrical, wiring and LED faults covered. Repair, replace or refund.",
         "w_link_label": "Warranty details",
         "w_link": "",
-        "t_title": "Avron Trade",
-        "t_text": "Project pricing for designers, builders and stylists.",
-        "t_btn": "Apply now",
+        "t_title": "",
+        "t_text": "",
+        "t_btn": "",
         "t_link": ""
       }
     }
