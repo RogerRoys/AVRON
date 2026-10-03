@@ -113,15 +113,21 @@
         "t4"
       ],
       "settings": {
+        "layout": "logo_left",
+        "mobile_icons": true,
         "menu": "main-menu",
         "demo_menu": false,
         "sale_title": "Sale",
         "search_placeholder": "Search pendants, post caps, bollards…",
         "popular": "Kitchen island pendants, Dimmable, Under $150, Brass finish, Best sellers",
+        "search_collection": "best-sellers",
+        "search_products_heading": "Popular right now",
+        "search_products_count": 4,
         "promo_width": 100,
         "promo_height": 360,
         "utility_text": "",
         "utility_menu": "",
+        "drawer_menu": "",
         "drawer_promo_title": "New to Avron?",
         "drawer_promo_text": "Start with the lighting guide",
         "drawer_promo_link": "shopify://pages/lighting-guide"

@@ -38,7 +38,10 @@
         },
         "picker": {
           "type": "variant_picker",
-          "settings": {}
+          "settings": {
+            "size_guide_label": "Size guide",
+            "size_guide_note": "<p>Measurements are in centimetres. Compare against your space before you buy, and allow for the cord or chain drop on hanging fittings.</p>"
+          }
         },
         "buy": {
           "type": "buy_buttons",
@@ -113,18 +116,18 @@
             "collection": "",
             "eyebrow": "Lighting",
             "heading": "Common questions",
-            "q1": "How tall should a table lamp be?",
-            "a1": "<p>As a guide, the lamp and shade together should sit roughly level with your shoulder when seated. For bedside tables, the base of the shade at about eye level avoids glare when reading.</p>",
-            "q2": "What size shade suits my side table?",
-            "a2": "<p>Choose a shade a little narrower than the tabletop so it doesn’t overhang. Check the shade diameter and total height on the product page.</p>",
-            "q3": "Which light colour is best for a living room or bedroom?",
-            "a3": "<p>Warm white (2700K) gives a soft, relaxed glow for living rooms and bedrooms. Soft white (3000K) is a little crisper for reading and desks.</p>",
-            "q4": "Can I dim this light?",
-            "a4": "<p>Dimming needs a compatible dimmable bulb or driver and a suitable dimmer. Check the product page for dimming details.</p>",
-            "q5": "Is a bulb included, and which type does it use?",
-            "a5": "<p>The fitting type (E27, B22, GU10 or integrated LED) and whether a bulb is included are listed under Specifications.</p>",
-            "q6": "Does it need an electrician to install?",
-            "a6": "<p>Plug-in lamps don’t need one. Hardwired fittings must be installed by a licensed electrician.</p>",
+            "q1": "{{ block.settings.collection.metafields.custom.faq_items | metafield_text: field: 'question' }}",
+            "a1": "<p>sssssssss</p>",
+            "q2": "",
+            "a2": "",
+            "q3": "",
+            "a3": "",
+            "q4": "",
+            "a4": "",
+            "q5": "",
+            "a5": "",
+            "q6": "",
+            "a6": "",
             "q7": "",
             "a7": "",
             "q8": "",
