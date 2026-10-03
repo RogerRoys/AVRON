@@ -2,7 +2,9 @@
   "sections": {
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "settings": {
+        "show_image": false
+      }
     }
   },
   "order": [

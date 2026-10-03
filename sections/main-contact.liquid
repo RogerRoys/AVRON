@@ -1,4 +1,4 @@
-<section class="xpg">
+<section class="xpg" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px">
   <nav class="xpg__crumbs"><a href="{{ routes.root_url }}">Home</a>›<span>{{ page.title | default: 'Contact' }}</span></nav>
   <div class="xpg__intro" data-xrv="0"><span class="xpg__eb">{{ section.settings.eyebrow }}</span><h1 class="xpg__h1">{{ section.settings.heading }}</h1><div class="xpg__lead">{{ section.settings.intro }}</div></div>
   <div class="xct">
@@ -16,5 +16,93 @@
   </div>
 </section>
 {% schema %}
-{"name":"Contact page","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"CONTACT"},{"type":"text","id":"heading","label":"Heading","default":"How can we help?"},{"type":"richtext","id":"intro","label":"Intro","default":"<p>Ask us about sizing, finishes, installation requirements or an existing order. We’ll give you a clear, honest answer — and tell you if we need to check something first.</p>"},{"type":"text","id":"form_heading","label":"Form heading","default":"Send us a message"},{"type":"text","id":"info_heading","label":"Info heading","default":"Contact information"},{"type":"text","id":"c_name","label":"Business name","default":"Avron Home Pty Ltd"},{"type":"text","id":"c_address","label":"Business address","default":"Level 2, 100 Example Street, Sydney NSW 2000, Australia"},{"type":"text","id":"c_email","label":"Email","default":"support@avron.com.au"},{"type":"text","id":"c_phone","label":"Phone","default":"+61 2 0000 0000"},{"type":"text","id":"c_hours","label":"Opening hours","default":"Monday to Friday, 9:00am–5:00pm (AEST)"}]}
+{
+  "name": "Contact page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "CONTACT"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How can we help?"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Ask us about sizing, finishes, installation requirements or an existing order. We’ll give you a clear, honest answer — and tell you if we need to check something first.</p>"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Send us a message"
+    },
+    {
+      "type": "text",
+      "id": "info_heading",
+      "label": "Info heading",
+      "default": "Contact information"
+    },
+    {
+      "type": "text",
+      "id": "c_name",
+      "label": "Business name",
+      "default": "Avron Home Pty Ltd"
+    },
+    {
+      "type": "text",
+      "id": "c_address",
+      "label": "Business address",
+      "default": "Level 2, 100 Example Street, Sydney NSW 2000, Australia"
+    },
+    {
+      "type": "text",
+      "id": "c_email",
+      "label": "Email",
+      "default": "support@avron.com.au"
+    },
+    {
+      "type": "text",
+      "id": "c_phone",
+      "label": "Phone",
+      "default": "+61 2 0000 0000"
+    },
+    {
+      "type": "text",
+      "id": "c_hours",
+      "label": "Opening hours",
+      "default": "Monday to Friday, 9:00am–5:00pm (AEST)"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ]
+}
 {% endschema %}
