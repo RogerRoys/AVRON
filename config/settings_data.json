@@ -11,6 +11,7 @@
   "current": {
     "page_width": 1440,
     "back_to_top": true,
+    "text_page_width": 880,
     "favicon": "shopify://shop_images/FAV_-_AVRON.svg",
     "anim_reveal": true,
     "anim_hero": true,
@@ -25,10 +26,15 @@
     "sections": {
       "cart-drawer": {
         "type": "cart-drawer",
-        "settings": {}
+        "settings": {
+          "empty_heading": "Your cart is empty",
+          "empty_text": "Start with a best seller.",
+          "empty_btn_show": true,
+          "empty_btn_label": "Continue shopping",
+          "empty_btn_link": "shopify://collections/all"
+        }
       }
     },
-    "content_for_index": [],
-    "text_page_width": 880
+    "content_for_index": []
   }
 }
