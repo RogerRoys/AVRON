@@ -1,16 +1,55 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-lighting-guide",
+    "intro": {
+      "type": "lg-intro",
+      "blocks": {
+        "j0": {
+          "type": "jump",
+          "settings": {
+            "label": "Room guide",
+            "anchor": "lg-room-guide"
+          }
+        },
+        "j1": {
+          "type": "jump",
+          "settings": {
+            "label": "Colour temperature",
+            "anchor": "lg-warmth"
+          }
+        },
+        "j2": {
+          "type": "jump",
+          "settings": {
+            "label": "Sizing",
+            "anchor": "lg-size"
+          }
+        },
+        "j3": {
+          "type": "jump",
+          "settings": {
+            "label": "Outdoor & IP",
+            "anchor": "lg-outdoor"
+          }
+        },
+        "j4": {
+          "type": "jump",
+          "settings": {
+            "label": "Before you buy",
+            "anchor": "lg-bulbs"
+          }
+        }
+      },
+      "block_order": [
+        "j0",
+        "j1",
+        "j2",
+        "j3",
+        "j4"
+      ],
+      "settings": {}
+    },
+    "rooms": {
+      "type": "lg-rooms",
       "blocks": {
         "room0": {
           "type": "room",
@@ -131,7 +170,21 @@
             "tip": "Choose at least IP44 for covered areas and IP65 for exposed walls. Coastal homes need corrosion-resistant finishes.",
             "btn_label": "Shop outdoor lighting"
           }
-        },
+        }
+      },
+      "block_order": [
+        "room0",
+        "room1",
+        "room2",
+        "room3",
+        "room4",
+        "room5"
+      ],
+      "settings": {}
+    },
+    "warmth": {
+      "type": "lg-warmth",
+      "blocks": {
         "kel0": {
           "type": "kelvin",
           "settings": {
@@ -164,7 +217,31 @@
             "tint": "#D7E3FF",
             "strength": 22
           }
-        },
+        }
+      },
+      "block_order": [
+        "kel0",
+        "kel1",
+        "kel2"
+      ],
+      "settings": {}
+    },
+    "sizing": {
+      "type": "lg-sizing",
+      "blocks": {
+        "c0": {
+          "type": "card",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c0"
+      ],
+      "settings": {}
+    },
+    "ip": {
+      "type": "lg-ip",
+      "blocks": {
         "ip0": {
           "type": "ip",
           "settings": {
@@ -204,7 +281,20 @@
             "meaning": "Resists temporary immersion",
             "use": "In-ground and garden-bed lights"
           }
-        },
+        }
+      },
+      "block_order": [
+        "ip0",
+        "ip1",
+        "ip2",
+        "ip3",
+        "ip4"
+      ],
+      "settings": {}
+    },
+    "checks": {
+      "type": "lg-checks",
+      "blocks": {
         "chk0": {
           "type": "check",
           "settings": {
@@ -235,29 +325,47 @@
         }
       },
       "block_order": [
-        "room0",
-        "room1",
-        "room2",
-        "room3",
-        "room4",
-        "room5",
-        "kel0",
-        "kel1",
-        "kel2",
-        "ip0",
-        "ip1",
-        "ip2",
-        "ip3",
-        "ip4",
         "chk0",
         "chk1",
         "chk2",
         "chk3"
       ],
       "settings": {}
+    },
+    "cta": {
+      "type": "lg-cta",
+      "blocks": {
+        "b1": {
+          "type": "button",
+          "settings": {
+            "label": "Ask for advice",
+            "link": "/pages/contact",
+            "style": "solid"
+          }
+        },
+        "b2": {
+          "type": "button",
+          "settings": {
+            "label": "Read the FAQ",
+            "link": "/pages/faq",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "intro",
+    "rooms",
+    "warmth",
+    "sizing",
+    "ip",
+    "checks",
+    "cta"
   ]
 }

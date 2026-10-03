@@ -1,0 +1,140 @@
+<div class="xlg-s" data-xlg-part style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xlg xlg--part">
+  {%- assign kels = section.blocks -%}
+  <div id="{{ section.settings.anchor }}" class="xlg__sec xlg__warm" data-xrv="0">
+    <div class="xlg__warmL"><span class="xlg__eb">{{ section.settings.eyebrow }}</span><h2 class="xlg__h2">{{ section.settings.warm_heading }}</h2><div class="xlg__lead">{{ section.settings.warm_text }}</div>
+      <div class="xlg__kels">{%- for b in kels -%}<button type="button" class="xlg__kel{% if forloop.first %} is-on{% endif %}" data-lg-kel data-tint="{{ b.settings.tint }}" data-op="{{ b.settings.strength | divided_by: 100.0 }}" data-label="{{ b.settings.kelvin | escape }} {{ b.settings.name | escape }}" {{ b.shopify_attributes }}><span class="xlg__dot" style="background:radial-gradient(circle,{{ b.settings.glow }},{{ b.settings.tint }})"></span><span class="xlg__kelT"><b>{{ b.settings.kelvin }} · {{ b.settings.name }}</b><em>{{ b.settings.use }}</em></span><i></i></button>{%- endfor -%}</div>
+    </div>
+    {%- assign k0 = kels | first -%}
+    <div class="xlg__warmImg">{%- if section.settings.warm_image -%}{{ section.settings.warm_image | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 55vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}<img src="https://heitz.shop/cdn/shop/files/heitz-home-our-promise-travertine-lamp.webp?width=1400" alt="" loading="lazy">{%- endif -%}<span class="xlg__tint" data-lg-tint style="background:{{ k0.settings.tint }};opacity:{{ k0.settings.strength | divided_by: 100.0 }}"></span><span class="xlg__tag" data-lg-tag>Preview: {{ k0.settings.kelvin }} {{ k0.settings.name }}</span></div>
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Colour temperature",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Jump-link ID",
+      "default": "lg-warmth",
+      "info": "Used by the jump links in the Guide intro section (without #)."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "02 · COLOUR TEMPERATURE"
+    },
+    {
+      "type": "text",
+      "id": "warm_heading",
+      "label": "Heading",
+      "default": "Warmth sets the mood"
+    },
+    {
+      "type": "richtext",
+      "id": "warm_text",
+      "label": "Text",
+      "default": "<p>Colour temperature is measured in Kelvin (K). Lower numbers look warmer and softer; higher numbers look crisper and whiter. Where a fitting offers options, they’re listed on the product page.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "warm_image",
+      "label": "Preview image",
+      "info": "Gets tinted with the selected colour temperature."
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kelvin",
+      "name": "Colour temperature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kelvin",
+          "label": "Kelvin",
+          "default": "2700K"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Warm white"
+        },
+        {
+          "type": "text",
+          "id": "use",
+          "label": "Best for"
+        },
+        {
+          "type": "color",
+          "id": "glow",
+          "label": "Glow colour",
+          "default": "#FFD9A0"
+        },
+        {
+          "type": "color",
+          "id": "tint",
+          "label": "Preview tint",
+          "default": "#FFB35C"
+        },
+        {
+          "type": "range",
+          "id": "strength",
+          "label": "Tint strength",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "%",
+          "default": 40
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Colour temperature",
+      "blocks": [
+        {
+          "type": "kelvin"
+        },
+        {
+          "type": "kelvin"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

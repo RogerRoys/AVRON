@@ -1,0 +1,195 @@
+<div class="xlg-s" data-xlg-part style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xlg xlg--part">
+  {%- assign rooms = section.blocks -%}
+  <div id="{{ section.settings.anchor }}" class="xlg__sec" data-xrv="0">
+    <div class="xlg__head"><span class="xlg__eb">{{ section.settings.eyebrow }}</span><h2 class="xlg__h2">{{ section.settings.room_heading }}</h2>
+      <div class="xlg__tabs" role="tablist">{%- for b in rooms -%}<button type="button" class="xlg__tab{% if forloop.first %} is-on{% endif %}" data-lg-tab="{{ forloop.index0 }}" data-lux="{{ b.settings.lux }}" data-nl="{{ b.settings.name | downcase | escape }}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ b.settings.name }}</button>{%- endfor -%}</div>
+    </div>
+    {%- for b in rooms -%}
+    <div class="xlg__room{% if forloop.first %} is-on{% endif %}" data-lg-room="{{ forloop.index0 }}" {{ b.shopify_attributes }}{% unless forloop.first %} hidden{% endunless %}>
+      <div class="xlg__roomImg">{%- if b.settings.image -%}{{ b.settings.image | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: b.settings.name }}{%- elsif b.settings.demo_image != blank -%}<img src="{{ b.settings.demo_image }}" alt="{{ b.settings.name | escape }}" loading="lazy">{%- else -%}{{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}{%- endif -%}<span class="xlg__tag">{{ b.settings.name }} · {{ b.settings.kelvin }}</span></div>
+      <div class="xlg__roomTxt">
+        <div><h3>{{ b.settings.title }}</h3><p>{{ b.settings.text }}</p></div>
+        <div class="xlg__layers">{%- for n in (1..3) -%}{%- assign ln = 'layer' | append: n | append: '_name' -%}{%- assign lt = 'layer' | append: n | append: '_text' -%}{%- if b.settings[ln] != blank -%}<div class="xlg__layer"><span>0{{ n }}</span><b>{{ b.settings[ln] }}</b><em>{{ b.settings[lt] }}</em></div>{%- endif -%}{%- endfor -%}</div>
+        <div class="xlg__stats"><div><span>SUGGESTED WARMTH</span><b>{{ b.settings.kelvin }}</b><em>{{ b.settings.kelvin_note }}</em></div><div><span>BRIGHTNESS GUIDE</span><b>~{{ b.settings.lux }} lux</b><em>About {{ b.settings.lux }} lumens per m²</em></div></div>
+        {%- if b.settings.tip != blank -%}<div class="xlg__tip"><b>Tip</b><span>{{ b.settings.tip }}</span></div>{%- endif -%}
+        {%- if b.settings.btn_label != blank -%}<a href="{{ b.settings.btn_link | default: routes.all_products_collection_url }}" class="xlg__btn">{{ b.settings.btn_label }} →</a>{%- endif -%}
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Room guide tabs",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Jump-link ID",
+      "default": "lg-room-guide",
+      "info": "Used by the jump links in the Guide intro section (without #)."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "01 · ROOM GUIDE"
+    },
+    {
+      "type": "text",
+      "id": "room_heading",
+      "label": "Heading",
+      "default": "Plan each room in layers"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "room",
+      "name": "Room",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Room name",
+          "default": "Living"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "demo_image",
+          "label": "Demo image URL",
+          "info": "Used until you pick an image."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "A calm base, with light where you sit"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "layer1_name",
+          "label": "Layer 1",
+          "default": "Ambient"
+        },
+        {
+          "type": "text",
+          "id": "layer1_text",
+          "label": "Layer 1 text"
+        },
+        {
+          "type": "text",
+          "id": "layer2_name",
+          "label": "Layer 2",
+          "default": "Task"
+        },
+        {
+          "type": "text",
+          "id": "layer2_text",
+          "label": "Layer 2 text"
+        },
+        {
+          "type": "text",
+          "id": "layer3_name",
+          "label": "Layer 3",
+          "default": "Accent"
+        },
+        {
+          "type": "text",
+          "id": "layer3_text",
+          "label": "Layer 3 text"
+        },
+        {
+          "type": "text",
+          "id": "kelvin",
+          "label": "Suggested warmth",
+          "default": "2700K"
+        },
+        {
+          "type": "text",
+          "id": "kelvin_note",
+          "label": "Warmth note"
+        },
+        {
+          "type": "range",
+          "id": "lux",
+          "label": "Brightness (lux)",
+          "min": 25,
+          "max": 500,
+          "step": 25,
+          "default": 150
+        },
+        {
+          "type": "textarea",
+          "id": "tip",
+          "label": "Tip"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Room guide tabs",
+      "blocks": [
+        {
+          "type": "room"
+        },
+        {
+          "type": "room"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

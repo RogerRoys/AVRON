@@ -1,0 +1,101 @@
+<div class="xlg-s" data-xlg-part style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xlg xlg--part">
+  <div id="{{ section.settings.anchor }}" class="xlg__sec" data-xrv="0">
+    <div class="xlg__head"><span class="xlg__eb">{{ section.settings.eyebrow }}</span><h2 class="xlg__h2">{{ section.settings.check_heading }}</h2></div>
+    <div class="xlg__checks">{%- for b in section.blocks -%}<div class="xlg__check" {{ b.shopify_attributes }}><b>{{ b.settings.title }}</b><span>{{ b.settings.text }}</span></div>{%- endfor -%}</div>
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "Checklist cards",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Jump-link ID",
+      "default": "lg-bulbs",
+      "info": "Used by the jump links in the Guide intro section (without #)."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "05 · BULBS, DIMMING & INSTALLATION"
+    },
+    {
+      "type": "text",
+      "id": "check_heading",
+      "label": "Heading",
+      "default": "Check these before you buy"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "check",
+      "name": "Check card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Checklist cards",
+      "blocks": [
+        {
+          "type": "check"
+        },
+        {
+          "type": "check"
+        },
+        {
+          "type": "check"
+        },
+        {
+          "type": "check"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,107 @@
+<div class="xlg-s" data-xlg-part style="--s-bg:{{ section.settings.bg | default: 'transparent' }};--s-pt:{{ section.settings.pt }}px;--s-pb:{{ section.settings.pb }}px">
+<section class="xlg xlg--part">
+  <div id="{{ section.settings.anchor }}" class="xlg__sec xlg__ipw" data-xrv="0">
+    <div><span class="xlg__eb">{{ section.settings.eyebrow }}</span><h2 class="xlg__h2">{{ section.settings.ip_heading }}</h2><div class="xlg__lead">{{ section.settings.ip_text }}</div></div>
+    <div class="xlg__ip">{%- for b in section.blocks -%}<div class="xlg__ipR" {{ b.shopify_attributes }}><b>{{ b.settings.rating }}</b><span><strong>{{ b.settings.meaning }}</strong><em>{{ b.settings.use }}</em></span></div>{%- endfor -%}</div>
+  </div>
+</section>
+</div>
+{% schema %}
+{
+  "name": "IP ratings table",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Jump-link ID",
+      "default": "lg-outdoor",
+      "info": "Used by the jump links in the Guide intro section (without #)."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "04 · OUTDOOR & IP RATINGS"
+    },
+    {
+      "type": "text",
+      "id": "ip_heading",
+      "label": "Heading",
+      "default": "Match the rating to the location"
+    },
+    {
+      "type": "richtext",
+      "id": "ip_text",
+      "label": "Text",
+      "default": "<p>The IP rating shows how well a fitting resists dust and water. Check the rating on each product page, and choose corrosion-resistant finishes for coastal homes.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background"
+    },
+    {
+      "type": "range",
+      "id": "pt",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "pb",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ip",
+      "name": "IP rating",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rating",
+          "label": "Rating",
+          "default": "IP44"
+        },
+        {
+          "type": "text",
+          "id": "meaning",
+          "label": "Meaning"
+        },
+        {
+          "type": "text",
+          "id": "use",
+          "label": "Where to use"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IP ratings table",
+      "blocks": [
+        {
+          "type": "ip"
+        },
+        {
+          "type": "ip"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1938,3 +1938,9 @@ html{scroll-behavior:auto}
 .xab-s .xab__cta{margin-top:0!important}
 .xab__diff--flip>.xab__dimg{order:2}
 @media (max-width:989px){.xab-s>.xpg{padding-top:calc(var(--s-pt,0px) * .4)!important;padding-bottom:calc(var(--s-pb,0px) * .4)!important}.xab__diff--flip>.xab__dimg{order:0}}
+
+/* Lighting guide split into sections */
+.xlg-s{background:var(--s-bg,transparent)}
+.xlg-s>.xlg--part{padding-top:var(--s-pt,0px)!important;padding-bottom:var(--s-pb,0px)!important}
+.xlg--part>.xlg__sec,.xlg--part>.xlg__cta{margin-top:0!important}
+@media (max-width:989px){.xlg-s>.xlg--part{padding-top:calc(var(--s-pt,0px) * .6)!important;padding-bottom:calc(var(--s-pb,0px) * .6)!important}}
