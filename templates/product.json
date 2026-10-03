@@ -116,7 +116,7 @@
             "collection": "",
             "eyebrow": "Lighting",
             "heading": "Common questions",
-            "q1": "{{ block.settings.collection.metafields.custom.faq_items | metafield_text: field: 'question' }}",
+            "q1": "",
             "a1": "<p>sssssssss</p>",
             "q2": "",
             "a2": "",
