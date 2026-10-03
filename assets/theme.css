@@ -1979,3 +1979,7 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 .xpp__as{margin-bottom:22px!important}
 @media (max-width:989px){.xpp__as{margin-bottom:18px!important}}
 
+
+/* Empty cart drawer: centred in the drawer */
+.xcd__body:has(> .xcd__empty){display:flex;flex-direction:column;justify-content:center}
+.xcd__body:has(> .xcd__empty)>.xcd__empty{flex:none;margin:auto 0;padding:24px 0}

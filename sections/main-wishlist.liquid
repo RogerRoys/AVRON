@@ -1,4 +1,4 @@
-<section class="xwlp" data-wl-page>
+<section class="xwlp" data-wl-page style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px">
   <nav class="xwlp__crumbs"><a href="{{ routes.root_url }}">Home</a>›<span>{{ section.settings.heading }}</span></nav>
   <div class="xwlp__head">
     <div class="xwlp__ht"><h1 class="xwlp__h" data-wl-title>{{ section.settings.heading }} <span>(0)</span></h1><span class="xwlp__sub">{{ section.settings.subheading }}</span></div>
@@ -13,11 +13,68 @@
   <div class="xwlp__mbar" data-wl-mbar hidden><div><b data-wl-total></b><span data-wl-count>0 items</span></div><button type="button" class="xwlp__all" data-wl-all data-short>Add all to cart</button></div>
 </section>
 {% schema %}
-{"name":"Wishlist","settings":[
- {"type":"text","id":"heading","label":"Heading","default":"Your wishlist"},
- {"type":"text","id":"subheading","label":"Subheading","default":"Saved on this device. Log in to keep it across phones and laptops."},
- {"type":"text","id":"summary_text","label":"Summary text","default":"Tracked delivery with updates at every stage"},
- {"type":"text","id":"summary_note","label":"Summary note","default":"Prices update automatically if they drop."},
- {"type":"text","id":"recs_heading","label":"Recommendations heading","default":"You might also like"},
- {"type":"collection","id":"recs","label":"Recommendations collection"}]}
+{
+  "name": "Wishlist",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your wishlist"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Saved on this device. Log in to keep it across phones and laptops."
+    },
+    {
+      "type": "text",
+      "id": "summary_text",
+      "label": "Summary text",
+      "default": "Tracked delivery with updates at every stage"
+    },
+    {
+      "type": "text",
+      "id": "summary_note",
+      "label": "Summary note",
+      "default": "Prices update automatically if they drop."
+    },
+    {
+      "type": "text",
+      "id": "recs_heading",
+      "label": "Recommendations heading",
+      "default": "You might also like"
+    },
+    {
+      "type": "collection",
+      "id": "recs",
+      "label": "Recommendations collection"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ]
+}
 {% endschema %}

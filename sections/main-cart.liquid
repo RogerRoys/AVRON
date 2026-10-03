@@ -1,7 +1,7 @@
 <section class="page-w sec cartp" data-cart-page>
   <h1 class="h1">Your cart</h1>
   {%- if cart.item_count == 0 -%}
-    <div class="cd__empty"><p>Your cart is empty.</p><a href="{{ routes.all_products_collection_url }}" class="btn">Continue shopping</a></div>
+    <div class="cd__empty"><p>{{ section.settings.empty_heading | default: 'Your cart is empty.' }}</p>{%- if section.settings.empty_btn_show -%}<a href="{{ section.settings.empty_btn_link | default: routes.all_products_collection_url }}" class="btn">{{ section.settings.empty_btn_label | default: 'Continue shopping' }}</a>{%- endif -%}</div>
   {%- else -%}
     <div class="cartp__grid">
       <div>
@@ -40,6 +40,34 @@
       "id": "show_note",
       "label": "Show order note",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Empty cart"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "Heading",
+      "default": "Your cart is empty."
+    },
+    {
+      "type": "checkbox",
+      "id": "empty_btn_show",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "empty_btn_label",
+      "label": "Button label",
+      "default": "Continue shopping"
+    },
+    {
+      "type": "url",
+      "id": "empty_btn_link",
+      "label": "Button link",
+      "info": "Defaults to all products."
     }
   ]
 }
