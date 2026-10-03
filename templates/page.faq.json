@@ -105,7 +105,15 @@
         "q8",
         "q9"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "HELP & FAQ",
+        "heading": "Questions, answered clearly.",
+        "intro": "<p>Guidance on choosing, installing and receiving your lighting. If something isn’t covered here, we’re happy to help.</p>",
+        "cta_heading": "Still have a question?",
+        "cta_text": "Ask us about sizing, finishes or installation before you choose.",
+        "cta_btn": "Contact us",
+        "cta_link": "shopify://pages/contact"
+      }
     }
   },
   "order": [
