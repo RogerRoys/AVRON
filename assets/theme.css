@@ -1968,3 +1968,5 @@ html{scroll-behavior:auto}
 .shopify-policy__body{font-size:15px;line-height:1.7;color:var(--ink)}
 .shopify-policy__body h2,.shopify-policy__body h3{margin:1.6em 0 .5em}
 @media (max-width:989px){.shopify-policy__container{padding:28px 16px 56px!important}.shopify-policy__title h1{font-size:30px}}
+
+a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#fff}
