@@ -11,7 +11,20 @@
   "sections": {
     "main": {
       "type": "main-contact",
-      "settings": {}
+      "settings": {
+        "eyebrow": "CONTACT",
+        "heading": "How can we help?",
+        "intro": "<p>Ask us about sizing, finishes, installation requirements or an existing order. We’ll give you a clear, honest answer — and tell you if we need to check something first.</p>",
+        "form_heading": "Send us a message",
+        "info_heading": "Contact information",
+        "c_name": "Avron Home Pty Ltd",
+        "c_address": "Level 2, 100 Example Street, Sydney NSW 2000, Australia",
+        "c_email": "support@avron.com.au",
+        "c_phone": "+61 2 0000 0000",
+        "c_hours": "Monday to Friday, 9:00am–5:00pm (AEST)",
+        "padding_top": 24,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
