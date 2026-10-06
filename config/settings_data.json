@@ -22,6 +22,13 @@
     "cart_upsell_collection": "best-sellers",
     "cart_upsell_count": 2,
     "cart_discount": false,
+    "empty_heading": "Your cart is empty",
+    "empty_text": "Start with a best seller.",
+    "empty_btn_show": true,
+    "empty_btn_label": "Continue shopping",
+    "empty_btn_link": "shopify://collections/all",
+    "badge_best": false,
+    "badge_new": false,
     "social_instagram": "https://www.instagram.com/avronofficial/",
     "sections": {
       "cart-drawer": {
@@ -29,13 +36,6 @@
         "settings": {}
       }
     },
-    "content_for_index": [],
-    "empty_heading": "Your cart is empty",
-    "empty_text": "Start with a best seller.",
-    "empty_btn_show": true,
-    "empty_btn_label": "Continue shopping",
-    "empty_btn_link": "shopify://collections/all",
-    "badge_best": true,
-    "badge_new": true
+    "content_for_index": []
   }
 }
