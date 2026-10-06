@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.10.10",
+    "theme_version": "1.10.11",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -262,6 +262,40 @@
         "id": "cart_dynamic",
         "label": "Show accelerated checkout buttons",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "Empty cart (drawer)"
+      },
+      {
+        "type": "text",
+        "id": "empty_heading",
+        "label": "Heading",
+        "default": "Your cart is empty"
+      },
+      {
+        "type": "text",
+        "id": "empty_text",
+        "label": "Text",
+        "default": "Start with a best seller."
+      },
+      {
+        "type": "checkbox",
+        "id": "empty_btn_show",
+        "label": "Show button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "empty_btn_label",
+        "label": "Button label",
+        "default": "Continue shopping"
+      },
+      {
+        "type": "url",
+        "id": "empty_btn_link",
+        "label": "Button link",
+        "info": "Leave blank to just close the cart."
       }
     ]
   },
@@ -277,6 +311,27 @@
         "step": 1,
         "default": 6,
         "info": "Needs Shopify inventory tracking."
+      }
+    ]
+  },
+  {
+    "name": "Badges",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Badges come from product tags: add \"badge:Best seller\" or \"badge:New\" to a product."
+      },
+      {
+        "type": "checkbox",
+        "id": "badge_best",
+        "label": "Show \"Best seller\" badges",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "badge_new",
+        "label": "Show \"New\" badges",
+        "default": true
       }
     ]
   },

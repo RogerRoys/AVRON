@@ -27,7 +27,7 @@
       {%- endif -%}
     </a>
     <button type="button" class="card__wish" data-wish="demo-{{ id }}" aria-label="Save {{ title | escape }} to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
-    {%- if badges[id] != '-' -%}<div class="card__badges"><span class="badge badge--{{ bcls[id] }}">{{ badges[id] }}</span></div>{%- endif -%}
+    {%- assign pbd = badges[id] | downcase -%}{%- assign pbs = true -%}{%- if pbd contains 'best' and settings.badge_best == false -%}{%- assign pbs = false -%}{%- endif -%}{%- if pbd contains 'new' and settings.badge_new == false -%}{%- assign pbs = false -%}{%- endif -%}{%- if badges[id] != '-' and pbs -%}<div class="card__badges"><span class="badge badge--{{ bcls[id] }}">{{ badges[id] }}</span></div>{%- endif -%}
     <a href="{{ url }}" class="card__qa">+ Quick buy</a>
   </div>
   <div class="card__sw">{%- assign sw = sws[id] | split: ',' -%}{%- for c in sw -%}<span class="sw sw--sm" style="background:{{ c }}"></span>{%- endfor -%}</div>

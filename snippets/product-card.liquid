@@ -20,7 +20,7 @@
     <button type="button" class="card__wish" data-wish="{{ card_product.handle }}" aria-label="Save {{ card_product.title | escape }} to wishlist" aria-pressed="false"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
     <div class="card__badges">
       {%- for tag in card_product.tags -%}
-        {%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}
+        {%- if tag contains 'badge:' -%}{%- assign bl = tag | remove_first: 'badge:' | strip -%}{%- assign bd = bl | downcase -%}{%- assign bshow = true -%}{%- if bd contains 'best' and settings.badge_best == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bd contains 'new' and settings.badge_new == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bshow -%}<span class="badge badge--brand">{{ bl }}</span>{%- endif -%}{%- endif -%}
       {%- endfor -%}
       {%- if card_product.available == false -%}<span class="badge badge--ink">Sold out</span>{%- elsif on_sale -%}<span class="badge badge--sale">Sale</span>{%- endif -%}
     </div>

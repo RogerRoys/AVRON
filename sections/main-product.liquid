@@ -38,7 +38,7 @@
         {%- endfor -%}
       </div></div>
       <div class="pp__badges">
-        {%- for tag in product.tags -%}{%- if tag contains 'badge:' -%}<span class="badge badge--brand">{{ tag | remove_first: 'badge:' | strip }}</span>{%- endif -%}{%- endfor -%}
+        {%- for tag in product.tags -%}{%- if tag contains 'badge:' -%}{%- assign bl = tag | remove_first: 'badge:' | strip -%}{%- assign bd = bl | downcase -%}{%- assign bshow = true -%}{%- if bd contains 'best' and settings.badge_best == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bd contains 'new' and settings.badge_new == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bshow -%}<span class="badge badge--brand">{{ bl }}</span>{%- endif -%}{%- endif -%}{%- endfor -%}
         {%- if section.settings.material_badge != blank -%}<span class="badge badge--white">{{ section.settings.material_badge }}</span>{%- endif -%}
       </div>
       {%- if product.media.size > 1 -%}

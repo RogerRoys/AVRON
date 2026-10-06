@@ -1983,3 +1983,8 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 /* Empty cart drawer: centred in the drawer */
 .xcd__body:has(> .xcd__empty){display:flex;flex-direction:column;justify-content:center}
 .xcd__body:has(> .xcd__empty)>.xcd__empty{flex:none;margin:auto 0;padding:24px 0}
+
+/* Mobile product images: square 1:1 (matches uploaded product photos) */
+@media (max-width:989px){
+  .xpp__gwrap .pp__m,.pp__m,.pp__m--lead{aspect-ratio:1/1!important}
+}

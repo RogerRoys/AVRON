@@ -34,8 +34,8 @@
       {%- if cart.item_count == 0 -%}
         <div class="xcd__empty">
           <span class="xcd__eic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5C615B" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8a3 3 0 016 0"/></svg></span>
-          <b>{{ section.settings.empty_heading | default: 'Your cart is empty' }}</b>{%- if section.settings.empty_text != blank -%}<span>{{ section.settings.empty_text }}</span>{%- endif -%}
-          {%- if section.settings.empty_btn_show -%}{%- if section.settings.empty_btn_link != blank -%}<a href="{{ section.settings.empty_btn_link }}" class="xcd__cont">{{ section.settings.empty_btn_label }}</a>{%- else -%}<button type="button" class="xcd__cont" data-close>{{ section.settings.empty_btn_label }}</button>{%- endif -%}{%- endif -%}
+          <b>{{ settings.empty_heading | default: 'Your cart is empty' }}</b>{%- if settings.empty_text != blank -%}<span>{{ settings.empty_text }}</span>{%- endif -%}
+          {%- if settings.empty_btn_show -%}{%- if settings.empty_btn_link != blank -%}<a href="{{ settings.empty_btn_link }}" class="xcd__cont">{{ settings.empty_btn_label }}</a>{%- else -%}<button type="button" class="xcd__cont" data-close>{{ settings.empty_btn_label }}</button>{%- endif -%}{%- endif -%}
         </div>
       {%- endif -%}
       {%- for item in cart.items -%}
@@ -94,41 +94,6 @@
 {% schema %}
 {
   "name": "Cart drawer",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Empty cart"
-    },
-    {
-      "type": "text",
-      "id": "empty_heading",
-      "label": "Heading",
-      "default": "Your cart is empty"
-    },
-    {
-      "type": "text",
-      "id": "empty_text",
-      "label": "Text",
-      "default": "Start with a best seller."
-    },
-    {
-      "type": "checkbox",
-      "id": "empty_btn_show",
-      "label": "Show button",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "empty_btn_label",
-      "label": "Button label",
-      "default": "Continue shopping"
-    },
-    {
-      "type": "url",
-      "id": "empty_btn_link",
-      "label": "Button link",
-      "info": "Leave blank to just close the cart."
-    }
-  ]
+  "settings": []
 }
 {% endschema %}
