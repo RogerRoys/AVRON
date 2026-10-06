@@ -69,8 +69,8 @@
         "mobile_chips": "Pendants,Lamps,Outdoor,Fans,Décor,Solar",
         "side1_mlabel": "Indoor",
         "side2_mlabel": "Outdoor",
-        "mtrust_show": true,
-        "mtrust_stars": true,
+        "mtrust_show": false,
+        "mtrust_stars": false,
         "mtrust_1": "Verified reviews",
         "mtrust_2": "Free shipping · Clear returns policy"
       }
