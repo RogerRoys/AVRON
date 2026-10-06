@@ -52,6 +52,7 @@
         },
         "trust": {
           "type": "trust_grid",
+          "disabled": true,
           "settings": {
             "t1_title": "Free tracked delivery",
             "t1_text": "Australia",

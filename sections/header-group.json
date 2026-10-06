@@ -52,6 +52,7 @@
       "blocks": {
         "p1": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "menu_item": "Shop Lighting",
             "image": "shopify://shop_images/LuminaSquare___Elegant_Modern_Stainless_Steel_Outdoor_Pillar_Light_3.jpg",

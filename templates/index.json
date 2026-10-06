@@ -224,6 +224,7 @@
       "blocks": {
         "t1": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "label": "Best sellers",
             "collection": "best-sellers"
@@ -231,6 +232,7 @@
         },
         "t2": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "label": "New in",
             "collection": "new-in"
