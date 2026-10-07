@@ -12,6 +12,19 @@
     "hero": {
       "type": "hero-split",
       "blocks": {
+        "s3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/av-02.webp",
+            "badge": "SOLAR",
+            "heading": "Garden light that runs on sunshine.",
+            "text": "<p>No wiring, no running costs. Charges by day, glows all night.</p>",
+            "btn1_label": "Shop solar",
+            "btn1_link": "shopify://collections/solar-outdoor-lights",
+            "btn2_label": "Outdoor",
+            "btn2_link": "shopify://collections/outdoor-lighting"
+          }
+        },
         "s2": {
           "type": "slide",
           "settings": {
@@ -27,6 +40,7 @@
         },
         "s1": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "badge": "NEW SEASON",
             "heading": "Light, considered for Australian homes.",
@@ -36,24 +50,12 @@
             "btn2_label": "New arrivals",
             "btn2_link": "shopify://collections/new-in"
           }
-        },
-        "s3": {
-          "type": "slide",
-          "settings": {
-            "badge": "SOLAR",
-            "heading": "Garden light that runs on sunshine.",
-            "text": "<p>No wiring, no running costs. Charges by day, glows all night.</p>",
-            "btn1_label": "Shop solar",
-            "btn1_link": "shopify://collections/solar-outdoor-lights",
-            "btn2_label": "Outdoor",
-            "btn2_link": "shopify://collections/outdoor-lighting"
-          }
         }
       },
       "block_order": [
+        "s3",
         "s2",
-        "s1",
-        "s3"
+        "s1"
       ],
       "settings": {
         "autoplay": true,
