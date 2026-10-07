@@ -27,6 +27,7 @@
         },
         "s1": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "badge": "NEW SEASON",
             "heading": "Light, considered for Australian homes.",
