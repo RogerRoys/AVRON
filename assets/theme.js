@@ -546,17 +546,3 @@ function init(sec){if(sec.__xrv)return;sec.__xrv=1;var me=sec.querySelector('[da
 function run(){document.querySelectorAll('[data-xrv]').forEach(init);}
 if(document.readyState!=='loading')run();else document.addEventListener('DOMContentLoaded',run);document.addEventListener('shopify:section:load',run);})();
 
-/* Product-based light colour (kelvin banner) */
-(function(){
-  function form(){return document.querySelector('[data-product-section]')||document;}
-  function paint(root,v){root.querySelectorAll('[data-kb-v]').forEach(function(b){var on=b.getAttribute('data-kb-v')===v;b.classList.toggle('is-on',on);if(on){var t=root.querySelector('[data-kb-tint]');if(t)t.style.background=b.getAttribute('data-kb-tintc');var s=root.querySelector('[data-kb-show]');if(s)s.textContent='Showing '+v;}});}
-  function init(root){if(root.__kb)return;root.__kb=1;var g=root.querySelector('[data-kb-pos]');if(!g)return;var pos=g.getAttribute('data-kb-pos');var on=root.querySelector('.kb__pt.is-on');if(on)paint(root,on.getAttribute('data-kb-v'));
-    root.addEventListener('click',function(e){var b=e.target.closest('[data-kb-v]');if(!b)return;var v=b.getAttribute('data-kb-v');paint(root,v);
-      var r=[].slice.call(form().querySelectorAll('input[type=radio][name$="-'+pos+'"]')).find(function(i){return i.value===v;});
-      if(r&&!r.checked){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));r.dispatchEvent(new Event('input',{bubbles:true}));}
-      else{var sel=form().querySelectorAll('select')[pos-1];if(sel){sel.value=v;sel.dispatchEvent(new Event('change',{bubbles:true}));}}});
-    document.addEventListener('change',function(e){var t=e.target;if(t&&t.type==='radio'&&new RegExp('-'+pos+'$').test(t.name)&&t.checked)paint(root,t.value);});}
-  function all(){document.querySelectorAll('[data-kb]').forEach(init);}
-  if(document.readyState!=='loading')all();else document.addEventListener('DOMContentLoaded',all);
-  document.addEventListener('shopify:section:load',all);
-})();
