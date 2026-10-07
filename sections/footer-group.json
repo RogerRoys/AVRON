@@ -14,8 +14,8 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Get 10% off your first order",
-        "text": "Plus new arrivals and early sale access. One email a month."
+        "heading": "Be first to see what’s new",
+        "text": "New collections, restocks and lighting guides, straight to your inbox."
       }
     },
     "footer": {

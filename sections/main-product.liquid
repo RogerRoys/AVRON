@@ -123,6 +123,9 @@
                 if sg_img == blank
                   assign sg_img = block.settings.size_guide_image
                 endif
+                if block.settings.show_size_guide == false
+                  assign sg_img = blank
+                endif
                 assign sg_shown = false
                 assign sg_opt = 0
                 assign sg_found = false
@@ -363,6 +366,13 @@
         {
           "type": "paragraph",
           "content": "Each product shows its own size guide from the product metafield custom.size_guide (type: file / image). The image below is only used when a product has none."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_size_guide",
+          "label": "Show size guide",
+          "default": true,
+          "info": "Turns the \"Size guide\" link and popup on or off for every product."
         },
         {
           "type": "image_picker",

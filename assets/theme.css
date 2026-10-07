@@ -2061,3 +2061,7 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 .announce .announce__msg.is-enter.is-active{transform:none}
 @media (max-width:989px){.announce--arrows{grid-template-columns:28px minmax(0,1fr) 28px;height:36px!important;padding:0 8px!important;font-size:12px}}
 @media (prefers-reduced-motion:reduce){.announce__msg{transition:opacity .2s!important;transform:none!important}}
+
+/* Recently viewed / JS-rendered cards: quick buy matches regular cards */
+.card .card__qa{font-family:inherit;color:var(--ink,#1B1D1A);text-decoration:none;border:0;cursor:pointer;appearance:none;-webkit-appearance:none;display:grid;place-items:center;line-height:1}
+.card .card__qa:hover{background:var(--ink,#1B1D1A);color:#fff}
