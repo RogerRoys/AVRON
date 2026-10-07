@@ -27,10 +27,11 @@
   </div>
 </div>
 {%- endif -%}
-<header class="header{% if section.settings.layout == 'centered' %} header--centered{% endif %}{% if section.settings.layout == 'logo_left' %} header--stext{% endif %}{% if section.settings.layout == 'centered' or section.settings.mobile_icons %} header--micons{% endif %}" data-header>
+<header class="header{% if section.settings.layout == 'centered' %} header--centered{% endif %}{% if section.settings.layout == 'logo_left' or section.settings.layout == 'centered_b' %} header--stext{% endif %}{% if section.settings.layout == 'centered_b' %} header--b{% endif %}{% if section.settings.layout == 'centered' or section.settings.layout == 'centered_b' or section.settings.mobile_icons %} header--micons{% endif %}" data-header>
   <div class="page-w header__row">
     <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}<span class="hdr-mtxt">Menu</span></button>
     <button type="button" class="icon-btn header__msearch" data-search-toggle aria-label="Search">{% render 'icon', name: 'search' %}</button>
+    {%- if section.settings.layout == 'centered_b' -%}<button type="button" class="header__icon header__bsearch" data-search-toggle>{% render 'icon', name: 'search' %}<span>Search</span></button>{%- endif -%}
     <a href="{{ routes.root_url }}" class="header__logo">{% render 'logo' %}</a>
     <form action="{{ routes.search_url }}" method="get" role="search" class="header__search" data-predictive data-popular="{{ section.settings.popular | escape }}">
       <label class="visually-hidden" for="HeaderSearch">Search</label>
@@ -187,9 +188,13 @@
         {
           "value": "search_bar",
           "label": "Search bar (classic)"
+        },
+        {
+          "value": "centered_b",
+          "label": "Centred logo, search left, menu below (13b)"
         }
       ],
-      "default": "logo_left",
+      "default": "centered_b",
       "info": "Centred logo: menu on the left, logo in the middle, Search · Account · Wishlist · Cart on the right. Search opens a panel."
     },
     {
