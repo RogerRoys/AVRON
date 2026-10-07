@@ -2045,3 +2045,19 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 
 /* Desktop gallery: all images 1:1 (product photos are square) */
 @media (min-width:990px){.pp__m--lead,.xpp__gwrap .pp__m--lead,.xpp__gwrap .pp__m{aspect-ratio:1/1!important}}
+
+/* Announcement bar 16a: rotating with arrows */
+.announce--arrows{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;height:40px!important;padding:0 max(40px, calc((100% - var(--page-w,1440px)) / 2 + 40px))!important}
+.announce__track{position:relative;height:100%;overflow:hidden}
+.announce:not(.announce--arrows) .announce__track{position:absolute;inset:0}
+.announce__arw{all:unset;box-sizing:border-box;cursor:pointer;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:inherit;opacity:.75;transition:opacity .2s,background .25s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.announce__arw--next{justify-self:end}
+.announce__arw:hover{opacity:1;background:rgba(255,255,255,.12)}
+.announce__arw--prev:hover{transform:translateX(-2px)}
+.announce__arw--next:hover{transform:translateX(2px)}
+.announce__arw:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.announce.is-back .announce__msg.is-enter{transform:translateY(-14px)}
+.announce.is-back .announce__msg.is-leaving{transform:translateY(14px)}
+.announce .announce__msg.is-enter.is-active{transform:none}
+@media (max-width:989px){.announce--arrows{grid-template-columns:28px minmax(0,1fr) 28px;height:36px!important;padding:0 8px!important;font-size:12px}}
+@media (prefers-reduced-motion:reduce){.announce__msg{transition:opacity .2s!important;transform:none!important}}

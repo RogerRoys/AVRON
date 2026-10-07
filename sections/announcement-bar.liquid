@@ -1,10 +1,14 @@
 {%- if section.blocks.size > 0 -%}
-<div class="announce" style="--ab-bg:{{ section.settings.bg }};--ab-fg:{{ section.settings.fg }}" data-rotate data-speed="{{ section.settings.speed }}">
+<div class="announce{% if section.settings.arrows and section.blocks.size > 1 %} announce--arrows{% endif %}" style="--ab-bg:{{ section.settings.bg }};--ab-fg:{{ section.settings.fg }}" data-rotate data-speed="{{ section.settings.speed }}">
+  {%- if section.settings.arrows and section.blocks.size > 1 -%}<button type="button" class="announce__arw announce__arw--prev" data-ann-prev aria-label="Previous message"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>{%- endif -%}
+  <div class="announce__track">
   {%- for block in section.blocks -%}
     <div class="announce__msg{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
       {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{{ block.settings.text }}</a>{%- else -%}<p>{{ block.settings.text }}</p>{%- endif -%}
     </div>
   {%- endfor -%}
+  </div>
+  {%- if section.settings.arrows and section.blocks.size > 1 -%}<button type="button" class="announce__arw announce__arw--next" data-ann-next aria-label="Next message"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>{%- endif -%}
 </div>
 {%- endif -%}
 {% schema %}
@@ -37,6 +41,12 @@
       "max": 10,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "arrows",
+      "label": "Show arrows",
+      "default": true
     }
   ],
   "blocks": [
