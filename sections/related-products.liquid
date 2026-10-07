@@ -1,10 +1,25 @@
-<section class="page-w sec" style="padding-bottom:{{ section.settings.padding_bottom }}px">
-  <div class="sec__head"><h2 class="h2">{{ section.settings.heading }}</h2></div>
-  <div class="grid grid--p{{ section.settings.limit }}" data-recs data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}&intent=related">
-    {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-      {%- for p in recommendations.products -%}{% render 'product-card', card_product: p %}{%- endfor -%}
-    {%- endif -%}
+<section class="page-w sec xrv" style="padding-bottom:{{ section.settings.padding_bottom }}px" data-xrv data-current="{{ product.handle }}" data-limit="{{ section.settings.limit }}">
+  <div class="xrv__head">
+    <div class="xrv__tabs" role="tablist">
+      <button type="button" class="xrv__tab is-on" role="tab" aria-selected="true" data-xrv-tab="ym">{{ section.settings.heading }}</button>
+      {%- if section.settings.show_recent -%}<button type="button" class="xrv__tab" role="tab" aria-selected="false" data-xrv-tab="rv">{{ section.settings.recent_heading }}</button>{%- endif -%}
+    </div>
+    {%- if section.settings.view_all_label != blank -%}<a href="{{ section.settings.view_all_link | default: routes.all_products_collection_url }}" class="xrv__all">{{ section.settings.view_all_label }}</a>{%- endif -%}
   </div>
+  <div class="xrv__panel is-on" data-xrv-panel="ym">
+    <div class="grid grid--p{{ section.settings.limit }}" data-recs data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.limit }}&intent=related">
+      {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+        {%- for p in recommendations.products -%}{% render 'product-card', card_product: p %}{%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+  {%- if section.settings.show_recent -%}
+  <div class="xrv__panel" data-xrv-panel="rv" hidden>
+    <div class="grid grid--p{{ section.settings.limit }}" data-xrv-grid></div>
+    <div class="xrv__empty" data-xrv-empty hidden><b>No recently viewed products yet</b><span>Products you look at will appear here.</span></div>
+  </div>
+  <script type="application/json" data-xrv-me>{"handle":{{ product.handle | json }},"title":{{ product.title | json }},"url":{{ product.url | json }},"type":{{ product.type | default: product.collections.first.title | json }},"price":{{ product.price | money | json }},"img":{{ product.featured_media | image_url: width: 600 | json }},"img2":{% if product.media[1] %}{{ product.media[1] | image_url: width: 600 | json }}{% else %}""{% endif %}}</script>
+  {%- endif -%}
 </section>
 {% schema %}
 {
@@ -13,8 +28,31 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "Recommendations tab",
       "default": "You may also like"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_recent",
+      "label": "Show recently viewed tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "recent_heading",
+      "label": "Recently viewed tab",
+      "default": "Recently viewed"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View all link"
     },
     {
       "type": "range",

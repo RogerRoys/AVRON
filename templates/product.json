@@ -228,19 +228,6 @@
         "button_link": "shopify://pages/lighting-guide"
       }
     },
-    "best": {
-      "type": "featured-collection",
-      "settings": {
-        "eyebrow": "BEST SELLERS",
-        "heading": "Loved by our customers",
-        "subheading": "",
-        "collection": "best-sellers",
-        "limit": 8,
-        "button_label": "Shop best sellers",
-        "button_link": "shopify://collections/best-sellers",
-        "demo": "indoor"
-      }
-    },
     "reviews": {
       "type": "reviews",
       "disabled": true,
@@ -363,13 +350,25 @@
         "limit": 8,
         "padding_bottom": 96
       }
+    },
+    "outdoor": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "OUTDOOR LIGHTING",
+        "heading": "Light the way home",
+        "subheading": "Porch, wall and garden lights rated for the weather.",
+        "button_label": "Shop outdoor",
+        "button_link": "/collections/outdoor",
+        "demo": "outdoor",
+        "limit": 8
+      }
     }
   },
   "order": [
     "main",
     "features",
     "kelvin",
-    "best",
+    "outdoor",
     "reviews",
     "pfaq",
     "story",
