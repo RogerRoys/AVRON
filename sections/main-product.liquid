@@ -104,7 +104,7 @@
                 <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
                 <span class="badge badge--sale" data-save{% unless on_sale %} hidden{% endunless %}>Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
               </div>
-              <p class="pp__tax">{%- if cart.taxes_included -%}Prices in AUD.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>
+              {%- if block.settings.show_tax_note -%}<p class="pp__tax">{%- if block.settings.tax_note != blank -%}{{ block.settings.tax_note }}{%- elsif cart.taxes_included -%}Prices in AUD.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>{%- endif -%}
             </div>
           {%- when 'low_stock' -%}
             {%- liquid
@@ -330,7 +330,20 @@
       "type": "price",
       "name": "Price",
       "limit": 1,
-      "settings": []
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_tax_note",
+          "label": "Show tax note under price",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "tax_note",
+          "label": "Tax note text",
+          "info": "Leave blank to show \"Taxes calculated at checkout.\" (or \"Prices in AUD.\" when prices include tax)."
+        }
+      ]
     },
     {
       "type": "low_stock",
