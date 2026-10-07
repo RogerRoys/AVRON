@@ -1,11 +1,78 @@
-<section class="page-w sec">
+{%- liquid
+  assign k_opt = nil
+  if product
+    for o in product.options_with_values
+      if k_opt == nil
+        for v in o.values
+          assign vv = v | upcase | remove: ' '
+          if vv contains '00K'
+            assign k_opt = o
+            break
+          endif
+        endfor
+      endif
+    endfor
+  endif
+-%}
+<section class="page-w sec" data-kb>
   <div class="kb">
-    <div class="kb__img">{%- if section.settings.image -%}{{ section.settings.image | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- elsif product.featured_media -%}{{ product.featured_media | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- endif -%}</div>
+    <div class="kb__img">
+      {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- elsif product.featured_media -%}{{ product.featured_media | image_url: width: 1400 | image_tag: widths: '600,900,1400', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'lazy', alt: '' }}{%- else -%}{% render 'demo-img', src: 'av-01.jpg' %}{%- endif -%}
+      {%- if k_opt -%}<span class="kb__tint" data-kb-tint></span><span class="kb__show" data-kb-show>Showing {{ k_opt.selected_value }}</span>{%- endif -%}
+    </div>
     <div class="kb__copy">
-      <h2 class="h2">{{ section.settings.heading }}</h2>
-      <div class="kb__temps">
-        {%- for block in section.blocks -%}<div class="kb__t" {{ block.shopify_attributes }}><span class="glow glow--wide" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></div>{%- endfor -%}
-      </div>
+      {%- if k_opt -%}
+        <span class="kb__eb">{{ section.settings.eyebrow | default: 'Light colour' }} · {{ product.title }}</span>
+        <h2 class="h2">{{ section.settings.heading_product | replace: '[count]', k_opt.values.size }}</h2>
+        <div class="kb__temps kb__temps--p" data-kb-pos="{{ k_opt.position }}">
+          {%- for v in k_opt.values -%}
+            {%- liquid
+              assign vv = v | upcase | remove: ' '
+              assign glow = '#FFE2B5'
+              assign tint = '#FFD08A'
+              assign txt = ''
+              if vv contains '22' or vv contains '24'
+                assign glow = '#FFB25C'
+                assign tint = '#FF9A3C'
+                assign txt = section.settings.t_2200
+              elsif vv contains '27'
+                assign glow = '#FFD9A0'
+                assign tint = '#FF9F43'
+                assign txt = section.settings.t_2700
+              elsif vv contains '30' or vv contains '35'
+                assign glow = '#FFF0D6'
+                assign tint = '#FFD08A'
+                assign txt = section.settings.t_3000
+              elsif vv contains '40' or vv contains '45'
+                assign glow = '#F4F8FF'
+                assign tint = '#BCD3FF'
+                assign txt = section.settings.t_4000
+              elsif vv contains '50' or vv contains '60' or vv contains '65'
+                assign glow = '#EAF2FF'
+                assign tint = '#A9C6FF'
+                assign txt = section.settings.t_5000
+              endif
+              for block in section.blocks
+                assign bl = block.settings.label | upcase | remove: ' '
+                assign num = vv | slice: 0, 4
+                if bl contains num
+                  assign glow = block.settings.glow
+                  if block.settings.text != blank
+                    assign txt = block.settings.text
+                  endif
+                endif
+              endfor
+            -%}
+            <button type="button" class="kb__t kb__pt{% if v == k_opt.selected_value %} is-on{% endif %}" data-kb-v="{{ v | escape }}" data-kb-tintc="{{ tint }}"><span class="glow glow--wide" style="--glow:{{ glow }}"></span><b>{{ v }}</b>{%- if txt != blank -%}<em>{{ txt }}</em>{%- endif -%}</button>
+          {%- endfor -%}
+        </div>
+        {%- if section.settings.note != blank -%}<span class="kb__note"><i></i>{{ section.settings.note }}</span>{%- endif -%}
+      {%- else -%}
+        <h2 class="h2">{{ section.settings.heading }}</h2>
+        <div class="kb__temps">
+          {%- for block in section.blocks -%}<div class="kb__t" {{ block.shopify_attributes }}><span class="glow glow--wide" style="--glow:{{ block.settings.glow }}"></span><b>{{ block.settings.label }}</b><em>{{ block.settings.text }}</em></div>{%- endfor -%}
+        </div>
+      {%- endif -%}
       {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link | default: '#' }}" class="btn btn--white">{{ section.settings.button_label }}</a>{%- endif -%}
     </div>
   </div>
@@ -19,6 +86,67 @@
       "id": "image",
       "label": "Image",
       "info": "Defaults to product image on product pages"
+    },
+    {
+      "type": "header",
+      "content": "Product-based light colours"
+    },
+    {
+      "type": "paragraph",
+      "content": "On product pages, if the product has an option with values like 2700K / 3000K, the right side lists only that product's colours. Tapping one selects that variant and tints the image. Otherwise the Temperature blocks below are shown."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Light colour"
+    },
+    {
+      "type": "text",
+      "id": "heading_product",
+      "label": "Heading (product)",
+      "default": "Available in [count] light colours",
+      "info": "[count] = number of light colours"
+    },
+    {
+      "type": "text",
+      "id": "t_2200",
+      "label": "2200K text",
+      "default": "Very warm, amber glow for relaxed evenings."
+    },
+    {
+      "type": "text",
+      "id": "t_2700",
+      "label": "2700K text",
+      "default": "Soft, candle-like glow for living and dining."
+    },
+    {
+      "type": "text",
+      "id": "t_3000",
+      "label": "3000K text",
+      "default": "Welcoming and clear for kitchens, paths and entries."
+    },
+    {
+      "type": "text",
+      "id": "t_4000",
+      "label": "4000K text",
+      "default": "Crisp and bright for driveways, garages and workspaces."
+    },
+    {
+      "type": "text",
+      "id": "t_5000",
+      "label": "5000K+ text",
+      "default": "Daylight white for maximum clarity."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Selected colour is added to your cart with the product."
+    },
+    {
+      "type": "header",
+      "content": "Fallback (no light colour option)"
     },
     {
       "type": "text",
