@@ -2034,3 +2034,8 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 
 @media (min-width:990px){.header--b .nav__list{gap:clamp(20px,2.5vw,36px)!important;flex-wrap:nowrap!important;white-space:nowrap}.header--b .nav__link{white-space:nowrap}}
 
+
+/* Warmth preview: show the whole photo instead of a thin strip */
+.mg__preview{height:auto!important;aspect-ratio:16/10}
+.mg__preview img,.mg__preview svg{object-position:50% 35%}
+@media (max-width:989px){.mg__preview{aspect-ratio:4/3}}
