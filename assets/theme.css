@@ -2042,3 +2042,6 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 
 
 .xrv__tab,.xrv__tab.is-on{font-family:inherit!important;font-weight:600!important;-webkit-font-smoothing:antialiased}
+
+/* Desktop gallery: all images 1:1 (product photos are square) */
+@media (min-width:990px){.pp__m--lead,.xpp__gwrap .pp__m--lead,.xpp__gwrap .pp__m{aspect-ratio:1/1!important}}
