@@ -24,7 +24,10 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "show_tax_note": false,
+            "tax_note": ""
+          }
         },
         "assure": {
           "type": "assurance",
