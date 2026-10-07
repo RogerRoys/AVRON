@@ -196,7 +196,93 @@
         "c",
         "d"
       ],
+      "disabled": true,
       "settings": {}
+    },
+    "guide": {
+      "type": "materials-guide",
+      "blocks": {
+        "m1": {
+          "type": "material",
+          "settings": {
+            "swatch": "#d6c6ac",
+            "name": "Travertine",
+            "text": "Natural, veined stone"
+          }
+        },
+        "m2": {
+          "type": "material",
+          "settings": {
+            "swatch": "#f6f3ec",
+            "name": "Opal glass",
+            "text": "Soft, glare-free"
+          }
+        },
+        "m3": {
+          "type": "material",
+          "settings": {
+            "swatch": "#b89a6e",
+            "name": "Rattan",
+            "text": "Hand-woven texture"
+          }
+        },
+        "m4": {
+          "type": "material",
+          "settings": {
+            "swatch": "#2f2e2c",
+            "name": "Die-cast aluminium",
+            "text": "Outdoor-grade, IP65"
+          }
+        },
+        "k1": {
+          "type": "kelvin",
+          "settings": {
+            "glow": "#ffb25c",
+            "label": "2200K",
+            "text": "Bedrooms"
+          }
+        },
+        "k2": {
+          "type": "kelvin",
+          "settings": {
+            "glow": "#ffcf8a",
+            "label": "2700K",
+            "text": "Living, dining"
+          }
+        },
+        "k3": {
+          "type": "kelvin",
+          "settings": {
+            "glow": "#ffe2b5",
+            "label": "3000K",
+            "text": "Kitchens, porches"
+          }
+        },
+        "k4": {
+          "type": "kelvin",
+          "settings": {
+            "glow": "#eef1f4",
+            "label": "4000K",
+            "text": "Bathrooms, office"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {
+        "heading_left": "Made from materials that last",
+        "heading_right": "Not sure which warmth?",
+        "button_label": "Open the lighting guide",
+        "button_link": ""
+      }
     },
     "outdoor": {
       "type": "featured-collection",
@@ -337,86 +423,6 @@
         "limit": 8,
         "padding_bottom": 96
       }
-    },
-    "guide": {
-      "type": "materials-guide",
-      "blocks": {
-        "m1": {
-          "type": "material",
-          "settings": {
-            "name": "Travertine",
-            "text": "Natural, veined stone",
-            "swatch": "#D6C6AC"
-          }
-        },
-        "m2": {
-          "type": "material",
-          "settings": {
-            "name": "Opal glass",
-            "text": "Soft, glare-free",
-            "swatch": "#F6F3EC"
-          }
-        },
-        "m3": {
-          "type": "material",
-          "settings": {
-            "name": "Rattan",
-            "text": "Hand-woven texture",
-            "swatch": "#B89A6E"
-          }
-        },
-        "m4": {
-          "type": "material",
-          "settings": {
-            "name": "Die-cast aluminium",
-            "text": "Outdoor-grade, IP65",
-            "swatch": "#2F2E2C"
-          }
-        },
-        "k1": {
-          "type": "kelvin",
-          "settings": {
-            "label": "2200K",
-            "text": "Bedrooms",
-            "glow": "#FFB25C"
-          }
-        },
-        "k2": {
-          "type": "kelvin",
-          "settings": {
-            "label": "2700K",
-            "text": "Living, dining",
-            "glow": "#FFCF8A"
-          }
-        },
-        "k3": {
-          "type": "kelvin",
-          "settings": {
-            "label": "3000K",
-            "text": "Kitchens, porches",
-            "glow": "#FFE2B5"
-          }
-        },
-        "k4": {
-          "type": "kelvin",
-          "settings": {
-            "label": "4000K",
-            "text": "Bathrooms, office",
-            "glow": "#EEF1F4"
-          }
-        }
-      },
-      "block_order": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "k1",
-        "k2",
-        "k3",
-        "k4"
-      ],
-      "settings": {}
     }
   },
   "order": [
