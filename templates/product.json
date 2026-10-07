@@ -198,36 +198,6 @@
       ],
       "settings": {}
     },
-    "kelvin": {
-      "type": "kelvin-banner",
-      "blocks": {
-        "a": {
-          "type": "temp",
-          "settings": {
-            "glow": "#ffd9a0",
-            "label": "Warm 2700K",
-            "text": "Cosy, candle-like. Best for living rooms and bedrooms."
-          }
-        },
-        "b": {
-          "type": "temp",
-          "settings": {
-            "glow": "#fff0d6",
-            "label": "Soft 3000K",
-            "text": "Crisper and cleaner. Good for reading and work desks."
-          }
-        }
-      },
-      "block_order": [
-        "a",
-        "b"
-      ],
-      "settings": {
-        "heading": "Which light colour is right for you?",
-        "button_label": "Full lighting guide",
-        "button_link": "shopify://pages/lighting-guide"
-      }
-    },
     "outdoor": {
       "type": "featured-collection",
       "settings": {
@@ -367,12 +337,92 @@
         "limit": 8,
         "padding_bottom": 96
       }
+    },
+    "guide": {
+      "type": "materials-guide",
+      "blocks": {
+        "m1": {
+          "type": "material",
+          "settings": {
+            "name": "Travertine",
+            "text": "Natural, veined stone",
+            "swatch": "#D6C6AC"
+          }
+        },
+        "m2": {
+          "type": "material",
+          "settings": {
+            "name": "Opal glass",
+            "text": "Soft, glare-free",
+            "swatch": "#F6F3EC"
+          }
+        },
+        "m3": {
+          "type": "material",
+          "settings": {
+            "name": "Rattan",
+            "text": "Hand-woven texture",
+            "swatch": "#B89A6E"
+          }
+        },
+        "m4": {
+          "type": "material",
+          "settings": {
+            "name": "Die-cast aluminium",
+            "text": "Outdoor-grade, IP65",
+            "swatch": "#2F2E2C"
+          }
+        },
+        "k1": {
+          "type": "kelvin",
+          "settings": {
+            "label": "2200K",
+            "text": "Bedrooms",
+            "glow": "#FFB25C"
+          }
+        },
+        "k2": {
+          "type": "kelvin",
+          "settings": {
+            "label": "2700K",
+            "text": "Living, dining",
+            "glow": "#FFCF8A"
+          }
+        },
+        "k3": {
+          "type": "kelvin",
+          "settings": {
+            "label": "3000K",
+            "text": "Kitchens, porches",
+            "glow": "#FFE2B5"
+          }
+        },
+        "k4": {
+          "type": "kelvin",
+          "settings": {
+            "label": "4000K",
+            "text": "Bathrooms, office",
+            "glow": "#EEF1F4"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
     "features",
-    "kelvin",
+    "guide",
     "outdoor",
     "reviews",
     "pfaq",
