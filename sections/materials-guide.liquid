@@ -4,7 +4,7 @@
       <h2 class="h2">{{ section.settings.heading_left }}</h2>
       <div class="mg__mats">
         {%- for block in section.blocks -%}{%- if block.type == 'material' -%}
-          <div class="mg__mat" {{ block.shopify_attributes }}><span class="mg__sw" style="background:{{ block.settings.swatch }}"></span><span><b>{{ block.settings.name }}</b><em>{{ block.settings.text }}</em></span></div>
+          <div class="mg__mat" {{ block.shopify_attributes }}><span class="mg__sw" style="background:{{ block.settings.swatch }}"></span><span><b>{{ block.settings.name }}</b><em>{{ block.settings.text }}</em></span>{%- if block.settings.use != blank -%}<i class="mg__use">{{ block.settings.use }}</i>{%- endif -%}</div>
         {%- endif -%}{%- endfor -%}
       </div>
     </div>
@@ -83,6 +83,12 @@
           "id": "text",
           "label": "Text",
           "default": "Natural, veined stone"
+        },
+        {
+          "type": "text",
+          "id": "use",
+          "label": "Used for",
+          "info": "Small pill on the right, e.g. Table lamps"
         }
       ]
     },

@@ -394,7 +394,8 @@
           "settings": {
             "swatch": "#d6c6ac",
             "name": "Travertine",
-            "text": "Natural, veined stone"
+            "text": "Natural, veined stone",
+            "use": "Table lamps"
           }
         },
         "m2": {
@@ -402,7 +403,8 @@
           "settings": {
             "swatch": "#f6f3ec",
             "name": "Opal glass",
-            "text": "Soft, glare-free"
+            "text": "Soft, glare-free",
+            "use": "Pendants"
           }
         },
         "m3": {
@@ -410,7 +412,8 @@
           "settings": {
             "swatch": "#b89a6e",
             "name": "Rattan",
-            "text": "Hand-woven texture"
+            "text": "Hand-woven texture",
+            "use": "Lamps & shades"
           }
         },
         "m4": {
@@ -418,7 +421,8 @@
           "settings": {
             "swatch": "#2f2e2c",
             "name": "Die-cast aluminium",
-            "text": "Outdoor-grade, IP65"
+            "text": "Outdoor-grade, IP65",
+            "use": "Outdoor"
           }
         },
         "k1": {
