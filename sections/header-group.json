@@ -44,7 +44,8 @@
       "settings": {
         "bg": "#2f4a3a",
         "fg": "#ffffff",
-        "speed": 4
+        "speed": 5,
+        "arrows": true
       }
     },
     "header": {
