@@ -42,6 +42,7 @@
         "picker": {
           "type": "variant_picker",
           "settings": {
+            "show_size_guide": false,
             "size_guide_label": "Size guide",
             "size_guide_note": "<p>Measurements are in centimetres. Compare against your space before you buy, and allow for the cord or chain drop on hanging fittings.</p>"
           }
@@ -156,6 +157,8 @@
         "faq_default"
       ],
       "settings": {
+        "gallery_layout": "rail",
+        "gallery_zoom": true,
         "media_fit": "cover",
         "material_badge": "",
         "sticky_atc": true
