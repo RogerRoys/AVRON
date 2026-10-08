@@ -157,8 +157,7 @@
       {%- if dm.links.size > 0 -%}<div class="md__links">{%- for link in dm.links -%}<a href="{{ link.url }}">{{ link.title }}<span class="md__chev">›</span></a>{%- endfor -%}</div>{%- endif -%}
     </div>
     <div class="drawer__foot md__foot">
-      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url | default: '/account/login' }}{% endif %}"><b>{% if customer %}My account{% else %}Log in{% endif %}</b></a>
-      {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}{%- render 'localization', id: 'DrawerLoc' -%}{%- else -%}<span class="md__cur">{{ cart.currency.iso_code }} {{ cart.currency.symbol }} ▾</span>{%- endif -%}
+      <a class="md__login" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url | default: '/account/login' }}{% endif %}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>{% if customer %}My account{% else %}Log in{% endif %}</b><span class="md__chev">›</span></a>
     </div>
   </div>
 </div>

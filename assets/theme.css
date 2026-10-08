@@ -2335,3 +2335,13 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 .xrg__t::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .25s ease;pointer-events:none;z-index:1}
 .xrg__t[aria-current="true"]::after{box-shadow:inset 0 0 0 2px var(--ink,#1B1D1A)}
 .xrg__t:focus-visible::after{box-shadow:inset 0 0 0 2px var(--brand,#2F4A3A)}
+
+.md__foot{display:block!important}
+.md__login{display:flex!important;align-items:center;gap:10px;width:100%;font-size:15px;color:var(--ink,#1B1D1A)}
+.md__login b{flex:1}
+.md__login .md__chev{color:#7F847D}
+
+/* Drawer Log in aligned right */
+.md__login{justify-content:flex-end!important}
+.md__login b{flex:none!important}
+.md__login .md__chev{display:none}
