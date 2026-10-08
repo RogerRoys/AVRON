@@ -2323,3 +2323,9 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
   .xrg__strip .xrg__t{flex:0 0 62px!important;width:62px!important;height:62px!important;aspect-ratio:1/1!important;scroll-snap-align:start;overflow:hidden;border-radius:6px}
   .xrg__strip .xrg__t img{width:100%!important;height:100%!important;object-fit:cover;display:block}
 }
+
+/* Gallery thumbs always true 1:1 (desktop rail + mobile strip) */
+.xrg__t{position:relative;aspect-ratio:1/1!important;height:auto;min-height:0}
+.xrg__t img{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:cover}
+.xrg__rail,.xrg__strip{position:relative}
+.xrg__rail .xrg__t{width:100%;flex:none}
