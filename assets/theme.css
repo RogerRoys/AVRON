@@ -2329,3 +2329,9 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 .xrg__t img{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:cover}
 .xrg__rail,.xrg__strip{position:relative}
 .xrg__rail .xrg__t{width:100%;flex:none}
+
+/* Selected thumb: ring drawn inside the thumb so the scroll container never clips it */
+.xrg__t,.xrg__t[aria-current="true"],.xrg__t:focus-visible{outline:none!important}
+.xrg__t::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 2px transparent;transition:box-shadow .25s ease;pointer-events:none;z-index:1}
+.xrg__t[aria-current="true"]::after{box-shadow:inset 0 0 0 2px var(--ink,#1B1D1A)}
+.xrg__t:focus-visible::after{box-shadow:inset 0 0 0 2px var(--brand,#2F4A3A)}
