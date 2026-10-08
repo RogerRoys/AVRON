@@ -664,3 +664,8 @@ if(document.readyState!=='loading')place();else document.addEventListener('DOMCo
   document.addEventListener('click',function(e){var b=e.target.closest('[data-xrg-zoom]');if(!b||!mq.matches)return;var g=b.closest('[data-gallery]')||b.closest('.pp__gallery');if(!g)return;e.preventDefault();e.stopImmediatePropagation();open(g);},true);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
+
+/* Currency: close any open selector on outside click / Esc */
+(function(){function closeAll(ex){document.querySelectorAll('[data-ann-cc].is-open,[data-cc].is-open,.ann-cc.is-open,.loc.is-open').forEach(function(w){if(ex&&w.contains(ex))return;w.classList.remove('is-open');var b=w.querySelector('[data-cc-toggle],[aria-expanded]');if(b)b.setAttribute('aria-expanded','false');});}
+document.addEventListener('pointerdown',function(e){closeAll(e.target.closest&&e.target.closest('[data-ann-cc],[data-cc],.ann-cc,.loc'));},true);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});})();

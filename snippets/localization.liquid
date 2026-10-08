@@ -1,4 +1,4 @@
-{%- if localization.available_countries.size > 1 -%}
+{%- if localization.available_countries.size > 0 -%}
   {%- form 'localization', id: id, class: 'loc' -%}
     <label class="visually-hidden" for="{{ id }}-country">Country/region</label>
     <select id="{{ id }}-country" name="country_code" onchange="this.form.submit()">

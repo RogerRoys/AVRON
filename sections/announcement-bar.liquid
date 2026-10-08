@@ -1,5 +1,5 @@
 {%- if section.blocks.size > 0 -%}
-<div class="announce{% if section.settings.arrows and section.blocks.size > 1 %} announce--arrows{% endif %}{% if section.settings.show_currency and localization.available_countries.size > 1 %} announce--cc{% endif %}" style="--ab-bg:{{ section.settings.bg }};--ab-fg:{{ section.settings.fg }}" data-rotate data-speed="{{ section.settings.speed }}">
+<div class="announce{% if section.settings.arrows and section.blocks.size > 1 %} announce--arrows{% endif %}{% if section.settings.show_currency and localization.available_countries.size > 0 %} announce--cc{% endif %}" style="--ab-bg:{{ section.settings.bg }};--ab-fg:{{ section.settings.fg }}" data-rotate data-speed="{{ section.settings.speed }}">
   {%- if section.settings.arrows and section.blocks.size > 1 -%}<button type="button" class="announce__arw announce__arw--prev" data-ann-prev aria-label="Previous message"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>{%- endif -%}
   <div class="announce__track">
   {%- for block in section.blocks -%}
@@ -16,7 +16,7 @@
   {%- endfor -%}
   </div>
   {%- if section.settings.arrows and section.blocks.size > 1 -%}<button type="button" class="announce__arw announce__arw--next" data-ann-next aria-label="Next message"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>{%- endif -%}
-  {%- if section.settings.show_currency and localization.available_countries.size > 1 -%}
+  {%- if section.settings.show_currency and localization.available_countries.size > 0 -%}
   <div class="ann-cc" data-ann-cc>
     {%- form 'localization', class: 'ann-cc__form' -%}
       <input type="hidden" name="return_to" value="{{ request.path }}">
