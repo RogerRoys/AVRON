@@ -45,7 +45,7 @@
         "bg": "#2f4a3a",
         "fg": "#ffffff",
         "speed": 5,
-        "arrows": true
+        "arrows": false
       }
     },
     "header": {
@@ -118,8 +118,6 @@
         "@media (max-width: 989px) {.header--micons .hdr-wc {color: rgb(255, 255, 255); background: var(--accent); }}"
       ],
       "settings": {
-        "layout": "search_bar",
-        "mobile_icons": true,
         "menu": "main-menu",
         "demo_menu": false,
         "sale_title": "Sale",

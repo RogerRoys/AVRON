@@ -2265,3 +2265,38 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
   .header .header__search{overflow:visible!important}
   .header .header__search>input{overflow:hidden}
 }
+
+/* v2.0.2 mobile fixes */
+/* Announcement: never show arrows; message always visible on one centred line */
+.announce .announce__arw,.announce--arrows .announce__arw{display:none!important}
+.announce{display:block!important;position:relative!important;height:36px!important;padding:0 16px!important;overflow:hidden}
+.announce .announce__track{position:absolute!important;inset:0 16px!important;overflow:hidden}
+.announce .announce__msg{position:absolute!important;inset:0!important;display:flex!important;align-items:center;justify-content:center}
+.announce--cc .announce__track{right:120px!important;left:120px!important}
+@media (max-width:989px){.announce{height:34px!important;font-size:12px}.announce--cc .announce__track{left:16px!important;right:16px!important}}
+/* Mobile cart: bag icon only (no "Cart" text), badge hidden at 0 */
+@media (max-width:989px){
+  .header .header__cart .hide-sm{display:none!important}
+  .header .header__cart .show-sm{display:grid!important;place-items:center;width:24px;height:24px}
+  .header .header__cart .show-sm svg{display:block!important;width:21px;height:21px}
+  .header .header__cart{position:relative}
+  .header .header__cart .count{position:absolute!important;top:-7px!important;right:-9px!important;margin:0!important}
+}
+.header .count[hidden]{display:none!important}
+
+/* v2.0.3 mobile: 15px between header icons, compact quick buy */
+@media (max-width:989px){
+  .header .header__icons{gap:15px!important}
+  .header .header__icons>a,.header .header__icons>button,.header .header__icons>.header__icon,.header .header__msearch,.header .header__menu-btn,.header [data-open="MenuDrawer"]{width:24px!important;height:24px!important;min-width:24px!important}
+  .header .header__icons .count,.header .header__icons [data-wish-count]{top:-7px!important;right:-9px!important}
+  .card .card__qa,.card button.card__qa{left:auto!important;right:8px!important;bottom:8px!important;width:34px!important;height:34px!important;min-width:0!important;min-height:0!important;padding:0!important;border-radius:50%!important;font-size:0!important;line-height:1!important;opacity:1!important;transform:none!important}
+  .card .card__qa::before{content:"+";font-size:20px;font-weight:600;line-height:1}
+  .card .card__qa-form{position:static}
+}
+
+/* v2.0.4 mobile header: 15px between every icon (search, wishlist, cart, menu) */
+@media (max-width:989px){
+  .header.header--a .header__row{gap:15px!important}
+  .header.header--a .header__icons{gap:15px!important}
+  .header.header--a .header__logo{margin-right:auto!important}
+}

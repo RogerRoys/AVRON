@@ -27,11 +27,11 @@
   </div>
 </div>
 {%- endif -%}
-<header class="header{% if section.settings.layout == 'centered' %} header--centered{% endif %}{% if section.settings.layout == 'logo_left' or section.settings.layout == 'centered_b' %} header--stext{% endif %}{% if section.settings.layout == 'centered_b' %} header--b{% endif %}{% if section.settings.layout == 'search_bar' %} header--a{% endif %}{% if section.settings.layout == 'centered' or section.settings.layout == 'centered_b' or section.settings.mobile_icons %} header--micons{% endif %}" data-header>
+<header class="header header--a" data-header>
   <div class="page-w header__row">
     <button type="button" class="icon-btn header__burger" data-open="MenuDrawer" aria-label="Menu">{% render 'icon', name: 'menu' %}<span class="hdr-mtxt">Menu</span></button>
     <button type="button" class="icon-btn header__msearch" data-search-toggle aria-label="Search">{% render 'icon', name: 'search' %}</button>
-    {%- if section.settings.layout == 'centered_b' -%}<button type="button" class="header__icon header__bsearch" data-search-toggle>{% render 'icon', name: 'search' %}<span>Search</span></button>{%- endif -%}
+    {%- if false -%}<button type="button" class="header__icon header__bsearch" data-search-toggle>{% render 'icon', name: 'search' %}<span>Search</span></button>{%- endif -%}
     <a href="{{ routes.root_url }}" class="header__logo">{% render 'logo' %}</a>
     <form action="{{ routes.search_url }}" method="get" role="search" class="header__search" data-predictive data-popular="{{ section.settings.popular | escape }}">
       <label class="visually-hidden" for="HeaderSearch">Search</label>
@@ -50,13 +50,13 @@
       <a href="{{ routes.root_url | append: 'pages/wishlist' | replace: '//', '/' }}" class="header__icon header__wish" data-open="WishlistDrawer"><span class="hide-sm">Wishlist (<span data-wish-count>0</span>)</span><span class="show-sm"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span class="hdr-wc" data-wish-count>0</span></span></a>
       <a href="{{ routes.cart_url }}" class="header__icon header__cart"{% if drawer_cart %} data-open="CartDrawer"{% endif %}>
         <span class="hide-sm">Cart</span><span class="show-sm">{% render 'icon', name: 'bag' %}</span>
-        <span class="count" data-cart-count>{{ cart.item_count }}</span>
+        <span class="count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
       </a>
     </div>
   </div>
   <nav class="nav" aria-label="Primary">
     <ul class="page-w nav__list">
-      {%- if demo_nav -%}{%- if section.settings.layout == 'centered' -%}{% render 'demo-nav-centered', popular: section.settings.popular %}{%- else -%}{% render 'demo-nav', popular: section.settings.popular %}{%- endif -%}{%- else -%}
+      {%- if demo_nav -%}{%- if false -%}{% render 'demo-nav-centered', popular: section.settings.popular %}{%- else -%}{% render 'demo-nav', popular: section.settings.popular %}{%- endif -%}{%- else -%}
       {%- for link in menu.links -%}
         <li class="nav__item{% if link.links != blank %} has-mega{% endif %}">
           <a href="{{ link.url }}" class="nav__link{% if link.active or link.child_active %} is-active{% endif %}{% if link.title == section.settings.sale_title %} nav__link--sale{% endif %}"{% if link.links != blank %} aria-haspopup="true"{% endif %}>{{ link.title }}</a>
@@ -173,36 +173,8 @@
   },
   "settings": [
     {
-      "type": "select",
-      "id": "layout",
-      "label": "Header layout",
-      "options": [
-        {
-          "value": "logo_left",
-          "label": "Logo left + Search link"
-        },
-        {
-          "value": "centered",
-          "label": "Centred logo (10e)"
-        },
-        {
-          "value": "search_bar",
-          "label": "Logo left + search bar (13a) · mobile: logo left + icons (13d)"
-        },
-        {
-          "value": "centered_b",
-          "label": "Centred logo, search left, menu below (13b)"
-        }
-      ],
-      "default": "centered_b",
-      "info": "Centred logo: menu on the left, logo in the middle, Search · Account · Wishlist · Cart on the right. Search opens a panel."
-    },
-    {
-      "type": "checkbox",
-      "id": "mobile_icons",
-      "label": "Mobile: icons in header",
-      "default": true,
-      "info": "Menu and Search on the left, Wishlist and Cart icons on the right. Search opens below the header."
+      "type": "paragraph",
+      "content": "Header: desktop 13a (logo, search bar, text links; menu row below) · mobile 13d (logo left; Search · Wishlist · Cart · Menu icons). Mobile currency shows as a floating pill (13r)."
     },
     {
       "type": "link_list",
