@@ -45,7 +45,9 @@
         "bg": "#2f4a3a",
         "fg": "#ffffff",
         "speed": 5,
-        "arrows": false
+        "arrows": false,
+        "show_currency": true,
+        "currency_heading": "Country / currency"
       }
     },
     "header": {
@@ -115,7 +117,7 @@
         "t4"
       ],
       "custom_css": [
-        "@media (max-width: 989px) {.header--micons .hdr-wc {color: rgb(255, 255, 255); background: var(--accent); }}"
+        "@media (max-width: 989px) {.header .header__wish .hdr-wc {background: #b5532e;}}"
       ],
       "settings": {
         "menu": "main-menu",
