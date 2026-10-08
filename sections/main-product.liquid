@@ -14,6 +14,7 @@
   </nav>
   <div class="pp__grid">
     <div class="pp__gallery pp__gallery--{{ section.settings.media_fit }}">
+      {%- if section.settings.gallery_layout == 'scroll' -%}
       <div class="xpp__gwrap" data-xgal><div class="xpp__ctl" aria-hidden="true"><button type="button" data-xg-up aria-label="Scroll up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button><span class="xpp__track"><i data-xg-thumb></i></span><button type="button" data-xg-down aria-label="Scroll down"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button></div><span class="xpp__mcount" data-xg-count>1 / {{ product.media.size }}</span><span class="xpp__mbar"><i data-xg-mbar style="width:{{ 100.0 | divided_by: product.media.size }}%"></i></span><div class="pp__media" data-gallery data-xg-scroll>
         {%- for media in product.media -%}
           {%- liquid
@@ -37,16 +38,74 @@
           <div class="pp__m pp__m--lead">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
         {%- endfor -%}
       </div></div>
+      {%- else -%}
+      {%- liquid
+        assign mcount = product.media.size
+        if mcount == 0
+          assign mcount = 1
+        endif
+      -%}
+      <div class="xrg" data-xrg data-gallery data-count="{{ mcount }}">
+        {%- if product.media.size > 1 -%}
+        <div class="xrg__rail" role="tablist" aria-label="Product images">
+          {%- for media in product.media -%}
+            <button type="button" class="xrg__t" data-xrg-t="{{ forloop.index0 }}" data-thumb="{{ media.id }}" aria-label="Show image {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>{{ media.preview_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: '' }}</button>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+        <div class="xrg__stage" data-xrg-stage tabindex="0" aria-roledescription="carousel">
+          {%- for media in product.media -%}
+            {%- liquid
+              assign ld = 'lazy'
+              if forloop.first
+                assign ld = 'eager'
+              endif
+              assign alt = media.alt | default: product.title | escape
+            -%}
+            <div class="xrg__s pp__m{% if forloop.first %} is-on pp__m--lead{% endif %}" data-xrg-s="{{ forloop.index0 }}" data-media-id="{{ media.id }}">
+              {%- case media.media_type -%}
+                {%- when 'image' -%}
+                  {{ media | image_url: width: 2000 | image_tag: widths: '500,800,1100,1400,1800,2000', sizes: '(min-width: 990px) 50vw, 100vw', loading: ld, alt: alt }}
+                {%- when 'video', 'external_video' -%}
+                  {{ media | media_tag: image_size: '1600x', controls: true }}
+                {%- else -%}
+                  {{ media | media_tag }}
+              {%- endcase -%}
+            </div>
+          {%- else -%}
+            <div class="xrg__s pp__m is-on pp__m--lead">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+          {%- endfor -%}
+          {%- if product.media.size > 1 -%}
+            <span class="xrg__cur" data-xrg-cur aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="xrg__mcnt" data-xrg-mcnt>1 / {{ product.media.size }}</span>
+            <div class="xrg__dots" aria-hidden="true">{%- for media in product.media -%}<span data-xrg-d="{{ forloop.index0 }}"{% if forloop.first %} class="is-on"{% endif %}></span>{%- endfor -%}</div>
+            <span class="xrg__cnt" data-xrg-cnt>01 / {% if product.media.size < 10 %}0{% endif %}{{ product.media.size }}</span>
+          {%- endif -%}
+          {%- if section.settings.gallery_zoom -%}
+          <button type="button" class="xrg__zoom" data-xrg-zoom aria-label="Zoom image"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg></button>
+          {%- endif -%}
+        </div>
+        {%- if product.media.size > 1 -%}
+        <div class="xrg__strip">
+          {%- for media in product.media -%}
+            <button type="button" class="xrg__t" data-xrg-t="{{ forloop.index0 }}" aria-label="Show image {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>{{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}</button>
+          {%- endfor -%}
+        </div>
+        {%- endif -%}
+      </div>
+      {%- endif -%}
       <div class="pp__badges">
         {%- for tag in product.tags -%}{%- if tag contains 'badge:' -%}{%- assign bl = tag | remove_first: 'badge:' | strip -%}{%- assign bd = bl | downcase -%}{%- assign bshow = true -%}{%- if bd contains 'best' and settings.badge_best == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bd contains 'new' and settings.badge_new == false -%}{%- assign bshow = false -%}{%- endif -%}{%- if bshow -%}<span class="badge badge--brand">{{ bl }}</span>{%- endif -%}{%- endif -%}{%- endfor -%}
         {%- if section.settings.material_badge != blank -%}<span class="badge badge--white">{{ section.settings.material_badge }}</span>{%- endif -%}
       </div>
+      {%- if section.settings.gallery_layout == 'scroll' -%}
       {%- if product.media.size > 1 -%}
         <div class="pp__thumbs">
           {%- for media in product.media -%}
             <button type="button" data-thumb="{{ media.id }}" aria-label="Show media {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}>{{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}</button>
           {%- endfor -%}
         </div>
+      {%- endif -%}
       {%- endif -%}
     </div>
 
@@ -272,6 +331,29 @@
   "name": "Product information",
   "tag": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "label": "Gallery layout",
+      "options": [
+        {
+          "value": "rail",
+          "label": "Thumbnail rail"
+        },
+        {
+          "value": "scroll",
+          "label": "Scrolling column (classic)"
+        }
+      ],
+      "default": "rail",
+      "info": "Thumbnail rail: thumbs on the left, one large image, arrow cursor + click left/right, arrow keys. Mobile: swipe, dots and thumb strip."
+    },
+    {
+      "type": "checkbox",
+      "id": "gallery_zoom",
+      "label": "Zoom button + full-screen view",
+      "default": true
+    },
     {
       "type": "select",
       "id": "media_fit",
