@@ -646,3 +646,21 @@ function place(){cc=cc||document.querySelector('[data-ann-cc]');if(!cc)return;if
  else if(cc.parentNode===document.body){ph.parentNode.insertBefore(cc,ph.nextSibling);cc.classList.remove('is-float');if(ann)ann.classList.add('announce--cc');}}
 if(document.readyState!=='loading')place();else document.addEventListener('DOMContentLoaded',place);
 (mq.addEventListener?mq.addEventListener('change',place):mq.addListener(place));document.addEventListener('shopify:section:load',function(){cc=null;home=null;place();});})();
+
+/* Mobile gallery zoom: full-screen list of all images, 1:1, stacked, opens at the current one */
+(function(){
+  var mq=window.matchMedia('(max-width: 989px)'),ov=null,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function close(){if(!ov)return;ov.classList.remove('is-on');document.documentElement.classList.remove('xmz-lock');var o=ov;setTimeout(function(){if(o.parentNode&&!o.classList.contains('is-on'))o.parentNode.removeChild(o);},reduce?0:420);ov=null;}
+  function open(g){var S=g.__xrgS||[].slice.call(g.querySelectorAll('[data-xrg-s]'));var cur=g.__xrgIdx?g.__xrgIdx():0;var n=S.length;
+    ov=document.createElement('div');ov.className='xmz';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Product images');
+    var h='<div class="xmz__bar"><span class="xmz__cnt">'+(cur+1)+' / '+n+'</span><button type="button" class="xmz__x" aria-label="Close">×</button></div><div class="xmz__list">';
+    S.forEach(function(s,k){var im=s.querySelector('img');var src=im?(im.currentSrc||im.src):'';if(src)src=src.replace(/([?&])width=\d+/,'$1width=1400');h+='<div class="xmz__i" data-k="'+k+'">'+(src?'<img src="'+src+'" alt="'+((im&&im.alt)||'').replace(/"/g,'&quot;')+'" loading="'+(Math.abs(k-cur)<2?'eager':'lazy')+'">':s.innerHTML)+'</div>';});
+    h+='</div>';ov.innerHTML=h;document.body.appendChild(ov);document.documentElement.classList.add('xmz-lock');
+    var L=ov.querySelector('.xmz__list'),c=ov.querySelector('.xmz__cnt'),t=L.querySelector('[data-k="'+cur+'"]');
+    requestAnimationFrame(function(){if(t)L.scrollTop=t.offsetTop;requestAnimationFrame(function(){ov&&ov.classList.add('is-on');});});
+    L.addEventListener('scroll',function(){var it=[].slice.call(L.children),mid=L.scrollTop+L.clientHeight/3,k=0;it.forEach(function(x,j){if(x.offsetTop<=mid)k=j;});c.textContent=(k+1)+' / '+n;},{passive:true});
+    ov.querySelector('.xmz__x').addEventListener('click',close);
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-xrg-zoom]');if(!b||!mq.matches)return;var g=b.closest('[data-gallery]')||b.closest('.pp__gallery');if(!g)return;e.preventDefault();e.stopImmediatePropagation();open(g);},true);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
