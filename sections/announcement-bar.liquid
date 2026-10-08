@@ -4,7 +4,14 @@
   <div class="announce__track">
   {%- for block in section.blocks -%}
     <div class="announce__msg{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
-      {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{{ block.settings.text }}</a>{%- else -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+      {%- liquid
+        assign t = block.settings.text
+        assign tp = t | split: ' · Prices'
+        if tp.size > 1
+          assign t = tp[0] | append: '<span class="ann-hide-sm"> · Prices' | append: tp[1] | append: '</span>'
+        endif
+      -%}
+      {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{{ t }}</a>{%- else -%}<p>{{ t }}</p>{%- endif -%}
     </div>
   {%- endfor -%}
   </div>
