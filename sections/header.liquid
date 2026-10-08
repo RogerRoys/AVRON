@@ -50,7 +50,7 @@
       <a href="{{ routes.root_url | append: 'pages/wishlist' | replace: '//', '/' }}" class="header__icon header__wish" data-open="WishlistDrawer"><span class="hide-sm">Wishlist (<span data-wish-count>0</span>)</span><span class="show-sm"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><span class="hdr-wc" data-wish-count>0</span></span></a>
       <a href="{{ routes.cart_url }}" class="header__icon header__cart"{% if drawer_cart %} data-open="CartDrawer"{% endif %}>
         <span class="hide-sm">Cart</span><span class="show-sm">{% render 'icon', name: 'bag' %}</span>
-        <span class="count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+        <span class="count" data-cart-count>{{ cart.item_count }}</span>
       </a>
     </div>
   </div>

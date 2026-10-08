@@ -2363,3 +2363,8 @@ a.xcd__cont{display:inline-flex;align-items:center;justify-content:center;text-d
 .xmz__i img{width:100%;height:100%;object-fit:cover;display:block}
 html.xmz-lock,html.xmz-lock body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.xmz{transition:none}}
+
+/* Always show counts, including 0 (wishlist + cart, desktop + mobile) */
+.header .count,.header .count[hidden],.header [data-cart-count],.header [data-cart-count][hidden]{display:inline-grid!important}
+.header .header__wish .hdr-wc,.header .header__wish .hdr-wc:empty,.header .header__wish .hdr-wc[data-zero],.header [data-wish-count],.header [data-wish-count][hidden]{display:inline-grid!important}
+@media (min-width:990px){.header .header__wish .hide-sm [data-wish-count]{display:inline!important;background:none!important;color:inherit!important;padding:0!important;min-width:0!important;height:auto!important;position:static!important;font:inherit!important}}
