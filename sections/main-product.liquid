@@ -78,7 +78,7 @@
           {%- if product.media.size > 1 -%}
             <span class="xrg__cur" data-xrg-cur aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             <span class="xrg__mcnt" data-xrg-mcnt>1 / {{ product.media.size }}</span>
-            <div class="xrg__dots" aria-hidden="true">{%- for media in product.media -%}<span data-xrg-d="{{ forloop.index0 }}"{% if forloop.first %} class="is-on"{% endif %}></span>{%- endfor -%}</div>
+            {%- if section.settings.gallery_dots -%}<div class="xrg__dots" aria-hidden="true">{%- for media in product.media -%}<span data-xrg-d="{{ forloop.index0 }}"{% if forloop.first %} class="is-on"{% endif %}></span>{%- endfor -%}</div>{%- endif -%}
             <span class="xrg__cnt" data-xrg-cnt>01 / {% if product.media.size < 10 %}0{% endif %}{{ product.media.size }}</span>
           {%- endif -%}
           {%- if section.settings.gallery_zoom -%}
@@ -159,8 +159,8 @@
           {%- when 'price' -%}
             <div class="pp__pricewrap" {{ block.shopify_attributes }}>
               <div class="pp__price">
-                <span class="pp__now" data-price>{{ current_variant.price | money }}</span>
-                <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{{ current_variant.compare_at_price | money }}</s>
+                <span class="pp__now" data-price>{% if settings.currency_code_enabled %}{{ current_variant.price | money_with_currency }}{% else %}{{ current_variant.price | money }}{% endif %}</span>
+                <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{% if settings.currency_code_enabled %}{{ current_variant.compare_at_price | money_with_currency }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}</s>
                 <span class="badge badge--sale" data-save{% unless on_sale %} hidden{% endunless %}>Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
               </div>
               {%- if block.settings.show_tax_note -%}<p class="pp__tax">{%- if block.settings.tax_note != blank -%}{{ block.settings.tax_note }}{%- elsif cart.taxes_included -%}Prices in AUD.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>{%- endif -%}
@@ -271,11 +271,11 @@
                     <label class="fbt__row">
                       <input type="checkbox" value="{{ pv.id }}" data-price="{{ pv.price }}" checked>
                       <span class="fbt__img">{%- if p.featured_media -%}{{ p.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</span>
-                      <span class="fbt__n">{{ p.title }}</span><b>{{ pv.price | money }}</b>
+                      <span class="fbt__n">{{ p.title }}</span><b>{% if settings.currency_code_enabled %}{{ pv.price | money_with_currency }}{% else %}{{ pv.price | money }}{% endif %}</b>
                     </label>
                   {%- endif -%}
                 {%- endfor -%}
-                <div class="fbt__foot"><span>Bundle total <b data-fbt-total>{{ current_variant.price | money }}</b></span><button type="button" class="btn btn--outline btn--sm" data-fbt-add>Add bundle</button></div>
+                <div class="fbt__foot"><span>Bundle total <b data-fbt-total>{% if settings.currency_code_enabled %}{{ current_variant.price | money_with_currency }}{% else %}{{ current_variant.price | money }}{% endif %}</b></span><button type="button" class="btn btn--outline btn--sm" data-fbt-add>Add bundle</button></div>
               </div>
             {%- endif -%}
           {%- when 'collection_faq' -%}
@@ -320,7 +320,7 @@
     <div class="page-w satc__in">
       <span class="satc__img">{%- if product.featured_media -%}{{ product.featured_media | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}</span>
       <div class="satc__txt"><b>{{ product.title | escape }}</b><span data-satc-variant>{%- unless product.has_only_default_variant -%}{{ current_variant.title }}{%- endunless -%}</span></div>
-      <b class="satc__price" data-price-sticky>{{ current_variant.price | money }}</b>
+      <b class="satc__price" data-price-sticky>{% if settings.currency_code_enabled %}{{ current_variant.price | money_with_currency }}{% else %}{{ current_variant.price | money }}{% endif %}</b>
       <button type="submit" form="{{ product_form_id }}" class="btn btn--lg satc__btn" data-satc-btn{% unless current_variant.available %} disabled{% endunless %}><span data-add-label data-label="Add to cart">{%- if current_variant.available -%}Add to cart{%- else -%}Sold out{%- endif -%}</span></button>
     </div>
   </div>
@@ -353,6 +353,13 @@
       "id": "gallery_zoom",
       "label": "Zoom button + full-screen view",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "gallery_dots",
+      "label": "Show image dots (mobile)",
+      "default": true,
+      "info": "The pill dots on top of the main image."
     },
     {
       "type": "select",

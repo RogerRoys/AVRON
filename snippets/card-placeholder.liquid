@@ -33,5 +33,5 @@
   <div class="card__sw">{%- assign sw = sws[id] | split: ',' -%}{%- for c in sw -%}<span class="sw sw--sm" style="background:{{ c }}"></span>{%- endfor -%}</div>
   <a href="{{ url }}" class="card__title">{{ title }}</a>
   <span class="card__meta">{{ metas[id] }}</span>
-  <div class="card__price"><b>{{ price | money }}</b><s>{{ cmp | money }}</s><span class="card__stars" style="color:var(--star);font-size:12px;letter-spacing:1px">★★★★★</span></div>
+  <div class="card__price"><b>{% if settings.currency_code_enabled %}{{ price | money_with_currency }}{% else %}{{ price | money }}{% endif %}</b><s>{% if settings.currency_code_enabled %}{{ cmp | money_with_currency }}{% else %}{{ cmp | money }}{% endif %}</s><span class="card__stars" style="color:var(--star);font-size:12px;letter-spacing:1px">★★★★★</span></div>
 </div>

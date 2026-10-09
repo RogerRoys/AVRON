@@ -149,7 +149,8 @@
   function $(s,c){return (c||document).querySelector(s);}
   function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-  function money(cents){
+  function money(cents){var __r=money__(cents);if(window.showCurrencyCode&&window.currencyCode&&String(__r).indexOf(window.currencyCode)<0)__r=__r+' '+window.currencyCode;return __r;}
+  function money__(cents){
     var f=window.moneyFormat||'$'+'{{amount}}';
     var v=(cents||0)/100,m=f.match(/\{\{\s*(\w+)\s*\}\}/),key=m?m[1]:'amount';
     function g(n,sep){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,sep);}

@@ -18,7 +18,7 @@
     <div class="grid grid--p{{ section.settings.limit }}" data-xrv-grid></div>
     <div class="xrv__empty" data-xrv-empty hidden><b>No recently viewed products yet</b><span>Products you look at will appear here.</span></div>
   </div>
-  <script type="application/json" data-xrv-me>{"handle":{{ product.handle | json }},"title":{{ product.title | json }},"url":{{ product.url | json }},"type":{{ product.type | default: product.collections.first.title | json }},"price":{{ product.price | money | json }},"img":{{ product.featured_media | image_url: width: 600 | json }},"img2":{% if product.media[1] %}{{ product.media[1] | image_url: width: 600 | json }}{% else %}""{% endif %}}</script>
+  <script type="application/json" data-xrv-me>{"handle":{{ product.handle | json }},"title":{{ product.title | json }},"url":{{ product.url | json }},"type":{{ product.type | default: product.collections.first.title | json }},"price":{% if settings.currency_code_enabled %}{{ product.price | money_with_currency | json }}{% else %}{{ product.price | money | json }}{% endif %},"img":{{ product.featured_media | image_url: width: 600 | json }},"img2":{% if product.media[1] %}{{ product.media[1] | image_url: width: 600 | json }}{% else %}""{% endif %}}</script>
   {%- endif -%}
 </section>
 {% schema %}

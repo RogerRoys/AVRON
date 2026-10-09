@@ -36,6 +36,7 @@
         "settings": {}
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "currency_code_enabled": true
   }
 }

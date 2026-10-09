@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Avron 1d Conversion First",
-    "theme_version": "1.10.34",
+    "theme_version": "1.10.35",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
@@ -38,6 +38,18 @@
         "unit": "px",
         "default": 880,
         "info": "Width of the text on standard pages (Warranty, Shipping, etc.) and policy pages (Privacy, Refund, Terms). Both use the same width."
+      }
+    ]
+  },
+  {
+    "name": "Currency",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "Show currency codes",
+        "default": true,
+        "info": "Shows the currency code after every price, e.g. $71.95 AUD."
       }
     ]
   },

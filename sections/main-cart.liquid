@@ -11,19 +11,19 @@
             <div class="cd__info">
               <a href="{{ item.url }}" class="cd__name">{{ item.product.title }}</a>
               {%- unless item.product.has_only_default_variant -%}<span class="cd__var">{{ item.variant.title }}</span>{%- endunless -%}
-              <span class="cd__var">{{ item.final_price | money }} each</span>
+              <span class="cd__var">{% if settings.currency_code_enabled %}{{ item.final_price | money_with_currency }}{% else %}{{ item.final_price | money }}{% endif %} each</span>
               <div class="qty qty--sm">
                 <button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease">&minus;</button><span>{{ item.quantity }}</span><button type="button" data-line-change data-line="{{ forloop.index }}" data-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase">+</button>
               </div>
             </div>
-            <div class="cd__right"><b>{{ item.final_line_price | money }}</b><button type="button" class="link-btn" data-line-change data-line="{{ forloop.index }}" data-qty="0">Remove</button></div>
+            <div class="cd__right"><b>{% if settings.currency_code_enabled %}{{ item.final_line_price | money_with_currency }}{% else %}{{ item.final_line_price | money }}{% endif %}</b><button type="button" class="link-btn" data-line-change data-line="{{ forloop.index }}" data-qty="0">Remove</button></div>
           </div>
         {%- endfor -%}
       </div>
       <form action="{{ routes.cart_url }}" method="post" class="cartp__sum">
         {%- if section.settings.show_note -%}<label class="small" for="CartNote">Order note</label><textarea id="CartNote" name="note" rows="3">{{ cart.note }}</textarea>{%- endif -%}
-        {%- for d in cart.cart_level_discount_applications -%}<div class="cd__row"><span>{{ d.title }}</span><b>−{{ d.total_allocated_amount | money }}</b></div>{%- endfor -%}
-        <div class="cd__row cd__row--lg"><b>Subtotal</b><b>{{ cart.total_price | money }}</b></div>
+        {%- for d in cart.cart_level_discount_applications -%}<div class="cd__row"><span>{{ d.title }}</span><b>−{% if settings.currency_code_enabled %}{{ d.total_allocated_amount | money_with_currency }}{% else %}{{ d.total_allocated_amount | money }}{% endif %}</b></div>{%- endfor -%}
+        <div class="cd__row cd__row--lg"><b>Subtotal</b><b>{% if settings.currency_code_enabled %}{{ cart.total_price | money_with_currency }}{% else %}{{ cart.total_price | money }}{% endif %}</b></div>
         <p class="cd__note">Taxes and shipping calculated at checkout.</p>
         <button type="submit" name="checkout" class="btn btn--lg btn--block">Checkout securely</button>
         {%- if additional_checkout_buttons -%}<div class="cd__dyn">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
