@@ -260,6 +260,8 @@
       if(cmp){cmp.hidden=!sale;if(sale)cmp.textContent=money(v.compare_at_price);}
       if(save){save.hidden=!sale;if(sale)save.textContent='Save '+money(v.compare_at_price-v.price);}
       if(btn){btn.disabled=!v.available;btn.setAttribute('data-soldout',v.available?'false':'true');if(lab)lab.textContent=v.available?lab.getAttribute('data-label'):'Sold out';}
+      var sp=$('[data-stock-pill]',sec);if(sp){var qq=inv[v.id],stt=!v.available?'out':((qq!=null&&qq>0&&qq<=lowT)?'low':'in');sp.setAttribute('data-state',stt);var spt=$('[data-stock-txt]',sp);if(spt)spt.textContent=stt==='out'?'Out of stock':(stt==='low'?'Low stock':'In Stock');}
+      $$('[data-dd]',picker).forEach(function(dd){var c=$('input:checked',dd),sw=$('[data-dd-sw]',dd),ci=c&&c.parentNode.querySelector('.sw');if(sw&&ci){sw.style.cssText=ci.style.cssText;}dd.classList.remove('is-open');var b=$('.dd__btn',dd);if(b)b.setAttribute('aria-expanded','false');});
       var low=$('[data-low-stock-msg]',sec);if(low){var q=inv[v.id];if(q!=null&&q>0&&q<=lowT){low.hidden=false;$('[data-low-qty]',low).textContent=q;}else low.hidden=true;}
       if(v.featured_media)promoteMedia(sec,v.featured_media.id);
       try{var u=new URL(location.href);u.searchParams.set('variant',v.id);history.replaceState({},'',u.toString());}catch(x){}
@@ -669,4 +671,11 @@ if(document.readyState!=='loading')place();else document.addEventListener('DOMCo
 /* Currency: close any open selector on outside click / Esc */
 (function(){function closeAll(ex){document.querySelectorAll('[data-ann-cc].is-open,[data-cc].is-open,.ann-cc.is-open,.loc.is-open').forEach(function(w){if(ex&&w.contains(ex))return;w.classList.remove('is-open');var b=w.querySelector('[data-cc-toggle],[aria-expanded]');if(b)b.setAttribute('aria-expanded','false');});}
 document.addEventListener('pointerdown',function(e){closeAll(e.target.closest&&e.target.closest('[data-ann-cc],[data-cc],.ann-cc,.loc'));},true);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});})();
+
+/* Variant dropdowns (18b) */
+(function(){function closeAll(x){document.querySelectorAll('[data-dd].is-open').forEach(function(d){if(d!==x){d.classList.remove('is-open');var b=d.querySelector('.dd__btn');if(b)b.setAttribute('aria-expanded','false');}});}
+document.addEventListener('click',function(e){var b=e.target.closest('.dd__btn');if(b){var d=b.closest('[data-dd]');var on=!d.classList.contains('is-open');closeAll(d);d.classList.toggle('is-open',on);b.setAttribute('aria-expanded',on);return;}
+if(e.target.closest('.dd__o')){var d2=e.target.closest('[data-dd]');setTimeout(function(){d2.classList.remove('is-open');var bb=d2.querySelector('.dd__btn');if(bb)bb.setAttribute('aria-expanded','false');},0);return;}
+if(!e.target.closest('[data-dd]'))closeAll(null);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});})();

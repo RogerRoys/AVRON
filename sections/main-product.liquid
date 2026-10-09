@@ -162,6 +162,15 @@
                 <span class="pp__now" data-price>{% if settings.currency_code_enabled %}{{ current_variant.price | money_with_currency }}{% else %}{{ current_variant.price | money }}{% endif %}</span>
                 <s class="pp__was" data-compare{% unless on_sale %} hidden{% endunless %}>{% if settings.currency_code_enabled %}{{ current_variant.compare_at_price | money_with_currency }}{% else %}{{ current_variant.compare_at_price | money }}{% endif %}</s>
                 <span class="badge badge--sale" data-save{% unless on_sale %} hidden{% endunless %}>Save {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
+                {%- if block.settings.show_stock_pill -%}{%- liquid
+                  assign sq = current_variant.inventory_quantity
+                  assign sstate = 'in'
+                  if current_variant.available == false
+                    assign sstate = 'out'
+                  elsif current_variant.inventory_management != blank and sq > 0 and sq <= settings.low_stock_threshold
+                    assign sstate = 'low'
+                  endif
+                -%}<span class="pp__stock" data-stock-pill data-state="{{ sstate }}"><i></i><span data-stock-txt>{% case sstate %}{% when 'out' %}Out of stock{% when 'low' %}Low stock{% else %}In Stock{% endcase %}</span></span>{%- endif -%}
               </div>
               {%- if block.settings.show_tax_note -%}<p class="pp__tax">{%- if block.settings.tax_note != blank -%}{{ block.settings.tax_note }}{%- elsif cart.taxes_included -%}Prices in AUD.{%- else -%}Taxes calculated at checkout.{%- endif -%}</p>{%- endif -%}
             </div>
@@ -203,8 +212,25 @@
               -%}
               <div class="pp__picker" data-variant-picker {{ block.shopify_attributes }}>
                 {%- for option in product.options_with_values -%}
-                  <fieldset class="opt">
-                    <legend class="opt__lg"><span>{{ option.name }}: <b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></span>{%- if sg_img != blank and sg_shown == false and forloop.index == sg_opt -%}{%- assign sg_shown = true -%}<button type="button" class="sg__link" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- endif -%}</legend>
+                  {%- assign ddm = false -%}{%- if block.settings.picker_style == 'dropdown' -%}{%- assign ddm = true -%}{%- endif -%}
+                  <fieldset class="opt{% if ddm %} opt--dd{% endif %}">
+                    <legend class="opt__lg"><span>{{ option.name }}: <b{% unless ddm %} data-opt-label="{{ forloop.index0 }}"{% endunless %}>{{ option.selected_value }}</b></span>{%- if sg_img != blank and sg_shown == false and forloop.index == sg_opt -%}{%- assign sg_shown = true -%}<button type="button" class="sg__link" data-open="SizeGuide"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v8H3z"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>{{ block.settings.size_guide_label | default: 'Size guide' }}</button>{%- endif -%}</legend>
+                    {%- if ddm -%}
+                    {%- assign selsw = '' -%}{%- for value in option.values -%}{%- if option.selected_value == value -%}{%- if value.swatch.color -%}{%- capture selsw -%}background:{{ value.swatch.color }}{%- endcapture -%}{%- elsif value.swatch.image -%}{%- capture selsw -%}background-image:url({{ value.swatch.image | image_url: width: 60 }}){%- endcapture -%}{%- endif -%}{%- endif -%}{%- endfor -%}
+                    <div class="dd" data-dd>
+                      <button type="button" class="dd__btn" aria-haspopup="listbox" aria-expanded="false">{%- if selsw != '' -%}<i class="sw dd__sw" data-dd-sw style="{{ selsw }}"></i>{%- endif -%}<span class="dd__t"><small>{{ option.name | upcase }}</small><b data-opt-label="{{ forloop.index0 }}">{{ option.selected_value }}</b></span><svg class="dd__ch" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+                      <div class="dd__panel" role="listbox">
+                        {%- for value in option.values -%}
+                        <label class="dd__o">
+                          <input type="radio" name="{{ section.id }}-{{ option.position }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                          {%- if value.swatch.color -%}<i class="sw" style="background:{{ value.swatch.color }}"></i>{%- elsif value.swatch.image -%}<i class="sw" style="background-image:url({{ value.swatch.image | image_url: width: 60 }})"></i>{%- endif -%}
+                          <span class="dd__v">{{ value }}</span>
+                          <svg class="dd__tick" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                        </label>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                    {%- else -%}
                     <div class="opt__row">
                       {%- for value in option.values -%}
                         <label class="optbtn">
@@ -216,6 +242,7 @@
                         </label>
                       {%- endfor -%}
                     </div>
+                    {%- endif -%}
                   </fieldset>
                 {%- endfor -%}
                 <script type="application/json" data-product-json>{{ product | json }}</script>
@@ -434,6 +461,13 @@
           "id": "tax_note",
           "label": "Tax note text",
           "info": "Leave blank to show \"Taxes calculated at checkout.\" (or \"Prices in AUD.\" when prices include tax)."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stock_pill",
+          "label": "Show stock note next to price",
+          "default": true,
+          "info": "In Stock / Low stock / Out of stock. Low stock uses Theme settings → Low stock threshold."
         }
       ]
     },
@@ -448,6 +482,22 @@
       "name": "Variant picker",
       "limit": 1,
       "settings": [
+        {
+          "type": "select",
+          "id": "picker_style",
+          "label": "Variant style",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "Dropdown"
+            },
+            {
+              "value": "buttons",
+              "label": "Buttons"
+            }
+          ],
+          "default": "dropdown"
+        },
         {
           "type": "header",
           "content": "Size guide"

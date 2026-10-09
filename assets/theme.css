@@ -2368,3 +2368,37 @@ html.xmz-lock,html.xmz-lock body{overflow:hidden}
 .header .count,.header .count[hidden],.header [data-cart-count],.header [data-cart-count][hidden]{display:inline-grid!important}
 .header .header__wish .hdr-wc,.header .header__wish .hdr-wc:empty,.header .header__wish .hdr-wc[data-zero],.header [data-wish-count],.header [data-wish-count][hidden]{display:inline-grid!important}
 @media (min-width:990px){.header .header__wish .hide-sm [data-wish-count]{display:inline!important;background:none!important;color:inherit!important;padding:0!important;min-width:0!important;height:auto!important;position:static!important;font:inherit!important}}
+
+/* Variant dropdowns — 18b filled, floating label */
+.opt--dd .opt__lg{display:flex;justify-content:flex-end;padding-bottom:8px!important}
+.opt--dd .opt__lg>span{display:none}
+.opt--dd .opt__lg:not(:has(.sg__link)){display:none}
+.dd{position:relative}
+.dd.is-open{z-index:20}
+.dd__btn{all:unset;box-sizing:border-box;width:100%;min-height:60px;cursor:pointer;display:flex;align-items:center;gap:12px;padding:8px 16px;background:#F5F3EF;border:1.5px solid #F5F3EF;border-radius:12px;transition:border-color .2s}
+.dd__btn:focus-visible{outline:2px solid var(--ink,#1B1D1A);outline-offset:2px}
+.dd.is-open .dd__btn{border-color:var(--ink,#1B1D1A)}
+.dd__sw{flex:none;width:24px;height:24px;border-radius:50%;border:1px solid rgba(0,0,0,.12);background-size:cover}
+.dd__t{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.dd__t small{font-size:11px;color:#5C615B;letter-spacing:.04em;font-weight:400}
+.dd__t b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dd__ch{flex:none;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.dd.is-open .dd__ch{transform:rotate(180deg)}
+.dd__panel{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid #E4E0D8;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.12);padding:6px;max-height:320px;overflow-y:auto;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s ease,transform .3s cubic-bezier(.2,.8,.2,1)}
+.dd.is-open .dd__panel{opacity:1;transform:none;pointer-events:auto}
+.dd__o{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:8px;font-size:14px;cursor:pointer;transition:background .15s}
+.dd__o:hover{background:#F5F3EF}
+.dd__o input{position:absolute;opacity:0;pointer-events:none}
+.dd__o .sw{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.12);background-size:cover}
+.dd__v{flex:1}
+.dd__tick{flex:none;opacity:0}
+.dd__o:has(input:checked){background:#FAF9F6;font-weight:600}
+.dd__o:has(input:checked) .dd__tick{opacity:1}
+.pp__picker .opt--dd{margin-bottom:12px!important}
+/* Stock pill next to price */
+.pp__price{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.pp__stock{margin-left:auto;display:inline-flex;align-items:center;gap:8px;border-radius:40px;padding:6px 12px 6px 10px;font-size:13px;font-weight:600;white-space:nowrap;background:#EEF6F0;color:#2F9E5B;transition:background .25s,color .25s}
+.pp__stock i{width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(47,158,91,.18)}
+.pp__stock[data-state="low"]{background:#FFF4E2;color:#C27A12}.pp__stock[data-state="low"] i{box-shadow:0 0 0 3px rgba(194,122,18,.18)}
+.pp__stock[data-state="out"]{background:#F1F0EC;color:#8A8F88}.pp__stock[data-state="out"] i{box-shadow:0 0 0 3px rgba(138,143,136,.18)}
+@media (max-width:989px){.dd__btn{min-height:56px}.pp__stock{font-size:12px;padding:5px 10px 5px 9px}}
