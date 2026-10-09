@@ -2421,3 +2421,6 @@ html.xmz-lock,html.xmz-lock body{overflow:hidden}
 .opt--dd .sg__link{position:relative;z-index:3;pointer-events:auto;cursor:pointer}
 .dd__panel{visibility:hidden;transition:opacity .2s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s linear .3s}
 .dd.is-open .dd__panel{visibility:visible;transition:opacity .2s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
+
+/* Size guide: white behind the image (no beige bands) */
+#SizeGuide .sg__media,#SizeGuide .sg__img{background:#fff!important}
