@@ -2402,3 +2402,16 @@ html.xmz-lock,html.xmz-lock body{overflow:hidden}
 .pp__stock[data-state="low"]{background:#FFF4E2;color:#C27A12}.pp__stock[data-state="low"] i{box-shadow:0 0 0 3px rgba(194,122,18,.18)}
 .pp__stock[data-state="out"]{background:#F1F0EC;color:#8A8F88}.pp__stock[data-state="out"] i{box-shadow:0 0 0 3px rgba(138,143,136,.18)}
 @media (max-width:989px){.dd__btn{min-height:56px}.pp__stock{font-size:12px;padding:5px 10px 5px 9px}}
+
+/* Variant dropdowns — 18a classic select */
+.opt--dd .opt__lg,.opt--dd .opt__lg:not(:has(.sg__link)){display:flex!important;justify-content:space-between;align-items:center;padding:0 0 8px!important}
+.opt--dd .opt__lg>span{display:inline!important;font-size:13px;font-weight:600}
+.dd__btn{min-height:50px;background:#fff;border:1.5px solid #D6D2CA;border-radius:10px;padding:0 16px;gap:10px}
+.dd__btn:hover{border-color:#B9B4AA}
+.dd.is-open .dd__btn{border-color:var(--ink,#1B1D1A)}
+.dd__sw{width:18px;height:18px}
+.dd__t small{display:none}
+.dd__t b{font-size:15px;font-weight:400}
+.dd__panel{border-radius:10px}
+.pp__picker .opt--dd{margin-bottom:16px!important}
+@media (max-width:989px){.dd__btn{min-height:48px}}
