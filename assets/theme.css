@@ -2415,3 +2415,9 @@ html.xmz-lock,html.xmz-lock body{overflow:hidden}
 .dd__panel{border-radius:10px}
 .pp__picker .opt--dd{margin-bottom:16px!important}
 @media (max-width:989px){.dd__btn{min-height:48px}}
+
+/* size guide link always clickable above dropdown panels */
+.opt--dd .opt__lg{position:relative;z-index:3}
+.opt--dd .sg__link{position:relative;z-index:3;pointer-events:auto;cursor:pointer}
+.dd__panel{visibility:hidden;transition:opacity .2s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s linear .3s}
+.dd.is-open .dd__panel{visibility:visible;transition:opacity .2s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility 0s}
