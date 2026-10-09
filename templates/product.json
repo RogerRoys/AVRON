@@ -160,7 +160,8 @@
         "faq_default"
       ],
       "custom_css": [
-        ".xpp__as {margin: 20px 0 0;}"
+        ".xpp__as {margin: 20px 0 0;}",
+        ".sg__img {background: #ffffff;}"
       ],
       "settings": {
         "gallery_layout": "rail",
