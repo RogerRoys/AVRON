@@ -26,13 +26,14 @@
           "type": "price",
           "settings": {
             "show_tax_note": false,
-            "tax_note": ""
+            "tax_note": "",
+            "show_stock_pill": true
           }
         },
         "assure": {
           "type": "assurance",
           "settings": {
-            "items": "In stock, ready to ship\nFree tracked shipping on all orders\n30-day returns for eligible items\n1-year warranty on all products"
+            "items": "Free tracked shipping on all orders\n30-day returns for eligible items"
           }
         },
         "low": {
@@ -42,6 +43,7 @@
         "picker": {
           "type": "variant_picker",
           "settings": {
+            "picker_style": "dropdown",
             "show_size_guide": true,
             "size_guide_label": "Size guide",
             "size_guide_note": "<p>Measurements are in centimetres. Compare against your space before you buy, and allow for the cord or chain drop on hanging fittings.</p>"
