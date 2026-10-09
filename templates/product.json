@@ -159,7 +159,8 @@
       "settings": {
         "gallery_layout": "rail",
         "gallery_zoom": true,
-        "media_fit": "cover",
+        "gallery_dots": false,
+        "media_fit": "contain",
         "material_badge": "",
         "sticky_atc": true
       }
