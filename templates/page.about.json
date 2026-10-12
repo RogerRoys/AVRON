@@ -38,6 +38,7 @@
       ],
       "settings": {
         "crumbs": true,
+        "image": "shopify://shop_images/avron-our-story-indoor-outdoor.webp",
         "bg": "",
         "pt": 24,
         "pb": 0
@@ -159,6 +160,7 @@
         "d4"
       ],
       "settings": {
+        "image": "shopify://shop_images/avron-our-story-materials.webp",
         "flip": false,
         "eyebrow": "WHAT MAKES AVRON DIFFERENT",
         "heading": "An edited range, with confidence at every stage.",
