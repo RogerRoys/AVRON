@@ -544,36 +544,42 @@
         "u1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-10-lunara-garden.webp",
             "link": ""
           }
         },
         "u2": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-01-nocturna-courtyard-optimised.jpg",
             "link": ""
           }
         },
         "u3": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-06-marbleglow-living.webp",
             "link": ""
           }
         },
         "u4": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-04-luminasquare-gate.webp",
             "link": ""
           }
         },
         "u5": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-03-brassglow-bathroom.webp",
             "link": ""
           }
         },
         "u6": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/avron-at-home-02-walnutglow-study-optimised.jpg",
             "link": ""
           }
         }
