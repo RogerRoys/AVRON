@@ -342,6 +342,7 @@
         "r1": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/avron-room-living-portrait.webp",
             "label": "Living room",
             "link": "shopify://collections/living-room-lighting"
           }
@@ -349,6 +350,7 @@
         "r2": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/avron-room-dining-portrait.webp",
             "label": "Dining",
             "link": "shopify://collections/dining-room-lighting"
           }
@@ -356,6 +358,7 @@
         "r3": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/avron-room-kitchen-portrait.webp",
             "label": "Kitchen",
             "link": "shopify://collections/kitchen-lighting"
           }
@@ -363,6 +366,7 @@
         "r4": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/avron-room-porch-portrait.webp",
             "label": "Front porch",
             "link": "shopify://collections/bathroom-lighting"
           }
