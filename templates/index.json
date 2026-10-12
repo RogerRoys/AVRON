@@ -544,42 +544,42 @@
         "u1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-10-lunara-garden.webp",
+            "image": "shopify://shop_images/avron-focused-sphere.webp",
             "link": ""
           }
         },
         "u2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-01-nocturna-courtyard-optimised.jpg",
+            "image": "shopify://shop_images/avron-focused-entrance.webp",
             "link": ""
           }
         },
         "u3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-06-marbleglow-living.webp",
+            "image": "shopify://shop_images/avron-focused-pendant.webp",
             "link": ""
           }
         },
         "u4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-04-luminasquare-gate.webp",
+            "image": "shopify://shop_images/avron-focused-gate.webp",
             "link": ""
           }
         },
         "u5": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-03-brassglow-bathroom.webp",
+            "image": "shopify://shop_images/avron-focused-bathroom.webp",
             "link": ""
           }
         },
         "u6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/avron-at-home-02-walnutglow-study-optimised.jpg",
+            "image": "shopify://shop_images/avron-focused-study.webp",
             "link": ""
           }
         }
