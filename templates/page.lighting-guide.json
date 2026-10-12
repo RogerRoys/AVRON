@@ -72,6 +72,7 @@
           "type": "room",
           "settings": {
             "name": "Living",
+            "image": "shopify://shop_images/avron-lighting-guide-living.webp",
             "demo_image": "https://heitz.shop/cdn/shop/files/heitz-home-our-promise-travertine-lamp.webp?width=1400",
             "title": "A calm base, with light where you sit",
             "text": "Living rooms work best with several softer sources rather than one bright ceiling light.",
@@ -259,6 +260,7 @@
         "eyebrow": "02 · COLOUR TEMPERATURE",
         "warm_heading": "Warmth sets the mood",
         "warm_text": "<p>Colour temperature is measured in Kelvin (K). Lower numbers look warmer and softer; higher numbers look crisper and whiter. Where a fitting offers options, they’re listed on the product page.</p>",
+        "warm_image": "shopify://shop_images/avron-lighting-guide-warmth.webp",
         "bg": "",
         "pt": 48,
         "pb": 0
