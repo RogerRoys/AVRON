@@ -25,13 +25,7 @@
     <div class="xft__col xft__contact">
       <b class="xft__ch">{{ section.settings.contact_heading }}</b>
       <div class="xft__ci">
-        {%- if section.settings.contact_text != blank -%}<div class="xft__rt">{{ section.settings.contact_text }}</div>{%- else -%}
-        {%- if section.settings.c_name != blank -%}<span><b>Business Name:</b> {{ section.settings.c_name }}</span>{%- endif -%}
-        {%- if section.settings.c_address != blank -%}<span><b>Business Address:</b> {{ section.settings.c_address }}</span>{%- endif -%}
-        {%- if section.settings.c_email != blank -%}<span><b>Email:</b> <a href="mailto:{{ section.settings.c_email }}">{{ section.settings.c_email }}</a></span>{%- endif -%}
-        {%- if section.settings.c_phone != blank -%}<span><b>Phone:</b> <a href="tel:{{ section.settings.c_phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ section.settings.c_phone }}</a></span>{%- endif -%}
-        {%- if section.settings.c_hours != blank -%}<span><b>Opening hours:</b> {{ section.settings.c_hours }}</span>{%- endif -%}
-        {%- endif -%}
+        {%- if section.settings.contact_text != blank -%}<div class="xft__rt">{{ section.settings.contact_text }}</div>{%- endif -%}
       </div>
     </div>
   </div>
@@ -99,38 +93,8 @@
       "type": "richtext",
       "id": "contact_text",
       "label": "Contact text",
-      "info": "Write your contact details freely — bold labels, line breaks and links. When filled, it replaces the single fields below.",
+      "info": "Write your contact details — bold labels, line breaks and links.",
       "default": "<p><strong>Store name:</strong> Avron</p><p><strong>Company name:</strong> Avron Home LLC</p><p><strong>Company Address:</strong> 1209 Orange St, Wilmington, DE 19801, USA</p><p><strong>Email:</strong> <a href=\"mailto:support@avron.shop\">support@avron.shop</a></p><p><strong>Phone number:</strong> +1 (555) 012-3456</p><p>We aim to respond to your inquiries within 24 hours.</p><p><strong>Customer Service Hours</strong></p><p>Monday to Friday: 9am – 6pm (EST)</p><p>Saturday and Sunday: Closed</p>"
-    },
-    {
-      "type": "text",
-      "id": "c_name",
-      "label": "Business name",
-      "default": "Avron Home LLC"
-    },
-    {
-      "type": "text",
-      "id": "c_address",
-      "label": "Business address",
-      "default": "1209 Orange St, Wilmington, DE 19801, USA"
-    },
-    {
-      "type": "text",
-      "id": "c_email",
-      "label": "Email",
-      "default": "support@avron.shop"
-    },
-    {
-      "type": "text",
-      "id": "c_phone",
-      "label": "Phone",
-      "default": "+1 (555) 012-3456"
-    },
-    {
-      "type": "text",
-      "id": "c_hours",
-      "label": "Opening hours",
-      "default": "Monday to Friday, 09:00–17:00 (EST) · Response time: 12–24 hours"
     },
     {
       "type": "header",
