@@ -679,3 +679,10 @@ document.addEventListener('click',function(e){var b=e.target.closest('.dd__btn')
 if(e.target.closest('.dd__o')){var d2=e.target.closest('[data-dd]');setTimeout(function(){d2.classList.remove('is-open');var bb=d2.querySelector('.dd__btn');if(bb)bb.setAttribute('aria-expanded','false');},0);return;}
 if(!e.target.closest('[data-dd]'))closeAll(null);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null);});})();
+
+/* Footer columns: accordion on mobile only — desktop headings never collapse */
+(function(){var mq=window.matchMedia('(min-width: 990px)');
+function sync(){document.querySelectorAll('.xft__acc').forEach(function(d){if(mq.matches)d.open=true;});}
+document.addEventListener('click',function(e){var s=e.target.closest('.xft__acc > summary');if(s&&mq.matches){e.preventDefault();s.parentNode.open=true;}},true);
+if(mq.addEventListener)mq.addEventListener('change',sync);else if(mq.addListener)mq.addListener(sync);
+if(document.readyState!=='loading')sync();else document.addEventListener('DOMContentLoaded',sync);})();
