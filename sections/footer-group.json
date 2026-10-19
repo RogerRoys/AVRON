@@ -29,13 +29,8 @@
         "menu_2": "our-policies",
         "contact_heading": "Contact Information",
         "contact_text": "<p><strong>Store name:</strong> Avron</p><p><strong>Company name:</strong> Avron Home LLC</p><p><strong>Company Address:</strong> 1209 Orange St, Wilmington, DE 19801, USA</p><p><strong>Email:</strong> <a href=\"mailto:support@avron.shop\">support@avron.shop</a></p><p><strong>Phone number:</strong> +1 (555) 012-3456</p><p>We aim to respond to your inquiries within 24 hours.</p><p><strong>Customer Service Hours</strong></p><p>Monday to Friday: 9am – 6pm (EST)</p><p>Saturday and Sunday: Closed</p>",
-        "c_name": "Avron Home LLC",
-        "c_address": "1209 Orange St, Wilmington, DE 19801, USA",
-        "c_email": "support@avron.shop",
-        "c_phone": "+1 (555) 012-3456",
-        "c_hours": "Monday to Friday, 09:00–17:00 (EST) · Response time: 12–24 hours",
         "copyright": "Avron Home LLC",
-        "show_legal": true,
+        "show_legal": false,
         "show_payment": true
       }
     }
